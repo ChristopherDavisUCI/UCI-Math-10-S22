@@ -2,11 +2,11 @@
 
 ## Class 1
 
-Introduction to the class, to Python, and to Deepnote.  Reading data from a csv file.  Introduction to pandas. 
+Introduction to the class, to Python, and to Deepnote.  Reading data from a csv file.   Introduction to pandas, especially pandas Series and pandas DataFrames.  Introduction to indexing and slicing in pandas.  Performing basic *Exploratory Data Analysis* (EDA) on a dataset using Python (and pandas in particular).
 
 ## Class 2
 
-Making a for-loop more *Pythonic*.  Making repetitive code more *Dry*.  List comprehension and dictionary comprehension.
+Making a for-loop more *Pythonic*.  Making repetitive code more *Dry*.  List comprehension and dictionary comprehension.  Using f-strings.
 
 ## Class 3
 
@@ -112,14 +112,14 @@ Introduction to tree-based models
 
 Tree-based models: random forests
 
-## Class 27:
+## Class 27
 
 Extended example using random forests.
 
-## Class 28:
+## Class 28
 
 Continuation of the example.
 
-## Class 29:
+## Class 29
 
 Time to work on the final project.
