@@ -2,11 +2,16 @@
 
 ## Class 1
 
-Introduction to the class, to Python, and to Deepnote.  Reading data from a csv file.   Introduction to pandas, especially pandas Series and pandas DataFrames.  Introduction to indexing and slicing in pandas.  Performing basic *Exploratory Data Analysis* (EDA) on a dataset using Python (and pandas in particular).
+Introduction to the class, to Python, and to Deepnote.  Reading data from a csv file.   Introduction to pandas, especially pandas DataFrames.  Introduction to indexing in pandas using `loc` and `iloc`.  
 
 ## Class 2
 
-Making a for-loop more *Pythonic*.  Making repetitive code more *Dry*.  List comprehension and dictionary comprehension.  Using f-strings.
+Introduction to lists, for loops, list comprehension, and f-strings.
+Making a for-loop more *Pythonic*.
+
+## Leftovers from Classes 1 and 2
+
+Performing basic *Exploratory Data Analysis* (EDA) on a dataset using Python (and pandas in particular).  Slicing.  pandas Series.   Making repetitive code more *Dry*.  Dictionary comprehension.
 
 ## Class 3
 
