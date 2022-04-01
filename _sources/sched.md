@@ -9,12 +9,13 @@ Introduction to the class, to Python, and to Deepnote.  Reading data from a csv 
 Introduction to range, lists, for loops, list comprehension, and f-strings.
 Making a for-loop more *Pythonic*.  Making repetitive code more *Dry*.
 
-## Leftovers from Classes 1 and 2
-
-Performing basic *Exploratory Data Analysis* (EDA) on a dataset using Python (and pandas in particular).  Slicing.  pandas Series.     Dictionary comprehension.  Dealing with missing data.
-
 ## Class 3
 
+Performing basic *Exploratory Data Analysis* (EDA) on a dataset using Python (and pandas in particular).  Slicing.  
+
+## Leftovers from Classes 1-3
+
+  pandas Series.     Dictionary comprehension.  Dealing with missing data. Feature engineering.
 Data types in Python.  Introduction to NumPy.  How the choice of data type influences the speed of various operations.
 
 ## Class 4
