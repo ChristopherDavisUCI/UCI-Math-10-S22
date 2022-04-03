@@ -13,13 +13,14 @@ Making a for-loop more *Pythonic*.  Making repetitive code more *Dry*.
 
 Performing basic *Exploratory Data Analysis* (EDA) on a dataset using Python (and pandas in particular).  Slicing.  
 
-## Leftovers from Classes 1-3
+## Class 4
+
+Working with missing data.  pandas Series.  Introduction to NumPy.  Timing operations using `%%timeit`.
+
+## Leftovers from Classes 1-4
 
   pandas Series.     Dictionary comprehension.  Dealing with missing data. Feature engineering.
 Data types in Python.  Introduction to NumPy.  How the choice of data type influences the speed of various operations.
-
-## Class 4
-
 More practice with NumPy and pandas.  pandas methods `map`, `apply`, and `applymap`.  lambda functions.
 
 ## Class 5
