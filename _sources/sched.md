@@ -17,16 +17,16 @@ Performing basic *Exploratory Data Analysis* (EDA) on a dataset using Python (an
 
 Different options for using the syntax `df[???]` in pandas.  A closer look at Boolean indexing.  Working with missing data.  pandas Series and Python dictionaries.  Very brief introduction to NumPy.  Logic in pandas.  Using the `axis` keyword argument with `any` and `sum`.
 
-## Leftovers from Classes 1-4
-
-Timing operations using `%%timeit`.
-  pandas Series.     Dictionary comprehension.  Dealing with missing data. Feature engineering.
-Data types in Python.  Introduction to NumPy.  How the choice of data type influences the speed of various operations.
-More practice with NumPy and pandas.  pandas methods `map`, `apply`, and `applymap`.  lambda functions.
-
 ## Class 5
 
-Indexing and slicing in Python, NumPy, and pandas.
+Introduction to plotting in Python.
+
+## Leftovers
+
+Timing operations using `%%timeit`.
+Dictionary comprehension.  Feature engineering.
+Data types in Python.  Introduction to NumPy.  How the choice of data type influences the speed of various operations.
+More practice with NumPy and pandas.  pandas methods `map`, `apply`, and `applymap`.  lambda functions.
 
 ## Class 6
 
