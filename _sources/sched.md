@@ -19,18 +19,22 @@ Different options for using the syntax `df[???]` in pandas.  A closer look at Bo
 
 ## Class 5
 
-Introduction to plotting in Python.
+Introduction to plotting in Python.  Matplotlib as the most famous plotting library in Python.  More practice with NumPy.  Altair, Seaborn, and Plotly as three plotting libraries which are similar to each other but quite different from Matplotlib (Seaborn is built on top of Matplotlib).  For Math 10, Altair will be the most important of these libraries.
+
+## Class 6
+
+Practice with Altair and pandas.
+
+## Class 7
+
+Functions and lambda functions. `map`, `applymap`, and `apply` in pandas.
 
 ## Leftovers
 
 Timing operations using `%%timeit`.
 Dictionary comprehension.  Feature engineering.
 Data types in Python.  Introduction to NumPy.  How the choice of data type influences the speed of various operations.
-More practice with NumPy and pandas.  pandas methods `map`, `apply`, and `applymap`.  lambda functions.
-
-## Class 6
-
-f-strings, NumPy `where`, and pandas DataFrame styling.
+More practice with NumPy and pandas.  pandas methods `map`, `apply`, and `applymap`.  lambda functions. NumPy `where`, and pandas DataFrame styling.
 
 ## Class 7
 
