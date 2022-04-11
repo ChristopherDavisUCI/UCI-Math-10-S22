@@ -27,14 +27,14 @@ Practice with Altair and pandas.
 
 ## Class 7
 
-Functions and lambda functions. `map`, `applymap`, and `apply` in pandas.
+Functions and lambda functions.  Slicing.  `map` in pandas.
 
 ## Leftovers
 
 Timing operations using `%%timeit`.
 Dictionary comprehension.  Feature engineering.
 Data types in Python.  Introduction to NumPy.  How the choice of data type influences the speed of various operations.
-More practice with NumPy and pandas.  pandas methods `map`, `apply`, and `applymap`.  lambda functions. NumPy `where`, and pandas DataFrame styling.
+More practice with NumPy and pandas.  pandas methods `apply`, and `applymap`.  lambda functions. NumPy `where`, and pandas DataFrame styling.
 
 ## Class 7
 

@@ -1,0 +1,1998 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Functions in Python &#8212; UC Irvine Math 10 S22</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Week 3 Videos" href="Week3-Videos.html" />
+    <link rel="prev" title="Week 3" href="Week3-Intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/digitsyellow.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">UC Irvine Math 10 S22</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   UC Irvine, Math 10, Spring 2022
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week1/Week1-Intro.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Monday.html">
+     Introduction to pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Tuesday.html">
+     Week 1 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Wednesday.html">
+     for loops and ways to avoid for loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Thursday.html">
+     Week 1 Thursday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Friday.html">
+     Exploratory Data Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Videos.html">
+     Week 1 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Homework1.html">
+     Homework 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week2/Week2-Intro.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Monday.html">
+     Working with missing data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Tuesday.html">
+     Week 2 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Wednesday.html">
+     Visualization in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Videos.html">
+     Week 2 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Friday.html">
+     Plots from the Spotify dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Homework2.html">
+     Homework 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="Week3-Intro.html">
+   Week 3
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Functions in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Week3-Videos.html">
+     Week 3 Videos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sched.html">
+   Tentative schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasources.html">
+   Data Sources
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Week3/Week3-Monday.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ChristopherDavisUCI/UCI-Math-10-S22"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ChristopherDavisUCI/UCI-Math-10-S22/main?urlpath=tree/Week3/Week3-Monday.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#announcement">
+   Announcement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#warm-up">
+   Warm-up
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#defining-a-function">
+   Defining a function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-functions-with-pandas-series">
+   Using functions with pandas Series
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lambda-functions">
+   lambda functions
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Functions in Python</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#announcement">
+   Announcement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#warm-up">
+   Warm-up
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#defining-a-function">
+   Defining a function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-functions-with-pandas-series">
+   Using functions with pandas Series
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lambda-functions">
+   lambda functions
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="functions-in-python">
+<h1>Functions in Python<a class="headerlink" href="#functions-in-python" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="announcement">
+<h2>Announcement<a class="headerlink" href="#announcement" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>My usual office hours are cancelled this week (and Week 7).  Replaced by Tuesday 3-4pm on Zoom.</p></li>
+</ul>
+</div>
+<div class="section" id="warm-up">
+<h2>Warm-up<a class="headerlink" href="#warm-up" title="Permalink to this headline">¶</a></h2>
+<p>(This part doesn’t have anything to do with functions, but we will use the Spotify dataset later.)</p>
+<ul class="simple">
+<li><p>Import the attached Spotify dataset, specifying that missing values are denoted in this csv file by a blank space.</p></li>
+<li><p>Drop all rows containing <code class="docutils literal notranslate"><span class="pre">nan</span></code> values using <code class="docutils literal notranslate"><span class="pre">isna</span></code> and <code class="docutils literal notranslate"><span class="pre">any</span></code>.</p></li>
+<li><p>Check your answer: The DataFrame should have 1545 rows, and 9 of the 23 columns should have “object” as their <code class="docutils literal notranslate"><span class="pre">dtype</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/spotify_dataset.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It looks like there are no missing values in this dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Energy&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0         0.8
+1       0.764
+2       0.664
+3       0.897
+4       0.704
+        ...  
+1551      0.7
+1552     0.87
+1553    0.523
+1554     0.55
+1555    0.603
+Name: Energy, Length: 1556, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index                        False
+Highest Charting Position    False
+Number of Times Charted      False
+Week of Highest Charting     False
+Song Name                    False
+Streams                      False
+Artist                       False
+Artist Followers             False
+Song ID                      False
+Genre                        False
+Release Date                 False
+Weeks Charted                False
+Popularity                   False
+Danceability                 False
+Energy                       False
+Loudness                     False
+Speechiness                  False
+Acousticness                 False
+Liveness                     False
+Tempo                        False
+Duration (ms)                False
+Valence                      False
+Chord                        False
+dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is an attempt to find the missing values.  The entries are strings.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Energy&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0         0.8
+1       0.764
+2       0.664
+3       0.897
+4       0.704
+        ...  
+1551      0.7
+1552     0.87
+1553    0.523
+1554     0.55
+1555    0.603
+Name: Energy, Length: 1556, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Energy&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">8</span><span class="n">j</span><span class="o">/</span><span class="n">gshrlmtn7dg4qtztj4d4t_w40000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_49629</span><span class="o">/</span><span class="mf">3029641965.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Energy&quot;</span><span class="p">]]</span>
+
+<span class="nn">/var/folders/8j/gshrlmtn7dg4qtztj4d4t_w40000gn/T/ipykernel_49629/3029641965.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Energy&quot;</span><span class="p">]]</span>
+
+<span class="ne">ValueError</span>: could not convert string to float: 
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is difficult to tell from that error message, but after the colon symbol : is a blank space.  The blank spaces in this dataset represent the missing values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/spotify_dataset.csv&quot;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now there are many columns with missing values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index                        False
+Highest Charting Position    False
+Number of Times Charted      False
+Week of Highest Charting     False
+Song Name                    False
+Streams                      False
+Artist                       False
+Artist Followers              True
+Song ID                       True
+Genre                         True
+Release Date                  True
+Weeks Charted                False
+Popularity                    True
+Danceability                  True
+Energy                        True
+Loudness                      True
+Speechiness                   True
+Acousticness                  True
+Liveness                      True
+Tempo                         True
+Duration (ms)                 True
+Valence                       True
+Chord                         True
+dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here are the rows with missing values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Boolean Series</span>
+<span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       False
+1       False
+2       False
+3       False
+4       False
+        ...  
+1551    False
+1552    False
+1553    False
+1554    False
+1555    False
+Length: 1556, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>The rows we want to keep will be the negation of the above Series.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       True
+1       True
+2       True
+3       True
+4       True
+        ... 
+1551    True
+1552    True
+1553    True
+1554    True
+1555    True
+Length: 1556, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Boolean indexing</span>
+<span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Index</th>
+      <th>Highest Charting Position</th>
+      <th>Number of Times Charted</th>
+      <th>Week of Highest Charting</th>
+      <th>Song Name</th>
+      <th>Streams</th>
+      <th>Artist</th>
+      <th>Artist Followers</th>
+      <th>Song ID</th>
+      <th>Genre</th>
+      <th>...</th>
+      <th>Danceability</th>
+      <th>Energy</th>
+      <th>Loudness</th>
+      <th>Speechiness</th>
+      <th>Acousticness</th>
+      <th>Liveness</th>
+      <th>Tempo</th>
+      <th>Duration (ms)</th>
+      <th>Valence</th>
+      <th>Chord</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>8</td>
+      <td>2021-07-23--2021-07-30</td>
+      <td>Beggin'</td>
+      <td>48,633,449</td>
+      <td>Måneskin</td>
+      <td>3377762.0</td>
+      <td>3Wrjm47oTz2sjIgck11l5e</td>
+      <td>['indie rock italiano', 'italian pop']</td>
+      <td>...</td>
+      <td>0.714</td>
+      <td>0.800</td>
+      <td>-4.808</td>
+      <td>0.0504</td>
+      <td>0.12700</td>
+      <td>0.3590</td>
+      <td>134.002</td>
+      <td>211560.0</td>
+      <td>0.589</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+      <td>2021-07-23--2021-07-30</td>
+      <td>STAY (with Justin Bieber)</td>
+      <td>47,248,719</td>
+      <td>The Kid LAROI</td>
+      <td>2230022.0</td>
+      <td>5HCyWlXZPP0y6Gqq8TgA20</td>
+      <td>['australian hip hop']</td>
+      <td>...</td>
+      <td>0.591</td>
+      <td>0.764</td>
+      <td>-5.484</td>
+      <td>0.0483</td>
+      <td>0.03830</td>
+      <td>0.1030</td>
+      <td>169.928</td>
+      <td>141806.0</td>
+      <td>0.478</td>
+      <td>C#/Db</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>11</td>
+      <td>2021-06-25--2021-07-02</td>
+      <td>good 4 u</td>
+      <td>40,162,559</td>
+      <td>Olivia Rodrigo</td>
+      <td>6266514.0</td>
+      <td>4ZtFanR9U6ndgddUvNcjcG</td>
+      <td>['pop']</td>
+      <td>...</td>
+      <td>0.563</td>
+      <td>0.664</td>
+      <td>-5.044</td>
+      <td>0.1540</td>
+      <td>0.33500</td>
+      <td>0.0849</td>
+      <td>166.928</td>
+      <td>178147.0</td>
+      <td>0.688</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>3</td>
+      <td>5</td>
+      <td>2021-07-02--2021-07-09</td>
+      <td>Bad Habits</td>
+      <td>37,799,456</td>
+      <td>Ed Sheeran</td>
+      <td>83293380.0</td>
+      <td>6PQ88X9TkUIAUIZJHW2upE</td>
+      <td>['pop', 'uk pop']</td>
+      <td>...</td>
+      <td>0.808</td>
+      <td>0.897</td>
+      <td>-3.712</td>
+      <td>0.0348</td>
+      <td>0.04690</td>
+      <td>0.3640</td>
+      <td>126.026</td>
+      <td>231041.0</td>
+      <td>0.591</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>5</td>
+      <td>1</td>
+      <td>2021-07-23--2021-07-30</td>
+      <td>INDUSTRY BABY (feat. Jack Harlow)</td>
+      <td>33,948,454</td>
+      <td>Lil Nas X</td>
+      <td>5473565.0</td>
+      <td>27NovPIUIRrOZoCHxABJwK</td>
+      <td>['lgbtq+ hip hop', 'pop rap']</td>
+      <td>...</td>
+      <td>0.736</td>
+      <td>0.704</td>
+      <td>-7.409</td>
+      <td>0.0615</td>
+      <td>0.02030</td>
+      <td>0.0501</td>
+      <td>149.995</td>
+      <td>212000.0</td>
+      <td>0.894</td>
+      <td>D#/Eb</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1551</th>
+      <td>1552</td>
+      <td>195</td>
+      <td>1</td>
+      <td>2019-12-27--2020-01-03</td>
+      <td>New Rules</td>
+      <td>4,630,675</td>
+      <td>Dua Lipa</td>
+      <td>27167675.0</td>
+      <td>2ekn2ttSfGqwhhate0LSR0</td>
+      <td>['dance pop', 'pop', 'uk pop']</td>
+      <td>...</td>
+      <td>0.762</td>
+      <td>0.700</td>
+      <td>-6.021</td>
+      <td>0.0694</td>
+      <td>0.00261</td>
+      <td>0.1530</td>
+      <td>116.073</td>
+      <td>209320.0</td>
+      <td>0.608</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>1552</th>
+      <td>1553</td>
+      <td>196</td>
+      <td>1</td>
+      <td>2019-12-27--2020-01-03</td>
+      <td>Cheirosa - Ao Vivo</td>
+      <td>4,623,030</td>
+      <td>Jorge &amp; Mateus</td>
+      <td>15019109.0</td>
+      <td>2PWjKmjyTZeDpmOUa3a5da</td>
+      <td>['sertanejo', 'sertanejo universitario']</td>
+      <td>...</td>
+      <td>0.528</td>
+      <td>0.870</td>
+      <td>-3.123</td>
+      <td>0.0851</td>
+      <td>0.24000</td>
+      <td>0.3330</td>
+      <td>152.370</td>
+      <td>181930.0</td>
+      <td>0.714</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>1553</th>
+      <td>1554</td>
+      <td>197</td>
+      <td>1</td>
+      <td>2019-12-27--2020-01-03</td>
+      <td>Havana (feat. Young Thug)</td>
+      <td>4,620,876</td>
+      <td>Camila Cabello</td>
+      <td>22698747.0</td>
+      <td>1rfofaqEpACxVEHIZBJe6W</td>
+      <td>['dance pop', 'electropop', 'pop', 'post-teen ...</td>
+      <td>...</td>
+      <td>0.765</td>
+      <td>0.523</td>
+      <td>-4.333</td>
+      <td>0.0300</td>
+      <td>0.18400</td>
+      <td>0.1320</td>
+      <td>104.988</td>
+      <td>217307.0</td>
+      <td>0.394</td>
+      <td>D</td>
+    </tr>
+    <tr>
+      <th>1554</th>
+      <td>1555</td>
+      <td>198</td>
+      <td>1</td>
+      <td>2019-12-27--2020-01-03</td>
+      <td>Surtada - Remix Brega Funk</td>
+      <td>4,607,385</td>
+      <td>Dadá Boladão, Tati Zaqui, OIK</td>
+      <td>208630.0</td>
+      <td>5F8ffc8KWKNawllr5WsW0r</td>
+      <td>['brega funk', 'funk carioca']</td>
+      <td>...</td>
+      <td>0.832</td>
+      <td>0.550</td>
+      <td>-7.026</td>
+      <td>0.0587</td>
+      <td>0.24900</td>
+      <td>0.1820</td>
+      <td>154.064</td>
+      <td>152784.0</td>
+      <td>0.881</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>1555</th>
+      <td>1556</td>
+      <td>199</td>
+      <td>1</td>
+      <td>2019-12-27--2020-01-03</td>
+      <td>Lover (Remix) [feat. Shawn Mendes]</td>
+      <td>4,595,450</td>
+      <td>Taylor Swift</td>
+      <td>42227614.0</td>
+      <td>3i9UVldZOE0aD0JnyfAZZ0</td>
+      <td>['pop', 'post-teen pop']</td>
+      <td>...</td>
+      <td>0.448</td>
+      <td>0.603</td>
+      <td>-7.176</td>
+      <td>0.0640</td>
+      <td>0.43300</td>
+      <td>0.0862</td>
+      <td>205.272</td>
+      <td>221307.0</td>
+      <td>0.422</td>
+      <td>G</td>
+    </tr>
+  </tbody>
+</table>
+<p>1545 rows × 23 columns</p>
+</div></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">.copy()</span></code> is not so important for us, but it can help to prevent warning messages later.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Redefine df</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index                          int64
+Highest Charting Position      int64
+Number of Times Charted        int64
+Week of Highest Charting      object
+Song Name                     object
+Streams                       object
+Artist                        object
+Artist Followers             float64
+Song ID                       object
+Genre                         object
+Release Date                  object
+Weeks Charted                 object
+Popularity                   float64
+Danceability                 float64
+Energy                       float64
+Loudness                     float64
+Speechiness                  float64
+Acousticness                 float64
+Liveness                     float64
+Tempo                        float64
+Duration (ms)                float64
+Valence                      float64
+Chord                         object
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float64    11
+object      9
+int64       3
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="defining-a-function">
+<h2>Defining a function<a class="headerlink" href="#defining-a-function" title="Permalink to this headline">¶</a></h2>
+<p>We will introduce how to define functions in Python using various examples.</p>
+<ul class="simple">
+<li><p>Write a function <code class="docutils literal notranslate"><span class="pre">somepoly</span></code> which takes as input two numbers <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> and as output returns $<span class="math notranslate nohighlight">\(x^2 - 3xy + y^3\)</span>$</p></li>
+</ul>
+<p>Our first attempt is wrong because of the 3xy.  We need to make the multiplication explicit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">somepoly</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span><span class="n">xy</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">3</span>
+    <span class="k">return</span> <span class="n">z</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/8j/gshrlmtn7dg4qtztj4d4t_w40000gn/T/ipykernel_49629/799430308.py&quot;</span><span class="gt">, line </span><span class="mi">2</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span><span class="n">xy</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">3</span>
+               <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following is still not correct.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">somepoly</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">xy</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">3</span>
+    <span class="k">return</span> <span class="n">z</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The error message we get is helpful.  It says that <code class="docutils literal notranslate"><span class="pre">xy</span></code> is not defined.  Python can’t predict that this is supposed to mean <code class="docutils literal notranslate"><span class="pre">x*y</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">somepoly</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">8</span><span class="n">j</span><span class="o">/</span><span class="n">gshrlmtn7dg4qtztj4d4t_w40000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_49629</span><span class="o">/</span><span class="mf">2207245513.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">somepoly</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nn">/var/folders/8j/gshrlmtn7dg4qtztj4d4t_w40000gn/T/ipykernel_49629/3686898151.py</span> in <span class="ni">somepoly</span><span class="nt">(x, y)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">somepoly</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">xy</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">return</span> <span class="n">z</span>
+
+<span class="ne">NameError</span>: name &#39;xy&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is a correct version.  Notice how all the lines inside the function’s code get indented.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">somepoly</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">3</span>
+    <span class="k">return</span> <span class="n">z</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">somepoly</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
+</pre></div>
+</div>
+</div>
+</div>
+<p>The code can be consolidated into a single line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">somepoly</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">somepoly</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> that are defined to be <code class="docutils literal notranslate"><span class="pre">2</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code> are only getting defined locally inside the function; we can’t access those values out here.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">8</span><span class="n">j</span><span class="o">/</span><span class="n">gshrlmtn7dg4qtztj4d4t_w40000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_49629</span><span class="o">/</span><span class="mf">32546335.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">x</span>
+
+<span class="ne">NameError</span>: name &#39;x&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Edit the code for <code class="docutils literal notranslate"><span class="pre">somepoly</span></code> so that if the <code class="docutils literal notranslate"><span class="pre">y</span></code> value is not given, the default value of <code class="docutils literal notranslate"><span class="pre">y=4</span></code> is used.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">somepoly</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">somepoly</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>44
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">somepoly</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>44
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">somepoly</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
+</pre></div>
+</div>
+</div>
+</div>
+<p>These sorts of default values come up all the time.  Here is one for the built-in <code class="docutils literal notranslate"><span class="pre">sorted</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">sorted</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on built-in function sorted in module builtins:
+
+sorted(iterable, /, *, key=None, reverse=False)
+    Return a new list containing all items from the iterable in ascending order.
+    
+    A custom key function can be supplied to customize the sort order, and the
+    reverse flag can be set to request the result in descending order.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sorted</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 3, 4]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following is the same as the default.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sorted</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 3, 4]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we reverse the order.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sorted</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 3, 1]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Write a function <code class="docutils literal notranslate"><span class="pre">backwards</span></code> which takes as input a list and as input returns the same list, but in the reverse order.  For example, if the input is <code class="docutils literal notranslate"><span class="pre">[3,1,4]</span></code>, then the output should be <code class="docutils literal notranslate"><span class="pre">[4,1,3]</span></code>.  (Warning: this has nothing to do with the <code class="docutils literal notranslate"><span class="pre">reverse</span></code> above… it’s just a coincidence that both involve the word <code class="docutils literal notranslate"><span class="pre">reverse</span></code>.)</p></li>
+</ul>
+<p>This is a Pythonic solution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># slicing</span>
+<span class="k">def</span> <span class="nf">backwards</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">backwards</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 1, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is a solution using list comprehension.  The slicing solution above is much easier to read so the slicing version is better.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">backwards2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">backwards2</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 1, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here are more examples with slicing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 4, 5, 6]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[7, 6, 5, 4]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="p">[:</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 1, 7, 6, 5, 4]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="p">[::</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 7, 5, 2, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="p">[:</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 7, 5, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Define a function <code class="docutils literal notranslate"><span class="pre">top5</span></code> which takes as input a number and as output returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the number is greater than 0 and less than or equal to 5, and otherwise returns <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+<p>The main new component here is using <code class="docutils literal notranslate"><span class="pre">and</span></code>.  In basic Python, one usually uses <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code>.  In pandas and NumPy, one usually uses <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>, <code class="docutils literal notranslate"><span class="pre">~</span></code>.  (In fact, we used <code class="docutils literal notranslate"><span class="pre">~</span></code> above when we negated our <code class="docutils literal notranslate"><span class="pre">isna</span></code> Boolean Series.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">top5</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top5</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top5</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Write a function <code class="docutils literal notranslate"><span class="pre">remove_comma</span></code> that takes as input a string and as output returns the same string with all commas removed.  (Hint.  Every string has a <code class="docutils literal notranslate"><span class="pre">replace</span></code> method.  Use <code class="docutils literal notranslate"><span class="pre">help</span></code> to learn how to use it.)</p></li>
+</ul>
+<p>Here is an example of using the <code class="docutils literal notranslate"><span class="pre">replace</span></code> method of a string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;chris&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on built-in function replace:
+
+replace(old, new, count=-1, /) method of builtins.str instance
+    Return a copy with all occurrences of substring old replaced by new.
+    
+      count
+        Maximum number of occurrences to replace.
+        -1 (the default value) means replace all occurrences.
+    
+    If the optional argument count is given, only the first count occurrences are
+    replaced.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;christopher&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">,</span><span class="s2">&quot;Math 10&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;cMath 10ristopMath 10er&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;1,234&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1234&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Does it work with integers and not only strings?  Not in this case.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">12345.</span><span class="n">replace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/8j/gshrlmtn7dg4qtztj4d4t_w40000gn/T/ipykernel_49629/2769868973.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<span class="g g-Whitespace">    </span><span class="mi">12345</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+                <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we understand how <code class="docutils literal notranslate"><span class="pre">replace</span></code> works, we can write a function using it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_comma</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">remove_comma</span><span class="p">(</span><span class="s2">&quot;abc,def,ghi&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;abcdefghi&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="using-functions-with-pandas-series">
+<h2>Using functions with pandas Series<a class="headerlink" href="#using-functions-with-pandas-series" title="Permalink to this headline">¶</a></h2>
+<p>To apply a function to every value in a pandas Series, we will use the <code class="docutils literal notranslate"><span class="pre">map</span></code> method.  Try not to confuse this <code class="docutils literal notranslate"><span class="pre">map</span></code> method with <code class="docutils literal notranslate"><span class="pre">apply</span></code> and <code class="docutils literal notranslate"><span class="pre">applymap</span></code> which we will introduce later in Math 10.</p>
+<ul class="simple">
+<li><p>Make a Boolean Series from the “Highest Charting Position” column which indicates whether or not the “Highest Charting Position” was in the top 5.  Use our usual pandas methods for making Boolean Series.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Highest Charting Position&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        True
+1        True
+2        True
+3        True
+4        True
+        ...  
+1551    False
+1552    False
+1553    False
+1554    False
+1555    False
+Name: Highest Charting Position, Length: 1545, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Make the same Boolean Series using <code class="docutils literal notranslate"><span class="pre">map</span></code> and the function <code class="docutils literal notranslate"><span class="pre">top5</span></code> that was defined above.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top5</span><span class="p">(</span><span class="mi">196</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Highest Charting Position&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0         1
+1         2
+2         1
+3         3
+4         5
+       ... 
+1551    195
+1552    196
+1553    197
+1554    198
+1555    199
+Name: Highest Charting Position, Length: 1545, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>We use the <code class="docutils literal notranslate"><span class="pre">map</span></code> method to apply the <code class="docutils literal notranslate"><span class="pre">top5</span></code> function elementwise.  Notice that we do not put parentheses after the function name.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># map applies elementwise</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Highest Charting Position&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">top5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        True
+1        True
+2        True
+3        True
+4        True
+        ...  
+1551    False
+1552    False
+1553    False
+1554    False
+1555    False
+Name: Highest Charting Position, Length: 1545, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Try to convert the “Streams” column into numeric values using <code class="docutils literal notranslate"><span class="pre">pd.to_numeric</span></code>.  (It’s not supposed to work.)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Streams&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       48,633,449
+1       47,248,719
+2       40,162,559
+3       37,799,456
+4       33,948,454
+           ...    
+1551     4,630,675
+1552     4,623,030
+1553     4,620,876
+1554     4,607,385
+1555     4,595,450
+Name: Streams, Length: 1545, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Streams&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/_libs/lib.pyx</span> in <span class="ni">pandas._libs.lib.maybe_convert_numeric</span><span class="nt">()</span>
+
+<span class="ne">ValueError</span>: Unable to parse string &quot;48,633,449&quot;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">8</span><span class="n">j</span><span class="o">/</span><span class="n">gshrlmtn7dg4qtztj4d4t_w40000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_49629</span><span class="o">/</span><span class="mf">2129868835.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Streams&quot;</span><span class="p">])</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/core/tools/numeric.py</span> in <span class="ni">to_numeric</span><span class="nt">(arg, errors, downcast)</span>
+<span class="g g-Whitespace">    </span><span class="mi">182</span>         <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">183</span>             <span class="n">values</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">maybe_convert_numeric</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">184</span>                 <span class="n">values</span><span class="p">,</span> <span class="nb">set</span><span class="p">(),</span> <span class="n">coerce_numeric</span><span class="o">=</span><span class="n">coerce_numeric</span>
+<span class="g g-Whitespace">    </span><span class="mi">185</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span>         <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/_libs/lib.pyx</span> in <span class="ni">pandas._libs.lib.maybe_convert_numeric</span><span class="nt">()</span>
+
+<span class="ne">ValueError</span>: Unable to parse string &quot;48,633,449&quot; at position 0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;48,633,449&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">8</span><span class="n">j</span><span class="o">/</span><span class="n">gshrlmtn7dg4qtztj4d4t_w40000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_49629</span><span class="o">/</span><span class="mf">1792345402.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;48,633,449&quot;</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: invalid literal for int() with base 10: &#39;48,633,449&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">remove_comma</span><span class="p">(</span><span class="s2">&quot;48,633,449&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;48633449&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Instead use <code class="docutils literal notranslate"><span class="pre">map</span></code> and the <code class="docutils literal notranslate"><span class="pre">remove_comma</span></code> function from above, followed by <code class="docutils literal notranslate"><span class="pre">pd.to_numeric</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Streams&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">remove_comma</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       48633449
+1       47248719
+2       40162559
+3       37799456
+4       33948454
+          ...   
+1551     4630675
+1552     4623030
+1553     4620876
+1554     4607385
+1555     4595450
+Name: Streams, Length: 1545, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Streams&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">remove_comma</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       48633449
+1       47248719
+2       40162559
+3       37799456
+4       33948454
+          ...   
+1551     4630675
+1552     4623030
+1553     4620876
+1554     4607385
+1555     4595450
+Name: Streams, Length: 1545, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we put the result into a new column of <code class="docutils literal notranslate"><span class="pre">df</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;StreamsNumeric&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Streams&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">remove_comma</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>How many of the songs have more than ten million streams?  (Hint.  The answer should be 103.)</p></li>
+</ul>
+<p>We can’t use the “Streams” column because it contains strings.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Streams&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="o">**</span><span class="mi">7</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">8</span><span class="n">j</span><span class="o">/</span><span class="n">gshrlmtn7dg4qtztj4d4t_w40000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_49629</span><span class="o">/</span><span class="mf">33243062.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Streams&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="o">**</span><span class="mi">7</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/core/ops/common.py</span> in <span class="ni">new_method</span><span class="nt">(self, other)</span>
+<span class="g g-Whitespace">     </span><span class="mi">67</span>         <span class="n">other</span> <span class="o">=</span> <span class="n">item_from_zerodim</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span> 
+<span class="ne">---&gt; </span><span class="mi">69</span>         <span class="k">return</span> <span class="n">method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">70</span> 
+<span class="g g-Whitespace">     </span><span class="mi">71</span>     <span class="k">return</span> <span class="n">new_method</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/core/arraylike.py</span> in <span class="ni">__gt__</span><span class="nt">(self, other)</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span>     <span class="nd">@unpack_zerodim_and_defer</span><span class="p">(</span><span class="s2">&quot;__gt__&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="k">def</span> <span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">48</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cmp_method</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">operator</span><span class="o">.</span><span class="n">gt</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span> 
+<span class="g g-Whitespace">     </span><span class="mi">50</span>     <span class="nd">@unpack_zerodim_and_defer</span><span class="p">(</span><span class="s2">&quot;__ge__&quot;</span><span class="p">)</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/core/series.py</span> in <span class="ni">_cmp_method</span><span class="nt">(self, other, op)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5500</span> 
+<span class="g g-Whitespace">   </span><span class="mi">5501</span>         <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="nb">all</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">5502</span>             <span class="n">res_values</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">comparison_op</span><span class="p">(</span><span class="n">lvalues</span><span class="p">,</span> <span class="n">rvalues</span><span class="p">,</span> <span class="n">op</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5503</span> 
+<span class="g g-Whitespace">   </span><span class="mi">5504</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_construct_result</span><span class="p">(</span><span class="n">res_values</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">res_name</span><span class="p">)</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/core/ops/array_ops.py</span> in <span class="ni">comparison_op</span><span class="nt">(left, right, op)</span>
+<span class="g g-Whitespace">    </span><span class="mi">282</span> 
+<span class="g g-Whitespace">    </span><span class="mi">283</span>     <span class="k">elif</span> <span class="n">is_object_dtype</span><span class="p">(</span><span class="n">lvalues</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rvalues</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">284</span>         <span class="n">res_values</span> <span class="o">=</span> <span class="n">comp_method_OBJECT_ARRAY</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">lvalues</span><span class="p">,</span> <span class="n">rvalues</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">285</span> 
+<span class="g g-Whitespace">    </span><span class="mi">286</span>     <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/core/ops/array_ops.py</span> in <span class="ni">comp_method_OBJECT_ARRAY</span><span class="nt">(op, x, y)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">libops</span><span class="o">.</span><span class="n">vec_compare</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">op</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">73</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">libops</span><span class="o">.</span><span class="n">scalar_compare</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">y</span><span class="p">,</span> <span class="n">op</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span>     <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span> 
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/_libs/ops.pyx</span> in <span class="ni">pandas._libs.ops.scalar_compare</span><span class="nt">()</span>
+
+<span class="ne">TypeError</span>: &#39;&gt;&#39; not supported between instances of &#39;str&#39; and &#39;int&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>It does work if we use the numeric column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;StreamsNumeric&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="o">**</span><span class="mi">7</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        True
+1        True
+2        True
+3        True
+4        True
+        ...  
+1551    False
+1552    False
+1553    False
+1554    False
+1555    False
+Name: StreamsNumeric, Length: 1545, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>We count <code class="docutils literal notranslate"><span class="pre">True</span></code> using <code class="docutils literal notranslate"><span class="pre">sum</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;StreamsNumeric&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="o">**</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>103
+</pre></div>
+</div>
+</div>
+</div>
+<p>We could also count <code class="docutils literal notranslate"><span class="pre">True</span></code> using <code class="docutils literal notranslate"><span class="pre">value_counts</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;StreamsNumeric&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="o">**</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False    1442
+True      103
+Name: StreamsNumeric, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lambda-functions">
+<h2>lambda functions<a class="headerlink" href="#lambda-functions" title="Permalink to this headline">¶</a></h2>
+<p>lambda functions provide a concise (and Pythonic) way to quickly define a function.  These lambda functions would not be used to create a complex function, but they are frequently used to define simple functions.  These are the equivalent of <a class="reference external" href="https://www.mathworks.com/help/matlab/matlab_prog/anonymous-functions.html">anonymous functions</a> in Matlab.</p>
+<ul class="simple">
+<li><p>Again convert the “Streams” column to numeric, this time using a lambda function.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Streams&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       48,633,449
+1       47,248,719
+2       40,162,559
+3       37,799,456
+4       33,948,454
+           ...    
+1551     4,630,675
+1552     4,623,030
+1553     4,620,876
+1554     4,607,385
+1555     4,595,450
+Name: Streams, Length: 1545, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Streams&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       48633449
+1       47248719
+2       40162559
+3       37799456
+4       33948454
+          ...   
+1551     4630675
+1552     4623030
+1553     4620876
+1554     4607385
+1555     4595450
+Name: Streams, Length: 1545, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">somepoly</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we make the same <code class="docutils literal notranslate"><span class="pre">somepoly</span></code> function using a lambda function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">somepoly2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">somepoly2</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Week3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Week3-Intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 3</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Week3-Videos.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 3 Videos</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Christopher Davis<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
