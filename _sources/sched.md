@@ -23,11 +23,15 @@ Introduction to plotting in Python.  Matplotlib as the most famous plotting libr
 
 ## Class 6
 
-Practice with Altair and pandas.
+Practice with Altair and pandas.  Using `isin`, `value_counts`, `index`, and slicing to find the most frequently occurring values in a pandas Series.
 
 ## Class 7
 
-Functions and lambda functions.  Slicing.  `map` in pandas.
+Functions and lambda functions.  Slicing.  `map` in pandas.  Basic logic in NumPy: `and`, `or`, `not` and in pandas and NumPy: `&`, `|`, `~`.
+
+## Class 8
+
+Working with dates in pandas.  How to locate missing values.  `try` and `except` for handling errors.  Practice with `if`, `elif`, `else`.  Using `count` with a list or a string.  Using slicing with a string.  An example of *feature engineering*.
 
 ## Leftovers
 
@@ -36,13 +40,6 @@ Dictionary comprehension.  Feature engineering.
 Data types in Python.  Introduction to NumPy.  How the choice of data type influences the speed of various operations.
 More practice with NumPy and pandas.  pandas methods `apply`, and `applymap`.  lambda functions. NumPy `where`, and pandas DataFrame styling.
 
-## Class 7
-
-Introduction to Altair as well as other plotting libraries that are also based on the *Grammar of Graphics*: Seaborn and Plotly.
-
-## Class 8
-
-Customizing charts in Altair and adding interactivity.
 
 ## Class 9
 

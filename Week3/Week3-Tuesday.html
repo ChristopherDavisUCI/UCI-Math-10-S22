@@ -1,0 +1,3201 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 3 Tuesday Discussion &#8212; UC Irvine Math 10 S22</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Working with dates in pandas" href="Week3-Wednesday.html" />
+    <link rel="prev" title="Functions in Python" href="Week3-Monday.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/digitsyellow.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">UC Irvine Math 10 S22</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   UC Irvine, Math 10, Spring 2022
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week1/Week1-Intro.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Monday.html">
+     Introduction to pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Tuesday.html">
+     Week 1 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Wednesday.html">
+     for loops and ways to avoid for loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Thursday.html">
+     Week 1 Thursday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Friday.html">
+     Exploratory Data Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Videos.html">
+     Week 1 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Homework1.html">
+     Homework 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week2/Week2-Intro.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Monday.html">
+     Working with missing data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Tuesday.html">
+     Week 2 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Wednesday.html">
+     Visualization in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Videos.html">
+     Week 2 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Friday.html">
+     Plots from the Spotify dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Homework2.html">
+     Homework 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="Week3-Intro.html">
+   Week 3
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Week3-Monday.html">
+     Functions in Python
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Week 3 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Week3-Wednesday.html">
+     Working with dates in pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Week3-Videos.html">
+     Week 3 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Homework3.html">
+     Homework 3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sched.html">
+   Tentative schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasources.html">
+   Data Sources
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Week3/Week3-Tuesday.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ChristopherDavisUCI/UCI-Math-10-S22"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ChristopherDavisUCI/UCI-Math-10-S22/main?urlpath=tree/Week3/Week3-Tuesday.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quiz-2-review">
+   Quiz 2 Review
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#code-along-solutions">
+   Code-Along Solutions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pre-written-solutions">
+   Pre-Written Solutions
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Week 3 Tuesday Discussion</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quiz-2-review">
+   Quiz 2 Review
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#code-along-solutions">
+   Code-Along Solutions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pre-written-solutions">
+   Pre-Written Solutions
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="week-3-tuesday-discussion">
+<h1>Week 3 Tuesday Discussion<a class="headerlink" href="#week-3-tuesday-discussion" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="quiz-2-review">
+<h2>Quiz 2 Review<a class="headerlink" href="#quiz-2-review" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;titanic&quot;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>survived</th>
+      <th>pclass</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>fare</th>
+      <th>embarked</th>
+      <th>class</th>
+      <th>who</th>
+      <th>adult_male</th>
+      <th>deck</th>
+      <th>embark_town</th>
+      <th>alive</th>
+      <th>alone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>7.2500</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>71.2833</td>
+      <td>C</td>
+      <td>First</td>
+      <td>woman</td>
+      <td>False</td>
+      <td>C</td>
+      <td>Cherbourg</td>
+      <td>yes</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>3</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7.9250</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>woman</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>yes</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>1</td>
+      <td>female</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>53.1000</td>
+      <td>S</td>
+      <td>First</td>
+      <td>woman</td>
+      <td>False</td>
+      <td>C</td>
+      <td>Southampton</td>
+      <td>yes</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8.0500</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>886</th>
+      <td>0</td>
+      <td>2</td>
+      <td>male</td>
+      <td>27.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>13.0000</td>
+      <td>S</td>
+      <td>Second</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>887</th>
+      <td>1</td>
+      <td>1</td>
+      <td>female</td>
+      <td>19.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>30.0000</td>
+      <td>S</td>
+      <td>First</td>
+      <td>woman</td>
+      <td>False</td>
+      <td>B</td>
+      <td>Southampton</td>
+      <td>yes</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>888</th>
+      <td>0</td>
+      <td>3</td>
+      <td>female</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>2</td>
+      <td>23.4500</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>woman</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>889</th>
+      <td>1</td>
+      <td>1</td>
+      <td>male</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>30.0000</td>
+      <td>C</td>
+      <td>First</td>
+      <td>man</td>
+      <td>True</td>
+      <td>C</td>
+      <td>Cherbourg</td>
+      <td>yes</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>890</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>32.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7.7500</td>
+      <td>Q</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Queenstown</td>
+      <td>no</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+<p>891 rows × 15 columns</p>
+</div></div></div>
+</div>
+<p><strong>Question 1</strong>:</p>
+<ul class="simple">
+<li><p>Write code to determine which columns of <code class="docutils literal notranslate"><span class="pre">df</span></code> contain missing values. Do the same to determine which rows of <code class="docutils literal notranslate"><span class="pre">df</span></code> contain missing values.</p></li>
+<li><p>Write code to determine which rows of <code class="docutils literal notranslate"><span class="pre">df</span></code> contain at least 2 missing values.</p></li>
+<li><p>Create a sub-DataFrame of <code class="docutils literal notranslate"><span class="pre">df</span></code> which contains only rows which have at least one missing value.</p></li>
+<li><p>Create a sub-DataFrame of <code class="docutils literal notranslate"><span class="pre">df</span></code> which contains only rows which have at least one missing value and <code class="docutils literal notranslate"><span class="pre">embark_town</span></code> listed as Southampton.</p></li>
+</ul>
+</div>
+<div class="section" id="code-along-solutions">
+<h2>Code-Along Solutions<a class="headerlink" href="#code-along-solutions" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;age&#39;, &#39;embarked&#39;, &#39;deck&#39;, &#39;embark_town&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0,
+ 2,
+ 4,
+ 5,
+ 7,
+ 8,
+ 9,
+ 12,
+ 13,
+ 14,
+ 15,
+ 16,
+ 17,
+ 18,
+ 19,
+ 20,
+ 22,
+ 24,
+ 25,
+ 26,
+ 28,
+ 29,
+ 30,
+ 31,
+ 32,
+ 33,
+ 34,
+ 35,
+ 36,
+ 37,
+ 38,
+ 39,
+ 40,
+ 41,
+ 42,
+ 43,
+ 44,
+ 45,
+ 46,
+ 47,
+ 48,
+ 49,
+ 50,
+ 51,
+ 53,
+ 55,
+ 56,
+ 57,
+ 58,
+ 59,
+ 60,
+ 61,
+ 63,
+ 64,
+ 65,
+ 67,
+ 68,
+ 69,
+ 70,
+ 71,
+ 72,
+ 73,
+ 74,
+ 76,
+ 77,
+ 78,
+ 79,
+ 80,
+ 81,
+ 82,
+ 83,
+ 84,
+ 85,
+ 86,
+ 87,
+ 89,
+ 90,
+ 91,
+ 93,
+ 94,
+ 95,
+ 98,
+ 99,
+ 100,
+ 101,
+ 103,
+ 104,
+ 105,
+ 106,
+ 107,
+ 108,
+ 109,
+ 111,
+ 112,
+ 113,
+ 114,
+ 115,
+ 116,
+ 117,
+ 119,
+ 120,
+ 121,
+ 122,
+ 125,
+ 126,
+ 127,
+ 128,
+ 129,
+ 130,
+ 131,
+ 132,
+ 133,
+ 134,
+ 135,
+ 138,
+ 140,
+ 141,
+ 142,
+ 143,
+ 144,
+ 145,
+ 146,
+ 147,
+ 149,
+ 150,
+ 152,
+ 153,
+ 154,
+ 155,
+ 156,
+ 157,
+ 158,
+ 159,
+ 160,
+ 161,
+ 162,
+ 163,
+ 164,
+ 165,
+ 166,
+ 167,
+ 168,
+ 169,
+ 171,
+ 172,
+ 173,
+ 175,
+ 176,
+ 178,
+ 179,
+ 180,
+ 181,
+ 182,
+ 184,
+ 185,
+ 186,
+ 187,
+ 188,
+ 189,
+ 190,
+ 191,
+ 192,
+ 196,
+ 197,
+ 198,
+ 199,
+ 200,
+ 201,
+ 202,
+ 203,
+ 204,
+ 206,
+ 207,
+ 208,
+ 210,
+ 211,
+ 212,
+ 213,
+ 214,
+ 216,
+ 217,
+ 219,
+ 220,
+ 221,
+ 222,
+ 223,
+ 225,
+ 226,
+ 227,
+ 228,
+ 229,
+ 231,
+ 232,
+ 233,
+ 234,
+ 235,
+ 236,
+ 237,
+ 238,
+ 239,
+ 240,
+ 241,
+ 242,
+ 243,
+ 244,
+ 246,
+ 247,
+ 249,
+ 250,
+ 253,
+ 254,
+ 255,
+ 256,
+ 258,
+ 259,
+ 260,
+ 261,
+ 264,
+ 265,
+ 266,
+ 267,
+ 270,
+ 271,
+ 272,
+ 274,
+ 276,
+ 277,
+ 278,
+ 279,
+ 280,
+ 281,
+ 282,
+ 283,
+ 284,
+ 285,
+ 286,
+ 287,
+ 288,
+ 289,
+ 290,
+ 293,
+ 294,
+ 295,
+ 296,
+ 298,
+ 300,
+ 301,
+ 302,
+ 303,
+ 304,
+ 306,
+ 308,
+ 312,
+ 313,
+ 314,
+ 315,
+ 316,
+ 317,
+ 320,
+ 321,
+ 322,
+ 323,
+ 324,
+ 326,
+ 328,
+ 330,
+ 333,
+ 334,
+ 335,
+ 338,
+ 339,
+ 342,
+ 343,
+ 344,
+ 346,
+ 347,
+ 348,
+ 349,
+ 350,
+ 351,
+ 352,
+ 353,
+ 354,
+ 355,
+ 357,
+ 358,
+ 359,
+ 360,
+ 361,
+ 362,
+ 363,
+ 364,
+ 365,
+ 367,
+ 368,
+ 371,
+ 372,
+ 373,
+ 374,
+ 375,
+ 376,
+ 378,
+ 379,
+ 380,
+ 381,
+ 382,
+ 383,
+ 384,
+ 385,
+ 386,
+ 387,
+ 388,
+ 389,
+ 391,
+ 392,
+ 395,
+ 396,
+ 397,
+ 398,
+ 399,
+ 400,
+ 401,
+ 402,
+ 403,
+ 404,
+ 405,
+ 406,
+ 407,
+ 408,
+ 409,
+ 410,
+ 411,
+ 413,
+ 414,
+ 415,
+ 416,
+ 417,
+ 418,
+ 419,
+ 420,
+ 421,
+ 422,
+ 423,
+ 424,
+ 425,
+ 426,
+ 427,
+ 428,
+ 431,
+ 432,
+ 433,
+ 436,
+ 437,
+ 439,
+ 440,
+ 441,
+ 442,
+ 443,
+ 444,
+ 446,
+ 447,
+ 448,
+ 450,
+ 451,
+ 454,
+ 455,
+ 457,
+ 458,
+ 459,
+ 461,
+ 463,
+ 464,
+ 465,
+ 466,
+ 467,
+ 468,
+ 469,
+ 470,
+ 471,
+ 472,
+ 474,
+ 475,
+ 476,
+ 477,
+ 478,
+ 479,
+ 480,
+ 481,
+ 482,
+ 483,
+ 485,
+ 488,
+ 489,
+ 490,
+ 491,
+ 493,
+ 494,
+ 495,
+ 497,
+ 499,
+ 500,
+ 501,
+ 502,
+ 503,
+ 506,
+ 507,
+ 508,
+ 509,
+ 510,
+ 511,
+ 513,
+ 514,
+ 517,
+ 518,
+ 519,
+ 521,
+ 522,
+ 524,
+ 525,
+ 526,
+ 527,
+ 528,
+ 529,
+ 530,
+ 531,
+ 532,
+ 533,
+ 534,
+ 535,
+ 537,
+ 538,
+ 541,
+ 542,
+ 543,
+ 545,
+ 546,
+ 547,
+ 548,
+ 549,
+ 551,
+ 552,
+ 553,
+ 554,
+ 555,
+ 557,
+ 559,
+ 560,
+ 561,
+ 562,
+ 563,
+ 564,
+ 565,
+ 566,
+ 567,
+ 568,
+ 569,
+ 570,
+ 573,
+ 574,
+ 575,
+ 576,
+ 578,
+ 579,
+ 580,
+ 582,
+ 584,
+ 586,
+ 588,
+ 589,
+ 590,
+ 592,
+ 593,
+ 594,
+ 595,
+ 596,
+ 597,
+ 598,
+ 600,
+ 601,
+ 602,
+ 603,
+ 604,
+ 605,
+ 606,
+ 607,
+ 608,
+ 610,
+ 611,
+ 612,
+ 613,
+ 614,
+ 615,
+ 616,
+ 617,
+ 619,
+ 620,
+ 622,
+ 623,
+ 624,
+ 626,
+ 628,
+ 629,
+ 631,
+ 633,
+ 634,
+ 635,
+ 636,
+ 637,
+ 638,
+ 639,
+ 640,
+ 642,
+ 643,
+ 644,
+ 646,
+ 648,
+ 649,
+ 650,
+ 651,
+ 652,
+ 653,
+ 654,
+ 655,
+ 656,
+ 657,
+ 658,
+ 660,
+ 661,
+ 663,
+ 664,
+ 665,
+ 666,
+ 667,
+ 668,
+ 669,
+ 670,
+ 672,
+ 673,
+ 674,
+ 675,
+ 676,
+ 677,
+ 678,
+ 680,
+ 682,
+ 683,
+ 684,
+ 685,
+ 686,
+ 687,
+ 688,
+ 691,
+ 692,
+ 693,
+ 694,
+ 695,
+ 696,
+ 697,
+ 702,
+ 703,
+ 704,
+ 705,
+ 706,
+ 708,
+ 709,
+ 711,
+ 713,
+ 714,
+ 718,
+ 719,
+ 720,
+ 721,
+ 722,
+ 723,
+ 725,
+ 726,
+ 727,
+ 728,
+ 729,
+ 731,
+ 732,
+ 733,
+ 734,
+ 735,
+ 736,
+ 738,
+ 739,
+ 740,
+ 743,
+ 744,
+ 746,
+ 747,
+ 749,
+ 750,
+ 752,
+ 753,
+ 754,
+ 755,
+ 756,
+ 757,
+ 758,
+ 760,
+ 761,
+ 762,
+ 764,
+ 766,
+ 767,
+ 768,
+ 769,
+ 770,
+ 771,
+ 773,
+ 774,
+ 775,
+ 776,
+ 777,
+ 778,
+ 780,
+ 783,
+ 784,
+ 785,
+ 786,
+ 787,
+ 788,
+ 790,
+ 791,
+ 792,
+ 793,
+ 794,
+ 795,
+ 797,
+ 798,
+ 799,
+ 800,
+ 801,
+ 803,
+ 804,
+ 805,
+ 807,
+ 808,
+ 810,
+ 811,
+ 812,
+ 813,
+ 814,
+ 815,
+ 816,
+ 817,
+ 818,
+ 819,
+ 821,
+ 822,
+ 824,
+ 825,
+ 826,
+ 827,
+ 828,
+ 829,
+ 830,
+ 831,
+ 832,
+ 833,
+ 834,
+ 836,
+ 837,
+ 838,
+ 839,
+ 840,
+ 841,
+ 842,
+ 843,
+ 844,
+ 845,
+ 846,
+ 847,
+ 848,
+ 849,
+ 850,
+ 851,
+ 852,
+ 854,
+ 855,
+ 856,
+ 858,
+ 859,
+ 860,
+ 861,
+ 863,
+ 864,
+ 865,
+ 866,
+ 868,
+ 869,
+ 870,
+ 873,
+ 874,
+ 875,
+ 876,
+ 877,
+ 878,
+ 880,
+ 881,
+ 882,
+ 883,
+ 884,
+ 885,
+ 886,
+ 888,
+ 890]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5,
+ 17,
+ 19,
+ 26,
+ 28,
+ 29,
+ 32,
+ 36,
+ 42,
+ 45,
+ 46,
+ 47,
+ 48,
+ 61,
+ 64,
+ 65,
+ 76,
+ 77,
+ 82,
+ 87,
+ 95,
+ 101,
+ 107,
+ 109,
+ 121,
+ 126,
+ 140,
+ 154,
+ 158,
+ 159,
+ 168,
+ 176,
+ 180,
+ 181,
+ 186,
+ 196,
+ 198,
+ 201,
+ 214,
+ 223,
+ 229,
+ 235,
+ 240,
+ 241,
+ 250,
+ 256,
+ 260,
+ 264,
+ 270,
+ 274,
+ 277,
+ 295,
+ 300,
+ 301,
+ 304,
+ 306,
+ 324,
+ 330,
+ 334,
+ 335,
+ 347,
+ 354,
+ 358,
+ 359,
+ 364,
+ 367,
+ 368,
+ 375,
+ 384,
+ 388,
+ 409,
+ 410,
+ 411,
+ 413,
+ 415,
+ 420,
+ 425,
+ 428,
+ 431,
+ 444,
+ 451,
+ 454,
+ 459,
+ 464,
+ 466,
+ 468,
+ 470,
+ 481,
+ 485,
+ 490,
+ 495,
+ 497,
+ 502,
+ 507,
+ 511,
+ 517,
+ 522,
+ 524,
+ 531,
+ 533,
+ 538,
+ 547,
+ 552,
+ 557,
+ 560,
+ 563,
+ 564,
+ 568,
+ 573,
+ 578,
+ 584,
+ 589,
+ 593,
+ 596,
+ 598,
+ 601,
+ 602,
+ 611,
+ 612,
+ 613,
+ 629,
+ 633,
+ 639,
+ 643,
+ 648,
+ 650,
+ 653,
+ 656,
+ 667,
+ 674,
+ 680,
+ 692,
+ 697,
+ 709,
+ 718,
+ 727,
+ 732,
+ 738,
+ 739,
+ 760,
+ 766,
+ 768,
+ 773,
+ 778,
+ 783,
+ 790,
+ 792,
+ 793,
+ 825,
+ 826,
+ 828,
+ 829,
+ 832,
+ 837,
+ 846,
+ 859,
+ 863,
+ 868,
+ 878,
+ 888]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>survived</th>
+      <th>pclass</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>fare</th>
+      <th>embarked</th>
+      <th>class</th>
+      <th>who</th>
+      <th>adult_male</th>
+      <th>deck</th>
+      <th>embark_town</th>
+      <th>alive</th>
+      <th>alone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>7.2500</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>3</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7.9250</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>woman</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>yes</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8.0500</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8.4583</td>
+      <td>Q</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Queenstown</td>
+      <td>no</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>2.0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>21.0750</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>child</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>884</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>25.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7.0500</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>885</th>
+      <td>0</td>
+      <td>3</td>
+      <td>female</td>
+      <td>39.0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>29.1250</td>
+      <td>Q</td>
+      <td>Third</td>
+      <td>woman</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Queenstown</td>
+      <td>no</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>886</th>
+      <td>0</td>
+      <td>2</td>
+      <td>male</td>
+      <td>27.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>13.0000</td>
+      <td>S</td>
+      <td>Second</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>888</th>
+      <td>0</td>
+      <td>3</td>
+      <td>female</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>2</td>
+      <td>23.4500</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>woman</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>890</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>32.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7.7500</td>
+      <td>Q</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Queenstown</td>
+      <td>no</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+<p>709 rows × 15 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="pre-written-solutions">
+<h2>Pre-Written Solutions<a class="headerlink" href="#pre-written-solutions" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Missing columns</span>
+<span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;age&#39;, &#39;embarked&#39;, &#39;deck&#39;, &#39;embark_town&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Missing rows</span>
+<span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0,
+ 2,
+ 4,
+ 5,
+ 7,
+ 8,
+ 9,
+ 12,
+ 13,
+ 14,
+ 15,
+ 16,
+ 17,
+ 18,
+ 19,
+ 20,
+ 22,
+ 24,
+ 25,
+ 26,
+ 28,
+ 29,
+ 30,
+ 31,
+ 32,
+ 33,
+ 34,
+ 35,
+ 36,
+ 37,
+ 38,
+ 39,
+ 40,
+ 41,
+ 42,
+ 43,
+ 44,
+ 45,
+ 46,
+ 47,
+ 48,
+ 49,
+ 50,
+ 51,
+ 53,
+ 55,
+ 56,
+ 57,
+ 58,
+ 59,
+ 60,
+ 61,
+ 63,
+ 64,
+ 65,
+ 67,
+ 68,
+ 69,
+ 70,
+ 71,
+ 72,
+ 73,
+ 74,
+ 76,
+ 77,
+ 78,
+ 79,
+ 80,
+ 81,
+ 82,
+ 83,
+ 84,
+ 85,
+ 86,
+ 87,
+ 89,
+ 90,
+ 91,
+ 93,
+ 94,
+ 95,
+ 98,
+ 99,
+ 100,
+ 101,
+ 103,
+ 104,
+ 105,
+ 106,
+ 107,
+ 108,
+ 109,
+ 111,
+ 112,
+ 113,
+ 114,
+ 115,
+ 116,
+ 117,
+ 119,
+ 120,
+ 121,
+ 122,
+ 125,
+ 126,
+ 127,
+ 128,
+ 129,
+ 130,
+ 131,
+ 132,
+ 133,
+ 134,
+ 135,
+ 138,
+ 140,
+ 141,
+ 142,
+ 143,
+ 144,
+ 145,
+ 146,
+ 147,
+ 149,
+ 150,
+ 152,
+ 153,
+ 154,
+ 155,
+ 156,
+ 157,
+ 158,
+ 159,
+ 160,
+ 161,
+ 162,
+ 163,
+ 164,
+ 165,
+ 166,
+ 167,
+ 168,
+ 169,
+ 171,
+ 172,
+ 173,
+ 175,
+ 176,
+ 178,
+ 179,
+ 180,
+ 181,
+ 182,
+ 184,
+ 185,
+ 186,
+ 187,
+ 188,
+ 189,
+ 190,
+ 191,
+ 192,
+ 196,
+ 197,
+ 198,
+ 199,
+ 200,
+ 201,
+ 202,
+ 203,
+ 204,
+ 206,
+ 207,
+ 208,
+ 210,
+ 211,
+ 212,
+ 213,
+ 214,
+ 216,
+ 217,
+ 219,
+ 220,
+ 221,
+ 222,
+ 223,
+ 225,
+ 226,
+ 227,
+ 228,
+ 229,
+ 231,
+ 232,
+ 233,
+ 234,
+ 235,
+ 236,
+ 237,
+ 238,
+ 239,
+ 240,
+ 241,
+ 242,
+ 243,
+ 244,
+ 246,
+ 247,
+ 249,
+ 250,
+ 253,
+ 254,
+ 255,
+ 256,
+ 258,
+ 259,
+ 260,
+ 261,
+ 264,
+ 265,
+ 266,
+ 267,
+ 270,
+ 271,
+ 272,
+ 274,
+ 276,
+ 277,
+ 278,
+ 279,
+ 280,
+ 281,
+ 282,
+ 283,
+ 284,
+ 285,
+ 286,
+ 287,
+ 288,
+ 289,
+ 290,
+ 293,
+ 294,
+ 295,
+ 296,
+ 298,
+ 300,
+ 301,
+ 302,
+ 303,
+ 304,
+ 306,
+ 308,
+ 312,
+ 313,
+ 314,
+ 315,
+ 316,
+ 317,
+ 320,
+ 321,
+ 322,
+ 323,
+ 324,
+ 326,
+ 328,
+ 330,
+ 333,
+ 334,
+ 335,
+ 338,
+ 339,
+ 342,
+ 343,
+ 344,
+ 346,
+ 347,
+ 348,
+ 349,
+ 350,
+ 351,
+ 352,
+ 353,
+ 354,
+ 355,
+ 357,
+ 358,
+ 359,
+ 360,
+ 361,
+ 362,
+ 363,
+ 364,
+ 365,
+ 367,
+ 368,
+ 371,
+ 372,
+ 373,
+ 374,
+ 375,
+ 376,
+ 378,
+ 379,
+ 380,
+ 381,
+ 382,
+ 383,
+ 384,
+ 385,
+ 386,
+ 387,
+ 388,
+ 389,
+ 391,
+ 392,
+ 395,
+ 396,
+ 397,
+ 398,
+ 399,
+ 400,
+ 401,
+ 402,
+ 403,
+ 404,
+ 405,
+ 406,
+ 407,
+ 408,
+ 409,
+ 410,
+ 411,
+ 413,
+ 414,
+ 415,
+ 416,
+ 417,
+ 418,
+ 419,
+ 420,
+ 421,
+ 422,
+ 423,
+ 424,
+ 425,
+ 426,
+ 427,
+ 428,
+ 431,
+ 432,
+ 433,
+ 436,
+ 437,
+ 439,
+ 440,
+ 441,
+ 442,
+ 443,
+ 444,
+ 446,
+ 447,
+ 448,
+ 450,
+ 451,
+ 454,
+ 455,
+ 457,
+ 458,
+ 459,
+ 461,
+ 463,
+ 464,
+ 465,
+ 466,
+ 467,
+ 468,
+ 469,
+ 470,
+ 471,
+ 472,
+ 474,
+ 475,
+ 476,
+ 477,
+ 478,
+ 479,
+ 480,
+ 481,
+ 482,
+ 483,
+ 485,
+ 488,
+ 489,
+ 490,
+ 491,
+ 493,
+ 494,
+ 495,
+ 497,
+ 499,
+ 500,
+ 501,
+ 502,
+ 503,
+ 506,
+ 507,
+ 508,
+ 509,
+ 510,
+ 511,
+ 513,
+ 514,
+ 517,
+ 518,
+ 519,
+ 521,
+ 522,
+ 524,
+ 525,
+ 526,
+ 527,
+ 528,
+ 529,
+ 530,
+ 531,
+ 532,
+ 533,
+ 534,
+ 535,
+ 537,
+ 538,
+ 541,
+ 542,
+ 543,
+ 545,
+ 546,
+ 547,
+ 548,
+ 549,
+ 551,
+ 552,
+ 553,
+ 554,
+ 555,
+ 557,
+ 559,
+ 560,
+ 561,
+ 562,
+ 563,
+ 564,
+ 565,
+ 566,
+ 567,
+ 568,
+ 569,
+ 570,
+ 573,
+ 574,
+ 575,
+ 576,
+ 578,
+ 579,
+ 580,
+ 582,
+ 584,
+ 586,
+ 588,
+ 589,
+ 590,
+ 592,
+ 593,
+ 594,
+ 595,
+ 596,
+ 597,
+ 598,
+ 600,
+ 601,
+ 602,
+ 603,
+ 604,
+ 605,
+ 606,
+ 607,
+ 608,
+ 610,
+ 611,
+ 612,
+ 613,
+ 614,
+ 615,
+ 616,
+ 617,
+ 619,
+ 620,
+ 622,
+ 623,
+ 624,
+ 626,
+ 628,
+ 629,
+ 631,
+ 633,
+ 634,
+ 635,
+ 636,
+ 637,
+ 638,
+ 639,
+ 640,
+ 642,
+ 643,
+ 644,
+ 646,
+ 648,
+ 649,
+ 650,
+ 651,
+ 652,
+ 653,
+ 654,
+ 655,
+ 656,
+ 657,
+ 658,
+ 660,
+ 661,
+ 663,
+ 664,
+ 665,
+ 666,
+ 667,
+ 668,
+ 669,
+ 670,
+ 672,
+ 673,
+ 674,
+ 675,
+ 676,
+ 677,
+ 678,
+ 680,
+ 682,
+ 683,
+ 684,
+ 685,
+ 686,
+ 687,
+ 688,
+ 691,
+ 692,
+ 693,
+ 694,
+ 695,
+ 696,
+ 697,
+ 702,
+ 703,
+ 704,
+ 705,
+ 706,
+ 708,
+ 709,
+ 711,
+ 713,
+ 714,
+ 718,
+ 719,
+ 720,
+ 721,
+ 722,
+ 723,
+ 725,
+ 726,
+ 727,
+ 728,
+ 729,
+ 731,
+ 732,
+ 733,
+ 734,
+ 735,
+ 736,
+ 738,
+ 739,
+ 740,
+ 743,
+ 744,
+ 746,
+ 747,
+ 749,
+ 750,
+ 752,
+ 753,
+ 754,
+ 755,
+ 756,
+ 757,
+ 758,
+ 760,
+ 761,
+ 762,
+ 764,
+ 766,
+ 767,
+ 768,
+ 769,
+ 770,
+ 771,
+ 773,
+ 774,
+ 775,
+ 776,
+ 777,
+ 778,
+ 780,
+ 783,
+ 784,
+ 785,
+ 786,
+ 787,
+ 788,
+ 790,
+ 791,
+ 792,
+ 793,
+ 794,
+ 795,
+ 797,
+ 798,
+ 799,
+ 800,
+ 801,
+ 803,
+ 804,
+ 805,
+ 807,
+ 808,
+ 810,
+ 811,
+ 812,
+ 813,
+ 814,
+ 815,
+ 816,
+ 817,
+ 818,
+ 819,
+ 821,
+ 822,
+ 824,
+ 825,
+ 826,
+ 827,
+ 828,
+ 829,
+ 830,
+ 831,
+ 832,
+ 833,
+ 834,
+ 836,
+ 837,
+ 838,
+ 839,
+ 840,
+ 841,
+ 842,
+ 843,
+ 844,
+ 845,
+ 846,
+ 847,
+ 848,
+ 849,
+ 850,
+ 851,
+ 852,
+ 854,
+ 855,
+ 856,
+ 858,
+ 859,
+ 860,
+ 861,
+ 863,
+ 864,
+ 865,
+ 866,
+ 868,
+ 869,
+ 870,
+ 873,
+ 874,
+ 875,
+ 876,
+ 877,
+ 878,
+ 880,
+ 881,
+ 882,
+ 883,
+ 884,
+ 885,
+ 886,
+ 888,
+ 890]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#At least 2 missing rows</span>
+<span class="n">more_1</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">more_1</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5      2
+17     2
+19     2
+26     2
+28     2
+      ..
+859    2
+863    2
+868    2
+878    2
+888    2
+Length: 160, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Missing sub-DataFrame</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>survived</th>
+      <th>pclass</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>fare</th>
+      <th>embarked</th>
+      <th>class</th>
+      <th>who</th>
+      <th>adult_male</th>
+      <th>deck</th>
+      <th>embark_town</th>
+      <th>alive</th>
+      <th>alone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>7.2500</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>3</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7.9250</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>woman</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>yes</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8.0500</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8.4583</td>
+      <td>Q</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Queenstown</td>
+      <td>no</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>2.0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>21.0750</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>child</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>884</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>25.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7.0500</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>885</th>
+      <td>0</td>
+      <td>3</td>
+      <td>female</td>
+      <td>39.0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>29.1250</td>
+      <td>Q</td>
+      <td>Third</td>
+      <td>woman</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Queenstown</td>
+      <td>no</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>886</th>
+      <td>0</td>
+      <td>2</td>
+      <td>male</td>
+      <td>27.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>13.0000</td>
+      <td>S</td>
+      <td>Second</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>888</th>
+      <td>0</td>
+      <td>3</td>
+      <td>female</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>2</td>
+      <td>23.4500</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>woman</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>890</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>32.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7.7500</td>
+      <td>Q</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Queenstown</td>
+      <td>no</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+<p>709 rows × 15 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Missing + embark_town</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="ow">and</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">r</span><span class="p">,</span><span class="s2">&quot;embark_town&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Southampton&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>survived</th>
+      <th>pclass</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>fare</th>
+      <th>embarked</th>
+      <th>class</th>
+      <th>who</th>
+      <th>adult_male</th>
+      <th>deck</th>
+      <th>embark_town</th>
+      <th>alive</th>
+      <th>alone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>7.2500</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>3</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7.9250</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>woman</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>yes</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8.0500</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>2.0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>21.0750</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>child</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1</td>
+      <td>3</td>
+      <td>female</td>
+      <td>27.0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>11.1333</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>woman</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>yes</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>882</th>
+      <td>0</td>
+      <td>3</td>
+      <td>female</td>
+      <td>22.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10.5167</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>woman</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>883</th>
+      <td>0</td>
+      <td>2</td>
+      <td>male</td>
+      <td>28.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10.5000</td>
+      <td>S</td>
+      <td>Second</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>884</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>25.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7.0500</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>886</th>
+      <td>0</td>
+      <td>2</td>
+      <td>male</td>
+      <td>27.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>13.0000</td>
+      <td>S</td>
+      <td>Second</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>888</th>
+      <td>0</td>
+      <td>3</td>
+      <td>female</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>2</td>
+      <td>23.4500</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>woman</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+<p>529 rows × 15 columns</p>
+</div></div></div>
+</div>
+<p><strong>Question 2</strong>:</p>
+<ul class="simple">
+<li><p>Consider the following Altair chart. Explain how you could use it to determine where <code class="docutils literal notranslate"><span class="pre">parch</span></code> is the largest and how many different unique <code class="docutils literal notranslate"><span class="pre">embark_town</span></code> values there are.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">])</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;age&quot;</span><span class="p">),</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;fare&quot;</span><span class="p">),</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;embark_town&quot;</span><span class="p">,</span> <span class="n">legend</span> <span class="o">=</span> <span class="kc">None</span><span class="p">),</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="s2">&quot;parch&quot;</span><span class="p">,</span> <span class="n">legend</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-2f50aa1317604a7791dc16b158d1ee4f"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-2f50aa1317604a7791dc16b158d1ee4f") {
+      outputDiv = document.getElementById("altair-viz-2f50aa1317604a7791dc16b158d1ee4f");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-fb40eac92c916e506f75331634b164ad"}, "mark": "circle", "encoding": {"color": {"field": "embark_town", "legend": null, "type": "nominal"}, "size": {"field": "parch", "legend": null, "type": "quantitative"}, "x": {"field": "age", "type": "quantitative"}, "y": {"field": "fare", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-fb40eac92c916e506f75331634b164ad": [{"survived": 0, "pclass": 3, "sex": "male", "age": 2.0, "sibsp": 3, "parch": 1, "fare": 21.075, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 1, "pclass": 2, "sex": "female", "age": 14.0, "sibsp": 1, "parch": 0, "fare": 30.0708, "embarked": "C", "class": "Second", "who": "child", "adult_male": false, "deck": null, "embark_town": "Cherbourg", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 3, "sex": "female", "age": 4.0, "sibsp": 1, "parch": 1, "fare": 16.7, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": "G", "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "female", "age": 14.0, "sibsp": 0, "parch": 0, "fare": 7.8542, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 0, "pclass": 3, "sex": "male", "age": 2.0, "sibsp": 4, "parch": 1, "fare": 29.125, "embarked": "Q", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Queenstown", "alive": "no", "alone": false}, {"survived": 1, "pclass": 3, "sex": "female", "age": 15.0, "sibsp": 0, "parch": 0, "fare": 8.0292, "embarked": "Q", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Queenstown", "alive": "yes", "alone": true}, {"survived": 0, "pclass": 3, "sex": "female", "age": 8.0, "sibsp": 3, "parch": 1, "fare": 21.075, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 1, "sex": "male", "age": 19.0, "sibsp": 3, "parch": 2, "fare": 263.0, "embarked": "S", "class": "First", "who": "man", "adult_male": true, "deck": "C", "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "female", "age": 18.0, "sibsp": 2, "parch": 0, "fare": 18.0, "embarked": "S", "class": "Third", "who": "woman", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 1, "pclass": 3, "sex": "female", "age": 14.0, "sibsp": 1, "parch": 0, "fare": 11.2417, "embarked": "C", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Cherbourg", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 2, "sex": "female", "age": 3.0, "sibsp": 1, "parch": 2, "fare": 41.5792, "embarked": "C", "class": "Second", "who": "child", "adult_male": false, "deck": null, "embark_town": "Cherbourg", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 3, "sex": "female", "age": 19.0, "sibsp": 0, "parch": 0, "fare": 7.8792, "embarked": "Q", "class": "Third", "who": "woman", "adult_male": false, "deck": null, "embark_town": "Queenstown", "alive": "yes", "alone": true}, {"survived": 0, "pclass": 3, "sex": "female", "age": 18.0, "sibsp": 1, "parch": 0, "fare": 17.8, "embarked": "S", "class": "Third", "who": "woman", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 7.0, "sibsp": 4, "parch": 1, "fare": 39.6875, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 1, "pclass": 2, "sex": "female", "age": 5.0, "sibsp": 1, "parch": 2, "fare": 27.75, "embarked": "S", "class": "Second", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 11.0, "sibsp": 5, "parch": 2, "fare": 46.9, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 4.0, "sibsp": 3, "parch": 2, "fare": 27.9, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 19.0, "sibsp": 0, "parch": 0, "fare": 8.1583, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 1, "pclass": 3, "sex": "female", "age": 17.0, "sibsp": 4, "parch": 2, "fare": 7.925, "embarked": "S", "class": "Third", "who": "woman", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "female", "age": 16.0, "sibsp": 5, "parch": 2, "fare": 46.9, "embarked": "S", "class": "Third", "who": "woman", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 1, "pclass": 2, "sex": "male", "age": 0.83, "sibsp": 0, "parch": 2, "fare": 29.0, "embarked": "S", "class": "Second", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 2, "sex": "female", "age": 17.0, "sibsp": 0, "parch": 0, "fare": 10.5, "embarked": "S", "class": "Second", "who": "woman", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": true}, {"survived": 0, "pclass": 3, "sex": "male", "age": 16.0, "sibsp": 1, "parch": 3, "fare": 34.375, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "female", "age": 14.5, "sibsp": 1, "parch": 0, "fare": 14.4542, "embarked": "C", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Cherbourg", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "female", "age": 17.0, "sibsp": 0, "parch": 0, "fare": 14.4583, "embarked": "C", "class": "Third", "who": "woman", "adult_male": false, "deck": null, "embark_town": "Cherbourg", "alive": "no", "alone": true}, {"survived": 0, "pclass": 3, "sex": "female", "age": 2.0, "sibsp": 4, "parch": 2, "fare": 31.275, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 1, "pclass": 3, "sex": "male", "age": 12.0, "sibsp": 1, "parch": 0, "fare": 11.2417, "embarked": "C", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Cherbourg", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 1, "sex": "female", "age": 19.0, "sibsp": 0, "parch": 2, "fare": 26.2833, "embarked": "S", "class": "First", "who": "woman", "adult_male": false, "deck": "D", "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 16.0, "sibsp": 0, "parch": 0, "fare": 9.2167, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 0, "pclass": 3, "sex": "male", "age": 19.0, "sibsp": 0, "parch": 0, "fare": 6.75, "embarked": "Q", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Queenstown", "alive": "no", "alone": true}, {"survived": 0, "pclass": 2, "sex": "male", "age": 18.0, "sibsp": 0, "parch": 0, "fare": 11.5, "embarked": "S", "class": "Second", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 0, "pclass": 2, "sex": "male", "age": 19.0, "sibsp": 1, "parch": 1, "fare": 36.75, "embarked": "S", "class": "Second", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "female", "age": 9.0, "sibsp": 2, "parch": 2, "fare": 34.375, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 1, "pclass": 3, "sex": "female", "age": 16.0, "sibsp": 0, "parch": 0, "fare": 7.7333, "embarked": "Q", "class": "Third", "who": "woman", "adult_male": false, "deck": null, "embark_town": "Queenstown", "alive": "yes", "alone": true}, {"survived": 0, "pclass": 3, "sex": "male", "age": 17.0, "sibsp": 0, "parch": 0, "fare": 8.6625, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 0, "pclass": 3, "sex": "male", "age": 1.0, "sibsp": 4, "parch": 1, "fare": 39.6875, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 1, "pclass": 3, "sex": "male", "age": 9.0, "sibsp": 0, "parch": 2, "fare": 20.525, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 4.0, "sibsp": 4, "parch": 1, "fare": 29.125, "embarked": "Q", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Queenstown", "alive": "no", "alone": false}, {"survived": 1, "pclass": 3, "sex": "female", "age": 1.0, "sibsp": 1, "parch": 1, "fare": 11.1333, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 18.0, "sibsp": 1, "parch": 1, "fare": 7.8542, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 9.0, "sibsp": 4, "parch": 2, "fare": 31.3875, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 1, "pclass": 2, "sex": "male", "age": 1.0, "sibsp": 2, "parch": 1, "fare": 39.0, "embarked": "S", "class": "Second", "who": "child", "adult_male": false, "deck": "F", "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 3, "sex": "female", "age": 4.0, "sibsp": 0, "parch": 2, "fare": 22.025, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 2, "sex": "male", "age": 19.0, "sibsp": 0, "parch": 0, "fare": 13.0, "embarked": "S", "class": "Second", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 1, "pclass": 3, "sex": "female", "age": 19.0, "sibsp": 1, "parch": 0, "fare": 7.8542, "embarked": "S", "class": "Third", "who": "woman", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 2, "sex": "male", "age": 3.0, "sibsp": 1, "parch": 1, "fare": 26.0, "embarked": "S", "class": "Second", "who": "child", "adult_male": false, "deck": "F", "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 3, "sex": "male", "age": 18.0, "sibsp": 0, "parch": 0, "fare": 8.05, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": true}, {"survived": 0, "pclass": 3, "sex": "female", "age": 2.0, "sibsp": 0, "parch": 1, "fare": 10.4625, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": "G", "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 1, "pclass": 3, "sex": "female", "age": 16.0, "sibsp": 0, "parch": 0, "fare": 7.75, "embarked": "Q", "class": "Third", "who": "woman", "adult_male": false, "deck": null, "embark_town": "Queenstown", "alive": "yes", "alone": true}, {"survived": 1, "pclass": 3, "sex": "male", "age": 16.0, "sibsp": 0, "parch": 0, "fare": 8.05, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": true}, {"survived": 1, "pclass": 2, "sex": "male", "age": 19.0, "sibsp": 0, "parch": 0, "fare": 10.5, "embarked": "S", "class": "Second", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": true}, {"survived": 0, "pclass": 2, "sex": "male", "age": 18.0, "sibsp": 0, "parch": 0, "fare": 13.0, "embarked": "S", "class": "Second", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 1, "pclass": 3, "sex": "female", "age": 5.0, "sibsp": 4, "parch": 2, "fare": 31.3875, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 2, "sex": "female", "age": 8.0, "sibsp": 0, "parch": 2, "fare": 26.25, "embarked": "S", "class": "Second", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 2, "sex": "male", "age": 19.0, "sibsp": 0, "parch": 0, "fare": 10.5, "embarked": "S", "class": "Second", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 1, "pclass": 3, "sex": "male", "age": 3.0, "sibsp": 4, "parch": 2, "fare": 31.3875, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 16.0, "sibsp": 4, "parch": 1, "fare": 39.6875, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 7.0, "sibsp": 4, "parch": 1, "fare": 29.125, "embarked": "Q", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Queenstown", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 16.0, "sibsp": 0, "parch": 0, "fare": 9.5, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 1, "pclass": 3, "sex": "male", "age": 19.0, "sibsp": 0, "parch": 0, "fare": 8.05, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": true}, {"survived": 1, "pclass": 1, "sex": "female", "age": 19.0, "sibsp": 1, "parch": 0, "fare": 91.0792, "embarked": "C", "class": "First", "who": "woman", "adult_male": false, "deck": "B", "embark_town": "Cherbourg", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 1, "sex": "female", "age": 2.0, "sibsp": 1, "parch": 2, "fare": 151.55, "embarked": "S", "class": "First", "who": "child", "adult_male": false, "deck": "C", "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 19.0, "sibsp": 0, "parch": 0, "fare": 0.0, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 1, "pclass": 1, "sex": "male", "age": 0.92, "sibsp": 1, "parch": 2, "fare": 151.55, "embarked": "S", "class": "First", "who": "child", "adult_male": false, "deck": "C", "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 1, "sex": "female", "age": 17.0, "sibsp": 1, "parch": 0, "fare": 108.9, "embarked": "C", "class": "First", "who": "woman", "adult_male": false, "deck": "C", "embark_town": "Cherbourg", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 1, "sex": "female", "age": 18.0, "sibsp": 2, "parch": 2, "fare": 262.375, "embarked": "C", "class": "First", "who": "woman", "adult_male": false, "deck": "B", "embark_town": "Cherbourg", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 1, "sex": "female", "age": 16.0, "sibsp": 0, "parch": 1, "fare": 57.9792, "embarked": "C", "class": "First", "who": "woman", "adult_male": false, "deck": "B", "embark_town": "Cherbourg", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 16.0, "sibsp": 2, "parch": 0, "fare": 18.0, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 1, "pclass": 2, "sex": "male", "age": 2.0, "sibsp": 1, "parch": 1, "fare": 26.0, "embarked": "S", "class": "Second", "who": "child", "adult_male": false, "deck": "F", "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 3, "sex": "male", "age": 3.0, "sibsp": 1, "parch": 1, "fare": 15.9, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 15.0, "sibsp": 1, "parch": 1, "fare": 7.2292, "embarked": "C", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Cherbourg", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 18.0, "sibsp": 1, "parch": 0, "fare": 6.4958, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 19.0, "sibsp": 0, "parch": 0, "fare": 8.05, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 0, "pclass": 3, "sex": "female", "age": 3.0, "sibsp": 3, "parch": 1, "fare": 21.075, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 19.0, "sibsp": 0, "parch": 0, "fare": 7.775, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 1, "pclass": 3, "sex": "female", "age": 1.0, "sibsp": 0, "parch": 2, "fare": 15.7417, "embarked": "C", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Cherbourg", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 2, "sex": "male", "age": 18.0, "sibsp": 0, "parch": 0, "fare": 73.5, "embarked": "S", "class": "Second", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 0, "pclass": 3, "sex": "male", "age": 1.0, "sibsp": 5, "parch": 2, "fare": 46.9, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 1, "pclass": 2, "sex": "female", "age": 17.0, "sibsp": 0, "parch": 0, "fare": 12.0, "embarked": "C", "class": "Second", "who": "woman", "adult_male": false, "deck": null, "embark_town": "Cherbourg", "alive": "yes", "alone": true}, {"survived": 1, "pclass": 2, "sex": "male", "age": 3.0, "sibsp": 1, "parch": 1, "fare": 18.75, "embarked": "S", "class": "Second", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 2, "sex": "female", "age": 18.0, "sibsp": 0, "parch": 2, "fare": 13.0, "embarked": "S", "class": "Second", "who": "woman", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "female", "age": 10.0, "sibsp": 0, "parch": 2, "fare": 24.15, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 18.0, "sibsp": 1, "parch": 1, "fare": 20.2125, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 1, "pclass": 2, "sex": "female", "age": 19.0, "sibsp": 0, "parch": 0, "fare": 26.0, "embarked": "S", "class": "Second", "who": "woman", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": true}, {"survived": 0, "pclass": 3, "sex": "male", "age": 17.0, "sibsp": 0, "parch": 0, "fare": 7.125, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 1, "pclass": 1, "sex": "female", "age": 14.0, "sibsp": 1, "parch": 2, "fare": 120.0, "embarked": "S", "class": "First", "who": "child", "adult_male": false, "deck": "B", "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 1, "sex": "male", "age": 4.0, "sibsp": 0, "parch": 2, "fare": 81.8583, "embarked": "S", "class": "First", "who": "child", "adult_male": false, "deck": "A", "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 2, "sex": "female", "age": 13.0, "sibsp": 0, "parch": 1, "fare": 19.5, "embarked": "S", "class": "Second", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 3, "sex": "female", "age": 5.0, "sibsp": 2, "parch": 1, "fare": 19.2583, "embarked": "C", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Cherbourg", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 3, "sex": "female", "age": 0.75, "sibsp": 2, "parch": 1, "fare": 19.2583, "embarked": "C", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Cherbourg", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 3, "sex": "female", "age": 2.0, "sibsp": 0, "parch": 1, "fare": 12.2875, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 9.0, "sibsp": 5, "parch": 2, "fare": 46.9, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 1, "pclass": 3, "sex": "male", "age": 9.0, "sibsp": 1, "parch": 1, "fare": 15.9, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 17.0, "sibsp": 0, "parch": 0, "fare": 8.6625, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 1, "pclass": 1, "sex": "female", "age": 16.0, "sibsp": 0, "parch": 0, "fare": 86.5, "embarked": "S", "class": "First", "who": "woman", "adult_male": false, "deck": "B", "embark_town": "Southampton", "alive": "yes", "alone": true}, {"survived": 0, "pclass": 1, "sex": "male", "age": 18.0, "sibsp": 1, "parch": 0, "fare": 108.9, "embarked": "C", "class": "First", "who": "man", "adult_male": true, "deck": "C", "embark_town": "Cherbourg", "alive": "no", "alone": false}, {"survived": 1, "pclass": 2, "sex": "female", "age": 2.0, "sibsp": 1, "parch": 1, "fare": 26.0, "embarked": "S", "class": "Second", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 17.0, "sibsp": 1, "parch": 1, "fare": 7.2292, "embarked": "C", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Cherbourg", "alive": "no", "alone": false}, {"survived": 1, "pclass": 2, "sex": "female", "age": 7.0, "sibsp": 0, "parch": 2, "fare": 26.25, "embarked": "S", "class": "Second", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "female", "age": 9.0, "sibsp": 4, "parch": 2, "fare": 31.275, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "female", "age": 11.0, "sibsp": 4, "parch": 2, "fare": 31.275, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 1, "pclass": 2, "sex": "female", "age": 19.0, "sibsp": 1, "parch": 0, "fare": 26.0, "embarked": "S", "class": "Second", "who": "woman", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 2, "sex": "male", "age": 8.0, "sibsp": 1, "parch": 1, "fare": 36.75, "embarked": "S", "class": "Second", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 1, "sex": "male", "age": 17.0, "sibsp": 0, "parch": 2, "fare": 110.8833, "embarked": "C", "class": "First", "who": "man", "adult_male": true, "deck": "C", "embark_town": "Cherbourg", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 19.0, "sibsp": 0, "parch": 0, "fare": 7.8958, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 0, "pclass": 3, "sex": "male", "age": 16.0, "sibsp": 0, "parch": 0, "fare": 8.05, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 0, "pclass": 3, "sex": "male", "age": 19.0, "sibsp": 0, "parch": 0, "fare": 14.5, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 1, "pclass": 1, "sex": "female", "age": 18.0, "sibsp": 0, "parch": 2, "fare": 79.65, "embarked": "S", "class": "First", "who": "woman", "adult_male": false, "deck": "E", "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 2, "sex": "female", "age": 4.0, "sibsp": 2, "parch": 1, "fare": 39.0, "embarked": "S", "class": "Second", "who": "child", "adult_male": false, "deck": "F", "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "female", "age": 9.0, "sibsp": 3, "parch": 2, "fare": 27.9, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "female", "age": 2.0, "sibsp": 3, "parch": 2, "fare": 27.9, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 1, "pclass": 3, "sex": "female", "age": 0.75, "sibsp": 2, "parch": 1, "fare": 19.2583, "embarked": "C", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Cherbourg", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 19.0, "sibsp": 0, "parch": 0, "fare": 7.8958, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 1, "pclass": 2, "sex": "female", "age": 18.0, "sibsp": 0, "parch": 1, "fare": 23.0, "embarked": "S", "class": "Second", "who": "woman", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "female", "age": 18.0, "sibsp": 0, "parch": 0, "fare": 6.75, "embarked": "Q", "class": "Third", "who": "woman", "adult_male": false, "deck": null, "embark_town": "Queenstown", "alive": "no", "alone": true}, {"survived": 0, "pclass": 3, "sex": "male", "age": 18.0, "sibsp": 0, "parch": 0, "fare": 7.775, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 1, "pclass": 3, "sex": "female", "age": 18.0, "sibsp": 0, "parch": 0, "fare": 9.8417, "embarked": "S", "class": "Third", "who": "woman", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": true}, {"survived": 0, "pclass": 3, "sex": "male", "age": 14.0, "sibsp": 5, "parch": 2, "fare": 46.9, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 14.0, "sibsp": 4, "parch": 1, "fare": 39.6875, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 19.0, "sibsp": 0, "parch": 0, "fare": 10.1708, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 0, "pclass": 3, "sex": "male", "age": 18.0, "sibsp": 0, "parch": 0, "fare": 7.7958, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 1, "pclass": 1, "sex": "female", "age": 15.0, "sibsp": 0, "parch": 1, "fare": 211.3375, "embarked": "S", "class": "First", "who": "child", "adult_male": false, "deck": "B", "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 3, "sex": "female", "age": 4.0, "sibsp": 0, "parch": 1, "fare": 13.4167, "embarked": "C", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Cherbourg", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 1, "sex": "female", "age": 18.0, "sibsp": 1, "parch": 0, "fare": 227.525, "embarked": "C", "class": "First", "who": "woman", "adult_male": false, "deck": "C", "embark_town": "Cherbourg", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "female", "age": 18.0, "sibsp": 0, "parch": 1, "fare": 14.4542, "embarked": "C", "class": "Third", "who": "woman", "adult_male": false, "deck": null, "embark_town": "Cherbourg", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 19.0, "sibsp": 0, "parch": 0, "fare": 7.65, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": "F", "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 1, "pclass": 2, "sex": "female", "age": 6.0, "sibsp": 0, "parch": 1, "fare": 33.0, "embarked": "S", "class": "Second", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 17.0, "sibsp": 1, "parch": 0, "fare": 7.0542, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 11.0, "sibsp": 0, "parch": 0, "fare": 18.7875, "embarked": "C", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Cherbourg", "alive": "no", "alone": true}, {"survived": 0, "pclass": 3, "sex": "male", "age": 16.0, "sibsp": 1, "parch": 1, "fare": 20.25, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 1, "sex": "male", "age": 19.0, "sibsp": 1, "parch": 0, "fare": 53.1, "embarked": "S", "class": "First", "who": "man", "adult_male": true, "deck": "D", "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 1, "pclass": 2, "sex": "female", "age": 4.0, "sibsp": 1, "parch": 1, "fare": 23.0, "embarked": "S", "class": "Second", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 3, "sex": "male", "age": 6.0, "sibsp": 0, "parch": 1, "fare": 12.475, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": "E", "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 2, "sex": "male", "age": 0.67, "sibsp": 1, "parch": 1, "fare": 14.5, "embarked": "S", "class": "Second", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 2, "sex": "male", "age": 18.0, "sibsp": 0, "parch": 0, "fare": 11.5, "embarked": "S", "class": "Second", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 0, "pclass": 3, "sex": "male", "age": 16.0, "sibsp": 0, "parch": 0, "fare": 7.775, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 0, "pclass": 3, "sex": "male", "age": 18.0, "sibsp": 0, "parch": 0, "fare": 7.75, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 1, "pclass": 3, "sex": "female", "age": 5.0, "sibsp": 0, "parch": 0, "fare": 12.475, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": true}, {"survived": 1, "pclass": 3, "sex": "female", "age": 13.0, "sibsp": 0, "parch": 0, "fare": 7.2292, "embarked": "C", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Cherbourg", "alive": "yes", "alone": true}, {"survived": 1, "pclass": 1, "sex": "female", "age": 17.0, "sibsp": 1, "parch": 0, "fare": 57.0, "embarked": "S", "class": "First", "who": "woman", "adult_male": false, "deck": "B", "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 3, "sex": "female", "age": 18.0, "sibsp": 0, "parch": 0, "fare": 7.4958, "embarked": "S", "class": "Third", "who": "woman", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": true}, {"survived": 0, "pclass": 3, "sex": "male", "age": 8.0, "sibsp": 4, "parch": 1, "fare": 29.125, "embarked": "Q", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Queenstown", "alive": "no", "alone": false}, {"survived": 1, "pclass": 3, "sex": "male", "age": 1.0, "sibsp": 1, "parch": 2, "fare": 20.575, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 2, "sex": "male", "age": 16.0, "sibsp": 0, "parch": 0, "fare": 26.0, "embarked": "S", "class": "Second", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 1, "pclass": 1, "sex": "male", "age": 11.0, "sibsp": 1, "parch": 2, "fare": 120.0, "embarked": "S", "class": "First", "who": "child", "adult_male": false, "deck": "B", "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 3, "sex": "male", "age": 0.42, "sibsp": 0, "parch": 1, "fare": 8.5167, "embarked": "C", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Cherbourg", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "female", "age": 18.0, "sibsp": 0, "parch": 0, "fare": 7.775, "embarked": "S", "class": "Third", "who": "woman", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 0, "pclass": 3, "sex": "female", "age": 6.0, "sibsp": 4, "parch": 2, "fare": 31.275, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 10.0, "sibsp": 3, "parch": 2, "fare": 27.9, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 2.0, "sibsp": 4, "parch": 1, "fare": 39.6875, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 1, "pclass": 2, "sex": "male", "age": 1.0, "sibsp": 0, "parch": 2, "fare": 37.0042, "embarked": "C", "class": "Second", "who": "child", "adult_male": false, "deck": null, "embark_town": "Cherbourg", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 3, "sex": "female", "age": 15.0, "sibsp": 1, "parch": 0, "fare": 14.4542, "embarked": "C", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Cherbourg", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 2, "sex": "male", "age": 0.83, "sibsp": 1, "parch": 1, "fare": 18.75, "embarked": "S", "class": "Second", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 0, "pclass": 3, "sex": "male", "age": 18.0, "sibsp": 0, "parch": 0, "fare": 8.3, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 0, "pclass": 2, "sex": "male", "age": 16.0, "sibsp": 0, "parch": 0, "fare": 10.5, "embarked": "S", "class": "Second", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 0, "pclass": 3, "sex": "male", "age": 17.0, "sibsp": 0, "parch": 0, "fare": 8.6625, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 0, "pclass": 3, "sex": "male", "age": 4.0, "sibsp": 4, "parch": 2, "fare": 31.275, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": false}, {"survived": 0, "pclass": 3, "sex": "female", "age": 9.0, "sibsp": 1, "parch": 1, "fare": 15.2458, "embarked": "C", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Cherbourg", "alive": "no", "alone": false}, {"survived": 1, "pclass": 1, "sex": "female", "age": 16.0, "sibsp": 0, "parch": 1, "fare": 39.4, "embarked": "S", "class": "First", "who": "woman", "adult_male": false, "deck": "D", "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 3, "sex": "female", "age": 18.0, "sibsp": 0, "parch": 1, "fare": 9.35, "embarked": "S", "class": "Third", "who": "woman", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 3, "sex": "male", "age": 4.0, "sibsp": 1, "parch": 1, "fare": 11.1333, "embarked": "S", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Southampton", "alive": "yes", "alone": false}, {"survived": 1, "pclass": 3, "sex": "female", "age": 15.0, "sibsp": 0, "parch": 0, "fare": 7.225, "embarked": "C", "class": "Third", "who": "child", "adult_male": false, "deck": null, "embark_town": "Cherbourg", "alive": "yes", "alone": true}, {"survived": 0, "pclass": 3, "sex": "male", "age": 19.0, "sibsp": 0, "parch": 0, "fare": 7.8958, "embarked": "S", "class": "Third", "who": "man", "adult_male": true, "deck": null, "embark_town": "Southampton", "alive": "no", "alone": true}, {"survived": 1, "pclass": 1, "sex": "female", "age": 19.0, "sibsp": 0, "parch": 0, "fare": 30.0, "embarked": "S", "class": "First", "who": "woman", "adult_male": false, "deck": "B", "embark_town": "Southampton", "alive": "yes", "alone": true}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Week3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Week3-Monday.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Functions in Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Week3-Wednesday.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Working with dates in pandas</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Christopher Davis<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

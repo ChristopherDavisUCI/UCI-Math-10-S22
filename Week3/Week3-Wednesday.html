@@ -1,0 +1,2668 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Working with dates in pandas &#8212; UC Irvine Math 10 S22</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Week 3 Videos" href="Week3-Videos.html" />
+    <link rel="prev" title="Week 3 Tuesday Discussion" href="Week3-Tuesday.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/digitsyellow.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">UC Irvine Math 10 S22</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   UC Irvine, Math 10, Spring 2022
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week1/Week1-Intro.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Monday.html">
+     Introduction to pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Tuesday.html">
+     Week 1 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Wednesday.html">
+     for loops and ways to avoid for loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Thursday.html">
+     Week 1 Thursday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Friday.html">
+     Exploratory Data Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Videos.html">
+     Week 1 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Homework1.html">
+     Homework 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week2/Week2-Intro.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Monday.html">
+     Working with missing data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Tuesday.html">
+     Week 2 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Wednesday.html">
+     Visualization in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Videos.html">
+     Week 2 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Friday.html">
+     Plots from the Spotify dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Homework2.html">
+     Homework 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="Week3-Intro.html">
+   Week 3
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Week3-Monday.html">
+     Functions in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Week3-Tuesday.html">
+     Week 3 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Working with dates in pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Week3-Videos.html">
+     Week 3 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Homework3.html">
+     Homework 3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sched.html">
+   Tentative schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasources.html">
+   Data Sources
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Week3/Week3-Wednesday.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ChristopherDavisUCI/UCI-Math-10-S22"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ChristopherDavisUCI/UCI-Math-10-S22/main?urlpath=tree/Week3/Week3-Wednesday.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#count">
+   count
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-identify-na-values">
+   How to identify na_values?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#try-and-except">
+   try and except
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-slicing-example">
+   String slicing example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#function-practice">
+   Function practice
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#release-months">
+   Release months
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Working with dates in pandas</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#count">
+   count
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-identify-na-values">
+   How to identify na_values?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#try-and-except">
+   try and except
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-slicing-example">
+   String slicing example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#function-practice">
+   Function practice
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#release-months">
+   Release months
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="working-with-dates-in-pandas">
+<h1>Working with dates in pandas<a class="headerlink" href="#working-with-dates-in-pandas" title="Permalink to this headline">¶</a></h1>
+<p>The first part is about how to find missing values (for example, how to know that they are represented by a blank space in the Spotify dataset).  The second part is about working with dates in pandas.</p>
+<div class="section" id="count">
+<h2>count<a class="headerlink" href="#count" title="Permalink to this headline">¶</a></h2>
+<p>lists and strings both have a <code class="docutils literal notranslate"><span class="pre">count</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3135</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Hello there, how are you?&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;e&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;re&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;er&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="how-to-identify-na-values">
+<h2>How to identify na_values?<a class="headerlink" href="#how-to-identify-na-values" title="Permalink to this headline">¶</a></h2>
+<p>The missing values in the spotify dataset are denoted by a blank space ” “.  If you didn’t know to look for ” “, how could you identify it?  Here is one approach.</p>
+<ul class="simple">
+<li><p>Import the attached Spotify dataset as <code class="docutils literal notranslate"><span class="pre">df</span></code>.  <strong>Do not</strong> specify <code class="docutils literal notranslate"><span class="pre">na_values</span></code>.</p></li>
+<li><p>Most of the cells in the “Release Date” column contain a string that looks like “2017-12-08”.  Using list comprehension and the <code class="docutils literal notranslate"><span class="pre">count</span></code> method from above, make a list <code class="docutils literal notranslate"><span class="pre">shortlist</span></code> containing all the entries which have fewer than two hyphen (minus) symbols.</p></li>
+<li><p>Do the same thing using a for loop and an if statement.</p></li>
+<li><p>Check: <code class="docutils literal notranslate"><span class="pre">shortlist</span></code> should have 28 entries.</p></li>
+<li><p>One at a time, print the elements with fewer than two hyphen symbols.  (Use a for loop for this part.)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/spotify_dataset.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="mi">10</span><span class="p">,</span><span class="s2">&quot;Release Date&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     2017-12-08
+1     2021-07-09
+2     2021-05-21
+3     2021-06-25
+4     2021-07-23
+5     2021-03-31
+6     2021-04-09
+7     2021-05-20
+8     2021-06-04
+9     2021-03-19
+10    2020-10-01
+Name: Release Date, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shortlist</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Release Date&quot;</span><span class="p">]</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">shortlist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39; &#39;,
+ &#39;2014&#39;,
+ &#39; &#39;,
+ &#39;1995&#39;,
+ &#39; &#39;,
+ &#39;2015&#39;,
+ &#39; &#39;,
+ &#39;1995&#39;,
+ &#39;1963&#39;,
+ &#39; &#39;,
+ &#39;1962&#39;,
+ &#39;1963&#39;,
+ &#39; &#39;,
+ &#39;2002&#39;,
+ &#39;1990&#39;,
+ &#39;1981&#39;,
+ &#39;1957-09&#39;,
+ &#39;1957-09&#39;,
+ &#39;1994&#39;,
+ &#39; &#39;,
+ &#39; &#39;,
+ &#39; &#39;,
+ &#39;2012&#39;,
+ &#39;1981&#39;,
+ &#39; &#39;,
+ &#39;2016&#39;,
+ &#39;2016&#39;,
+ &#39; &#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is an alternative approach.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">altlist</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Release Date&quot;</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">]</span>
+<span class="n">altlist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39; &#39;,
+ &#39;2014&#39;,
+ &#39; &#39;,
+ &#39;1995&#39;,
+ &#39; &#39;,
+ &#39;2015&#39;,
+ &#39; &#39;,
+ &#39;1995&#39;,
+ &#39;1963&#39;,
+ &#39; &#39;,
+ &#39;1962&#39;,
+ &#39;1963&#39;,
+ &#39; &#39;,
+ &#39;2002&#39;,
+ &#39;1990&#39;,
+ &#39;1981&#39;,
+ &#39;1957-09&#39;,
+ &#39;1957-09&#39;,
+ &#39;1994&#39;,
+ &#39; &#39;,
+ &#39; &#39;,
+ &#39; &#39;,
+ &#39;2012&#39;,
+ &#39;1981&#39;,
+ &#39; &#39;,
+ &#39;2016&#39;,
+ &#39;2016&#39;,
+ &#39; &#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">shortlist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>28
+</pre></div>
+</div>
+</div>
+</div>
+<p>Compare the following for loop version with the list comprehension version.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Release Date&quot;</span><span class="p">]</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shortlist2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Release Date&quot;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">shortlist2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shortlist2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39; &#39;,
+ &#39;2014&#39;,
+ &#39; &#39;,
+ &#39;1995&#39;,
+ &#39; &#39;,
+ &#39;2015&#39;,
+ &#39; &#39;,
+ &#39;1995&#39;,
+ &#39;1963&#39;,
+ &#39; &#39;,
+ &#39;1962&#39;,
+ &#39;1963&#39;,
+ &#39; &#39;,
+ &#39;2002&#39;,
+ &#39;1990&#39;,
+ &#39;1981&#39;,
+ &#39;1957-09&#39;,
+ &#39;1957-09&#39;,
+ &#39;1994&#39;,
+ &#39; &#39;,
+ &#39; &#39;,
+ &#39; &#39;,
+ &#39;2012&#39;,
+ &#39;1981&#39;,
+ &#39; &#39;,
+ &#39;2016&#39;,
+ &#39;2016&#39;,
+ &#39; &#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we look at all of the values in <code class="docutils literal notranslate"><span class="pre">shortlist</span></code>.  You should not put <code class="docutils literal notranslate"><span class="pre">print</span></code> statements in a list comprehension, so we use a for loop.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">shortlist</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+2014
+ 
+1995
+ 
+2015
+ 
+1995
+1963
+ 
+1962
+1963
+ 
+2002
+1990
+1981
+1957-09
+1957-09
+1994
+ 
+ 
+ 
+2012
+1981
+ 
+2016
+2016
+ 
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is a pandas function <code class="docutils literal notranslate"><span class="pre">pd.to_datetime</span></code> that can be applied to both a string and also to a pandas Series.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;2022-04-13&quot;</span><span class="p">)</span>
+<span class="n">d</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;2022-04-13 00:00:00&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>This new data type has lots of convenient methods and attributes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">.</span><span class="n">month</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">.</span><span class="n">day_name</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Wednesday&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> of the following pandas Series.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="mi">10</span><span class="p">,</span><span class="s2">&quot;Release Date&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    2017-12-08
+1    2021-07-09
+2    2021-05-21
+3    2021-06-25
+4    2021-07-23
+5    2021-03-31
+6    2021-04-09
+7    2021-05-20
+8    2021-06-04
+9    2021-03-19
+10   2020-10-01
+Name: Release Date, dtype: datetime64[ns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>What if we want to convert these into the day names?  The first thing we might try does not work.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="mi">10</span><span class="p">,</span><span class="s2">&quot;Release Date&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">day_name</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">8</span><span class="n">j</span><span class="o">/</span><span class="n">gshrlmtn7dg4qtztj4d4t_w40000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_38287</span><span class="o">/</span><span class="mf">3366743804.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="mi">10</span><span class="p">,</span><span class="s2">&quot;Release Date&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">day_name</span><span class="p">()</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/core/generic.py</span> in <span class="ni">__getattr__</span><span class="nt">(self, name)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5485</span>         <span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">5486</span>             <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+<span class="ne">-&gt; </span><span class="mi">5487</span>         <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5488</span> 
+<span class="g g-Whitespace">   </span><span class="mi">5489</span>     <span class="k">def</span> <span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="ne">AttributeError</span>: &#39;Series&#39; object has no attribute &#39;day_name&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The trick is to use the <code class="docutils literal notranslate"><span class="pre">dt</span></code> accessor.  Here is the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.dt.html">documentation</a>, although I don’t find this particular documentation very helpful.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="mi">10</span><span class="p">,</span><span class="s2">&quot;Release Date&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">day_name</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        Friday
+1        Friday
+2        Friday
+3        Friday
+4        Friday
+5     Wednesday
+6        Friday
+7      Thursday
+8        Friday
+9        Friday
+10     Thursday
+Name: Release Date, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we try to apply <code class="docutils literal notranslate"><span class="pre">pd.to_datetime</span></code> to the entire column, an error will be raised.  This is because of the blank spaces in this column.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Release Date&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/core/arrays/datetimes.py</span> in <span class="ni">objects_to_datetime64ns</span><span class="nt">(data, dayfirst, yearfirst, utc, errors, require_iso8601, allow_object, allow_mixed)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2191</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2192</span>             <span class="n">values</span><span class="p">,</span> <span class="n">tz_parsed</span> <span class="o">=</span> <span class="n">conversion</span><span class="o">.</span><span class="n">datetime_to_datetime64</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">2193</span>             <span class="c1"># If tzaware, these values represent unix timestamps, so we</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/_libs/tslibs/conversion.pyx</span> in <span class="ni">pandas._libs.tslibs.conversion.datetime_to_datetime64</span><span class="nt">()</span>
+
+<span class="ne">TypeError</span>: Unrecognized value type: &lt;class &#39;str&#39;&gt;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">ParserError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">8</span><span class="n">j</span><span class="o">/</span><span class="n">gshrlmtn7dg4qtztj4d4t_w40000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_38287</span><span class="o">/</span><span class="mf">4002128276.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Release Date&quot;</span><span class="p">])</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/core/tools/datetimes.py</span> in <span class="ni">to_datetime</span><span class="nt">(arg, errors, dayfirst, yearfirst, utc, format, exact, unit, infer_datetime_format, origin, cache)</span>
+<span class="g g-Whitespace">    </span><span class="mi">881</span>                 <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="n">tz</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]</span>
+<span class="g g-Whitespace">    </span><span class="mi">882</span>     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">ABCSeries</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">883</span>         <span class="n">cache_array</span> <span class="o">=</span> <span class="n">_maybe_cache</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">format</span><span class="p">,</span> <span class="n">cache</span><span class="p">,</span> <span class="n">convert_listlike</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">884</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">cache_array</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">885</span>             <span class="n">result</span> <span class="o">=</span> <span class="n">arg</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">cache_array</span><span class="p">)</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/core/tools/datetimes.py</span> in <span class="ni">_maybe_cache</span><span class="nt">(arg, format, cache, convert_listlike)</span>
+<span class="g g-Whitespace">    </span><span class="mi">193</span>         <span class="n">unique_dates</span> <span class="o">=</span> <span class="n">unique</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">194</span>         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_dates</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">195</span>             <span class="n">cache_dates</span> <span class="o">=</span> <span class="n">convert_listlike</span><span class="p">(</span><span class="n">unique_dates</span><span class="p">,</span> <span class="nb">format</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span>             <span class="n">cache_array</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="n">cache_dates</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">unique_dates</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">197</span>             <span class="c1"># GH#39882 and GH#35888 in case of None and NaT we get duplicates</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/core/tools/datetimes.py</span> in <span class="ni">_convert_listlike_datetimes</span><span class="nt">(arg, format, name, tz, unit, errors, infer_datetime_format, dayfirst, yearfirst, exact)</span>
+<span class="g g-Whitespace">    </span><span class="mi">406</span>         <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">407</span>         <span class="n">require_iso8601</span><span class="o">=</span><span class="n">require_iso8601</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">408</span>         <span class="n">allow_object</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">409</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">410</span> 
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/core/arrays/datetimes.py</span> in <span class="ni">objects_to_datetime64ns</span><span class="nt">(data, dayfirst, yearfirst, utc, errors, require_iso8601, allow_object, allow_mixed)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2196</span>             <span class="k">return</span> <span class="n">values</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="s2">&quot;i8&quot;</span><span class="p">),</span> <span class="n">tz_parsed</span>
+<span class="g g-Whitespace">   </span><span class="mi">2197</span>         <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">2198</span>             <span class="k">raise</span> <span class="n">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">2199</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2200</span>     <span class="k">if</span> <span class="n">tz_parsed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/core/arrays/datetimes.py</span> in <span class="ni">objects_to_datetime64ns</span><span class="nt">(data, dayfirst, yearfirst, utc, errors, require_iso8601, allow_object, allow_mixed)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2185</span>             <span class="n">yearfirst</span><span class="o">=</span><span class="n">yearfirst</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2186</span>             <span class="n">require_iso8601</span><span class="o">=</span><span class="n">require_iso8601</span><span class="p">,</span>
+<span class="ne">-&gt; </span><span class="mi">2187</span>             <span class="n">allow_mixed</span><span class="o">=</span><span class="n">allow_mixed</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2188</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2189</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">)</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/_libs/tslib.pyx</span> in <span class="ni">pandas._libs.tslib.array_to_datetime</span><span class="nt">()</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/_libs/tslib.pyx</span> in <span class="ni">pandas._libs.tslib.array_to_datetime</span><span class="nt">()</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/_libs/tslib.pyx</span> in <span class="ni">pandas._libs.tslib._array_to_datetime_object</span><span class="nt">()</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/_libs/tslib.pyx</span> in <span class="ni">pandas._libs.tslib._array_to_datetime_object</span><span class="nt">()</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/_libs/tslibs/parsing.pyx</span> in <span class="ni">pandas._libs.tslibs.parsing.parse_datetime_string</span><span class="nt">()</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/dateutil/parser/_parser.py</span> in <span class="ni">parse</span><span class="nt">(timestr, parserinfo, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1366</span>         <span class="k">return</span> <span class="n">parser</span><span class="p">(</span><span class="n">parserinfo</span><span class="p">)</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">timestr</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1367</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1368</span>         <span class="k">return</span> <span class="n">DEFAULTPARSER</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">timestr</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1369</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1370</span> 
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/dateutil/parser/_parser.py</span> in <span class="ni">parse</span><span class="nt">(self, timestr, default, ignoretz, tzinfos, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">644</span> 
+<span class="g g-Whitespace">    </span><span class="mi">645</span>         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">646</span>             <span class="k">raise</span> <span class="n">ParserError</span><span class="p">(</span><span class="s2">&quot;String does not contain a date: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">timestr</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">647</span> 
+<span class="g g-Whitespace">    </span><span class="mi">648</span>         <span class="k">try</span><span class="p">:</span>
+
+<span class="ne">ParserError</span>: String does not contain a date:  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shortlist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39; &#39;,
+ &#39;2014&#39;,
+ &#39; &#39;,
+ &#39;1995&#39;,
+ &#39; &#39;,
+ &#39;2015&#39;,
+ &#39; &#39;,
+ &#39;1995&#39;,
+ &#39;1963&#39;,
+ &#39; &#39;,
+ &#39;1962&#39;,
+ &#39;1963&#39;,
+ &#39; &#39;,
+ &#39;2002&#39;,
+ &#39;1990&#39;,
+ &#39;1981&#39;,
+ &#39;1957-09&#39;,
+ &#39;1957-09&#39;,
+ &#39;1994&#39;,
+ &#39; &#39;,
+ &#39; &#39;,
+ &#39; &#39;,
+ &#39;2012&#39;,
+ &#39;1981&#39;,
+ &#39; &#39;,
+ &#39;2016&#39;,
+ &#39;2016&#39;,
+ &#39; &#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Give an example of an element <code class="docutils literal notranslate"><span class="pre">x</span></code> in <code class="docutils literal notranslate"><span class="pre">shortlist</span></code> for which <code class="docutils literal notranslate"><span class="pre">pd.to_datetime(x)</span></code> raises an error, and an example of an element <code class="docutils literal notranslate"><span class="pre">y</span></code> in <code class="docutils literal notranslate"><span class="pre">shortlist</span></code> for which <code class="docutils literal notranslate"><span class="pre">pd.to_datetime(y)</span></code> does not raise an error.</p></li>
+</ul>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/core/arrays/datetimes.py</span> in <span class="ni">objects_to_datetime64ns</span><span class="nt">(data, dayfirst, yearfirst, utc, errors, require_iso8601, allow_object, allow_mixed)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2191</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2192</span>             <span class="n">values</span><span class="p">,</span> <span class="n">tz_parsed</span> <span class="o">=</span> <span class="n">conversion</span><span class="o">.</span><span class="n">datetime_to_datetime64</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">2193</span>             <span class="c1"># If tzaware, these values represent unix timestamps, so we</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/_libs/tslibs/conversion.pyx</span> in <span class="ni">pandas._libs.tslibs.conversion.datetime_to_datetime64</span><span class="nt">()</span>
+
+<span class="ne">TypeError</span>: Unrecognized value type: &lt;class &#39;str&#39;&gt;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">ParserError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">8</span><span class="n">j</span><span class="o">/</span><span class="n">gshrlmtn7dg4qtztj4d4t_w40000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_38287</span><span class="o">/</span><span class="mf">4212689216.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/core/tools/datetimes.py</span> in <span class="ni">to_datetime</span><span class="nt">(arg, errors, dayfirst, yearfirst, utc, format, exact, unit, infer_datetime_format, origin, cache)</span>
+<span class="g g-Whitespace">    </span><span class="mi">912</span>             <span class="n">result</span> <span class="o">=</span> <span class="n">convert_listlike</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">format</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">913</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">914</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">convert_listlike</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">arg</span><span class="p">]),</span> <span class="nb">format</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">915</span> 
+<span class="g g-Whitespace">    </span><span class="mi">916</span>     <span class="c1">#  error: Incompatible return value type (got &quot;Union[Timestamp, NaTType,</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/core/tools/datetimes.py</span> in <span class="ni">_convert_listlike_datetimes</span><span class="nt">(arg, format, name, tz, unit, errors, infer_datetime_format, dayfirst, yearfirst, exact)</span>
+<span class="g g-Whitespace">    </span><span class="mi">406</span>         <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">407</span>         <span class="n">require_iso8601</span><span class="o">=</span><span class="n">require_iso8601</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">408</span>         <span class="n">allow_object</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">409</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">410</span> 
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/core/arrays/datetimes.py</span> in <span class="ni">objects_to_datetime64ns</span><span class="nt">(data, dayfirst, yearfirst, utc, errors, require_iso8601, allow_object, allow_mixed)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2196</span>             <span class="k">return</span> <span class="n">values</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="s2">&quot;i8&quot;</span><span class="p">),</span> <span class="n">tz_parsed</span>
+<span class="g g-Whitespace">   </span><span class="mi">2197</span>         <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">2198</span>             <span class="k">raise</span> <span class="n">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">2199</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2200</span>     <span class="k">if</span> <span class="n">tz_parsed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/core/arrays/datetimes.py</span> in <span class="ni">objects_to_datetime64ns</span><span class="nt">(data, dayfirst, yearfirst, utc, errors, require_iso8601, allow_object, allow_mixed)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2185</span>             <span class="n">yearfirst</span><span class="o">=</span><span class="n">yearfirst</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2186</span>             <span class="n">require_iso8601</span><span class="o">=</span><span class="n">require_iso8601</span><span class="p">,</span>
+<span class="ne">-&gt; </span><span class="mi">2187</span>             <span class="n">allow_mixed</span><span class="o">=</span><span class="n">allow_mixed</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2188</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2189</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">)</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/_libs/tslib.pyx</span> in <span class="ni">pandas._libs.tslib.array_to_datetime</span><span class="nt">()</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/_libs/tslib.pyx</span> in <span class="ni">pandas._libs.tslib.array_to_datetime</span><span class="nt">()</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/_libs/tslib.pyx</span> in <span class="ni">pandas._libs.tslib._array_to_datetime_object</span><span class="nt">()</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/_libs/tslib.pyx</span> in <span class="ni">pandas._libs.tslib._array_to_datetime_object</span><span class="nt">()</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/_libs/tslibs/parsing.pyx</span> in <span class="ni">pandas._libs.tslibs.parsing.parse_datetime_string</span><span class="nt">()</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/dateutil/parser/_parser.py</span> in <span class="ni">parse</span><span class="nt">(timestr, parserinfo, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1366</span>         <span class="k">return</span> <span class="n">parser</span><span class="p">(</span><span class="n">parserinfo</span><span class="p">)</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">timestr</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1367</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1368</span>         <span class="k">return</span> <span class="n">DEFAULTPARSER</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">timestr</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1369</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1370</span> 
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/dateutil/parser/_parser.py</span> in <span class="ni">parse</span><span class="nt">(self, timestr, default, ignoretz, tzinfos, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">644</span> 
+<span class="g g-Whitespace">    </span><span class="mi">645</span>         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">646</span>             <span class="k">raise</span> <span class="n">ParserError</span><span class="p">(</span><span class="s2">&quot;String does not contain a date: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">timestr</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">647</span> 
+<span class="g g-Whitespace">    </span><span class="mi">648</span>         <span class="k">try</span><span class="p">:</span>
+
+<span class="ne">ParserError</span>: String does not contain a date:  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;1957-09&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;1957-09-01 00:00:00&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="try-and-except">
+<h2>try and except<a class="headerlink" href="#try-and-except" title="Permalink to this headline">¶</a></h2>
+<p>We would like to find the “bad” cells in <code class="docutils literal notranslate"><span class="pre">df[&quot;Release</span> <span class="pre">Date&quot;]</span></code> using something like the following pseudocode:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">badlist</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Release Date&quot;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">raises</span> <span class="n">an</span> <span class="n">error</span><span class="p">:</span>
+        <span class="n">badlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The correct way to do that does not involve an if statement.  Instead it involves <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code>.  Here we also put the “good” values into their own list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">badlist</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">goodlist</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Release Date&quot;</span><span class="p">]:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">goodlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">badlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">goodlist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;2017-12-08&#39;,
+ &#39;2021-07-09&#39;,
+ &#39;2021-05-21&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-07-23&#39;,
+ &#39;2021-03-31&#39;,
+ &#39;2021-04-09&#39;,
+ &#39;2021-05-20&#39;,
+ &#39;2021-06-04&#39;,
+ &#39;2021-03-19&#39;,
+ &#39;2020-10-01&#39;,
+ &#39;2021-05-28&#39;,
+ &#39;2021-07-09&#39;,
+ &#39;2021-03-19&#39;,
+ &#39;2021-06-04&#39;,
+ &#39;2021-05-21&#39;,
+ &#39;2021-05-21&#39;,
+ &#39;2021-04-23&#39;,
+ &#39;2021-06-24&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-07-08&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-05-21&#39;,
+ &#39;2020-08-07&#39;,
+ &#39;2020-03-20&#39;,
+ &#39;2021-05-21&#39;,
+ &#39;2021-06-24&#39;,
+ &#39;2021-07-09&#39;,
+ &#39;2021-01-15&#39;,
+ &#39;2021-01-06&#39;,
+ &#39;2021-03-05&#39;,
+ &#39;2021-07-23&#39;,
+ &#39;2021-05-21&#39;,
+ &#39;2021-04-16&#39;,
+ &#39;2019-12-13&#39;,
+ &#39;2021-04-09&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-07-09&#39;,
+ &#39;2020-11-27&#39;,
+ &#39;2021-04-29&#39;,
+ &#39;2021-05-21&#39;,
+ &#39;2021-06-18&#39;,
+ &#39;2020-11-20&#39;,
+ &#39;2020-09-16&#39;,
+ &#39;2021-05-20&#39;,
+ &#39;2021-03-26&#39;,
+ &#39;2021-07-08&#39;,
+ &#39;2021-06-15&#39;,
+ &#39;2021-05-14&#39;,
+ &#39;2021-06-30&#39;,
+ &#39;2021-04-01&#39;,
+ &#39;2021-07-30&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-05-21&#39;,
+ &#39;2021-05-15&#39;,
+ &#39;2021-06-01&#39;,
+ &#39;2021-02-14&#39;,
+ &#39;2021-06-11&#39;,
+ &#39;2021-05-05&#39;,
+ &#39;2021-06-11&#39;,
+ &#39;2021-01-15&#39;,
+ &#39;2021-05-21&#39;,
+ &#39;2021-04-23&#39;,
+ &#39;2020-03-27&#39;,
+ &#39;2021-08-13&#39;,
+ &#39;2018-02-02&#39;,
+ &#39;2013-04-19&#39;,
+ &#39;2021-07-08&#39;,
+ &#39;2019-05-17&#39;,
+ &#39;2021-07-23&#39;,
+ &#39;2021-06-02&#39;,
+ &#39;2021-03-26&#39;,
+ &#39;2021-05-13&#39;,
+ &#39;2017-12-14&#39;,
+ &#39;2021-03-19&#39;,
+ &#39;2020-12-04&#39;,
+ &#39;2021-04-23&#39;,
+ &#39;2021-02-04&#39;,
+ &#39;2019-10-17&#39;,
+ &#39;2020-11-06&#39;,
+ &#39;2021-03-05&#39;,
+ &#39;2021-06-10&#39;,
+ &#39;2021-08-13&#39;,
+ &#39;2021-01-15&#39;,
+ &#39;2020-07-03&#39;,
+ &#39;2021-02-26&#39;,
+ &#39;2019-06-03&#39;,
+ &#39;2021-07-22&#39;,
+ &#39;2019-03-07&#39;,
+ &#39;2021-02-05&#39;,
+ &#39;2020-10-30&#39;,
+ &#39;2019-09-06&#39;,
+ &#39;2021-07-16&#39;,
+ &#39;2021-04-20&#39;,
+ &#39;2021-08-12&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-04-27&#39;,
+ &#39;2021-07-08&#39;,
+ &#39;2019-11-22&#39;,
+ &#39;2020-10-01&#39;,
+ &#39;2021-06-04&#39;,
+ &#39;2021-06-16&#39;,
+ &#39;2017-06-23&#39;,
+ &#39;2020-08-14&#39;,
+ &#39;2010-10-05&#39;,
+ &#39;2020-11-20&#39;,
+ &#39;2021-04-15&#39;,
+ &#39;2021-06-03&#39;,
+ &#39;2021-07-09&#39;,
+ &#39;2018-04-19&#39;,
+ &#39;2018-12-14&#39;,
+ &#39;2019-05-24&#39;,
+ &#39;2019-11-07&#39;,
+ &#39;2021-06-04&#39;,
+ &#39;2021-06-17&#39;,
+ &#39;2017-03-03&#39;,
+ &#39;2019-06-21&#39;,
+ &#39;2021-08-13&#39;,
+ &#39;2017-03-03&#39;,
+ &#39;2021-06-21&#39;,
+ &#39;2020-11-27&#39;,
+ &#39;2020-04-17&#39;,
+ &#39;2020-03-20&#39;,
+ &#39;2020-04-17&#39;,
+ &#39;2014-01-01&#39;,
+ &#39;2014-09-09&#39;,
+ &#39;1991-09-26&#39;,
+ &#39;2021-05-21&#39;,
+ &#39;2015-10-30&#39;,
+ &#39;2021-06-01&#39;,
+ &#39;2021-05-07&#39;,
+ &#39;2021-06-11&#39;,
+ &#39;2013-09-17&#39;,
+ &#39;2021-04-30&#39;,
+ &#39;2014-09-19&#39;,
+ &#39;2021-01-08&#39;,
+ &#39;2021-06-19&#39;,
+ &#39;2021-02-05&#39;,
+ &#39;2020-11-05&#39;,
+ &#39;2021-07-21&#39;,
+ &#39;1975-11-21&#39;,
+ &#39;2020-12-10&#39;,
+ &#39;2020-10-30&#39;,
+ &#39;2021-01-15&#39;,
+ &#39;2021-01-08&#39;,
+ &#39;2021-07-14&#39;,
+ &#39;2018-10-05&#39;,
+ &#39;2021-05-28&#39;,
+ &#39;2021-04-29&#39;,
+ &#39;2014-01-01&#39;,
+ &#39;2000-07-10&#39;,
+ &#39;2021-07-13&#39;,
+ &#39;2021-06-01&#39;,
+ &#39;2013-01-01&#39;,
+ &#39;2021-02-26&#39;,
+ &#39;2021-08-13&#39;,
+ &#39;2020-07-03&#39;,
+ &#39;2014&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-06-18&#39;,
+ &#39;2018-12-10&#39;,
+ &#39;2021-04-02&#39;,
+ &#39;2021-08-13&#39;,
+ &#39;2021-02-12&#39;,
+ &#39;2020-07-03&#39;,
+ &#39;2021-05-21&#39;,
+ &#39;2020-08-07&#39;,
+ &#39;2004-06-15&#39;,
+ &#39;1983-06-17&#39;,
+ &#39;1977-02-04&#39;,
+ &#39;2016-10-28&#39;,
+ &#39;2021-07-22&#39;,
+ &#39;2021-07-16&#39;,
+ &#39;2021-07-16&#39;,
+ &#39;2020-02-08&#39;,
+ &#39;2021-05-21&#39;,
+ &#39;1980-06-27&#39;,
+ &#39;2016-05-06&#39;,
+ &#39;2019-12-13&#39;,
+ &#39;2021-06-10&#39;,
+ &#39;2021-06-04&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2013-08-30&#39;,
+ &#39;2020-05-15&#39;,
+ &#39;2019-07-26&#39;,
+ &#39;2021-01-07&#39;,
+ &#39;2015-08-28&#39;,
+ &#39;2020-12-25&#39;,
+ &#39;2021-07-23&#39;,
+ &#39;2021-07-06&#39;,
+ &#39;2019-02-08&#39;,
+ &#39;2020-12-04&#39;,
+ &#39;2021-02-25&#39;,
+ &#39;2019-12-19&#39;,
+ &#39;2021-07-18&#39;,
+ &#39;2021-06-04&#39;,
+ &#39;2021-07-22&#39;,
+ &#39;2000-05-23&#39;,
+ &#39;2021-07-31&#39;,
+ &#39;2021-07-31&#39;,
+ &#39;2021-07-16&#39;,
+ &#39;2021-07-31&#39;,
+ &#39;2021-07-31&#39;,
+ &#39;2021-06-18&#39;,
+ &#39;2021-07-31&#39;,
+ &#39;2021-07-31&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-06-24&#39;,
+ &#39;2021-04-22&#39;,
+ &#39;2021-07-31&#39;,
+ &#39;2021-01-28&#39;,
+ &#39;2021-06-17&#39;,
+ &#39;2019-07-26&#39;,
+ &#39;2021-08-12&#39;,
+ &#39;2021-07-16&#39;,
+ &#39;2021-07-02&#39;,
+ &#39;2021-04-09&#39;,
+ &#39;2021-05-13&#39;,
+ &#39;2021-03-12&#39;,
+ &#39;2021-02-11&#39;,
+ &#39;2020-11-20&#39;,
+ &#39;2021-07-09&#39;,
+ &#39;2021-03-12&#39;,
+ &#39;2021-07-09&#39;,
+ &#39;2021-05-21&#39;,
+ &#39;2021-05-26&#39;,
+ &#39;2021-06-11&#39;,
+ &#39;2021-07-09&#39;,
+ &#39;2021-07-09&#39;,
+ &#39;2021-03-18&#39;,
+ &#39;2021-03-27&#39;,
+ &#39;2021-03-05&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2016-07-29&#39;,
+ &#39;1995&#39;,
+ &#39;2021-07-01&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-07-02&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-06-10&#39;,
+ &#39;2021-04-30&#39;,
+ &#39;2021-04-23&#39;,
+ &#39;2021-06-10&#39;,
+ &#39;2021-07-30&#39;,
+ &#39;2021-07-01&#39;,
+ &#39;2020-08-20&#39;,
+ &#39;2021-01-29&#39;,
+ &#39;2020-11-20&#39;,
+ &#39;2011-11-11&#39;,
+ &#39;2020-10-22&#39;,
+ &#39;2021-05-13&#39;,
+ &#39;2021-06-09&#39;,
+ &#39;2013-09-09&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-06-11&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-06-25&#39;,
+ &#39;2021-06-11&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2020-06-11&#39;,
+ &#39;2021-06-18&#39;,
+ &#39;2020-07-31&#39;,
+ &#39;2021-06-17&#39;,
+ &#39;2021-06-04&#39;,
+ &#39;2021-05-14&#39;,
+ &#39;2021-05-14&#39;,
+ &#39;2017-08-25&#39;,
+ &#39;2021-06-11&#39;,
+ &#39;2019-12-06&#39;,
+ &#39;2021-01-21&#39;,
+ &#39;2012-10-09&#39;,
+ &#39;2021-08-13&#39;,
+ &#39;2020-09-25&#39;,
+ &#39;2010-10-05&#39;,
+ &#39;2019-10-04&#39;,
+ &#39;2020-03-27&#39;,
+ &#39;2020-08-14&#39;,
+ &#39;2021-05-13&#39;,
+ &#39;2021-02-03&#39;,
+ &#39;2000-10-24&#39;,
+ &#39;2014-12-09&#39;,
+ &#39;2018-08-03&#39;,
+ &#39;2017-04-07&#39;,
+ &#39;2021-04-16&#39;,
+ &#39;2021-05-14&#39;,
+ &#39;2021-05-21&#39;,
+ &#39;2021-06-11&#39;,
+ &#39;2021-06-11&#39;,
+ &#39;2021-06-11&#39;,
+ &#39;2020-09-18&#39;,
+ &#39;2021-06-11&#39;,
+ &#39;2020-11-02&#39;,
+ &#39;2021-06-11&#39;,
+ &#39;2021-06-11&#39;,
+ &#39;2021-08-13&#39;,
+ &#39;2020-11-27&#39;,
+ &#39;2021-04-09&#39;,
+ &#39;2021-08-13&#39;,
+ &#39;2021-05-21&#39;,
+ &#39;2021-06-11&#39;,
+ &#39;2020-05-22&#39;,
+ &#39;2021-06-04&#39;,
+ &#39;2021-07-16&#39;,
+ &#39;2021-06-04&#39;,
+ &#39;2021-05-31&#39;,
+ &#39;2021-05-14&#39;,
+ &#39;2021-05-06&#39;,
+ &#39;2021-04-16&#39;,
+ &#39;2020-10-08&#39;,
+ &#39;2019-12-13&#39;,
+ &#39;2021-03-19&#39;,
+ &#39;2021-08-13&#39;,
+ &#39;2021-01-15&#39;,
+ &#39;2021-05-28&#39;,
+ &#39;2020-12-18&#39;,
+ &#39;2018-12-10&#39;,
+ &#39;2021-05-28&#39;,
+ &#39;2019-04-12&#39;,
+ &#39;2021-01-22&#39;,
+ &#39;2020-01-17&#39;,
+ &#39;2020-02-07&#39;,
+ &#39;2011-01-01&#39;,
+ &#39;2020-09-18&#39;,
+ &#39;2021-04-02&#39;,
+ &#39;2021-05-14&#39;,
+ &#39;2021-06-04&#39;,
+ &#39;2021-04-01&#39;,
+ &#39;2020-11-06&#39;,
+ &#39;2021-05-21&#39;,
+ &#39;2021-05-21&#39;,
+ &#39;2021-05-14&#39;,
+ &#39;2021-05-14&#39;,
+ &#39;2021-01-21&#39;,
+ &#39;2021-03-10&#39;,
+ &#39;2021-04-30&#39;,
+ &#39;2021-05-14&#39;,
+ &#39;2021-03-05&#39;,
+ &#39;2021-04-30&#39;,
+ &#39;2020-02-14&#39;,
+ &#39;2021-03-10&#39;,
+ &#39;2021-04-02&#39;,
+ &#39;2021-05-21&#39;,
+ &#39;2021-03-13&#39;,
+ &#39;2021-05-21&#39;,
+ &#39;2021-05-14&#39;,
+ &#39;2021-05-14&#39;,
+ &#39;2021-05-14&#39;,
+ &#39;2021-05-14&#39;,
+ &#39;2021-05-14&#39;,
+ &#39;2021-05-14&#39;,
+ &#39;2021-04-30&#39;,
+ &#39;2021-04-28&#39;,
+ &#39;2021-03-11&#39;,
+ &#39;2012-04-30&#39;,
+ &#39;2019-12-13&#39;,
+ &#39;2020-12-15&#39;,
+ &#39;2020-11-20&#39;,
+ &#39;2021-08-09&#39;,
+ &#39;2020-10-16&#39;,
+ &#39;2005-02-22&#39;,
+ &#39;2019-10-17&#39;,
+ &#39;2021-04-30&#39;,
+ &#39;2021-04-22&#39;,
+ &#39;2021-08-13&#39;,
+ &#39;2021-05-04&#39;,
+ &#39;2021-03-10&#39;,
+ &#39;2020-11-13&#39;,
+ &#39;2020-07-17&#39;,
+ &#39;2020-01-10&#39;,
+ &#39;2021-05-13&#39;,
+ &#39;2020-07-10&#39;,
+ &#39;2021-02-08&#39;,
+ &#39;2021-01-22&#39;,
+ &#39;2021-03-01&#39;,
+ &#39;2020-07-10&#39;,
+ &#39;2019-03-08&#39;,
+ &#39;2021-04-22&#39;,
+ &#39;2020-08-25&#39;,
+ &#39;2021-04-30&#39;,
+ &#39;2021-04-29&#39;,
+ &#39;2020-07-17&#39;,
+ &#39;2021-04-30&#39;,
+ &#39;2021-05-21&#39;,
+ &#39;2021-03-12&#39;,
+ &#39;2021-04-09&#39;,
+ &#39;2021-08-13&#39;,
+ &#39;2021-04-09&#39;,
+ &#39;2021-04-02&#39;,
+ &#39;2020-11-06&#39;,
+ &#39;2021-04-02&#39;,
+ &#39;2020-09-23&#39;,
+ &#39;2021-03-19&#39;,
+ &#39;2021-04-23&#39;,
+ &#39;2021-01-15&#39;,
+ &#39;2020-04-24&#39;,
+ &#39;2020-10-15&#39;,
+ &#39;2016-10-28&#39;,
+ &#39;2020-11-20&#39;,
+ &#39;2020-03-20&#39;,
+ &#39;2018-03-16&#39;,
+ &#39;2021-03-26&#39;,
+ &#39;2020-08-21&#39;,
+ &#39;2012-12-07&#39;,
+ &#39;2021-08-12&#39;,
+ &#39;2015-05-15&#39;,
+ &#39;2021-04-16&#39;,
+ &#39;2021-04-16&#39;,
+ &#39;2021-04-09&#39;,
+ &#39;2020-11-12&#39;,
+ &#39;2021-02-19&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2013-09-09&#39;,
+ &#39;2021-08-13&#39;,
+ &#39;2019-06-28&#39;,
+ &#39;2021-04-09&#39;,
+ &#39;2021-04-09&#39;,
+ &#39;2007-06-12&#39;,
+ &#39;2021-04-09&#39;,
+ &#39;2021-04-09&#39;,
+ &#39;2021-03-26&#39;,
+ &#39;2021-04-09&#39;,
+ &#39;2021-04-09&#39;,
+ &#39;2021-04-09&#39;,
+ &#39;2021-04-09&#39;,
+ &#39;1998-05-01&#39;,
+ &#39;2021-04-09&#39;,
+ &#39;2021-04-09&#39;,
+ &#39;2021-04-09&#39;,
+ &#39;2021-08-09&#39;,
+ &#39;2020-09-04&#39;,
+ &#39;2021-04-09&#39;,
+ &#39;2021-04-09&#39;,
+ &#39;2021-04-01&#39;,
+ &#39;2021-03-26&#39;,
+ &#39;2021-03-12&#39;,
+ &#39;2021-02-04&#39;,
+ &#39;2020-07-20&#39;,
+ &#39;2019-10-04&#39;,
+ &#39;2020-07-22&#39;,
+ &#39;2021-03-19&#39;,
+ &#39;2020-05-08&#39;,
+ &#39;2008-09-23&#39;,
+ &#39;2020-11-26&#39;,
+ &#39;2021-03-04&#39;,
+ &#39;2012-01-01&#39;,
+ &#39;2021-03-19&#39;,
+ &#39;2021-03-19&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;1985-06-01&#39;,
+ &#39;2020-11-25&#39;,
+ &#39;2021-03-19&#39;,
+ &#39;2021-03-19&#39;,
+ &#39;2021-03-19&#39;,
+ &#39;2019-11-07&#39;,
+ &#39;2020-09-04&#39;,
+ &#39;2021-03-19&#39;,
+ &#39;2021-01-12&#39;,
+ &#39;2021-03-05&#39;,
+ &#39;2020-11-26&#39;,
+ &#39;2020-11-20&#39;,
+ &#39;2021-03-19&#39;,
+ &#39;2016-11-25&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2020-11-13&#39;,
+ &#39;2021-03-19&#39;,
+ &#39;2010-01-01&#39;,
+ &#39;2021-03-19&#39;,
+ &#39;2020-11-20&#39;,
+ &#39;2021-03-19&#39;,
+ &#39;2020-08-21&#39;,
+ &#39;2021-01-18&#39;,
+ &#39;2020-09-21&#39;,
+ &#39;2016-02-05&#39;,
+ &#39;2020-11-20&#39;,
+ &#39;2021-03-12&#39;,
+ &#39;2021-03-12&#39;,
+ &#39;2021-03-04&#39;,
+ &#39;2018-11-01&#39;,
+ &#39;2021-03-12&#39;,
+ &#39;2020-06-12&#39;,
+ &#39;2020-10-16&#39;,
+ &#39;2019-11-07&#39;,
+ &#39;2018-03-16&#39;,
+ &#39;2015-07-17&#39;,
+ &#39;2016-11-25&#39;,
+ &#39;2020-07-03&#39;,
+ &#39;2019-10-04&#39;,
+ &#39;2019-06-14&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2021-03-11&#39;,
+ &#39;2021-08-13&#39;,
+ &#39;2021-02-26&#39;,
+ &#39;2021-03-05&#39;,
+ &#39;2021-03-03&#39;,
+ &#39;2021-01-22&#39;,
+ &#39;2021-03-04&#39;,
+ &#39;2021-03-04&#39;,
+ &#39;2020-09-02&#39;,
+ &#39;2020-05-08&#39;,
+ &#39;2015&#39;,
+ &#39;2015-10-16&#39;,
+ &#39;2020-03-20&#39;,
+ &#39;2021-02-25&#39;,
+ &#39;2021-02-19&#39;,
+ &#39;2021-02-26&#39;,
+ &#39;2020-10-23&#39;,
+ &#39;2020-08-14&#39;,
+ &#39;2019-10-10&#39;,
+ &#39;2018-04-27&#39;,
+ &#39;2021-02-26&#39;,
+ &#39;2018-10-04&#39;,
+ &#39;2020-11-27&#39;,
+ &#39;2020-02-14&#39;,
+ &#39;2019-08-02&#39;,
+ &#39;2014-06-21&#39;,
+ &#39;2021-02-26&#39;,
+ &#39;2021-02-18&#39;,
+ &#39;2021-08-13&#39;,
+ &#39;2021-01-22&#39;,
+ &#39;2020-10-22&#39;,
+ &#39;2020-11-06&#39;,
+ &#39;2021-01-21&#39;,
+ &#39;2020-11-13&#39;,
+ &#39;2020-09-04&#39;,
+ &#39;2020-10-30&#39;,
+ &#39;2019-05-10&#39;,
+ &#39;2021-08-12&#39;,
+ &#39;2020-11-27&#39;,
+ &#39;2020-11-05&#39;,
+ &#39;2020-07-09&#39;,
+ &#39;2020-12-17&#39;,
+ &#39;2018-03-16&#39;,
+ &#39;2014-06-21&#39;,
+ &#39;2020-04-03&#39;,
+ &#39;2015-08-28&#39;,
+ &#39;2019-11-26&#39;,
+ &#39;1995&#39;,
+ &#39;2017-08-25&#39;,
+ &#39;2021-01-15&#39;,
+ &#39;2021-01-21&#39;,
+ &#39;2021-02-04&#39;,
+ &#39;2015-08-28&#39;,
+ &#39;2021-01-29&#39;,
+ &#39;2018-03-30&#39;,
+ &#39;2020-08-14&#39;,
+ &#39;2021-02-05&#39;,
+ &#39;2013-04-01&#39;,
+ &#39;2021-01-28&#39;,
+ &#39;2020-05-19&#39;,
+ &#39;2020-03-20&#39;,
+ &#39;2020-10-30&#39;,
+ &#39;2018-06-29&#39;,
+ &#39;2020-11-20&#39;,
+ &#39;2020-04-03&#39;,
+ &#39;2021-01-14&#39;,
+ &#39;2021-01-29&#39;,
+ &#39;2021-01-08&#39;,
+ &#39;2019-11-27&#39;,
+ &#39;2020-07-09&#39;,
+ &#39;2021-01-08&#39;,
+ &#39;2020-04-24&#39;,
+ &#39;2021-01-22&#39;,
+ &#39;2020-11-07&#39;,
+ &#39;2020-11-20&#39;,
+ &#39;2021-03-12&#39;,
+ &#39;2020-12-09&#39;,
+ &#39;2020-09-17&#39;,
+ &#39;2020-10-26&#39;,
+ &#39;2020-11-13&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2020-05-08&#39;,
+ &#39;2020-12-08&#39;,
+ &#39;2021-01-15&#39;,
+ &#39;2021-08-11&#39;,
+ &#39;2020-06-19&#39;,
+ &#39;2020-09-18&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2020-06-11&#39;,
+ &#39;2020-06-05&#39;,
+ &#39;2021-01-08&#39;,
+ &#39;2021-01-08&#39;,
+ &#39;2021-01-08&#39;,
+ &#39;2020-11-27&#39;,
+ &#39;2020-10-31&#39;,
+ &#39;2020-07-03&#39;,
+ &#39;2021-01-08&#39;,
+ &#39;2021-01-08&#39;,
+ &#39;2020-04-17&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2020-05-01&#39;,
+ &#39;2020-10-29&#39;,
+ &#39;2021-01-01&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2019-01-06&#39;,
+ &#39;2020-10-16&#39;,
+ &#39;2018-08-17&#39;,
+ &#39;1978-11-10&#39;,
+ &#39;2020-03-19&#39;,
+ &#39;2020-05-29&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2019-10-11&#39;,
+ &#39;2020-10-26&#39;,
+ &#39;2020-09-25&#39;,
+ &#39;1994-11-01&#39;,
+ &#39;1984-11-29&#39;,
+ &#39;2014-11-24&#39;,
+ &#39;1964-10-19&#39;,
+ &#39;1957-12-02&#39;,
+ &#39;2012-11-09&#39;,
+ &#39;1963-11-24&#39;,
+ &#39;2013-10-29&#39;,
+ &#39;2002-09-24&#39;,
+ &#39;1959-01-01&#39;,
+ &#39;1994-11-08&#39;,
+ &#39;2011-01-01&#39;,
+ &#39;1963&#39;,
+ &#39;2004-01-01&#39;,
+ &#39;1980-05-16&#39;,
+ &#39;2012-11-09&#39;,
+ &#39;2010-10-05&#39;,
+ &#39;1962&#39;,
+ &#39;1942-01-01&#39;,
+ &#39;2020-12-25&#39;,
+ &#39;1965-01-01&#39;,
+ &#39;1988-09-05&#39;,
+ &#39;1991-11-25&#39;,
+ &#39;1957-10-15&#39;,
+ &#39;2021-08-06&#39;,
+ &#39;2021-08-06&#39;,
+ &#39;2010-11-30&#39;,
+ &#39;1999-08-20&#39;,
+ &#39;1963&#39;,
+ &#39;1973-10-05&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2019-12-13&#39;,
+ &#39;2020-11-13&#39;,
+ &#39;1983-11-01&#39;,
+ &#39;2016-12-16&#39;,
+ &#39;2014-12-05&#39;,
+ &#39;2018-11-01&#39;,
+ &#39;2000-11-14&#39;,
+ &#39;2016-10-28&#39;,
+ &#39;2019-11-08&#39;,
+ &#39;2020-10-15&#39;,
+ &#39;2017-10-06&#39;,
+ &#39;2020-12-18&#39;,
+ &#39;2021-08-06&#39;,
+ &#39;2012-11-09&#39;,
+ &#39;2014-10-10&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;1970-10-15&#39;,
+ &#39;2002&#39;,
+ &#39;1990&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2021-08-06&#39;,
+ &#39;2020-12-07&#39;,
+ &#39;1959-01-01&#39;,
+ &#39;1981&#39;,
+ &#39;2013-12-02&#39;,
+ &#39;2021-08-06&#39;,
+ &#39;2020-10-30&#39;,
+ &#39;2015-01-09&#39;,
+ &#39;1959-01-01&#39;,
+ &#39;1957-09&#39;,
+ &#39;1957-09&#39;,
+ &#39;2020-12-04&#39;,
+ &#39;2006-01-01&#39;,
+ &#39;2017-12-06&#39;,
+ &#39;1990-04-03&#39;,
+ &#39;2014-12-09&#39;,
+ &#39;2019-12-06&#39;,
+ &#39;2018-11-15&#39;,
+ &#39;1998-10-30&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;1994&#39;,
+ &#39;2020-10-30&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2020-11-27&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2020-12-11&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2020-12-02&#39;,
+ &#39;2020-12-04&#39;,
+ &#39;2020-12-04&#39;,
+ &#39;2020-06-24&#39;,
+ &#39;2020-11-27&#39;,
+ &#39;2020-12-03&#39;,
+ &#39;2020-11-27&#39;,
+ &#39;2020-11-20&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2020-02-29&#39;,
+ &#39;2020-11-27&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2020-12-04&#39;,
+ &#39;2020-11-06&#39;,
+ &#39;2020-11-27&#39;,
+ &#39;2020-11-27&#39;,
+ &#39;2020-11-27&#39;,
+ &#39;2020-11-27&#39;,
+ &#39;2020-11-27&#39;,
+ &#39;2020-11-27&#39;,
+ &#39;2020-11-27&#39;,
+ &#39;1980-05-16&#39;,
+ &#39;2020-11-20&#39;,
+ &#39;2020-11-20&#39;,
+ &#39;2020-11-20&#39;,
+ &#39;2020-11-20&#39;,
+ &#39;2020-09-29&#39;,
+ &#39;2020-11-27&#39;,
+ &#39;2020-11-27&#39;,
+ &#39;2020-05-09&#39;,
+ &#39;2020-11-20&#39;,
+ &#39;2020-12-18&#39;,
+ &#39;2020-08-21&#39;,
+ &#39;2020-11-13&#39;,
+ &#39;2020-12-18&#39;,
+ &#39;2020-01-24&#39;,
+ &#39;2020-12-18&#39;,
+ &#39;2020-06-12&#39;,
+ &#39;2020-11-06&#39;,
+ &#39;2020-07-10&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2013-03-15&#39;,
+ &#39;2020-12-18&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2019-03-22&#39;,
+ &#39;2019-10-04&#39;,
+ &#39;2020-03-27&#39;,
+ &#39;2020-05-01&#39;,
+ &#39;2020-04-21&#39;,
+ &#39;2020-11-13&#39;,
+ &#39;2020-07-10&#39;,
+ &#39;2020-10-28&#39;,
+ &#39;2020-09-18&#39;,
+ &#39;2020-11-13&#39;,
+ &#39;2020-03-13&#39;,
+ &#39;2020-10-30&#39;,
+ &#39;2020-10-23&#39;,
+ &#39;2020-11-06&#39;,
+ &#39;2020-09-15&#39;,
+ &#39;2020-11-13&#39;,
+ &#39;2006-01-01&#39;,
+ &#39;2020-07-16&#39;,
+ &#39;2020-10-30&#39;,
+ &#39;2019-10-04&#39;,
+ &#39;2020-05-29&#39;,
+ &#39;2018-10-08&#39;,
+ &#39;2020-12-02&#39;,
+ &#39;2020-10-23&#39;,
+ &#39;2018-10-26&#39;,
+ &#39;2020-09-11&#39;,
+ &#39;2021-07-30&#39;,
+ &#39;2020-08-14&#39;,
+ &#39;2020-10-30&#39;,
+ &#39;2020-10-30&#39;,
+ &#39;2020-10-30&#39;,
+ &#39;2020-11-06&#39;,
+ &#39;2020-08-20&#39;,
+ &#39;2020-08-21&#39;,
+ &#39;2020-08-17&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2020-07-03&#39;,
+ &#39;2020-10-30&#39;,
+ &#39;2020-10-30&#39;,
+ &#39;2019-06-28&#39;,
+ &#39;2020-03-26&#39;,
+ &#39;2020-03-13&#39;,
+ &#39;2021-08-09&#39;,
+ &#39;2020-10-30&#39;,
+ &#39;2020-10-30&#39;,
+ &#39;2020-10-30&#39;,
+ &#39;2017-09-27&#39;,
+ &#39;2019-01-11&#39;,
+ &#39;2020-10-29&#39;,
+ &#39;2020-10-30&#39;,
+ &#39;1979-07-27&#39;,
+ &#39;2020-09-18&#39;,
+ &#39;2020-08-21&#39;,
+ &#39;2020-09-04&#39;,
+ &#39;2020-09-25&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2020-09-04&#39;,
+ &#39;2019-02-08&#39;,
+ &#39;2020-04-10&#39;,
+ &#39;2020-10-13&#39;,
+ &#39;2021-08-13&#39;,
+ &#39;2020-04-24&#39;,
+ &#39;2020-07-23&#39;,
+ &#39;2013-02-17&#39;,
+ &#39;2015-08-14&#39;,
+ &#39;2020-05-29&#39;,
+ &#39;2011-01-24&#39;,
+ &#39;2019-11-08&#39;,
+ &#39;2020-10-09&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2020-10-16&#39;,
+ &#39;2020-08-15&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2020-10-09&#39;,
+ &#39;2020-05-28&#39;,
+ &#39;2020-06-10&#39;,
+ &#39;2020-02-29&#39;,
+ &#39;2021-03-19&#39;,
+ &#39;2020-05-22&#39;,
+ &#39;2020-03-26&#39;,
+ &#39;2020-05-15&#39;,
+ &#39;2019-05-17&#39;,
+ &#39;2021-08-03&#39;,
+ &#39;2019-11-15&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2020-09-25&#39;,
+ &#39;2020-09-25&#39;,
+ &#39;2020-06-30&#39;,
+ &#39;2020-06-26&#39;,
+ &#39;2019-06-28&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2020-09-30&#39;,
+ &#39;2020-09-24&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2020-08-20&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2020-04-16&#39;,
+ &#39;2020-09-25&#39;,
+ &#39;2020-08-06&#39;,
+ &#39;2020-09-25&#39;,
+ &#39;2020-09-25&#39;,
+ &#39;2020-09-25&#39;,
+ &#39;2020-09-25&#39;,
+ &#39;2019-06-14&#39;,
+ &#39;2019-06-21&#39;,
+ &#39;2020-06-17&#39;,
+ &#39;2020-09-25&#39;,
+ &#39;2020-09-25&#39;,
+ &#39;2020-08-28&#39;,
+ &#39;2020-07-10&#39;,
+ &#39;2020-09-25&#39;,
+ &#39;2020-07-10&#39;,
+ &#39;2020-06-24&#39;,
+ &#39;2012&#39;,
+ &#39;2020-08-29&#39;,
+ &#39;1978-11-23&#39;,
+ &#39;2020-04-24&#39;,
+ &#39;2020-05-15&#39;,
+ &#39;2021-04-28&#39;,
+ &#39;2021-04-28&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2020-07-10&#39;,
+ &#39;2020-07-10&#39;,
+ &#39;2020-09-18&#39;,
+ &#39;2020-05-01&#39;,
+ &#39;2020-05-08&#39;,
+ &#39;2020-03-27&#39;,
+ &#39;2020-09-18&#39;,
+ &#39;2020-09-18&#39;,
+ &#39;2020-09-18&#39;,
+ &#39;2020-09-04&#39;,
+ &#39;2020-09-04&#39;,
+ &#39;2021-06-11&#39;,
+ &#39;2020-09-10&#39;,
+ &#39;2020-09-10&#39;,
+ &#39;2019-11-08&#39;,
+ &#39;2020-05-01&#39;,
+ &#39;2020-09-10&#39;,
+ &#39;2009-01-01&#39;,
+ &#39;2020-01-23&#39;,
+ &#39;2020-08-20&#39;,
+ &#39;2020-01-10&#39;,
+ &#39;2020-04-29&#39;,
+ &#39;2020-09-04&#39;,
+ &#39;2020-08-28&#39;,
+ &#39;2020-08-17&#39;,
+ &#39;2020-08-22&#39;,
+ &#39;2020-04-23&#39;,
+ &#39;2020-06-19&#39;,
+ &#39;2020-08-27&#39;,
+ &#39;2020-06-26&#39;,
+ &#39;2019-08-28&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2019-10-12&#39;,
+ &#39;2020-08-07&#39;,
+ &#39;2020-07-17&#39;,
+ &#39;2021-04-23&#39;,
+ &#39;2020-05-15&#39;,
+ &#39;2020-08-27&#39;,
+ &#39;2019-12-27&#39;,
+ &#39;2020-07-16&#39;,
+ &#39;2020-05-29&#39;,
+ &#39;2020-05-28&#39;,
+ &#39;2020-08-07&#39;,
+ &#39;2019-10-04&#39;,
+ &#39;2020-05-01&#39;,
+ &#39;2020-08-14&#39;,
+ &#39;2020-09-17&#39;,
+ &#39;2020-02-21&#39;,
+ &#39;2020-07-30&#39;,
+ &#39;2020-07-10&#39;,
+ &#39;2021-08-09&#39;,
+ &#39;2020-08-21&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2020-08-19&#39;,
+ &#39;2019-06-28&#39;,
+ &#39;2020-07-14&#39;,
+ &#39;2008-05-12&#39;,
+ &#39;2018-06-15&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2020-08-13&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2020-04-03&#39;,
+ &#39;2020-05-15&#39;,
+ &#39;2020-03-04&#39;,
+ &#39;2020-07-20&#39;,
+ &#39;2020-03-27&#39;,
+ &#39;2019-03-15&#39;,
+ &#39;2020-07-03&#39;,
+ &#39;2020-11-13&#39;,
+ &#39;2020-05-08&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2019-06-28&#39;,
+ &#39;2020-02-07&#39;,
+ &#39;2020-03-19&#39;,
+ &#39;2019-09-06&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2020-08-04&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2020-08-07&#39;,
+ &#39;2020-08-02&#39;,
+ &#39;2020-07-31&#39;,
+ &#39;2020-04-24&#39;,
+ &#39;2020-03-06&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2020-09-25&#39;,
+ &#39;2020-07-31&#39;,
+ &#39;2020-09-10&#39;,
+ &#39;2020-07-31&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2020-07-10&#39;,
+ &#39;2020-07-30&#39;,
+ &#39;2020-03-19&#39;,
+ &#39;2020-05-15&#39;,
+ &#39;2020-07-09&#39;,
+ &#39;2020-10-22&#39;,
+ &#39;2020-01-09&#39;,
+ &#39;2021-08-13&#39;,
+ &#39;2020-07-22&#39;,
+ &#39;2020-07-23&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2020-07-10&#39;,
+ &#39;2012-05-25&#39;,
+ &#39;2020-10-02&#39;,
+ &#39;2020-07-10&#39;,
+ &#39;2020-07-10&#39;,
+ &#39;2020-07-10&#39;,
+ &#39;2020-01-12&#39;,
+ &#39;2020-06-12&#39;,
+ &#39;2013-11-25&#39;,
+ &#39;2020-07-24&#39;,
+ &#39;2020-07-10&#39;,
+ &#39;2020-07-10&#39;,
+ &#39;2020-07-10&#39;,
+ &#39;2020-07-10&#39;,
+ ...]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">badlist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39; &#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="string-slicing-example">
+<h2>String slicing example<a class="headerlink" href="#string-slicing-example" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Hello there how are you?&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ello&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hloteehwaeyu&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="function-practice">
+<h2>Function practice<a class="headerlink" href="#function-practice" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Write a function <code class="docutils literal notranslate"><span class="pre">f(s)</span></code> which takes as input a string of the form “????-04-??” and returns “April”, a string of the form “????-05-??” and returns “May”, and for all other input strings returns “Neither”.  (Hint.  First check if the length of the string is incorrect.  Try to make your code <em>DRY</em>.)</p></li>
+<li><p>Apply this function <code class="docutils literal notranslate"><span class="pre">f</span></code> to every entry in the “Release Date” column using <code class="docutils literal notranslate"><span class="pre">map</span></code>.</p></li>
+<li><p>Put the resulting pandas Series in a new column called “SpringMonth”.  This is an example of <em>Feature Engineering</em>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="n">sub</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Neither&quot;</span>
+    <span class="k">elif</span> <span class="n">sub</span> <span class="o">==</span> <span class="s2">&quot;-04-&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;April&quot;</span>
+    <span class="k">elif</span> <span class="n">sub</span> <span class="o">==</span> <span class="s2">&quot;-05-&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;May&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Neither&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="s2">&quot;2022-04-13&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;April&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Release Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       Neither
+1       Neither
+2           May
+3       Neither
+4       Neither
+         ...   
+1551    Neither
+1552    Neither
+1553    Neither
+1554    Neither
+1555    Neither
+Name: Release Date, Length: 1556, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Creating a new column like this is what’s called <em>feature engineering</em>.  The hope is that the new column will be easier to work with.  The new column appears all the way at the right of the DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;SpringMonth&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Release Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Index</th>
+      <th>Highest Charting Position</th>
+      <th>Number of Times Charted</th>
+      <th>Week of Highest Charting</th>
+      <th>Song Name</th>
+      <th>Streams</th>
+      <th>Artist</th>
+      <th>Artist Followers</th>
+      <th>Song ID</th>
+      <th>Genre</th>
+      <th>...</th>
+      <th>Energy</th>
+      <th>Loudness</th>
+      <th>Speechiness</th>
+      <th>Acousticness</th>
+      <th>Liveness</th>
+      <th>Tempo</th>
+      <th>Duration (ms)</th>
+      <th>Valence</th>
+      <th>Chord</th>
+      <th>SpringMonth</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>8</td>
+      <td>2021-07-23--2021-07-30</td>
+      <td>Beggin'</td>
+      <td>48,633,449</td>
+      <td>Måneskin</td>
+      <td>3377762</td>
+      <td>3Wrjm47oTz2sjIgck11l5e</td>
+      <td>['indie rock italiano', 'italian pop']</td>
+      <td>...</td>
+      <td>0.8</td>
+      <td>-4.808</td>
+      <td>0.0504</td>
+      <td>0.127</td>
+      <td>0.359</td>
+      <td>134.002</td>
+      <td>211560</td>
+      <td>0.589</td>
+      <td>B</td>
+      <td>Neither</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+      <td>2021-07-23--2021-07-30</td>
+      <td>STAY (with Justin Bieber)</td>
+      <td>47,248,719</td>
+      <td>The Kid LAROI</td>
+      <td>2230022</td>
+      <td>5HCyWlXZPP0y6Gqq8TgA20</td>
+      <td>['australian hip hop']</td>
+      <td>...</td>
+      <td>0.764</td>
+      <td>-5.484</td>
+      <td>0.0483</td>
+      <td>0.0383</td>
+      <td>0.103</td>
+      <td>169.928</td>
+      <td>141806</td>
+      <td>0.478</td>
+      <td>C#/Db</td>
+      <td>Neither</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>11</td>
+      <td>2021-06-25--2021-07-02</td>
+      <td>good 4 u</td>
+      <td>40,162,559</td>
+      <td>Olivia Rodrigo</td>
+      <td>6266514</td>
+      <td>4ZtFanR9U6ndgddUvNcjcG</td>
+      <td>['pop']</td>
+      <td>...</td>
+      <td>0.664</td>
+      <td>-5.044</td>
+      <td>0.154</td>
+      <td>0.335</td>
+      <td>0.0849</td>
+      <td>166.928</td>
+      <td>178147</td>
+      <td>0.688</td>
+      <td>A</td>
+      <td>May</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>3</td>
+      <td>5</td>
+      <td>2021-07-02--2021-07-09</td>
+      <td>Bad Habits</td>
+      <td>37,799,456</td>
+      <td>Ed Sheeran</td>
+      <td>83293380</td>
+      <td>6PQ88X9TkUIAUIZJHW2upE</td>
+      <td>['pop', 'uk pop']</td>
+      <td>...</td>
+      <td>0.897</td>
+      <td>-3.712</td>
+      <td>0.0348</td>
+      <td>0.0469</td>
+      <td>0.364</td>
+      <td>126.026</td>
+      <td>231041</td>
+      <td>0.591</td>
+      <td>B</td>
+      <td>Neither</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>5</td>
+      <td>1</td>
+      <td>2021-07-23--2021-07-30</td>
+      <td>INDUSTRY BABY (feat. Jack Harlow)</td>
+      <td>33,948,454</td>
+      <td>Lil Nas X</td>
+      <td>5473565</td>
+      <td>27NovPIUIRrOZoCHxABJwK</td>
+      <td>['lgbtq+ hip hop', 'pop rap']</td>
+      <td>...</td>
+      <td>0.704</td>
+      <td>-7.409</td>
+      <td>0.0615</td>
+      <td>0.0203</td>
+      <td>0.0501</td>
+      <td>149.995</td>
+      <td>212000</td>
+      <td>0.894</td>
+      <td>D#/Eb</td>
+      <td>Neither</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1551</th>
+      <td>1552</td>
+      <td>195</td>
+      <td>1</td>
+      <td>2019-12-27--2020-01-03</td>
+      <td>New Rules</td>
+      <td>4,630,675</td>
+      <td>Dua Lipa</td>
+      <td>27167675</td>
+      <td>2ekn2ttSfGqwhhate0LSR0</td>
+      <td>['dance pop', 'pop', 'uk pop']</td>
+      <td>...</td>
+      <td>0.7</td>
+      <td>-6.021</td>
+      <td>0.0694</td>
+      <td>0.00261</td>
+      <td>0.153</td>
+      <td>116.073</td>
+      <td>209320</td>
+      <td>0.608</td>
+      <td>A</td>
+      <td>Neither</td>
+    </tr>
+    <tr>
+      <th>1552</th>
+      <td>1553</td>
+      <td>196</td>
+      <td>1</td>
+      <td>2019-12-27--2020-01-03</td>
+      <td>Cheirosa - Ao Vivo</td>
+      <td>4,623,030</td>
+      <td>Jorge &amp; Mateus</td>
+      <td>15019109</td>
+      <td>2PWjKmjyTZeDpmOUa3a5da</td>
+      <td>['sertanejo', 'sertanejo universitario']</td>
+      <td>...</td>
+      <td>0.87</td>
+      <td>-3.123</td>
+      <td>0.0851</td>
+      <td>0.24</td>
+      <td>0.333</td>
+      <td>152.37</td>
+      <td>181930</td>
+      <td>0.714</td>
+      <td>B</td>
+      <td>Neither</td>
+    </tr>
+    <tr>
+      <th>1553</th>
+      <td>1554</td>
+      <td>197</td>
+      <td>1</td>
+      <td>2019-12-27--2020-01-03</td>
+      <td>Havana (feat. Young Thug)</td>
+      <td>4,620,876</td>
+      <td>Camila Cabello</td>
+      <td>22698747</td>
+      <td>1rfofaqEpACxVEHIZBJe6W</td>
+      <td>['dance pop', 'electropop', 'pop', 'post-teen ...</td>
+      <td>...</td>
+      <td>0.523</td>
+      <td>-4.333</td>
+      <td>0.03</td>
+      <td>0.184</td>
+      <td>0.132</td>
+      <td>104.988</td>
+      <td>217307</td>
+      <td>0.394</td>
+      <td>D</td>
+      <td>Neither</td>
+    </tr>
+    <tr>
+      <th>1554</th>
+      <td>1555</td>
+      <td>198</td>
+      <td>1</td>
+      <td>2019-12-27--2020-01-03</td>
+      <td>Surtada - Remix Brega Funk</td>
+      <td>4,607,385</td>
+      <td>Dadá Boladão, Tati Zaqui, OIK</td>
+      <td>208630</td>
+      <td>5F8ffc8KWKNawllr5WsW0r</td>
+      <td>['brega funk', 'funk carioca']</td>
+      <td>...</td>
+      <td>0.55</td>
+      <td>-7.026</td>
+      <td>0.0587</td>
+      <td>0.249</td>
+      <td>0.182</td>
+      <td>154.064</td>
+      <td>152784</td>
+      <td>0.881</td>
+      <td>F</td>
+      <td>Neither</td>
+    </tr>
+    <tr>
+      <th>1555</th>
+      <td>1556</td>
+      <td>199</td>
+      <td>1</td>
+      <td>2019-12-27--2020-01-03</td>
+      <td>Lover (Remix) [feat. Shawn Mendes]</td>
+      <td>4,595,450</td>
+      <td>Taylor Swift</td>
+      <td>42227614</td>
+      <td>3i9UVldZOE0aD0JnyfAZZ0</td>
+      <td>['pop', 'post-teen pop']</td>
+      <td>...</td>
+      <td>0.603</td>
+      <td>-7.176</td>
+      <td>0.064</td>
+      <td>0.433</td>
+      <td>0.0862</td>
+      <td>205.272</td>
+      <td>221307</td>
+      <td>0.422</td>
+      <td>G</td>
+      <td>Neither</td>
+    </tr>
+  </tbody>
+</table>
+<p>1556 rows × 24 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="release-months">
+<h2>Release months<a class="headerlink" href="#release-months" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Import the Spotify dataset again, this time specifying the missing values using the <code class="docutils literal notranslate"><span class="pre">na_values</span></code> keyword argument.</p></li>
+<li><p>Drop the rows which have missing data.  A quick way to do this is using <code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">df.dropna()</span></code>.</p></li>
+<li><p>Check: <code class="docutils literal notranslate"><span class="pre">df</span></code> should have 1545 rows and 23 columns.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/spotify_dataset.csv&quot;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1545, 23)
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Convert the “Release Date” column to datetime values, using <code class="docutils literal notranslate"><span class="pre">pd.to_datetime</span></code>.  Put the result in the same column (i.e., overwrite the current column).</p></li>
+<li><p>Check: if you evaluate <code class="docutils literal notranslate"><span class="pre">df.dtypes</span></code>, you should see that the “Release Date” column has <code class="docutils literal notranslate"><span class="pre">dtype</span></code> as <code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Release Date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Release Date&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">s</span></code> is a pandas Series with some datetime as its <code class="docutils literal notranslate"><span class="pre">dtype</span></code>, you can get the corresponding month by using the code <code class="docutils literal notranslate"><span class="pre">s.dt.month_name()</span></code>.  Use this method to insert a new column in <code class="docutils literal notranslate"><span class="pre">df</span></code> called “Release Month”.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Release Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month_name</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        December
+1            July
+2             May
+3            June
+4            July
+          ...    
+1551         June
+1552      October
+1553      January
+1554    September
+1555     November
+Name: Release Date, Length: 1545, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Week3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Week3-Tuesday.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 3 Tuesday Discussion</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Week3-Videos.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 3 Videos</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Christopher Davis<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
