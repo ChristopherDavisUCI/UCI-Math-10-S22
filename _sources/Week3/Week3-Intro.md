@@ -1,8 +1,8 @@
 # Week 3
 
-The plan for Week 3 (as of April 10th) is to cover the following topics:
-* Functions
-* `map`, `applymap`, and `apply` in pandas
+Some of the major topics covered in Week 3 were:
+* Functions (including lambda functions)
+* `map` for a pandas Series
 * Timing operations
 * Working with datetime values in pandas
 
