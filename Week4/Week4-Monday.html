@@ -1,0 +1,3017 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 4 Monday &#8212; UC Irvine Math 10 S22</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Week 4 Videos" href="Week4-Videos.html" />
+    <link rel="prev" title="Week 4" href="Week4-Intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/digitsyellow.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">UC Irvine Math 10 S22</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   UC Irvine, Math 10, Spring 2022
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week1/Week1-Intro.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Monday.html">
+     Introduction to pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Tuesday.html">
+     Week 1 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Wednesday.html">
+     for loops and ways to avoid for loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Thursday.html">
+     Week 1 Thursday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Friday.html">
+     Exploratory Data Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Videos.html">
+     Week 1 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Homework1.html">
+     Homework 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week2/Week2-Intro.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Monday.html">
+     Working with missing data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Tuesday.html">
+     Week 2 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Wednesday.html">
+     Visualization in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Videos.html">
+     Week 2 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Friday.html">
+     Plots from the Spotify dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Homework2.html">
+     Homework 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week3/Week3-Intro.html">
+   Week 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Week3-Monday.html">
+     Functions in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Week3-Tuesday.html">
+     Week 3 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Week3-Wednesday.html">
+     Working with dates in pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Week3-Videos.html">
+     Week 3 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Homework3.html">
+     Homework 3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="Week4-Intro.html">
+   Week 4
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Week 4 Monday
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Week4-Videos.html">
+     Week 4 Videos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sched.html">
+   Tentative schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasources.html">
+   Data Sources
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Week4/Week4-Monday.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ChristopherDavisUCI/UCI-Math-10-S22"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ChristopherDavisUCI/UCI-Math-10-S22/main?urlpath=tree/Week4/Week4-Monday.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#announcements">
+   Announcements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#timing-operations">
+   Timing operations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sorting-pandas-series-and-dataframes">
+   Sorting pandas Series and DataFrames
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#including-the-month">
+   Including the month
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Week 4 Monday</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#announcements">
+   Announcements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#timing-operations">
+   Timing operations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sorting-pandas-series-and-dataframes">
+   Sorting pandas Series and DataFrames
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#including-the-month">
+   Including the month
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="week-4-monday">
+<h1>Week 4 Monday<a class="headerlink" href="#week-4-monday" title="Permalink to this headline">¶</a></h1>
+<p>Today’s class is mostly meant as review, but there is some new material I want to introduce, including:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">np.count_nonzero</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sort_values</span></code></p></li>
+</ul>
+<div class="section" id="announcements">
+<h2>Announcements<a class="headerlink" href="#announcements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Videos and video quizzes are due Tuesday before discussion (different day than most weeks).  No in-class quiz this week.</p></li>
+<li><p>Midterm is Thursday during discussion.  You’re allowed to use a notecard with handwritten notes on both sides; ask Chris or Yasmeen if you need a new notecard.</p></li>
+<li><p>In discussion section on Tuesday, Yasmeen will go over some of the sample midterm.  (It’s on Canvas, on the Week 4 page.)</p></li>
+<li><p>In general, the material from this week could appear on the midterm.  (This week’s material is mostly meant as review.)  If you’re curious about whether you need to memorize/study something specific, please ask on Ed Discussion.</p></li>
+</ul>
+</div>
+<div class="section" id="timing-operations">
+<h2>Timing operations<a class="headerlink" href="#timing-operations" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/spotify_dataset.csv&quot;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Define <code class="docutils literal notranslate"><span class="pre">s</span></code> to be the pandas Series corresponding to the “Energy” column in <code class="docutils literal notranslate"><span class="pre">df</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Energy&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
+</div>
+<p>Count how many values in <code class="docutils literal notranslate"><span class="pre">s</span></code> are strictly greater than 0.7.  Try each of the following strategies.</p>
+<ul class="simple">
+<li><p>Use a pandas Boolean Series and the <code class="docutils literal notranslate"><span class="pre">sum</span></code> method.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.800
+1    0.764
+2    0.664
+3    0.897
+4    0.704
+Name: Energy, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">&gt;</span><span class="mf">0.7</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        True
+1        True
+2       False
+3        True
+4        True
+        ...  
+1551    False
+1552     True
+1553    False
+1554    False
+1555    False
+Name: Energy, Length: 1556, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">s</span><span class="o">&gt;</span><span class="mf">0.7</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>569
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Use a pandas Boolean Series and Python’s built-in <code class="docutils literal notranslate"><span class="pre">sum</span></code> function.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">s</span><span class="o">&gt;</span><span class="mf">0.7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>569
+</pre></div>
+</div>
+</div>
+</div>
+<p>Numpy’s <code class="docutils literal notranslate"><span class="pre">np.count_nonzero</span></code> function is the most efficient way I know to count elements in Python.</p>
+<ul class="simple">
+<li><p>Use a pandas Boolean Series and Numpy’s <code class="docutils literal notranslate"><span class="pre">np.count_nonzero</span></code> function.  (This function accepts many different types of inputs.  If the input is a Boolean Series, it will count how often <code class="docutils literal notranslate"><span class="pre">True</span></code> occurs.)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">s</span><span class="o">&gt;</span><span class="mf">0.7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>569
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Use a list comprehension together with <code class="docutils literal notranslate"><span class="pre">len</span></code>. (In other words, make a list containing all the values greater than 0.7, then compute the length of that list.)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">s</span> <span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span><span class="mf">0.7</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>569
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aside: recall that <code class="docutils literal notranslate"><span class="pre">if</span></code> by itself should go at the end of the list comprehension, whereas <code class="docutils literal notranslate"><span class="pre">if</span></code> together with <code class="docutils literal notranslate"><span class="pre">else</span></code> should go at the beginning.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mf">0.7</span> <span class="k">else</span> <span class="s2">&quot;christopher&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">s</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.8,
+ 0.764,
+ &#39;christopher&#39;,
+ 0.897,
+ 0.704,
+ &#39;christopher&#39;,
+ 0.701,
+ 0.718,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.825,
+ 0.819,
+ 0.741,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.825,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.73,
+ &#39;christopher&#39;,
+ 0.766,
+ &#39;christopher&#39;,
+ 0.862,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.796,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.816,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.71,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.809,
+ 0.765,
+ &#39;christopher&#39;,
+ 0.784,
+ 0.716,
+ &#39;christopher&#39;,
+ 0.711,
+ &#39;christopher&#39;,
+ 0.849,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.839,
+ 0.738,
+ 0.941,
+ 0.887,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.72,
+ &#39;christopher&#39;,
+ 0.784,
+ &#39;christopher&#39;,
+ 0.825,
+ &#39;christopher&#39;,
+ 0.793,
+ 0.782,
+ 0.807,
+ 0.77,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.706,
+ 0.899,
+ &#39;christopher&#39;,
+ 0.939,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.701,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.948,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.874,
+ 0.782,
+ 0.753,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.802,
+ 0.762,
+ 0.835,
+ 0.813,
+ 0.72,
+ 0.764,
+ 0.83,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.825,
+ &#39;christopher&#39;,
+ 0.812,
+ 0.78,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.719,
+ 0.899,
+ 0.837,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.96,
+ 0.731,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.812,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.835,
+ 0.731,
+ 0.912,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.873,
+ 0.859,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.706,
+ 0.732,
+ 0.795,
+ 0.788,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.855,
+ 0.815,
+ &#39;christopher&#39;,
+ 0.717,
+ 0.861,
+ 0.705,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.899,
+ 0.783,
+ 0.792,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.924,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.759,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.771,
+ &#39;christopher&#39;,
+ 0.76,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.805,
+ 0.766,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.878,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.767,
+ &#39;christopher&#39;,
+ 0.72,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.724,
+ &#39;christopher&#39;,
+ 0.844,
+ 0.751,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.707,
+ 0.732,
+ &#39;christopher&#39;,
+ 0.716,
+ 0.71,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.922,
+ 0.909,
+ &#39;christopher&#39;,
+ 0.889,
+ &#39;christopher&#39;,
+ 0.918,
+ 0.712,
+ 0.739,
+ &#39;christopher&#39;,
+ 0.893,
+ 0.717,
+ &#39;christopher&#39;,
+ 0.708,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.727,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.908,
+ &#39;christopher&#39;,
+ 0.795,
+ &#39;christopher&#39;,
+ 0.736,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.762,
+ &#39;christopher&#39;,
+ 0.75,
+ 0.845,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.855,
+ &#39;christopher&#39;,
+ 0.866,
+ &#39;christopher&#39;,
+ 0.712,
+ 0.814,
+ 0.862,
+ &#39;christopher&#39;,
+ 0.707,
+ &#39;christopher&#39;,
+ 0.764,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.809,
+ 0.756,
+ &#39;christopher&#39;,
+ 0.802,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.893,
+ 0.922,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.843,
+ &#39;christopher&#39;,
+ 0.729,
+ &#39;christopher&#39;,
+ 0.733,
+ &#39;christopher&#39;,
+ 0.864,
+ &#39;christopher&#39;,
+ 0.73,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.706,
+ &#39;christopher&#39;,
+ 0.934,
+ 0.719,
+ &#39;christopher&#39;,
+ 0.712,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.828,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.855,
+ &#39;christopher&#39;,
+ 0.831,
+ &#39;christopher&#39;,
+ 0.836,
+ 0.713,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.838,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.73,
+ 0.789,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.862,
+ 0.725,
+ 0.745,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.704,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.709,
+ &#39;christopher&#39;,
+ 0.856,
+ 0.89,
+ 0.793,
+ 0.867,
+ 0.955,
+ 0.737,
+ 0.814,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.929,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.749,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.759,
+ &#39;christopher&#39;,
+ 0.74,
+ &#39;christopher&#39;,
+ 0.703,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.748,
+ 0.788,
+ 0.856,
+ &#39;christopher&#39;,
+ 0.83,
+ 0.837,
+ 0.8,
+ &#39;christopher&#39;,
+ 0.744,
+ &#39;christopher&#39;,
+ 0.721,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.819,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.739,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.796,
+ 0.789,
+ 0.814,
+ &#39;christopher&#39;,
+ 0.789,
+ 0.734,
+ 0.701,
+ 0.848,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.817,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.821,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.719,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.758,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.703,
+ 0.792,
+ 0.763,
+ 0.932,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.773,
+ 0.741,
+ 0.899,
+ &#39;christopher&#39;,
+ 0.732,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.821,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.909,
+ &#39;christopher&#39;,
+ 0.891,
+ 0.771,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.711,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.922,
+ 0.823,
+ &#39;christopher&#39;,
+ 0.756,
+ 0.741,
+ &#39;christopher&#39;,
+ 0.723,
+ 0.902,
+ 0.72,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.715,
+ 0.761,
+ 0.724,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.823,
+ 0.85,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.701,
+ 0.794,
+ &#39;christopher&#39;,
+ 0.833,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.739,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.713,
+ &#39;christopher&#39;,
+ 0.741,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.922,
+ &#39;christopher&#39;,
+ 0.76,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.74,
+ 0.819,
+ &#39;christopher&#39;,
+ 0.903,
+ 0.727,
+ 0.761,
+ 0.912,
+ 0.834,
+ 0.744,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.737,
+ &#39;christopher&#39;,
+ 0.705,
+ &#39;christopher&#39;,
+ 0.828,
+ &#39;christopher&#39;,
+ 0.797,
+ &#39;christopher&#39;,
+ 0.709,
+ 0.708,
+ 0.723,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.756,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.775,
+ 0.742,
+ &#39;christopher&#39;,
+ 0.706,
+ &#39;christopher&#39;,
+ 0.788,
+ &#39;christopher&#39;,
+ 0.816,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.774,
+ 0.893,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.844,
+ 0.769,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.814,
+ &#39;christopher&#39;,
+ 0.859,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.746,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.715,
+ 0.737,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.784,
+ 0.726,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.707,
+ 0.806,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.786,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.869,
+ &#39;christopher&#39;,
+ 0.937,
+ 0.701,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.79,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.707,
+ 0.792,
+ 0.865,
+ 0.836,
+ 0.914,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.88,
+ 0.937,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.812,
+ 0.831,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.772,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.904,
+ &#39;christopher&#39;,
+ 0.876,
+ 0.776,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.759,
+ 0.925,
+ &#39;christopher&#39;,
+ 0.953,
+ &#39;christopher&#39;,
+ 0.841,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.814,
+ 0.843,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.87,
+ 0.869,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.712,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.813,
+ &#39;christopher&#39;,
+ 0.771,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.938,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.939,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.73,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.704,
+ 0.724,
+ 0.758,
+ 0.727,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.881,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.703,
+ 0.885,
+ &#39;christopher&#39;,
+ 0.723,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.829,
+ 0.727,
+ 0.74,
+ 0.798,
+ 0.745,
+ 0.725,
+ 0.861,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.845,
+ &#39;christopher&#39;,
+ 0.908,
+ &#39;christopher&#39;,
+ 0.756,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.882,
+ 0.705,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.708,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.782,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.787,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.824,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.97,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.765,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.819,
+ &#39;christopher&#39;,
+ 0.808,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.716,
+ 0.741,
+ 0.796,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.851,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.887,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.726,
+ 0.913,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.771,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.837,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.729,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.865,
+ 0.939,
+ &#39;christopher&#39;,
+ 0.867,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.758,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.733,
+ &#39;christopher&#39;,
+ 0.875,
+ &#39;christopher&#39;,
+ 0.737,
+ &#39;christopher&#39;,
+ 0.733,
+ 0.793,
+ 0.706,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.709,
+ &#39;christopher&#39;,
+ 0.818,
+ 0.703,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.749,
+ &#39;christopher&#39;,
+ 0.858,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.776,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.884,
+ &#39;christopher&#39;,
+ 0.77,
+ &#39;christopher&#39;,
+ 0.723,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.832,
+ 0.768,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.844,
+ 0.773,
+ &#39;christopher&#39;,
+ 0.706,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.727,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.814,
+ &#39;christopher&#39;,
+ 0.955,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.743,
+ 0.82,
+ &#39;christopher&#39;,
+ 0.911,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.799,
+ 0.857,
+ 0.71,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.716,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.794,
+ 0.854,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.796,
+ 0.87,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.863,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.817,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.854,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.826,
+ &#39;christopher&#39;,
+ 0.781,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.766,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.744,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.716,
+ &#39;christopher&#39;,
+ 0.704,
+ 0.848,
+ 0.741,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.742,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.857,
+ 0.909,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ &#39;christopher&#39;,
+ 0.764,
+ 0.723,
+ &#39;christopher&#39;,
+ 0.787,
+ &#39;christopher&#39;,
+ 0.76,
+ &#39;christopher&#39;,
+ ...]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Time each of these strategies using <code class="docutils literal notranslate"><span class="pre">%%timeit</span></code>.  Which is fastest?</p></li>
+</ul>
+<p>In this case, they are all comparable, with <code class="docutils literal notranslate"><span class="pre">np.count_nonzero</span></code> being the fastest.  If the original DataFrame were bigger, say with ten million rows instead of one thousand rows, I think the differences would be more pronounced.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="p">(</span><span class="n">s</span> <span class="o">&gt;</span> <span class="mf">0.7</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>62 µs ± 582 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="nb">sum</span><span class="p">(</span><span class="n">s</span> <span class="o">&gt;</span> <span class="mf">0.7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>142 µs ± 1.37 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">s</span> <span class="o">&gt;</span> <span class="mf">0.7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42.2 µs ± 150 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="nb">len</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">s</span> <span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span><span class="mf">0.7</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>137 µs ± 1.75 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sorting-pandas-series-and-dataframes">
+<h2>Sorting pandas Series and DataFrames<a class="headerlink" href="#sorting-pandas-series-and-dataframes" title="Permalink to this headline">¶</a></h2>
+<p>One brief topic I want to cover before the midterm is using the <code class="docutils literal notranslate"><span class="pre">sort_values</span></code> method.</p>
+<p>What songs have the 10 highest “Valence” levels in the Spotify dataset?  Solve this two ways.</p>
+<ul class="simple">
+<li><p>By sorting a pandas Series, getting its index, and then getting the sub-DataFrame.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Valence&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>555     0.0320
+1501    0.0360
+915     0.0363
+865     0.0376
+1179    0.0391
+         ...  
+750        NaN
+784        NaN
+876        NaN
+1140       NaN
+1538       NaN
+Name: Valence, Length: 1556, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Valence&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>884     0.979
+1408    0.977
+677     0.971
+1096    0.968
+1230    0.966
+        ...  
+750       NaN
+784       NaN
+876       NaN
+1140      NaN
+1538      NaN
+Name: Valence, Length: 1556, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Valence&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([ 884, 1408,  677, 1096, 1230,  463,  130, 1390,  512,  627,
+            ...
+             163,  464,  530,  636,  654,  750,  784,  876, 1140, 1538],
+           dtype=&#39;int64&#39;, length=1556)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Valence&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([884, 1408, 677, 1096, 1230, 463, 130, 1390, 512, 627], dtype=&#39;int64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Valence&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([884, 1408, 677, 1096, 1230, 463, 130, 1390, 512, 627], dtype=&#39;int64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following code does not work, because it keeps only the first 10 rows at the beginning, so none of the other rows are considered during the sorting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Valence&quot;</span><span class="p">][:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([9, 4, 5, 6, 2, 3, 0, 1, 8, 7], dtype=&#39;int64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The code <code class="docutils literal notranslate"><span class="pre">df[&quot;Valence&quot;].sort_values(ascending=False)[:10].index</span></code> contains labels, so it is natural to put it inside of <code class="docutils literal notranslate"><span class="pre">df.loc</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Valence&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Index</th>
+      <th>Highest Charting Position</th>
+      <th>Number of Times Charted</th>
+      <th>Week of Highest Charting</th>
+      <th>Song Name</th>
+      <th>Streams</th>
+      <th>Artist</th>
+      <th>Artist Followers</th>
+      <th>Song ID</th>
+      <th>Genre</th>
+      <th>...</th>
+      <th>Danceability</th>
+      <th>Energy</th>
+      <th>Loudness</th>
+      <th>Speechiness</th>
+      <th>Acousticness</th>
+      <th>Liveness</th>
+      <th>Tempo</th>
+      <th>Duration (ms)</th>
+      <th>Valence</th>
+      <th>Chord</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>884</th>
+      <td>885</td>
+      <td>148</td>
+      <td>1</td>
+      <td>2020-09-18--2020-09-25</td>
+      <td>September</td>
+      <td>5,329,256</td>
+      <td>Earth, Wind &amp; Fire</td>
+      <td>3008916.0</td>
+      <td>2grjqo0Frpf2okIBiifQKs</td>
+      <td>['disco', 'funk', 'jazz funk', 'motown', 'quie...</td>
+      <td>...</td>
+      <td>0.697</td>
+      <td>0.832</td>
+      <td>-7.264</td>
+      <td>0.0298</td>
+      <td>0.1680</td>
+      <td>0.2690</td>
+      <td>125.926</td>
+      <td>215093.0</td>
+      <td>0.979</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>1408</th>
+      <td>1409</td>
+      <td>85</td>
+      <td>1</td>
+      <td>2020-02-14--2020-02-21</td>
+      <td>Running Over (feat. Lil Dicky)</td>
+      <td>7,493,188</td>
+      <td>Justin Bieber</td>
+      <td>48544923.0</td>
+      <td>75nKBP8jQu681pTNCtrEnn</td>
+      <td>['canadian pop', 'pop', 'post-teen pop']</td>
+      <td>...</td>
+      <td>0.774</td>
+      <td>0.603</td>
+      <td>-7.319</td>
+      <td>0.0591</td>
+      <td>0.4380</td>
+      <td>0.0869</td>
+      <td>149.982</td>
+      <td>179627.0</td>
+      <td>0.977</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>677</th>
+      <td>678</td>
+      <td>149</td>
+      <td>1</td>
+      <td>2020-12-18--2020-12-25</td>
+      <td>Little Saint Nick - 1991 Remix</td>
+      <td>7,301,381</td>
+      <td>The Beach Boys</td>
+      <td>1251372.0</td>
+      <td>63Lk6VuXdj7S58R3wLdv9r</td>
+      <td>[]</td>
+      <td>...</td>
+      <td>0.602</td>
+      <td>0.553</td>
+      <td>-9.336</td>
+      <td>0.0328</td>
+      <td>0.1080</td>
+      <td>0.0512</td>
+      <td>130.594</td>
+      <td>118840.0</td>
+      <td>0.971</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>1096</th>
+      <td>1097</td>
+      <td>129</td>
+      <td>4</td>
+      <td>2020-06-05--2020-06-12</td>
+      <td>Na Raba Toma Tapão</td>
+      <td>4,396,629</td>
+      <td>Niack</td>
+      <td>352402.0</td>
+      <td>0AGS6ZRgzobrazmCi6pYMe</td>
+      <td>['funk carioca']</td>
+      <td>...</td>
+      <td>0.962</td>
+      <td>0.787</td>
+      <td>1.509</td>
+      <td>0.0554</td>
+      <td>0.6660</td>
+      <td>0.1760</td>
+      <td>130.003</td>
+      <td>165231.0</td>
+      <td>0.968</td>
+      <td>D#/Eb</td>
+    </tr>
+    <tr>
+      <th>1230</th>
+      <td>1231</td>
+      <td>102</td>
+      <td>1</td>
+      <td>2020-04-17--2020-04-24</td>
+      <td>JUMP (feat. YoungBoy Never Broke Again)</td>
+      <td>6,033,348</td>
+      <td>DaBaby</td>
+      <td>7601122.0</td>
+      <td>0oT9ElXYSxvnOOagP9efDq</td>
+      <td>['north carolina hip hop', 'rap']</td>
+      <td>...</td>
+      <td>0.896</td>
+      <td>0.720</td>
+      <td>-6.262</td>
+      <td>0.3550</td>
+      <td>0.1690</td>
+      <td>0.2520</td>
+      <td>140.100</td>
+      <td>212093.0</td>
+      <td>0.966</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>463</th>
+      <td>464</td>
+      <td>45</td>
+      <td>18</td>
+      <td>2021-01-01--2021-01-08</td>
+      <td>BEBÉ</td>
+      <td>4,967,348</td>
+      <td>Camilo, El Alfa</td>
+      <td>10580764.0</td>
+      <td>7D7EH7MGyNHWSkqrszerI1</td>
+      <td>['colombian pop', 'reggaeton colombiano']</td>
+      <td>...</td>
+      <td>0.862</td>
+      <td>0.720</td>
+      <td>-4.048</td>
+      <td>0.0379</td>
+      <td>0.4870</td>
+      <td>0.0604</td>
+      <td>129.972</td>
+      <td>198707.0</td>
+      <td>0.965</td>
+      <td>E</td>
+    </tr>
+    <tr>
+      <th>130</th>
+      <td>131</td>
+      <td>131</td>
+      <td>3</td>
+      <td>2021-07-23--2021-07-30</td>
+      <td>Aquelas Coisas</td>
+      <td>6,012,839</td>
+      <td>João Gomes</td>
+      <td>409173.0</td>
+      <td>0FqVtQxRD3HsPltldG5v5M</td>
+      <td>[]</td>
+      <td>...</td>
+      <td>0.682</td>
+      <td>0.873</td>
+      <td>-4.163</td>
+      <td>0.0449</td>
+      <td>0.4020</td>
+      <td>0.0946</td>
+      <td>150.006</td>
+      <td>147072.0</td>
+      <td>0.964</td>
+      <td>F#/Gb</td>
+    </tr>
+    <tr>
+      <th>1390</th>
+      <td>1391</td>
+      <td>154</td>
+      <td>4</td>
+      <td>2020-02-21--2020-02-28</td>
+      <td>Tudo Ok</td>
+      <td>5,510,844</td>
+      <td>Thiaguinho MT, Mila, JS o Mão de Ouro</td>
+      <td>28017.0</td>
+      <td>4HUZBG98TYbxSR9V1V2DWS</td>
+      <td>['brega funk', 'funk carioca']</td>
+      <td>...</td>
+      <td>0.814</td>
+      <td>0.755</td>
+      <td>-6.164</td>
+      <td>0.0942</td>
+      <td>0.2390</td>
+      <td>0.3060</td>
+      <td>79.976</td>
+      <td>178500.0</td>
+      <td>0.963</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>512</th>
+      <td>513</td>
+      <td>24</td>
+      <td>25</td>
+      <td>2020-11-06--2020-11-13</td>
+      <td>Se Te Nota (with Guaynaa)</td>
+      <td>5,168,240</td>
+      <td>Lele Pons</td>
+      <td>786461.0</td>
+      <td>11EnQRgRMJwMAesfkB5pnu</td>
+      <td>['latin pop', 'viral pop']</td>
+      <td>...</td>
+      <td>0.905</td>
+      <td>0.686</td>
+      <td>-3.152</td>
+      <td>0.0664</td>
+      <td>0.0907</td>
+      <td>0.2660</td>
+      <td>103.013</td>
+      <td>155825.0</td>
+      <td>0.963</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>627</th>
+      <td>628</td>
+      <td>14</td>
+      <td>6</td>
+      <td>2020-12-18--2020-12-25</td>
+      <td>Feliz Navidad</td>
+      <td>11,664,490</td>
+      <td>José Feliciano</td>
+      <td>239129.0</td>
+      <td>0oPdaY4dXtc3ZsaG17V972</td>
+      <td>['latin pop', 'puerto rican pop']</td>
+      <td>...</td>
+      <td>0.513</td>
+      <td>0.831</td>
+      <td>-9.004</td>
+      <td>0.0383</td>
+      <td>0.5500</td>
+      <td>0.3360</td>
+      <td>148.837</td>
+      <td>182067.0</td>
+      <td>0.963</td>
+      <td>D</td>
+    </tr>
+  </tbody>
+</table>
+<p>10 rows × 23 columns</p>
+</div></div></div>
+</div>
+<p>An easier way to accomplish the same thing is to sort the whole DataFrame at once.  So here we are using a DataFrame’s <code class="docutils literal notranslate"><span class="pre">sort_values</span></code> method, rather than a Series <code class="docutils literal notranslate"><span class="pre">sort_values</span></code> method.</p>
+<ul class="simple">
+<li><p>By sorting the whole DataFrame.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;Valence&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Index</th>
+      <th>Highest Charting Position</th>
+      <th>Number of Times Charted</th>
+      <th>Week of Highest Charting</th>
+      <th>Song Name</th>
+      <th>Streams</th>
+      <th>Artist</th>
+      <th>Artist Followers</th>
+      <th>Song ID</th>
+      <th>Genre</th>
+      <th>...</th>
+      <th>Danceability</th>
+      <th>Energy</th>
+      <th>Loudness</th>
+      <th>Speechiness</th>
+      <th>Acousticness</th>
+      <th>Liveness</th>
+      <th>Tempo</th>
+      <th>Duration (ms)</th>
+      <th>Valence</th>
+      <th>Chord</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>884</th>
+      <td>885</td>
+      <td>148</td>
+      <td>1</td>
+      <td>2020-09-18--2020-09-25</td>
+      <td>September</td>
+      <td>5,329,256</td>
+      <td>Earth, Wind &amp; Fire</td>
+      <td>3008916.0</td>
+      <td>2grjqo0Frpf2okIBiifQKs</td>
+      <td>['disco', 'funk', 'jazz funk', 'motown', 'quie...</td>
+      <td>...</td>
+      <td>0.697</td>
+      <td>0.832</td>
+      <td>-7.264</td>
+      <td>0.0298</td>
+      <td>0.1680</td>
+      <td>0.2690</td>
+      <td>125.926</td>
+      <td>215093.0</td>
+      <td>0.979</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>1408</th>
+      <td>1409</td>
+      <td>85</td>
+      <td>1</td>
+      <td>2020-02-14--2020-02-21</td>
+      <td>Running Over (feat. Lil Dicky)</td>
+      <td>7,493,188</td>
+      <td>Justin Bieber</td>
+      <td>48544923.0</td>
+      <td>75nKBP8jQu681pTNCtrEnn</td>
+      <td>['canadian pop', 'pop', 'post-teen pop']</td>
+      <td>...</td>
+      <td>0.774</td>
+      <td>0.603</td>
+      <td>-7.319</td>
+      <td>0.0591</td>
+      <td>0.4380</td>
+      <td>0.0869</td>
+      <td>149.982</td>
+      <td>179627.0</td>
+      <td>0.977</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>677</th>
+      <td>678</td>
+      <td>149</td>
+      <td>1</td>
+      <td>2020-12-18--2020-12-25</td>
+      <td>Little Saint Nick - 1991 Remix</td>
+      <td>7,301,381</td>
+      <td>The Beach Boys</td>
+      <td>1251372.0</td>
+      <td>63Lk6VuXdj7S58R3wLdv9r</td>
+      <td>[]</td>
+      <td>...</td>
+      <td>0.602</td>
+      <td>0.553</td>
+      <td>-9.336</td>
+      <td>0.0328</td>
+      <td>0.1080</td>
+      <td>0.0512</td>
+      <td>130.594</td>
+      <td>118840.0</td>
+      <td>0.971</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>1096</th>
+      <td>1097</td>
+      <td>129</td>
+      <td>4</td>
+      <td>2020-06-05--2020-06-12</td>
+      <td>Na Raba Toma Tapão</td>
+      <td>4,396,629</td>
+      <td>Niack</td>
+      <td>352402.0</td>
+      <td>0AGS6ZRgzobrazmCi6pYMe</td>
+      <td>['funk carioca']</td>
+      <td>...</td>
+      <td>0.962</td>
+      <td>0.787</td>
+      <td>1.509</td>
+      <td>0.0554</td>
+      <td>0.6660</td>
+      <td>0.1760</td>
+      <td>130.003</td>
+      <td>165231.0</td>
+      <td>0.968</td>
+      <td>D#/Eb</td>
+    </tr>
+    <tr>
+      <th>1230</th>
+      <td>1231</td>
+      <td>102</td>
+      <td>1</td>
+      <td>2020-04-17--2020-04-24</td>
+      <td>JUMP (feat. YoungBoy Never Broke Again)</td>
+      <td>6,033,348</td>
+      <td>DaBaby</td>
+      <td>7601122.0</td>
+      <td>0oT9ElXYSxvnOOagP9efDq</td>
+      <td>['north carolina hip hop', 'rap']</td>
+      <td>...</td>
+      <td>0.896</td>
+      <td>0.720</td>
+      <td>-6.262</td>
+      <td>0.3550</td>
+      <td>0.1690</td>
+      <td>0.2520</td>
+      <td>140.100</td>
+      <td>212093.0</td>
+      <td>0.966</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>463</th>
+      <td>464</td>
+      <td>45</td>
+      <td>18</td>
+      <td>2021-01-01--2021-01-08</td>
+      <td>BEBÉ</td>
+      <td>4,967,348</td>
+      <td>Camilo, El Alfa</td>
+      <td>10580764.0</td>
+      <td>7D7EH7MGyNHWSkqrszerI1</td>
+      <td>['colombian pop', 'reggaeton colombiano']</td>
+      <td>...</td>
+      <td>0.862</td>
+      <td>0.720</td>
+      <td>-4.048</td>
+      <td>0.0379</td>
+      <td>0.4870</td>
+      <td>0.0604</td>
+      <td>129.972</td>
+      <td>198707.0</td>
+      <td>0.965</td>
+      <td>E</td>
+    </tr>
+    <tr>
+      <th>130</th>
+      <td>131</td>
+      <td>131</td>
+      <td>3</td>
+      <td>2021-07-23--2021-07-30</td>
+      <td>Aquelas Coisas</td>
+      <td>6,012,839</td>
+      <td>João Gomes</td>
+      <td>409173.0</td>
+      <td>0FqVtQxRD3HsPltldG5v5M</td>
+      <td>[]</td>
+      <td>...</td>
+      <td>0.682</td>
+      <td>0.873</td>
+      <td>-4.163</td>
+      <td>0.0449</td>
+      <td>0.4020</td>
+      <td>0.0946</td>
+      <td>150.006</td>
+      <td>147072.0</td>
+      <td>0.964</td>
+      <td>F#/Gb</td>
+    </tr>
+    <tr>
+      <th>1390</th>
+      <td>1391</td>
+      <td>154</td>
+      <td>4</td>
+      <td>2020-02-21--2020-02-28</td>
+      <td>Tudo Ok</td>
+      <td>5,510,844</td>
+      <td>Thiaguinho MT, Mila, JS o Mão de Ouro</td>
+      <td>28017.0</td>
+      <td>4HUZBG98TYbxSR9V1V2DWS</td>
+      <td>['brega funk', 'funk carioca']</td>
+      <td>...</td>
+      <td>0.814</td>
+      <td>0.755</td>
+      <td>-6.164</td>
+      <td>0.0942</td>
+      <td>0.2390</td>
+      <td>0.3060</td>
+      <td>79.976</td>
+      <td>178500.0</td>
+      <td>0.963</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>512</th>
+      <td>513</td>
+      <td>24</td>
+      <td>25</td>
+      <td>2020-11-06--2020-11-13</td>
+      <td>Se Te Nota (with Guaynaa)</td>
+      <td>5,168,240</td>
+      <td>Lele Pons</td>
+      <td>786461.0</td>
+      <td>11EnQRgRMJwMAesfkB5pnu</td>
+      <td>['latin pop', 'viral pop']</td>
+      <td>...</td>
+      <td>0.905</td>
+      <td>0.686</td>
+      <td>-3.152</td>
+      <td>0.0664</td>
+      <td>0.0907</td>
+      <td>0.2660</td>
+      <td>103.013</td>
+      <td>155825.0</td>
+      <td>0.963</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>627</th>
+      <td>628</td>
+      <td>14</td>
+      <td>6</td>
+      <td>2020-12-18--2020-12-25</td>
+      <td>Feliz Navidad</td>
+      <td>11,664,490</td>
+      <td>José Feliciano</td>
+      <td>239129.0</td>
+      <td>0oPdaY4dXtc3ZsaG17V972</td>
+      <td>['latin pop', 'puerto rican pop']</td>
+      <td>...</td>
+      <td>0.513</td>
+      <td>0.831</td>
+      <td>-9.004</td>
+      <td>0.0383</td>
+      <td>0.5500</td>
+      <td>0.3360</td>
+      <td>148.837</td>
+      <td>182067.0</td>
+      <td>0.963</td>
+      <td>D</td>
+    </tr>
+  </tbody>
+</table>
+<p>10 rows × 23 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Index&#39;, &#39;Highest Charting Position&#39;, &#39;Number of Times Charted&#39;,
+       &#39;Week of Highest Charting&#39;, &#39;Song Name&#39;, &#39;Streams&#39;, &#39;Artist&#39;,
+       &#39;Artist Followers&#39;, &#39;Song ID&#39;, &#39;Genre&#39;, &#39;Release Date&#39;, &#39;Weeks Charted&#39;,
+       &#39;Popularity&#39;, &#39;Danceability&#39;, &#39;Energy&#39;, &#39;Loudness&#39;, &#39;Speechiness&#39;,
+       &#39;Acousticness&#39;, &#39;Liveness&#39;, &#39;Tempo&#39;, &#39;Duration (ms)&#39;, &#39;Valence&#39;,
+       &#39;Chord&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="including-the-month">
+<h2>Including the month<a class="headerlink" href="#including-the-month" title="Permalink to this headline">¶</a></h2>
+<p>Add a column to <code class="docutils literal notranslate"><span class="pre">df</span></code> with the name “Month” which contains a numeric number 1 to 12 indicating the month of the “Week of Highest Charting”.  Use the following strategy.</p>
+<ul class="simple">
+<li><p>Drop all rows containing missing values.</p></li>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">map</span></code> and a lambda function, get the first 10 characters in each string from the “Week of Highest Charting” column.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">.dt.month</span></code> and <code class="docutils literal notranslate"><span class="pre">pd.to_datetime</span></code> to find the numeric month.</p></li>
+</ul>
+<p>(There are probably easier ways, since we already have the numeric month in the original string, but this method generalizes nicely if we want something like the month name instead of the month number.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Alternate version: df = df.dropna()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1545, 23)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Week of Highest Charting&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       2021-07-23--2021-07-30
+1       2021-07-23--2021-07-30
+2       2021-06-25--2021-07-02
+3       2021-07-02--2021-07-09
+4       2021-07-23--2021-07-30
+                 ...          
+1551    2019-12-27--2020-01-03
+1552    2019-12-27--2020-01-03
+1553    2019-12-27--2020-01-03
+1554    2019-12-27--2020-01-03
+1555    2019-12-27--2020-01-03
+Name: Week of Highest Charting, Length: 1545, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Often if we for example what to do something to each entry in a pandas Series, we can just perform that operation on the whole Series, and it will automatically get mapped elementwise.  For example, if <code class="docutils literal notranslate"><span class="pre">s</span></code> is a pandas Series, then <code class="docutils literal notranslate"><span class="pre">s+2</span></code> will add 2 to each of the entries in <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
+<p>That does not work for slicing though.  For example, in the following, we are keeping only the first 10 rows, rather than keeping the first 10 characters in each entry.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Week of Highest Charting&quot;</span><span class="p">][:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    2021-07-23--2021-07-30
+1    2021-07-23--2021-07-30
+2    2021-06-25--2021-07-02
+3    2021-07-02--2021-07-09
+4    2021-07-23--2021-07-30
+5    2021-05-07--2021-05-14
+6    2021-05-14--2021-05-21
+7    2021-06-18--2021-06-25
+8    2021-06-18--2021-06-25
+9    2021-07-02--2021-07-09
+Name: Week of Highest Charting, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>One natural way to do this is to use a lambda function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Week of Highest Charting&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       2021-07-23
+1       2021-07-23
+2       2021-06-25
+3       2021-07-02
+4       2021-07-23
+           ...    
+1551    2019-12-27
+1552    2019-12-27
+1553    2019-12-27
+1554    2019-12-27
+1555    2019-12-27
+Name: Week of Highest Charting, Length: 1545, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Reminder on lambda functions.  <code class="docutils literal notranslate"><span class="pre">lambda</span></code> provides a quick way to define a function.  For example, here we define the squaring function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is an equivalent way to get the first 10 characters in each entry, but it’s definitely less elegant.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># less elegant</span>
+<span class="k">def</span> <span class="nf">first_ten</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Week of Highest Charting&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">first_ten</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       2021-07-23
+1       2021-07-23
+2       2021-06-25
+3       2021-07-02
+4       2021-07-23
+           ...    
+1551    2019-12-27
+1552    2019-12-27
+1553    2019-12-27
+1554    2019-12-27
+1555    2019-12-27
+Name: Week of Highest Charting, Length: 1545, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_series</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Week of Highest Charting&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_series</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       2021-07-23
+1       2021-07-23
+2       2021-06-25
+3       2021-07-02
+4       2021-07-23
+           ...    
+1551    2019-12-27
+1552    2019-12-27
+1553    2019-12-27
+1554    2019-12-27
+1555    2019-12-27
+Name: Week of Highest Charting, Length: 1545, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>This <code class="docutils literal notranslate"><span class="pre">temp_series</span></code> is the sort of pandas Series which can be converted into the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> dtype.  Notice how the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> of the previous Series was <code class="docutils literal notranslate"><span class="pre">object</span></code> (where you should think “string”), whereas in the following it is <code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">temp_series</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      2021-07-23
+1      2021-07-23
+2      2021-06-25
+3      2021-07-02
+4      2021-07-23
+          ...    
+1551   2019-12-27
+1552   2019-12-27
+1553   2019-12-27
+1554   2019-12-27
+1555   2019-12-27
+Name: Week of Highest Charting, Length: 1545, dtype: datetime64[ns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once the Series is in the correct format, we can apply all sorts of useful methods, here using the <code class="docutils literal notranslate"><span class="pre">dt</span></code> accessor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">temp_series</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month_name</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0           July
+1           July
+2           June
+3           July
+4           July
+          ...   
+1551    December
+1552    December
+1553    December
+1554    December
+1555    December
+Name: Week of Highest Charting, Length: 1545, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we add a new column to the DataFrame containing the numerical month.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Month&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">temp_series</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Index</th>
+      <th>Highest Charting Position</th>
+      <th>Number of Times Charted</th>
+      <th>Week of Highest Charting</th>
+      <th>Song Name</th>
+      <th>Streams</th>
+      <th>Artist</th>
+      <th>Artist Followers</th>
+      <th>Song ID</th>
+      <th>Genre</th>
+      <th>...</th>
+      <th>Energy</th>
+      <th>Loudness</th>
+      <th>Speechiness</th>
+      <th>Acousticness</th>
+      <th>Liveness</th>
+      <th>Tempo</th>
+      <th>Duration (ms)</th>
+      <th>Valence</th>
+      <th>Chord</th>
+      <th>Month</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>8</td>
+      <td>2021-07-23--2021-07-30</td>
+      <td>Beggin'</td>
+      <td>48,633,449</td>
+      <td>Måneskin</td>
+      <td>3377762.0</td>
+      <td>3Wrjm47oTz2sjIgck11l5e</td>
+      <td>['indie rock italiano', 'italian pop']</td>
+      <td>...</td>
+      <td>0.800</td>
+      <td>-4.808</td>
+      <td>0.0504</td>
+      <td>0.12700</td>
+      <td>0.3590</td>
+      <td>134.002</td>
+      <td>211560.0</td>
+      <td>0.589</td>
+      <td>B</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+      <td>2021-07-23--2021-07-30</td>
+      <td>STAY (with Justin Bieber)</td>
+      <td>47,248,719</td>
+      <td>The Kid LAROI</td>
+      <td>2230022.0</td>
+      <td>5HCyWlXZPP0y6Gqq8TgA20</td>
+      <td>['australian hip hop']</td>
+      <td>...</td>
+      <td>0.764</td>
+      <td>-5.484</td>
+      <td>0.0483</td>
+      <td>0.03830</td>
+      <td>0.1030</td>
+      <td>169.928</td>
+      <td>141806.0</td>
+      <td>0.478</td>
+      <td>C#/Db</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>11</td>
+      <td>2021-06-25--2021-07-02</td>
+      <td>good 4 u</td>
+      <td>40,162,559</td>
+      <td>Olivia Rodrigo</td>
+      <td>6266514.0</td>
+      <td>4ZtFanR9U6ndgddUvNcjcG</td>
+      <td>['pop']</td>
+      <td>...</td>
+      <td>0.664</td>
+      <td>-5.044</td>
+      <td>0.1540</td>
+      <td>0.33500</td>
+      <td>0.0849</td>
+      <td>166.928</td>
+      <td>178147.0</td>
+      <td>0.688</td>
+      <td>A</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>3</td>
+      <td>5</td>
+      <td>2021-07-02--2021-07-09</td>
+      <td>Bad Habits</td>
+      <td>37,799,456</td>
+      <td>Ed Sheeran</td>
+      <td>83293380.0</td>
+      <td>6PQ88X9TkUIAUIZJHW2upE</td>
+      <td>['pop', 'uk pop']</td>
+      <td>...</td>
+      <td>0.897</td>
+      <td>-3.712</td>
+      <td>0.0348</td>
+      <td>0.04690</td>
+      <td>0.3640</td>
+      <td>126.026</td>
+      <td>231041.0</td>
+      <td>0.591</td>
+      <td>B</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>5</td>
+      <td>1</td>
+      <td>2021-07-23--2021-07-30</td>
+      <td>INDUSTRY BABY (feat. Jack Harlow)</td>
+      <td>33,948,454</td>
+      <td>Lil Nas X</td>
+      <td>5473565.0</td>
+      <td>27NovPIUIRrOZoCHxABJwK</td>
+      <td>['lgbtq+ hip hop', 'pop rap']</td>
+      <td>...</td>
+      <td>0.704</td>
+      <td>-7.409</td>
+      <td>0.0615</td>
+      <td>0.02030</td>
+      <td>0.0501</td>
+      <td>149.995</td>
+      <td>212000.0</td>
+      <td>0.894</td>
+      <td>D#/Eb</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1551</th>
+      <td>1552</td>
+      <td>195</td>
+      <td>1</td>
+      <td>2019-12-27--2020-01-03</td>
+      <td>New Rules</td>
+      <td>4,630,675</td>
+      <td>Dua Lipa</td>
+      <td>27167675.0</td>
+      <td>2ekn2ttSfGqwhhate0LSR0</td>
+      <td>['dance pop', 'pop', 'uk pop']</td>
+      <td>...</td>
+      <td>0.700</td>
+      <td>-6.021</td>
+      <td>0.0694</td>
+      <td>0.00261</td>
+      <td>0.1530</td>
+      <td>116.073</td>
+      <td>209320.0</td>
+      <td>0.608</td>
+      <td>A</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>1552</th>
+      <td>1553</td>
+      <td>196</td>
+      <td>1</td>
+      <td>2019-12-27--2020-01-03</td>
+      <td>Cheirosa - Ao Vivo</td>
+      <td>4,623,030</td>
+      <td>Jorge &amp; Mateus</td>
+      <td>15019109.0</td>
+      <td>2PWjKmjyTZeDpmOUa3a5da</td>
+      <td>['sertanejo', 'sertanejo universitario']</td>
+      <td>...</td>
+      <td>0.870</td>
+      <td>-3.123</td>
+      <td>0.0851</td>
+      <td>0.24000</td>
+      <td>0.3330</td>
+      <td>152.370</td>
+      <td>181930.0</td>
+      <td>0.714</td>
+      <td>B</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>1553</th>
+      <td>1554</td>
+      <td>197</td>
+      <td>1</td>
+      <td>2019-12-27--2020-01-03</td>
+      <td>Havana (feat. Young Thug)</td>
+      <td>4,620,876</td>
+      <td>Camila Cabello</td>
+      <td>22698747.0</td>
+      <td>1rfofaqEpACxVEHIZBJe6W</td>
+      <td>['dance pop', 'electropop', 'pop', 'post-teen ...</td>
+      <td>...</td>
+      <td>0.523</td>
+      <td>-4.333</td>
+      <td>0.0300</td>
+      <td>0.18400</td>
+      <td>0.1320</td>
+      <td>104.988</td>
+      <td>217307.0</td>
+      <td>0.394</td>
+      <td>D</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>1554</th>
+      <td>1555</td>
+      <td>198</td>
+      <td>1</td>
+      <td>2019-12-27--2020-01-03</td>
+      <td>Surtada - Remix Brega Funk</td>
+      <td>4,607,385</td>
+      <td>Dadá Boladão, Tati Zaqui, OIK</td>
+      <td>208630.0</td>
+      <td>5F8ffc8KWKNawllr5WsW0r</td>
+      <td>['brega funk', 'funk carioca']</td>
+      <td>...</td>
+      <td>0.550</td>
+      <td>-7.026</td>
+      <td>0.0587</td>
+      <td>0.24900</td>
+      <td>0.1820</td>
+      <td>154.064</td>
+      <td>152784.0</td>
+      <td>0.881</td>
+      <td>F</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>1555</th>
+      <td>1556</td>
+      <td>199</td>
+      <td>1</td>
+      <td>2019-12-27--2020-01-03</td>
+      <td>Lover (Remix) [feat. Shawn Mendes]</td>
+      <td>4,595,450</td>
+      <td>Taylor Swift</td>
+      <td>42227614.0</td>
+      <td>3i9UVldZOE0aD0JnyfAZZ0</td>
+      <td>['pop', 'post-teen pop']</td>
+      <td>...</td>
+      <td>0.603</td>
+      <td>-7.176</td>
+      <td>0.0640</td>
+      <td>0.43300</td>
+      <td>0.0862</td>
+      <td>205.272</td>
+      <td>221307.0</td>
+      <td>0.422</td>
+      <td>G</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+<p>1545 rows × 24 columns</p>
+</div></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Week4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Week4-Intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 4</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Week4-Videos.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 4 Videos</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Christopher Davis<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

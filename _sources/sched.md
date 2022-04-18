@@ -33,21 +33,19 @@ Functions and lambda functions.  Slicing.  `map` in pandas.  Basic logic in NumP
 
 Working with dates in pandas.  How to locate missing values.  `try` and `except` for handling errors.  Practice with `if`, `elif`, `else`.  Using `count` with a list or a string.  Using slicing with a string.  An example of *feature engineering*.
 
-## Leftovers
-
-Timing operations using `%%timeit`.
-Dictionary comprehension.  Feature engineering.
-Data types in Python.  Introduction to NumPy.  How the choice of data type influences the speed of various operations.
-More practice with NumPy and pandas.  pandas methods `apply`, and `applymap`.  lambda functions. NumPy `where`, and pandas DataFrame styling.
-
-
 ## Class 9
 
-More practice with Altair.
+No new material; time to work on the homework and sample midterm.
 
 ## Class 10
 
-More advanced/leftover topics from NumPy, pandas, and Altair.
+Timing various ways of counting, including NumPy's `count_nonzero`.  Sorting a pandas Series or DataFrame using `sort_values`.    Timing operations, such as different ways to count objects.
+
+## Leftovers
+
+Dictionary comprehension.  Feature engineering. Introduction to NumPy.  How the choice of data type influences the speed of various operations.
+More practice with NumPy and pandas.    NumPy `where`, and pandas DataFrame styling.  More advanced/leftover topics from NumPy, pandas, and Altair.  pandas DataFrame methods `apply` and `applymap`.  Using an Altair `selection` object in a `condition`.
+
 
 ## Class 11
 
