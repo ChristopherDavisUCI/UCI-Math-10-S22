@@ -59,10 +59,6 @@ Dictionary comprehension.  Feature engineering. Introduction to NumPy.  How the 
 More practice with NumPy and pandas.    NumPy `where`, and pandas DataFrame styling.  More advanced/leftover topics from NumPy, pandas, and Altair.  pandas DataFrame methods `apply` and `applymap`.  Using an Altair `selection` object in a `condition`.  Introduction to Machine Learning and scikit-learn.  K-Nearest Neighbors classification and K-Nearest Neighbors regression.  Loss functions (also called cost functions).
 
 
-
-
-
-
 ## Class 13
 
 More on K-Nearest Neighbors and implementing it using scikit-learn.  Importance of scaling the data.
