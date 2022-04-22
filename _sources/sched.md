@@ -41,15 +41,9 @@ No new material; time to work on the homework and sample midterm.
 
 Timing various ways of counting, including NumPy's `count_nonzero`.  Sorting a pandas Series or DataFrame using `sort_values`.    Timing operations, such as different ways to count objects.
 
-## Leftovers
-
-Dictionary comprehension.  Feature engineering. Introduction to NumPy.  How the choice of data type influences the speed of various operations.
-More practice with NumPy and pandas.    NumPy `where`, and pandas DataFrame styling.  More advanced/leftover topics from NumPy, pandas, and Altair.  pandas DataFrame methods `apply` and `applymap`.  Using an Altair `selection` object in a `condition`.
-
-
 ## Class 11
 
-Review
+Review for the midterm, and some new topics in Altair.
 
 ## Thursday, Week 4
 
@@ -57,7 +51,17 @@ Midterm 1 during discussion section.
 
 ## Class 12
 
-Introduction to Machine Learning and scikit-learn.  K-Nearest Neighbors classification and K-Nearest Neighbors regression.  Loss functions (also called cost functions).
+Different ways to rescale data: using a for loop, using `apply`, and using `StandardScaler` from scikit-learn.  This is our first time using anything from scikit-learn, and the approach can feel unusual at first (scikit-learn is very "object oriented").  This `StandardScaler` preprocessing tool will have many similarities to scikit-learn Machine Learning tools we will cover later.
+
+## Leftovers
+
+Dictionary comprehension.  Feature engineering. Introduction to NumPy.  How the choice of data type influences the speed of various operations.
+More practice with NumPy and pandas.    NumPy `where`, and pandas DataFrame styling.  More advanced/leftover topics from NumPy, pandas, and Altair.  pandas DataFrame methods `apply` and `applymap`.  Using an Altair `selection` object in a `condition`.  Introduction to Machine Learning and scikit-learn.  K-Nearest Neighbors classification and K-Nearest Neighbors regression.  Loss functions (also called cost functions).
+
+
+
+
+
 
 ## Class 13
 
