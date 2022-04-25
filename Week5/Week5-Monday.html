@@ -1,0 +1,2436 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>K-Means clustering &#8212; UC Irvine Math 10 S22</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Week 5 Videos" href="Week5-Videos.html" />
+    <link rel="prev" title="Week 5" href="Week5-Intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/digitsyellow.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">UC Irvine Math 10 S22</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   UC Irvine, Math 10, Spring 2022
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week1/Week1-Intro.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Monday.html">
+     Introduction to pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Tuesday.html">
+     Week 1 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Wednesday.html">
+     for loops and ways to avoid for loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Thursday.html">
+     Week 1 Thursday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Friday.html">
+     Exploratory Data Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Videos.html">
+     Week 1 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Homework1.html">
+     Homework 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week2/Week2-Intro.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Monday.html">
+     Working with missing data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Tuesday.html">
+     Week 2 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Wednesday.html">
+     Visualization in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Videos.html">
+     Week 2 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Friday.html">
+     Plots from the Spotify dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Homework2.html">
+     Homework 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week3/Week3-Intro.html">
+   Week 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Week3-Monday.html">
+     Functions in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Week3-Tuesday.html">
+     Week 3 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Week3-Wednesday.html">
+     Working with dates in pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Week3-Videos.html">
+     Week 3 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Homework3.html">
+     Homework 3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week4/Week4-Intro.html">
+   Week 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/Week4-Monday.html">
+     Week 4 Monday
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/Week4-Videos.html">
+     Week 4 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/Week4-Tuesday.html">
+     Week 4, Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/Week4-Wednesday.html">
+     Practice with Altair
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/Week4-Friday.html">
+     Rescaling data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="Week5-Intro.html">
+   Week 5
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     K-Means clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Week5-Videos.html">
+     Week 5 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Homework4.html">
+     Homework 4
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sched.html">
+   Tentative schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasources.html">
+   Data Sources
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Week5/Week5-Monday.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ChristopherDavisUCI/UCI-Math-10-S22"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ChristopherDavisUCI/UCI-Math-10-S22/main?urlpath=tree/Week5/Week5-Monday.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#announcements">
+   Announcements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#brief-overview-of-machine-learning">
+   Brief overview of Machine Learning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#review-of-standardscaler">
+   Review of StandardScaler
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   K-Means clustering
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>K-Means clustering</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#announcements">
+   Announcements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#brief-overview-of-machine-learning">
+   Brief overview of Machine Learning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#review-of-standardscaler">
+   Review of StandardScaler
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   K-Means clustering
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="k-means-clustering">
+<h1>K-Means clustering<a class="headerlink" href="#k-means-clustering" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="announcements">
+<h2>Announcements<a class="headerlink" href="#announcements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>No in-class quiz this week.  No homework due this week.</p></li>
+<li><p>Videos and video quizzes are posted.  Due Thursday.</p></li>
+<li><p>Homework for next Tuesday (Week 6) is posted.  You will have time to work on the homework during discussion section tomorrow.</p></li>
+<li><p>Midterms returned today.  The median score was high, 34.5/40 (good job!), so there won’t be any curving.</p></li>
+<li><p>Midterm solutions are in the “Course Updates” section on the Canvas homepage.</p></li>
+<li><p>If you see a clear mistake in my grading (e.g., I added the points wrong), you must leave the exam with me today, together with a note explaining what the mistake is.</p></li>
+</ul>
+</div>
+<div class="section" id="brief-overview-of-machine-learning">
+<h2>Brief overview of Machine Learning<a class="headerlink" href="#brief-overview-of-machine-learning" title="Permalink to this headline">¶</a></h2>
+<p>Machine Learning is roughly divided into two big categories:</p>
+<ul class="simple">
+<li><p>Supervised Learning</p></li>
+<li><p>Unsupervised Learning
+In <em>supervised learning</em>, there is some “correct” value that you are aiming to calculate; in other words, in supervised learning, at least some of the data includes correct labels.  In <em>unsupervised learning</em>, the key difference is that the data does not include labels.</p></li>
+</ul>
+<p>Supervised learning is itself divided into two big categories:</p>
+<ul class="simple">
+<li><p>Regression, in which we are seeking to compute some numerical value.</p></li>
+<li><p>Classification, in which we are seeking to assign discrete labels.</p></li>
+</ul>
+<p>Examples of <strong>regression</strong> problems in supervised learning:</p>
+<ul class="simple">
+<li><p>Predict the price of a house.</p></li>
+<li><p>Predict the temperature at a certain time.</p></li>
+<li><p>Predict the number of clicks on an ad.</p></li>
+</ul>
+<p>Examples of <strong>classification</strong> problems in supervised learning:</p>
+<ul class="simple">
+<li><p>Identify a species of penguin from some measurements.</p></li>
+<li><p>Determine if an email is spam or not.</p></li>
+<li><p>Identify someone from a photograph.</p></li>
+</ul>
+<p>The most famous example of unsupervised learning is <strong>clustering</strong>.</p>
+<p>Here is a flowchart image I downloaded from the website <a class="reference external" href="https://www.geeksforgeeks.org/flowchart-for-basic-machine-learning-models/">GeeksforGeeks</a>.  Don’t take it too literally, but it nicely illustrates some different categories of machine learning.</p>
+<p><img alt="Flowchart" src="../_images/flowchart.jpeg" /></p>
+</div>
+<div class="section" id="review-of-standardscaler">
+<h2>Review of StandardScaler<a class="headerlink" href="#review-of-standardscaler" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When we import the Spotify dataset, we always specify <code class="docutils literal notranslate"><span class="pre">na_values=&quot;</span> <span class="pre">&quot;</span></code>.  We don’t have to do that when importing a dataset from Seaborn.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 5 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sepal_length    False
+sepal_width     False
+petal_length    False
+petal_width     False
+species         False
+dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that the default value of <code class="docutils literal notranslate"><span class="pre">axis</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code>, so we could have not specified <code class="docutils literal notranslate"><span class="pre">axis=0</span></code> and gotten the same result.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">any</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method any in module pandas.core.generic:
+
+any(axis=0, bool_only=None, skipna=True, level=None, **kwargs) method of pandas.core.frame.DataFrame instance
+    Return whether any element is True, potentially over an axis.
+    
+    Returns False unless there is at least one element within a series or
+    along a Dataframe axis that is True or equivalent (e.g. non-zero or
+    non-empty).
+    
+    Parameters
+    ----------
+    axis : {0 or &#39;index&#39;, 1 or &#39;columns&#39;, None}, default 0
+        Indicate which axis or axes should be reduced.
+    
+        * 0 / &#39;index&#39; : reduce the index, return a Series whose index is the
+          original column labels.
+        * 1 / &#39;columns&#39; : reduce the columns, return a Series whose index is the
+          original index.
+        * None : reduce all axes, return a scalar.
+    
+    bool_only : bool, default None
+        Include only boolean columns. If None, will attempt to use everything,
+        then use only boolean data. Not implemented for Series.
+    skipna : bool, default True
+        Exclude NA/null values. If the entire row/column is NA and skipna is
+        True, then the result will be False, as for an empty row/column.
+        If skipna is False, then NA are treated as True, because these are not
+        equal to zero.
+    level : int or level name, default None
+        If the axis is a MultiIndex (hierarchical), count along a
+        particular level, collapsing into a Series.
+    **kwargs : any, default None
+        Additional keywords have no effect but might be accepted for
+        compatibility with NumPy.
+    
+    Returns
+    -------
+    Series or DataFrame
+        If level is specified, then, DataFrame is returned; otherwise, Series
+        is returned.
+    
+    See Also
+    --------
+    numpy.any : Numpy version of this method.
+    Series.any : Return whether any element is True.
+    Series.all : Return whether all elements are True.
+    DataFrame.any : Return whether any element is True over requested axis.
+    DataFrame.all : Return whether all elements are True over requested axis.
+    
+    Examples
+    --------
+    **Series**
+    
+    For Series input, the output is a scalar indicating whether any element
+    is True.
+    
+    &gt;&gt;&gt; pd.Series([False, False]).any()
+    False
+    &gt;&gt;&gt; pd.Series([True, False]).any()
+    True
+    &gt;&gt;&gt; pd.Series([], dtype=&quot;float64&quot;).any()
+    False
+    &gt;&gt;&gt; pd.Series([np.nan]).any()
+    False
+    &gt;&gt;&gt; pd.Series([np.nan]).any(skipna=False)
+    True
+    
+    **DataFrame**
+    
+    Whether each column contains at least one True element (the default).
+    
+    &gt;&gt;&gt; df = pd.DataFrame({&quot;A&quot;: [1, 2], &quot;B&quot;: [0, 2], &quot;C&quot;: [0, 0]})
+    &gt;&gt;&gt; df
+       A  B  C
+    0  1  0  0
+    1  2  2  0
+    
+    &gt;&gt;&gt; df.any()
+    A     True
+    B     True
+    C    False
+    dtype: bool
+    
+    Aggregating over the columns.
+    
+    &gt;&gt;&gt; df = pd.DataFrame({&quot;A&quot;: [True, False], &quot;B&quot;: [1, 2]})
+    &gt;&gt;&gt; df
+           A  B
+    0   True  1
+    1  False  2
+    
+    &gt;&gt;&gt; df.any(axis=&#39;columns&#39;)
+    0    True
+    1    True
+    dtype: bool
+    
+    &gt;&gt;&gt; df = pd.DataFrame({&quot;A&quot;: [True, False], &quot;B&quot;: [1, 0]})
+    &gt;&gt;&gt; df
+           A  B
+    0   True  1
+    1  False  0
+    
+    &gt;&gt;&gt; df.any(axis=&#39;columns&#39;)
+    0    True
+    1    False
+    dtype: bool
+    
+    Aggregating over the entire DataFrame with ``axis=None``.
+    
+    &gt;&gt;&gt; df.any(axis=None)
+    True
+    
+    `any` for an empty DataFrame is an empty Series.
+    
+    &gt;&gt;&gt; pd.DataFrame([]).any()
+    Series([], dtype: bool)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sepal_length    False
+sepal_width     False
+petal_length    False
+petal_width     False
+species         False
+dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is a fast way to see if there are any missing values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penguin</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;penguins&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penguin</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      False
+1      False
+2      False
+3       True
+4      False
+       ...  
+339     True
+340    False
+341    False
+342    False
+343    False
+Length: 344, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penguin</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>species                 Adelie
+island               Torgersen
+bill_length_mm             NaN
+bill_depth_mm              NaN
+flipper_length_mm          NaN
+body_mass_g                NaN
+sex                        NaN
+Name: 3, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penguin</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nan
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">penguin</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">penguin</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penguin</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Potential for confusion: <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> is considered by Python to not equal itself.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>6.7</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.3</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>6.3</td>
+      <td>2.5</td>
+      <td>5.0</td>
+      <td>1.9</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>6.5</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.0</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>6.2</td>
+      <td>3.4</td>
+      <td>5.4</td>
+      <td>2.3</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>5.9</td>
+      <td>3.0</td>
+      <td>5.1</td>
+      <td>1.8</td>
+      <td>virginica</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 5 columns</p>
+</div></div></div>
+</div>
+<p>Here is the general routine for working with scikit-learn.</p>
+<ul class="simple">
+<li><p>Import</p></li>
+<li><p>Instantiate (create an object)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fit</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transform</span></code> or <code class="docutils literal notranslate"><span class="pre">predict</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># instantiate</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">scaler</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sklearn.preprocessing._data.StandardScaler
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following raises an error because <code class="docutils literal notranslate"><span class="pre">df</span></code> has a non-numeric column called “species”.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">8</span><span class="n">j</span><span class="o">/</span><span class="n">gshrlmtn7dg4qtztj4d4t_w40000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_9209</span><span class="o">/</span><span class="mf">3535945743.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/sklearn/preprocessing/_data.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y, sample_weight)</span>
+<span class="g g-Whitespace">    </span><span class="mi">804</span>         <span class="c1"># Reset internal state before fitting</span>
+<span class="g g-Whitespace">    </span><span class="mi">805</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_reset</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">806</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">partial_fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">807</span> 
+<span class="g g-Whitespace">    </span><span class="mi">808</span>     <span class="k">def</span> <span class="nf">partial_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/sklearn/preprocessing/_data.py</span> in <span class="ni">partial_fit</span><span class="nt">(self, X, y, sample_weight)</span>
+<span class="g g-Whitespace">    </span><span class="mi">845</span>             <span class="n">dtype</span><span class="o">=</span><span class="n">FLOAT_DTYPES</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">846</span>             <span class="n">force_all_finite</span><span class="o">=</span><span class="s2">&quot;allow-nan&quot;</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">847</span>             <span class="n">reset</span><span class="o">=</span><span class="n">first_call</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">848</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">849</span>         <span class="n">n_features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/sklearn/base.py</span> in <span class="ni">_validate_data</span><span class="nt">(self, X, y, reset, validate_separately, **check_params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">564</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Validation should be done on X, y or both.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">565</span>         <span class="k">elif</span> <span class="ow">not</span> <span class="n">no_val_X</span> <span class="ow">and</span> <span class="n">no_val_y</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">566</span>             <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="n">check_params</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">567</span>             <span class="n">out</span> <span class="o">=</span> <span class="n">X</span>
+<span class="g g-Whitespace">    </span><span class="mi">568</span>         <span class="k">elif</span> <span class="n">no_val_X</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">no_val_y</span><span class="p">:</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/sklearn/utils/validation.py</span> in <span class="ni">check_array</span><span class="nt">(array, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, estimator)</span>
+<span class="g g-Whitespace">    </span><span class="mi">744</span>                     <span class="n">array</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">casting</span><span class="o">=</span><span class="s2">&quot;unsafe&quot;</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">745</span>                 <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">746</span>                     <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">747</span>             <span class="k">except</span> <span class="n">ComplexWarning</span> <span class="k">as</span> <span class="n">complex_warning</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">748</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+
+<span class="nn">~/miniconda3/envs/math10s22/lib/python3.7/site-packages/pandas/core/generic.py</span> in <span class="ni">__array__</span><span class="nt">(self, dtype)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1991</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1992</span>     <span class="k">def</span> <span class="nf">__array__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">NpDtype</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1993</span>         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1994</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1995</span>     <span class="k">def</span> <span class="nf">__array_wrap__</span><span class="p">(</span>
+
+<span class="ne">ValueError</span>: could not convert string to float: &#39;setosa&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;sepal_length&#39;, &#39;sepal_width&#39;, &#39;petal_length&#39;, &#39;petal_width&#39;,
+       &#39;species&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numcols</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span> <span class="o">!=</span> <span class="s2">&quot;species&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="s2">&quot;species&quot;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;sepal_length&#39;, &#39;sepal_width&#39;, &#39;petal_length&#39;, &#39;petal_width&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numcols</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;sepal_length&#39;, &#39;sepal_width&#39;, &#39;petal_length&#39;, &#39;petal_width&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fit</span>
+<span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">numcols</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>StandardScaler()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transform</span>
+<span class="n">df</span><span class="p">[</span><span class="n">numcols</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">numcols</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.900681</td>
+      <td>1.019004</td>
+      <td>-1.340227</td>
+      <td>-1.315444</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-1.143017</td>
+      <td>-0.131979</td>
+      <td>-1.340227</td>
+      <td>-1.315444</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-1.385353</td>
+      <td>0.328414</td>
+      <td>-1.397064</td>
+      <td>-1.315444</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-1.506521</td>
+      <td>0.098217</td>
+      <td>-1.283389</td>
+      <td>-1.315444</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-1.021849</td>
+      <td>1.249201</td>
+      <td>-1.340227</td>
+      <td>-1.315444</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>1.038005</td>
+      <td>-0.131979</td>
+      <td>0.819596</td>
+      <td>1.448832</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>0.553333</td>
+      <td>-1.282963</td>
+      <td>0.705921</td>
+      <td>0.922303</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>0.795669</td>
+      <td>-0.131979</td>
+      <td>0.819596</td>
+      <td>1.053935</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>0.432165</td>
+      <td>0.788808</td>
+      <td>0.933271</td>
+      <td>1.448832</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>0.068662</td>
+      <td>-0.131979</td>
+      <td>0.762758</td>
+      <td>0.790671</td>
+      <td>virginica</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 5 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/christopherdavis/miniconda3/envs/math10s22/lib/python3.7/site-packages/ipykernel_launcher.py:1: FutureWarning: Dropping of nuisance columns in DataFrame reductions (with &#39;numeric_only=None&#39;) is deprecated; in a future version this will raise TypeError.  Select only valid columns before calling the reduction.
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sepal_length   -4.736952e-16
+sepal_width    -7.815970e-16
+petal_length   -4.263256e-16
+petal_width    -4.736952e-16
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/christopherdavis/miniconda3/envs/math10s22/lib/python3.7/site-packages/ipykernel_launcher.py:1: FutureWarning: Dropping of nuisance columns in DataFrame reductions (with &#39;numeric_only=None&#39;) is deprecated; in a future version this will raise TypeError.  Select only valid columns before calling the reduction.
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sepal_length    1.00335
+sepal_width     1.00335
+petal_length    1.00335
+petal_width     1.00335
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>K-Means clustering<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>The library scikit-learn uses a very consistent syntax, so what we do with <code class="docutils literal notranslate"><span class="pre">KMeans</span></code> should look very similar to what we did with <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># instantiate/create</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">kmeans</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sklearn.cluster._kmeans.KMeans
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fit</span>
+<span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">numcols</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KMeans()
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we put the predicted clusters into a new column called “cluster”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># predict</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;cluster&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">numcols</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
+      <th>cluster</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.900681</td>
+      <td>1.019004</td>
+      <td>-1.340227</td>
+      <td>-1.315444</td>
+      <td>setosa</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-1.143017</td>
+      <td>-0.131979</td>
+      <td>-1.340227</td>
+      <td>-1.315444</td>
+      <td>setosa</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-1.385353</td>
+      <td>0.328414</td>
+      <td>-1.397064</td>
+      <td>-1.315444</td>
+      <td>setosa</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-1.506521</td>
+      <td>0.098217</td>
+      <td>-1.283389</td>
+      <td>-1.315444</td>
+      <td>setosa</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-1.021849</td>
+      <td>1.249201</td>
+      <td>-1.340227</td>
+      <td>-1.315444</td>
+      <td>setosa</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>1.038005</td>
+      <td>-0.131979</td>
+      <td>0.819596</td>
+      <td>1.448832</td>
+      <td>virginica</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>0.553333</td>
+      <td>-1.282963</td>
+      <td>0.705921</td>
+      <td>0.922303</td>
+      <td>virginica</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>0.795669</td>
+      <td>-0.131979</td>
+      <td>0.819596</td>
+      <td>1.053935</td>
+      <td>virginica</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>0.432165</td>
+      <td>0.788808</td>
+      <td>0.933271</td>
+      <td>1.448832</td>
+      <td>virginica</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>0.068662</td>
+      <td>-0.131979</td>
+      <td>0.762758</td>
+      <td>0.790671</td>
+      <td>virginica</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 6 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numcols</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;sepal_length&#39;, &#39;sepal_width&#39;, &#39;petal_length&#39;, &#39;petal_width&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;petal_length&quot;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;cluster:N&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-7a58b31d980f4663bf1882973ef61680"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-7a58b31d980f4663bf1882973ef61680") {
+      outputDiv = document.getElementById("altair-viz-7a58b31d980f4663bf1882973ef61680");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-e0d0e0173e05c5d5f511a307cffaf690"}, "mark": "circle", "encoding": {"color": {"field": "cluster", "type": "nominal"}, "x": {"field": "sepal_length", "type": "quantitative"}, "y": {"field": "petal_length", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-e0d0e0173e05c5d5f511a307cffaf690": [{"sepal_length": -0.9006811702978088, "sepal_width": 1.019004351971607, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1}, {"sepal_length": -1.1430169111851105, "sepal_width": -0.13197947932162468, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5}, {"sepal_length": -1.3853526520724133, "sepal_width": 0.32841405319566835, "petal_length": -1.3970639535363654, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5}, {"sepal_length": -1.5065205225160652, "sepal_width": 0.09821728693702184, "petal_length": -1.2833890997091593, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5}, {"sepal_length": -1.0218490407414595, "sepal_width": 1.2492011182302534, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1}, {"sepal_length": -0.537177558966854, "sepal_width": 1.939791417006192, "petal_length": -1.1697142458819532, "petal_width": -1.0521799264271385, "species": "setosa", "cluster": 6}, {"sepal_length": -1.5065205225160652, "sepal_width": 0.7888075857129604, "petal_length": -1.3402265266227624, "petal_width": -1.1838121107174393, "species": "setosa", "cluster": 1}, {"sepal_length": -1.0218490407414595, "sepal_width": 0.7888075857129604, "petal_length": -1.2833890997091593, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1}, {"sepal_length": -1.7488562634033669, "sepal_width": -0.3621762455802712, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5}, {"sepal_length": -1.1430169111851105, "sepal_width": 0.09821728693702184, "petal_length": -1.2833890997091593, "petal_width": -1.4470764792980408, "species": "setosa", "cluster": 5}, {"sepal_length": -0.537177558966854, "sepal_width": 1.4793978844889, "petal_length": -1.2833890997091593, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 6}, {"sepal_length": -1.2641847816287624, "sepal_width": 0.7888075857129604, "petal_length": -1.226551672795556, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1}, {"sepal_length": -1.2641847816287624, "sepal_width": -0.13197947932162468, "petal_length": -1.3402265266227624, "petal_width": -1.4470764792980408, "species": "setosa", "cluster": 5}, {"sepal_length": -1.870024133847019, "sepal_width": -0.13197947932162468, "petal_length": -1.5107388073635717, "petal_width": -1.4470764792980408, "species": "setosa", "cluster": 5}, {"sepal_length": -0.05250607719224957, "sepal_width": 2.1699881832648384, "petal_length": -1.4539013804499687, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 6}, {"sepal_length": -0.1736739476359004, "sepal_width": 3.090775248299425, "petal_length": -1.2833890997091593, "petal_width": -1.0521799264271385, "species": "setosa", "cluster": 6}, {"sepal_length": -0.537177558966854, "sepal_width": 1.939791417006192, "petal_length": -1.3970639535363654, "petal_width": -1.0521799264271385, "species": "setosa", "cluster": 6}, {"sepal_length": -0.9006811702978088, "sepal_width": 1.019004351971607, "petal_length": -1.3402265266227624, "petal_width": -1.1838121107174393, "species": "setosa", "cluster": 1}, {"sepal_length": -0.1736739476359004, "sepal_width": 1.7095946507475455, "petal_length": -1.1697142458819532, "petal_width": -1.1838121107174393, "species": "setosa", "cluster": 6}, {"sepal_length": -0.9006811702978088, "sepal_width": 1.7095946507475455, "petal_length": -1.2833890997091593, "petal_width": -1.1838121107174393, "species": "setosa", "cluster": 6}, {"sepal_length": -0.537177558966854, "sepal_width": 0.7888075857129604, "petal_length": -1.1697142458819532, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1}, {"sepal_length": -0.9006811702978088, "sepal_width": 1.4793978844889, "petal_length": -1.2833890997091593, "petal_width": -1.0521799264271385, "species": "setosa", "cluster": 1}, {"sepal_length": -1.5065205225160652, "sepal_width": 1.2492011182302534, "petal_length": -1.567576234277175, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1}, {"sepal_length": -0.9006811702978088, "sepal_width": 0.5586108194543139, "petal_length": -1.1697142458819532, "petal_width": -0.9205477421368377, "species": "setosa", "cluster": 1}, {"sepal_length": -1.2641847816287624, "sepal_width": 0.7888075857129604, "petal_length": -1.0560393920547466, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1}, {"sepal_length": -1.0218490407414595, "sepal_width": -0.13197947932162468, "petal_length": -1.226551672795556, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5}, {"sepal_length": -1.0218490407414595, "sepal_width": 0.7888075857129604, "petal_length": -1.226551672795556, "petal_width": -1.0521799264271385, "species": "setosa", "cluster": 1}, {"sepal_length": -0.7795132998541568, "sepal_width": 1.019004351971607, "petal_length": -1.2833890997091593, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1}, {"sepal_length": -0.7795132998541568, "sepal_width": 0.7888075857129604, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1}, {"sepal_length": -1.3853526520724133, "sepal_width": 0.32841405319566835, "petal_length": -1.226551672795556, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5}, {"sepal_length": -1.2641847816287624, "sepal_width": 0.09821728693702184, "petal_length": -1.226551672795556, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5}, {"sepal_length": -0.537177558966854, "sepal_width": 0.7888075857129604, "petal_length": -1.2833890997091593, "petal_width": -1.0521799264271385, "species": "setosa", "cluster": 1}, {"sepal_length": -0.7795132998541568, "sepal_width": 2.400184949523484, "petal_length": -1.2833890997091593, "petal_width": -1.4470764792980408, "species": "setosa", "cluster": 6}, {"sepal_length": -0.4160096885232032, "sepal_width": 2.6303817157821316, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 6}, {"sepal_length": -1.1430169111851105, "sepal_width": 0.09821728693702184, "petal_length": -1.2833890997091593, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5}, {"sepal_length": -1.0218490407414595, "sepal_width": 0.32841405319566835, "petal_length": -1.4539013804499687, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5}, {"sepal_length": -0.4160096885232032, "sepal_width": 1.019004351971607, "petal_length": -1.3970639535363654, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1}, {"sepal_length": -1.1430169111851105, "sepal_width": 1.2492011182302534, "petal_length": -1.3402265266227624, "petal_width": -1.4470764792980408, "species": "setosa", "cluster": 1}, {"sepal_length": -1.7488562634033669, "sepal_width": -0.13197947932162468, "petal_length": -1.3970639535363654, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5}, {"sepal_length": -0.9006811702978088, "sepal_width": 0.7888075857129604, "petal_length": -1.2833890997091593, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1}, {"sepal_length": -1.0218490407414595, "sepal_width": 1.019004351971607, "petal_length": -1.3970639535363654, "petal_width": -1.1838121107174393, "species": "setosa", "cluster": 1}, {"sepal_length": -1.6276883929597161, "sepal_width": -1.7433568431321493, "petal_length": -1.3970639535363654, "petal_width": -1.1838121107174393, "species": "setosa", "cluster": 5}, {"sepal_length": -1.7488562634033669, "sepal_width": 0.32841405319566835, "petal_length": -1.3970639535363654, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5}, {"sepal_length": -1.0218490407414595, "sepal_width": 1.019004351971607, "petal_length": -1.226551672795556, "petal_width": -0.7889155578465368, "species": "setosa", "cluster": 1}, {"sepal_length": -0.9006811702978088, "sepal_width": 1.7095946507475455, "petal_length": -1.0560393920547466, "petal_width": -1.0521799264271385, "species": "setosa", "cluster": 6}, {"sepal_length": -1.2641847816287624, "sepal_width": -0.13197947932162468, "petal_length": -1.3402265266227624, "petal_width": -1.1838121107174393, "species": "setosa", "cluster": 5}, {"sepal_length": -0.9006811702978088, "sepal_width": 1.7095946507475455, "petal_length": -1.226551672795556, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 6}, {"sepal_length": -1.5065205225160652, "sepal_width": 0.32841405319566835, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5}, {"sepal_length": -0.658345429410506, "sepal_width": 1.4793978844889, "petal_length": -1.2833890997091593, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 6}, {"sepal_length": -1.0218490407414595, "sepal_width": 0.5586108194543139, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1}, {"sepal_length": 1.401508368131566, "sepal_width": 0.32841405319566835, "petal_length": 0.5354085615261415, "petal_width": 0.26414191647586993, "species": "versicolor", "cluster": 4}, {"sepal_length": 0.6745011454696588, "sepal_width": 0.32841405319566835, "petal_length": 0.4217337076989351, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4}, {"sepal_length": 1.2803404976879151, "sepal_width": 0.09821728693702184, "petal_length": 0.6490834153533479, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4}, {"sepal_length": -0.4160096885232032, "sepal_width": -1.7433568431321493, "petal_length": 0.13754657313091936, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 0}, {"sepal_length": 0.7956690159133096, "sepal_width": -0.5923730118389178, "petal_length": 0.47857113461253803, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4}, {"sepal_length": -0.1736739476359004, "sepal_width": -0.5923730118389178, "petal_length": 0.4217337076989351, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 4}, {"sepal_length": 0.5533332750260068, "sepal_width": 0.5586108194543139, "petal_length": 0.5354085615261415, "petal_width": 0.5274062850564719, "species": "versicolor", "cluster": 4}, {"sepal_length": -1.1430169111851105, "sepal_width": -1.513160076873503, "petal_length": -0.26031541526430274, "petal_width": -0.26238682068533337, "species": "versicolor", "cluster": 0}, {"sepal_length": 0.9168368863569605, "sepal_width": -0.3621762455802712, "petal_length": 0.47857113461253803, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 4}, {"sepal_length": -0.7795132998541568, "sepal_width": -0.8225697780975633, "petal_length": 0.08070914621731616, "petal_width": 0.26414191647586993, "species": "versicolor", "cluster": 0}, {"sepal_length": -1.0218490407414595, "sepal_width": -2.433947141908088, "petal_length": -0.14664056143709636, "petal_width": -0.26238682068533337, "species": "versicolor", "cluster": 0}, {"sepal_length": 0.06866179325140237, "sepal_width": -0.13197947932162468, "petal_length": 0.2512214269581257, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4}, {"sepal_length": 0.18982966369505322, "sepal_width": -1.9735536093907948, "petal_length": 0.13754657313091936, "petal_width": -0.26238682068533337, "species": "versicolor", "cluster": 0}, {"sepal_length": 0.31099753413870407, "sepal_width": -0.3621762455802712, "petal_length": 0.5354085615261415, "petal_width": 0.26414191647586993, "species": "versicolor", "cluster": 4}, {"sepal_length": -0.29484181807955234, "sepal_width": -0.3621762455802712, "petal_length": -0.08980313452349317, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 0}, {"sepal_length": 1.0380047568006125, "sepal_width": 0.09821728693702184, "petal_length": 0.36489628078533215, "petal_width": 0.26414191647586993, "species": "versicolor", "cluster": 4}, {"sepal_length": -0.29484181807955234, "sepal_width": -0.13197947932162468, "petal_length": 0.4217337076989351, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4}, {"sepal_length": -0.05250607719224957, "sepal_width": -0.8225697780975633, "petal_length": 0.1943840000445223, "petal_width": -0.26238682068533337, "species": "versicolor", "cluster": 0}, {"sepal_length": 0.432165404582356, "sepal_width": -1.9735536093907948, "petal_length": 0.4217337076989351, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 0}, {"sepal_length": -0.29484181807955234, "sepal_width": -1.2829633106148564, "petal_length": 0.08070914621731616, "petal_width": -0.1307546363950324, "species": "versicolor", "cluster": 0}, {"sepal_length": 0.06866179325140237, "sepal_width": 0.32841405319566835, "petal_length": 0.5922459884397444, "petal_width": 0.7906706536370736, "species": "versicolor", "cluster": 4}, {"sepal_length": 0.31099753413870407, "sepal_width": -0.5923730118389178, "petal_length": 0.13754657313091936, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 4}, {"sepal_length": 0.5533332750260068, "sepal_width": -1.2829633106148564, "petal_length": 0.6490834153533479, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4}, {"sepal_length": 0.31099753413870407, "sepal_width": -0.5923730118389178, "petal_length": 0.5354085615261415, "petal_width": 0.0008775478952682834, "species": "versicolor", "cluster": 4}, {"sepal_length": 0.6745011454696588, "sepal_width": -0.3621762455802712, "petal_length": 0.30805885387172866, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 4}, {"sepal_length": 0.9168368863569605, "sepal_width": -0.13197947932162468, "petal_length": 0.36489628078533215, "petal_width": 0.26414191647586993, "species": "versicolor", "cluster": 4}, {"sepal_length": 1.1591726272442633, "sepal_width": -0.5923730118389178, "petal_length": 0.5922459884397444, "petal_width": 0.26414191647586993, "species": "versicolor", "cluster": 4}, {"sepal_length": 1.0380047568006125, "sepal_width": -0.13197947932162468, "petal_length": 0.7059208422669508, "petal_width": 0.6590384693467726, "species": "versicolor", "cluster": 4}, {"sepal_length": 0.18982966369505322, "sepal_width": -0.3621762455802712, "petal_length": 0.4217337076989351, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4}, {"sepal_length": -0.1736739476359004, "sepal_width": -1.0527665443562098, "petal_length": -0.14664056143709636, "petal_width": -0.26238682068533337, "species": "versicolor", "cluster": 0}, {"sepal_length": -0.4160096885232032, "sepal_width": -1.513160076873503, "petal_length": 0.023871719303712964, "petal_width": -0.1307546363950324, "species": "versicolor", "cluster": 0}, {"sepal_length": -0.4160096885232032, "sepal_width": -1.513160076873503, "petal_length": -0.032965707609889976, "petal_width": -0.26238682068533337, "species": "versicolor", "cluster": 0}, {"sepal_length": -0.05250607719224957, "sepal_width": -0.8225697780975633, "petal_length": 0.08070914621731616, "petal_width": 0.0008775478952682834, "species": "versicolor", "cluster": 0}, {"sepal_length": 0.18982966369505322, "sepal_width": -0.8225697780975633, "petal_length": 0.7627582691805538, "petal_width": 0.5274062850564719, "species": "versicolor", "cluster": 4}, {"sepal_length": -0.537177558966854, "sepal_width": -0.13197947932162468, "petal_length": 0.4217337076989351, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4}, {"sepal_length": 0.18982966369505322, "sepal_width": 0.7888075857129604, "petal_length": 0.4217337076989351, "petal_width": 0.5274062850564719, "species": "versicolor", "cluster": 4}, {"sepal_length": 1.0380047568006125, "sepal_width": 0.09821728693702184, "petal_length": 0.5354085615261415, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4}, {"sepal_length": 0.5533332750260068, "sepal_width": -1.7433568431321493, "petal_length": 0.36489628078533215, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 0}, {"sepal_length": -0.29484181807955234, "sepal_width": -0.13197947932162468, "petal_length": 0.1943840000445223, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 4}, {"sepal_length": -0.4160096885232032, "sepal_width": -1.2829633106148564, "petal_length": 0.13754657313091936, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 0}, {"sepal_length": -0.4160096885232032, "sepal_width": -1.0527665443562098, "petal_length": 0.36489628078533215, "petal_width": 0.0008775478952682834, "species": "versicolor", "cluster": 0}, {"sepal_length": 0.31099753413870407, "sepal_width": -0.13197947932162468, "petal_length": 0.47857113461253803, "petal_width": 0.26414191647586993, "species": "versicolor", "cluster": 4}, {"sepal_length": -0.05250607719224957, "sepal_width": -1.0527665443562098, "petal_length": 0.13754657313091936, "petal_width": 0.0008775478952682834, "species": "versicolor", "cluster": 0}, {"sepal_length": -1.0218490407414595, "sepal_width": -1.7433568431321493, "petal_length": -0.26031541526430274, "petal_width": -0.26238682068533337, "species": "versicolor", "cluster": 0}, {"sepal_length": -0.29484181807955234, "sepal_width": -0.8225697780975633, "petal_length": 0.2512214269581257, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 0}, {"sepal_length": -0.1736739476359004, "sepal_width": -0.13197947932162468, "petal_length": 0.2512214269581257, "petal_width": 0.0008775478952682834, "species": "versicolor", "cluster": 4}, {"sepal_length": -0.1736739476359004, "sepal_width": -0.3621762455802712, "petal_length": 0.2512214269581257, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 4}, {"sepal_length": 0.432165404582356, "sepal_width": -0.3621762455802712, "petal_length": 0.30805885387172866, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 4}, {"sepal_length": -0.9006811702978088, "sepal_width": -1.2829633106148564, "petal_length": -0.4308276960051121, "petal_width": -0.1307546363950324, "species": "versicolor", "cluster": 0}, {"sepal_length": -0.1736739476359004, "sepal_width": -0.5923730118389178, "petal_length": 0.1943840000445223, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 0}, {"sepal_length": 0.5533332750260068, "sepal_width": 0.5586108194543139, "petal_length": 1.2742951114029821, "petal_width": 1.7120959436691794, "species": "virginica", "cluster": 3}, {"sepal_length": -0.05250607719224957, "sepal_width": -0.8225697780975633, "petal_length": 0.7627582691805538, "petal_width": 0.9223028379273742, "species": "virginica", "cluster": 4}, {"sepal_length": 1.522676238575217, "sepal_width": -0.13197947932162468, "petal_length": 1.2174576844893792, "petal_width": 1.185567206507976, "species": "virginica", "cluster": 2}, {"sepal_length": 0.5533332750260068, "sepal_width": -0.3621762455802712, "petal_length": 1.0469454037485695, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 4}, {"sepal_length": 0.7956690159133096, "sepal_width": -0.13197947932162468, "petal_length": 1.1606202575757758, "petal_width": 1.317199390798277, "species": "virginica", "cluster": 3}, {"sepal_length": 2.1285155907934734, "sepal_width": -0.13197947932162468, "petal_length": 1.6153196728846009, "petal_width": 1.185567206507976, "species": "virginica", "cluster": 2}, {"sepal_length": -1.1430169111851105, "sepal_width": -1.2829633106148564, "petal_length": 0.4217337076989351, "petal_width": 0.6590384693467726, "species": "virginica", "cluster": 0}, {"sepal_length": 1.7650119794625196, "sepal_width": -0.3621762455802712, "petal_length": 1.4448073921437916, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 2}, {"sepal_length": 1.0380047568006125, "sepal_width": -1.2829633106148564, "petal_length": 1.1606202575757758, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 4}, {"sepal_length": 1.643844109018869, "sepal_width": 1.2492011182302534, "petal_length": 1.331132538316585, "petal_width": 1.7120959436691794, "species": "virginica", "cluster": 7}, {"sepal_length": 0.7956690159133096, "sepal_width": 0.32841405319566835, "petal_length": 0.7627582691805538, "petal_width": 1.053935022217675, "species": "virginica", "cluster": 3}, {"sepal_length": 0.6745011454696588, "sepal_width": -0.8225697780975633, "petal_length": 0.8764331230077601, "petal_width": 0.9223028379273742, "species": "virginica", "cluster": 4}, {"sepal_length": 1.1591726272442633, "sepal_width": -0.13197947932162468, "petal_length": 0.9901079768349665, "petal_width": 1.185567206507976, "species": "virginica", "cluster": 3}, {"sepal_length": -0.1736739476359004, "sepal_width": -1.2829633106148564, "petal_length": 0.7059208422669508, "petal_width": 1.053935022217675, "species": "virginica", "cluster": 0}, {"sepal_length": -0.05250607719224957, "sepal_width": -0.5923730118389178, "petal_length": 0.7627582691805538, "petal_width": 1.5804637593788784, "species": "virginica", "cluster": 4}, {"sepal_length": 0.6745011454696588, "sepal_width": 0.32841405319566835, "petal_length": 0.8764331230077601, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 3}, {"sepal_length": 0.7956690159133096, "sepal_width": -0.13197947932162468, "petal_length": 0.9901079768349665, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 3}, {"sepal_length": 2.2496834612371255, "sepal_width": 1.7095946507475455, "petal_length": 1.6721570997982043, "petal_width": 1.317199390798277, "species": "virginica", "cluster": 7}, {"sepal_length": 2.2496834612371255, "sepal_width": -1.0527665443562098, "petal_length": 1.7858319536254108, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 2}, {"sepal_length": 0.18982966369505322, "sepal_width": -1.9735536093907948, "petal_length": 0.7059208422669508, "petal_width": 0.3957741007661709, "species": "virginica", "cluster": 0}, {"sepal_length": 1.2803404976879151, "sepal_width": 0.32841405319566835, "petal_length": 1.1037828306621729, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 3}, {"sepal_length": -0.29484181807955234, "sepal_width": -0.5923730118389178, "petal_length": 0.6490834153533479, "petal_width": 1.053935022217675, "species": "virginica", "cluster": 4}, {"sepal_length": 2.2496834612371255, "sepal_width": -0.5923730118389178, "petal_length": 1.6721570997982043, "petal_width": 1.053935022217675, "species": "virginica", "cluster": 2}, {"sepal_length": 0.5533332750260068, "sepal_width": -0.8225697780975633, "petal_length": 0.6490834153533479, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 4}, {"sepal_length": 1.0380047568006125, "sepal_width": 0.5586108194543139, "petal_length": 1.1037828306621729, "petal_width": 1.185567206507976, "species": "virginica", "cluster": 3}, {"sepal_length": 1.643844109018869, "sepal_width": 0.32841405319566835, "petal_length": 1.2742951114029821, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 2}, {"sepal_length": 0.432165404582356, "sepal_width": -0.5923730118389178, "petal_length": 0.5922459884397444, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 4}, {"sepal_length": 0.31099753413870407, "sepal_width": -0.13197947932162468, "petal_length": 0.6490834153533479, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 4}, {"sepal_length": 0.6745011454696588, "sepal_width": -0.5923730118389178, "petal_length": 1.0469454037485695, "petal_width": 1.185567206507976, "species": "virginica", "cluster": 3}, {"sepal_length": 1.643844109018869, "sepal_width": -0.13197947932162468, "petal_length": 1.1606202575757758, "petal_width": 0.5274062850564719, "species": "virginica", "cluster": 2}, {"sepal_length": 1.8861798499061717, "sepal_width": -0.5923730118389178, "petal_length": 1.331132538316585, "petal_width": 0.9223028379273742, "species": "virginica", "cluster": 2}, {"sepal_length": 2.4920192021244283, "sepal_width": 1.7095946507475455, "petal_length": 1.501644819057395, "petal_width": 1.053935022217675, "species": "virginica", "cluster": 7}, {"sepal_length": 0.6745011454696588, "sepal_width": -0.5923730118389178, "petal_length": 1.0469454037485695, "petal_width": 1.317199390798277, "species": "virginica", "cluster": 3}, {"sepal_length": 0.5533332750260068, "sepal_width": -0.5923730118389178, "petal_length": 0.7627582691805538, "petal_width": 0.3957741007661709, "species": "virginica", "cluster": 4}, {"sepal_length": 0.31099753413870407, "sepal_width": -1.0527665443562098, "petal_length": 1.0469454037485695, "petal_width": 0.26414191647586993, "species": "virginica", "cluster": 4}, {"sepal_length": 2.2496834612371255, "sepal_width": -0.13197947932162468, "petal_length": 1.331132538316585, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 2}, {"sepal_length": 0.5533332750260068, "sepal_width": 0.7888075857129604, "petal_length": 1.0469454037485695, "petal_width": 1.5804637593788784, "species": "virginica", "cluster": 3}, {"sepal_length": 0.6745011454696588, "sepal_width": 0.09821728693702184, "petal_length": 0.9901079768349665, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 3}, {"sepal_length": 0.18982966369505322, "sepal_width": -0.13197947932162468, "petal_length": 0.5922459884397444, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 4}, {"sepal_length": 1.2803404976879151, "sepal_width": 0.09821728693702184, "petal_length": 0.9332705499213636, "petal_width": 1.185567206507976, "species": "virginica", "cluster": 3}, {"sepal_length": 1.0380047568006125, "sepal_width": 0.09821728693702184, "petal_length": 1.0469454037485695, "petal_width": 1.5804637593788784, "species": "virginica", "cluster": 3}, {"sepal_length": 1.2803404976879151, "sepal_width": 0.09821728693702184, "petal_length": 0.7627582691805538, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 3}, {"sepal_length": -0.05250607719224957, "sepal_width": -0.8225697780975633, "petal_length": 0.7627582691805538, "petal_width": 0.9223028379273742, "species": "virginica", "cluster": 4}, {"sepal_length": 1.1591726272442633, "sepal_width": 0.32841405319566835, "petal_length": 1.2174576844893792, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 3}, {"sepal_length": 1.0380047568006125, "sepal_width": 0.5586108194543139, "petal_length": 1.1037828306621729, "petal_width": 1.7120959436691794, "species": "virginica", "cluster": 3}, {"sepal_length": 1.0380047568006125, "sepal_width": -0.13197947932162468, "petal_length": 0.8195956960941572, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 3}, {"sepal_length": 0.5533332750260068, "sepal_width": -1.2829633106148564, "petal_length": 0.7059208422669508, "petal_width": 0.9223028379273742, "species": "virginica", "cluster": 4}, {"sepal_length": 0.7956690159133096, "sepal_width": -0.13197947932162468, "petal_length": 0.8195956960941572, "petal_width": 1.053935022217675, "species": "virginica", "cluster": 3}, {"sepal_length": 0.432165404582356, "sepal_width": 0.7888075857129604, "petal_length": 0.9332705499213636, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 3}, {"sepal_length": 0.06866179325140237, "sepal_width": -0.13197947932162468, "petal_length": 0.7627582691805538, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 4}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p>Usually we will specify the number of clusters.  If you don’t specify, then it will use 8 as the default value.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">KMeans</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on class KMeans in module sklearn.cluster._kmeans:
+
+class KMeans(sklearn.base.TransformerMixin, sklearn.base.ClusterMixin, sklearn.base.BaseEstimator)
+ |  KMeans(n_clusters=8, *, init=&#39;k-means++&#39;, n_init=10, max_iter=300, tol=0.0001, verbose=0, random_state=None, copy_x=True, algorithm=&#39;auto&#39;)
+ |  
+ |  K-Means clustering.
+ |  
+ |  Read more in the :ref:`User Guide &lt;k_means&gt;`.
+ |  
+ |  Parameters
+ |  ----------
+ |  
+ |  n_clusters : int, default=8
+ |      The number of clusters to form as well as the number of
+ |      centroids to generate.
+ |  
+ |  init : {&#39;k-means++&#39;, &#39;random&#39;}, callable or array-like of shape             (n_clusters, n_features), default=&#39;k-means++&#39;
+ |      Method for initialization:
+ |  
+ |      &#39;k-means++&#39; : selects initial cluster centers for k-mean
+ |      clustering in a smart way to speed up convergence. See section
+ |      Notes in k_init for more details.
+ |  
+ |      &#39;random&#39;: choose `n_clusters` observations (rows) at random from data
+ |      for the initial centroids.
+ |  
+ |      If an array is passed, it should be of shape (n_clusters, n_features)
+ |      and gives the initial centers.
+ |  
+ |      If a callable is passed, it should take arguments X, n_clusters and a
+ |      random state and return an initialization.
+ |  
+ |  n_init : int, default=10
+ |      Number of time the k-means algorithm will be run with different
+ |      centroid seeds. The final results will be the best output of
+ |      n_init consecutive runs in terms of inertia.
+ |  
+ |  max_iter : int, default=300
+ |      Maximum number of iterations of the k-means algorithm for a
+ |      single run.
+ |  
+ |  tol : float, default=1e-4
+ |      Relative tolerance with regards to Frobenius norm of the difference
+ |      in the cluster centers of two consecutive iterations to declare
+ |      convergence.
+ |  
+ |  verbose : int, default=0
+ |      Verbosity mode.
+ |  
+ |  random_state : int, RandomState instance or None, default=None
+ |      Determines random number generation for centroid initialization. Use
+ |      an int to make the randomness deterministic.
+ |      See :term:`Glossary &lt;random_state&gt;`.
+ |  
+ |  copy_x : bool, default=True
+ |      When pre-computing distances it is more numerically accurate to center
+ |      the data first. If copy_x is True (default), then the original data is
+ |      not modified. If False, the original data is modified, and put back
+ |      before the function returns, but small numerical differences may be
+ |      introduced by subtracting and then adding the data mean. Note that if
+ |      the original data is not C-contiguous, a copy will be made even if
+ |      copy_x is False. If the original data is sparse, but not in CSR format,
+ |      a copy will be made even if copy_x is False.
+ |  
+ |  algorithm : {&quot;auto&quot;, &quot;full&quot;, &quot;elkan&quot;}, default=&quot;auto&quot;
+ |      K-means algorithm to use. The classical EM-style algorithm is &quot;full&quot;.
+ |      The &quot;elkan&quot; variation is more efficient on data with well-defined
+ |      clusters, by using the triangle inequality. However it&#39;s more memory
+ |      intensive due to the allocation of an extra array of shape
+ |      (n_samples, n_clusters).
+ |  
+ |      For now &quot;auto&quot; (kept for backward compatibility) chooses &quot;elkan&quot; but it
+ |      might change in the future for a better heuristic.
+ |  
+ |      .. versionchanged:: 0.18
+ |          Added Elkan algorithm
+ |  
+ |  Attributes
+ |  ----------
+ |  cluster_centers_ : ndarray of shape (n_clusters, n_features)
+ |      Coordinates of cluster centers. If the algorithm stops before fully
+ |      converging (see ``tol`` and ``max_iter``), these will not be
+ |      consistent with ``labels_``.
+ |  
+ |  labels_ : ndarray of shape (n_samples,)
+ |      Labels of each point
+ |  
+ |  inertia_ : float
+ |      Sum of squared distances of samples to their closest cluster center,
+ |      weighted by the sample weights if provided.
+ |  
+ |  n_iter_ : int
+ |      Number of iterations run.
+ |  
+ |  n_features_in_ : int
+ |      Number of features seen during :term:`fit`.
+ |  
+ |      .. versionadded:: 0.24
+ |  
+ |  feature_names_in_ : ndarray of shape (`n_features_in_`,)
+ |      Names of features seen during :term:`fit`. Defined only when `X`
+ |      has feature names that are all strings.
+ |  
+ |      .. versionadded:: 1.0
+ |  
+ |  See Also
+ |  --------
+ |  MiniBatchKMeans : Alternative online implementation that does incremental
+ |      updates of the centers positions using mini-batches.
+ |      For large scale learning (say n_samples &gt; 10k) MiniBatchKMeans is
+ |      probably much faster than the default batch implementation.
+ |  
+ |  Notes
+ |  -----
+ |  The k-means problem is solved using either Lloyd&#39;s or Elkan&#39;s algorithm.
+ |  
+ |  The average complexity is given by O(k n T), where n is the number of
+ |  samples and T is the number of iteration.
+ |  
+ |  The worst case complexity is given by O(n^(k+2/p)) with
+ |  n = n_samples, p = n_features. (D. Arthur and S. Vassilvitskii,
+ |  &#39;How slow is the k-means method?&#39; SoCG2006)
+ |  
+ |  In practice, the k-means algorithm is very fast (one of the fastest
+ |  clustering algorithms available), but it falls in local minima. That&#39;s why
+ |  it can be useful to restart it several times.
+ |  
+ |  If the algorithm stops before fully converging (because of ``tol`` or
+ |  ``max_iter``), ``labels_`` and ``cluster_centers_`` will not be consistent,
+ |  i.e. the ``cluster_centers_`` will not be the means of the points in each
+ |  cluster. Also, the estimator will reassign ``labels_`` after the last
+ |  iteration to make ``labels_`` consistent with ``predict`` on the training
+ |  set.
+ |  
+ |  Examples
+ |  --------
+ |  
+ |  &gt;&gt;&gt; from sklearn.cluster import KMeans
+ |  &gt;&gt;&gt; import numpy as np
+ |  &gt;&gt;&gt; X = np.array([[1, 2], [1, 4], [1, 0],
+ |  ...               [10, 2], [10, 4], [10, 0]])
+ |  &gt;&gt;&gt; kmeans = KMeans(n_clusters=2, random_state=0).fit(X)
+ |  &gt;&gt;&gt; kmeans.labels_
+ |  array([1, 1, 1, 0, 0, 0], dtype=int32)
+ |  &gt;&gt;&gt; kmeans.predict([[0, 0], [12, 3]])
+ |  array([1, 0], dtype=int32)
+ |  &gt;&gt;&gt; kmeans.cluster_centers_
+ |  array([[10.,  2.],
+ |         [ 1.,  2.]])
+ |  
+ |  Method resolution order:
+ |      KMeans
+ |      sklearn.base.TransformerMixin
+ |      sklearn.base.ClusterMixin
+ |      sklearn.base.BaseEstimator
+ |      builtins.object
+ |  
+ |  Methods defined here:
+ |  
+ |  __init__(self, n_clusters=8, *, init=&#39;k-means++&#39;, n_init=10, max_iter=300, tol=0.0001, verbose=0, random_state=None, copy_x=True, algorithm=&#39;auto&#39;)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  fit(self, X, y=None, sample_weight=None)
+ |      Compute k-means clustering.
+ |      
+ |      Parameters
+ |      ----------
+ |      X : {array-like, sparse matrix} of shape (n_samples, n_features)
+ |          Training instances to cluster. It must be noted that the data
+ |          will be converted to C ordering, which will cause a memory
+ |          copy if the given data is not C-contiguous.
+ |          If a sparse matrix is passed, a copy will be made if it&#39;s not in
+ |          CSR format.
+ |      
+ |      y : Ignored
+ |          Not used, present here for API consistency by convention.
+ |      
+ |      sample_weight : array-like of shape (n_samples,), default=None
+ |          The weights for each observation in X. If None, all observations
+ |          are assigned equal weight.
+ |      
+ |          .. versionadded:: 0.20
+ |      
+ |      Returns
+ |      -------
+ |      self : object
+ |          Fitted estimator.
+ |  
+ |  fit_predict(self, X, y=None, sample_weight=None)
+ |      Compute cluster centers and predict cluster index for each sample.
+ |      
+ |      Convenience method; equivalent to calling fit(X) followed by
+ |      predict(X).
+ |      
+ |      Parameters
+ |      ----------
+ |      X : {array-like, sparse matrix} of shape (n_samples, n_features)
+ |          New data to transform.
+ |      
+ |      y : Ignored
+ |          Not used, present here for API consistency by convention.
+ |      
+ |      sample_weight : array-like of shape (n_samples,), default=None
+ |          The weights for each observation in X. If None, all observations
+ |          are assigned equal weight.
+ |      
+ |      Returns
+ |      -------
+ |      labels : ndarray of shape (n_samples,)
+ |          Index of the cluster each sample belongs to.
+ |  
+ |  fit_transform(self, X, y=None, sample_weight=None)
+ |      Compute clustering and transform X to cluster-distance space.
+ |      
+ |      Equivalent to fit(X).transform(X), but more efficiently implemented.
+ |      
+ |      Parameters
+ |      ----------
+ |      X : {array-like, sparse matrix} of shape (n_samples, n_features)
+ |          New data to transform.
+ |      
+ |      y : Ignored
+ |          Not used, present here for API consistency by convention.
+ |      
+ |      sample_weight : array-like of shape (n_samples,), default=None
+ |          The weights for each observation in X. If None, all observations
+ |          are assigned equal weight.
+ |      
+ |      Returns
+ |      -------
+ |      X_new : ndarray of shape (n_samples, n_clusters)
+ |          X transformed in the new space.
+ |  
+ |  predict(self, X, sample_weight=None)
+ |      Predict the closest cluster each sample in X belongs to.
+ |      
+ |      In the vector quantization literature, `cluster_centers_` is called
+ |      the code book and each value returned by `predict` is the index of
+ |      the closest code in the code book.
+ |      
+ |      Parameters
+ |      ----------
+ |      X : {array-like, sparse matrix} of shape (n_samples, n_features)
+ |          New data to predict.
+ |      
+ |      sample_weight : array-like of shape (n_samples,), default=None
+ |          The weights for each observation in X. If None, all observations
+ |          are assigned equal weight.
+ |      
+ |      Returns
+ |      -------
+ |      labels : ndarray of shape (n_samples,)
+ |          Index of the cluster each sample belongs to.
+ |  
+ |  score(self, X, y=None, sample_weight=None)
+ |      Opposite of the value of X on the K-means objective.
+ |      
+ |      Parameters
+ |      ----------
+ |      X : {array-like, sparse matrix} of shape (n_samples, n_features)
+ |          New data.
+ |      
+ |      y : Ignored
+ |          Not used, present here for API consistency by convention.
+ |      
+ |      sample_weight : array-like of shape (n_samples,), default=None
+ |          The weights for each observation in X. If None, all observations
+ |          are assigned equal weight.
+ |      
+ |      Returns
+ |      -------
+ |      score : float
+ |          Opposite of the value of X on the K-means objective.
+ |  
+ |  transform(self, X)
+ |      Transform X to a cluster-distance space.
+ |      
+ |      In the new space, each dimension is the distance to the cluster
+ |      centers. Note that even if X is sparse, the array returned by
+ |      `transform` will typically be dense.
+ |      
+ |      Parameters
+ |      ----------
+ |      X : {array-like, sparse matrix} of shape (n_samples, n_features)
+ |          New data to transform.
+ |      
+ |      Returns
+ |      -------
+ |      X_new : ndarray of shape (n_samples, n_clusters)
+ |          X transformed in the new space.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from sklearn.base.TransformerMixin:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from sklearn.base.BaseEstimator:
+ |  
+ |  __getstate__(self)
+ |  
+ |  __repr__(self, N_CHAR_MAX=700)
+ |      Return repr(self).
+ |  
+ |  __setstate__(self, state)
+ |  
+ |  get_params(self, deep=True)
+ |      Get parameters for this estimator.
+ |      
+ |      Parameters
+ |      ----------
+ |      deep : bool, default=True
+ |          If True, will return the parameters for this estimator and
+ |          contained subobjects that are estimators.
+ |      
+ |      Returns
+ |      -------
+ |      params : dict
+ |          Parameter names mapped to their values.
+ |  
+ |  set_params(self, **params)
+ |      Set the parameters of this estimator.
+ |      
+ |      The method works on simple estimators as well as on nested objects
+ |      (such as :class:`~sklearn.pipeline.Pipeline`). The latter have
+ |      parameters of the form ``&lt;component&gt;__&lt;parameter&gt;`` so that it&#39;s
+ |      possible to update each component of a nested object.
+ |      
+ |      Parameters
+ |      ----------
+ |      **params : dict
+ |          Estimator parameters.
+ |      
+ |      Returns
+ |      -------
+ |      self : estimator instance
+ |          Estimator instance.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we create a new <code class="docutils literal notranslate"><span class="pre">KMeans</span></code> object, and specify that it should use 2 clusters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmeans2</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmeans2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">numcols</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KMeans(n_clusters=2)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we save it as a new column.  (In lecture, I called this “pred2” instead of “cluster2”.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cluster2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kmeans2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">numcols</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
+      <th>cluster</th>
+      <th>cluster2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.900681</td>
+      <td>1.019004</td>
+      <td>-1.340227</td>
+      <td>-1.315444</td>
+      <td>setosa</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-1.143017</td>
+      <td>-0.131979</td>
+      <td>-1.340227</td>
+      <td>-1.315444</td>
+      <td>setosa</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-1.385353</td>
+      <td>0.328414</td>
+      <td>-1.397064</td>
+      <td>-1.315444</td>
+      <td>setosa</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-1.506521</td>
+      <td>0.098217</td>
+      <td>-1.283389</td>
+      <td>-1.315444</td>
+      <td>setosa</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-1.021849</td>
+      <td>1.249201</td>
+      <td>-1.340227</td>
+      <td>-1.315444</td>
+      <td>setosa</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>1.038005</td>
+      <td>-0.131979</td>
+      <td>0.819596</td>
+      <td>1.448832</td>
+      <td>virginica</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>0.553333</td>
+      <td>-1.282963</td>
+      <td>0.705921</td>
+      <td>0.922303</td>
+      <td>virginica</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>0.795669</td>
+      <td>-0.131979</td>
+      <td>0.819596</td>
+      <td>1.053935</td>
+      <td>virginica</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>0.432165</td>
+      <td>0.788808</td>
+      <td>0.933271</td>
+      <td>1.448832</td>
+      <td>virginica</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>0.068662</td>
+      <td>-0.131979</td>
+      <td>0.762758</td>
+      <td>0.790671</td>
+      <td>virginica</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 7 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;petal_length&quot;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;cluster2:N&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-62c4174f6266417ab7bf581e321e16be"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-62c4174f6266417ab7bf581e321e16be") {
+      outputDiv = document.getElementById("altair-viz-62c4174f6266417ab7bf581e321e16be");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-5bf27768e972874cbff18615ed60a212"}, "mark": "circle", "encoding": {"color": {"field": "cluster2", "type": "nominal"}, "x": {"field": "sepal_length", "type": "quantitative"}, "y": {"field": "petal_length", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-5bf27768e972874cbff18615ed60a212": [{"sepal_length": -0.9006811702978088, "sepal_width": 1.019004351971607, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.1430169111851105, "sepal_width": -0.13197947932162468, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -1.3853526520724133, "sepal_width": 0.32841405319566835, "petal_length": -1.3970639535363654, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -1.5065205225160652, "sepal_width": 0.09821728693702184, "petal_length": -1.2833890997091593, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -1.0218490407414595, "sepal_width": 1.2492011182302534, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -0.537177558966854, "sepal_width": 1.939791417006192, "petal_length": -1.1697142458819532, "petal_width": -1.0521799264271385, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -1.5065205225160652, "sepal_width": 0.7888075857129604, "petal_length": -1.3402265266227624, "petal_width": -1.1838121107174393, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.0218490407414595, "sepal_width": 0.7888075857129604, "petal_length": -1.2833890997091593, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.7488562634033669, "sepal_width": -0.3621762455802712, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -1.1430169111851105, "sepal_width": 0.09821728693702184, "petal_length": -1.2833890997091593, "petal_width": -1.4470764792980408, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -0.537177558966854, "sepal_width": 1.4793978844889, "petal_length": -1.2833890997091593, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -1.2641847816287624, "sepal_width": 0.7888075857129604, "petal_length": -1.226551672795556, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.2641847816287624, "sepal_width": -0.13197947932162468, "petal_length": -1.3402265266227624, "petal_width": -1.4470764792980408, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -1.870024133847019, "sepal_width": -0.13197947932162468, "petal_length": -1.5107388073635717, "petal_width": -1.4470764792980408, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -0.05250607719224957, "sepal_width": 2.1699881832648384, "petal_length": -1.4539013804499687, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -0.1736739476359004, "sepal_width": 3.090775248299425, "petal_length": -1.2833890997091593, "petal_width": -1.0521799264271385, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -0.537177558966854, "sepal_width": 1.939791417006192, "petal_length": -1.3970639535363654, "petal_width": -1.0521799264271385, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -0.9006811702978088, "sepal_width": 1.019004351971607, "petal_length": -1.3402265266227624, "petal_width": -1.1838121107174393, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -0.1736739476359004, "sepal_width": 1.7095946507475455, "petal_length": -1.1697142458819532, "petal_width": -1.1838121107174393, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -0.9006811702978088, "sepal_width": 1.7095946507475455, "petal_length": -1.2833890997091593, "petal_width": -1.1838121107174393, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -0.537177558966854, "sepal_width": 0.7888075857129604, "petal_length": -1.1697142458819532, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -0.9006811702978088, "sepal_width": 1.4793978844889, "petal_length": -1.2833890997091593, "petal_width": -1.0521799264271385, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.5065205225160652, "sepal_width": 1.2492011182302534, "petal_length": -1.567576234277175, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -0.9006811702978088, "sepal_width": 0.5586108194543139, "petal_length": -1.1697142458819532, "petal_width": -0.9205477421368377, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.2641847816287624, "sepal_width": 0.7888075857129604, "petal_length": -1.0560393920547466, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.0218490407414595, "sepal_width": -0.13197947932162468, "petal_length": -1.226551672795556, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -1.0218490407414595, "sepal_width": 0.7888075857129604, "petal_length": -1.226551672795556, "petal_width": -1.0521799264271385, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -0.7795132998541568, "sepal_width": 1.019004351971607, "petal_length": -1.2833890997091593, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -0.7795132998541568, "sepal_width": 0.7888075857129604, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.3853526520724133, "sepal_width": 0.32841405319566835, "petal_length": -1.226551672795556, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -1.2641847816287624, "sepal_width": 0.09821728693702184, "petal_length": -1.226551672795556, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -0.537177558966854, "sepal_width": 0.7888075857129604, "petal_length": -1.2833890997091593, "petal_width": -1.0521799264271385, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -0.7795132998541568, "sepal_width": 2.400184949523484, "petal_length": -1.2833890997091593, "petal_width": -1.4470764792980408, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -0.4160096885232032, "sepal_width": 2.6303817157821316, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -1.1430169111851105, "sepal_width": 0.09821728693702184, "petal_length": -1.2833890997091593, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -1.0218490407414595, "sepal_width": 0.32841405319566835, "petal_length": -1.4539013804499687, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -0.4160096885232032, "sepal_width": 1.019004351971607, "petal_length": -1.3970639535363654, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.1430169111851105, "sepal_width": 1.2492011182302534, "petal_length": -1.3402265266227624, "petal_width": -1.4470764792980408, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.7488562634033669, "sepal_width": -0.13197947932162468, "petal_length": -1.3970639535363654, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -0.9006811702978088, "sepal_width": 0.7888075857129604, "petal_length": -1.2833890997091593, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.0218490407414595, "sepal_width": 1.019004351971607, "petal_length": -1.3970639535363654, "petal_width": -1.1838121107174393, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.6276883929597161, "sepal_width": -1.7433568431321493, "petal_length": -1.3970639535363654, "petal_width": -1.1838121107174393, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -1.7488562634033669, "sepal_width": 0.32841405319566835, "petal_length": -1.3970639535363654, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -1.0218490407414595, "sepal_width": 1.019004351971607, "petal_length": -1.226551672795556, "petal_width": -0.7889155578465368, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -0.9006811702978088, "sepal_width": 1.7095946507475455, "petal_length": -1.0560393920547466, "petal_width": -1.0521799264271385, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -1.2641847816287624, "sepal_width": -0.13197947932162468, "petal_length": -1.3402265266227624, "petal_width": -1.1838121107174393, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -0.9006811702978088, "sepal_width": 1.7095946507475455, "petal_length": -1.226551672795556, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -1.5065205225160652, "sepal_width": 0.32841405319566835, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -0.658345429410506, "sepal_width": 1.4793978844889, "petal_length": -1.2833890997091593, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -1.0218490407414595, "sepal_width": 0.5586108194543139, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": 1.401508368131566, "sepal_width": 0.32841405319566835, "petal_length": 0.5354085615261415, "petal_width": 0.26414191647586993, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.6745011454696588, "sepal_width": 0.32841405319566835, "petal_length": 0.4217337076989351, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 1.2803404976879151, "sepal_width": 0.09821728693702184, "petal_length": 0.6490834153533479, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.4160096885232032, "sepal_width": -1.7433568431321493, "petal_length": 0.13754657313091936, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": 0.7956690159133096, "sepal_width": -0.5923730118389178, "petal_length": 0.47857113461253803, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.1736739476359004, "sepal_width": -0.5923730118389178, "petal_length": 0.4217337076989351, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.5533332750260068, "sepal_width": 0.5586108194543139, "petal_length": 0.5354085615261415, "petal_width": 0.5274062850564719, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -1.1430169111851105, "sepal_width": -1.513160076873503, "petal_length": -0.26031541526430274, "petal_width": -0.26238682068533337, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": 0.9168368863569605, "sepal_width": -0.3621762455802712, "petal_length": 0.47857113461253803, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.7795132998541568, "sepal_width": -0.8225697780975633, "petal_length": 0.08070914621731616, "petal_width": 0.26414191647586993, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -1.0218490407414595, "sepal_width": -2.433947141908088, "petal_length": -0.14664056143709636, "petal_width": -0.26238682068533337, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": 0.06866179325140237, "sepal_width": -0.13197947932162468, "petal_length": 0.2512214269581257, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.18982966369505322, "sepal_width": -1.9735536093907948, "petal_length": 0.13754657313091936, "petal_width": -0.26238682068533337, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": 0.31099753413870407, "sepal_width": -0.3621762455802712, "petal_length": 0.5354085615261415, "petal_width": 0.26414191647586993, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.29484181807955234, "sepal_width": -0.3621762455802712, "petal_length": -0.08980313452349317, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": 1.0380047568006125, "sepal_width": 0.09821728693702184, "petal_length": 0.36489628078533215, "petal_width": 0.26414191647586993, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.29484181807955234, "sepal_width": -0.13197947932162468, "petal_length": 0.4217337076989351, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.05250607719224957, "sepal_width": -0.8225697780975633, "petal_length": 0.1943840000445223, "petal_width": -0.26238682068533337, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": 0.432165404582356, "sepal_width": -1.9735536093907948, "petal_length": 0.4217337076989351, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -0.29484181807955234, "sepal_width": -1.2829633106148564, "petal_length": 0.08070914621731616, "petal_width": -0.1307546363950324, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": 0.06866179325140237, "sepal_width": 0.32841405319566835, "petal_length": 0.5922459884397444, "petal_width": 0.7906706536370736, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.31099753413870407, "sepal_width": -0.5923730118389178, "petal_length": 0.13754657313091936, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.5533332750260068, "sepal_width": -1.2829633106148564, "petal_length": 0.6490834153533479, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.31099753413870407, "sepal_width": -0.5923730118389178, "petal_length": 0.5354085615261415, "petal_width": 0.0008775478952682834, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.6745011454696588, "sepal_width": -0.3621762455802712, "petal_length": 0.30805885387172866, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.9168368863569605, "sepal_width": -0.13197947932162468, "petal_length": 0.36489628078533215, "petal_width": 0.26414191647586993, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 1.1591726272442633, "sepal_width": -0.5923730118389178, "petal_length": 0.5922459884397444, "petal_width": 0.26414191647586993, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 1.0380047568006125, "sepal_width": -0.13197947932162468, "petal_length": 0.7059208422669508, "petal_width": 0.6590384693467726, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.18982966369505322, "sepal_width": -0.3621762455802712, "petal_length": 0.4217337076989351, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.1736739476359004, "sepal_width": -1.0527665443562098, "petal_length": -0.14664056143709636, "petal_width": -0.26238682068533337, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -0.4160096885232032, "sepal_width": -1.513160076873503, "petal_length": 0.023871719303712964, "petal_width": -0.1307546363950324, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -0.4160096885232032, "sepal_width": -1.513160076873503, "petal_length": -0.032965707609889976, "petal_width": -0.26238682068533337, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -0.05250607719224957, "sepal_width": -0.8225697780975633, "petal_length": 0.08070914621731616, "petal_width": 0.0008775478952682834, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": 0.18982966369505322, "sepal_width": -0.8225697780975633, "petal_length": 0.7627582691805538, "petal_width": 0.5274062850564719, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.537177558966854, "sepal_width": -0.13197947932162468, "petal_length": 0.4217337076989351, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.18982966369505322, "sepal_width": 0.7888075857129604, "petal_length": 0.4217337076989351, "petal_width": 0.5274062850564719, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 1.0380047568006125, "sepal_width": 0.09821728693702184, "petal_length": 0.5354085615261415, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.5533332750260068, "sepal_width": -1.7433568431321493, "petal_length": 0.36489628078533215, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -0.29484181807955234, "sepal_width": -0.13197947932162468, "petal_length": 0.1943840000445223, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.4160096885232032, "sepal_width": -1.2829633106148564, "petal_length": 0.13754657313091936, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -0.4160096885232032, "sepal_width": -1.0527665443562098, "petal_length": 0.36489628078533215, "petal_width": 0.0008775478952682834, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": 0.31099753413870407, "sepal_width": -0.13197947932162468, "petal_length": 0.47857113461253803, "petal_width": 0.26414191647586993, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.05250607719224957, "sepal_width": -1.0527665443562098, "petal_length": 0.13754657313091936, "petal_width": 0.0008775478952682834, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -1.0218490407414595, "sepal_width": -1.7433568431321493, "petal_length": -0.26031541526430274, "petal_width": -0.26238682068533337, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -0.29484181807955234, "sepal_width": -0.8225697780975633, "petal_length": 0.2512214269581257, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -0.1736739476359004, "sepal_width": -0.13197947932162468, "petal_length": 0.2512214269581257, "petal_width": 0.0008775478952682834, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.1736739476359004, "sepal_width": -0.3621762455802712, "petal_length": 0.2512214269581257, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.432165404582356, "sepal_width": -0.3621762455802712, "petal_length": 0.30805885387172866, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.9006811702978088, "sepal_width": -1.2829633106148564, "petal_length": -0.4308276960051121, "petal_width": -0.1307546363950324, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -0.1736739476359004, "sepal_width": -0.5923730118389178, "petal_length": 0.1943840000445223, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": 0.5533332750260068, "sepal_width": 0.5586108194543139, "petal_length": 1.2742951114029821, "petal_width": 1.7120959436691794, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": -0.05250607719224957, "sepal_width": -0.8225697780975633, "petal_length": 0.7627582691805538, "petal_width": 0.9223028379273742, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 1.522676238575217, "sepal_width": -0.13197947932162468, "petal_length": 1.2174576844893792, "petal_width": 1.185567206507976, "species": "virginica", "cluster": 2, "cluster2": 1}, {"sepal_length": 0.5533332750260068, "sepal_width": -0.3621762455802712, "petal_length": 1.0469454037485695, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.7956690159133096, "sepal_width": -0.13197947932162468, "petal_length": 1.1606202575757758, "petal_width": 1.317199390798277, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 2.1285155907934734, "sepal_width": -0.13197947932162468, "petal_length": 1.6153196728846009, "petal_width": 1.185567206507976, "species": "virginica", "cluster": 2, "cluster2": 1}, {"sepal_length": -1.1430169111851105, "sepal_width": -1.2829633106148564, "petal_length": 0.4217337076989351, "petal_width": 0.6590384693467726, "species": "virginica", "cluster": 0, "cluster2": 1}, {"sepal_length": 1.7650119794625196, "sepal_width": -0.3621762455802712, "petal_length": 1.4448073921437916, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 2, "cluster2": 1}, {"sepal_length": 1.0380047568006125, "sepal_width": -1.2829633106148564, "petal_length": 1.1606202575757758, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 1.643844109018869, "sepal_width": 1.2492011182302534, "petal_length": 1.331132538316585, "petal_width": 1.7120959436691794, "species": "virginica", "cluster": 7, "cluster2": 1}, {"sepal_length": 0.7956690159133096, "sepal_width": 0.32841405319566835, "petal_length": 0.7627582691805538, "petal_width": 1.053935022217675, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 0.6745011454696588, "sepal_width": -0.8225697780975633, "petal_length": 0.8764331230077601, "petal_width": 0.9223028379273742, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 1.1591726272442633, "sepal_width": -0.13197947932162468, "petal_length": 0.9901079768349665, "petal_width": 1.185567206507976, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": -0.1736739476359004, "sepal_width": -1.2829633106148564, "petal_length": 0.7059208422669508, "petal_width": 1.053935022217675, "species": "virginica", "cluster": 0, "cluster2": 1}, {"sepal_length": -0.05250607719224957, "sepal_width": -0.5923730118389178, "petal_length": 0.7627582691805538, "petal_width": 1.5804637593788784, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.6745011454696588, "sepal_width": 0.32841405319566835, "petal_length": 0.8764331230077601, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 0.7956690159133096, "sepal_width": -0.13197947932162468, "petal_length": 0.9901079768349665, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 2.2496834612371255, "sepal_width": 1.7095946507475455, "petal_length": 1.6721570997982043, "petal_width": 1.317199390798277, "species": "virginica", "cluster": 7, "cluster2": 1}, {"sepal_length": 2.2496834612371255, "sepal_width": -1.0527665443562098, "petal_length": 1.7858319536254108, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 2, "cluster2": 1}, {"sepal_length": 0.18982966369505322, "sepal_width": -1.9735536093907948, "petal_length": 0.7059208422669508, "petal_width": 0.3957741007661709, "species": "virginica", "cluster": 0, "cluster2": 1}, {"sepal_length": 1.2803404976879151, "sepal_width": 0.32841405319566835, "petal_length": 1.1037828306621729, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": -0.29484181807955234, "sepal_width": -0.5923730118389178, "petal_length": 0.6490834153533479, "petal_width": 1.053935022217675, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 2.2496834612371255, "sepal_width": -0.5923730118389178, "petal_length": 1.6721570997982043, "petal_width": 1.053935022217675, "species": "virginica", "cluster": 2, "cluster2": 1}, {"sepal_length": 0.5533332750260068, "sepal_width": -0.8225697780975633, "petal_length": 0.6490834153533479, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 1.0380047568006125, "sepal_width": 0.5586108194543139, "petal_length": 1.1037828306621729, "petal_width": 1.185567206507976, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 1.643844109018869, "sepal_width": 0.32841405319566835, "petal_length": 1.2742951114029821, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 2, "cluster2": 1}, {"sepal_length": 0.432165404582356, "sepal_width": -0.5923730118389178, "petal_length": 0.5922459884397444, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.31099753413870407, "sepal_width": -0.13197947932162468, "petal_length": 0.6490834153533479, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.6745011454696588, "sepal_width": -0.5923730118389178, "petal_length": 1.0469454037485695, "petal_width": 1.185567206507976, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 1.643844109018869, "sepal_width": -0.13197947932162468, "petal_length": 1.1606202575757758, "petal_width": 0.5274062850564719, "species": "virginica", "cluster": 2, "cluster2": 1}, {"sepal_length": 1.8861798499061717, "sepal_width": -0.5923730118389178, "petal_length": 1.331132538316585, "petal_width": 0.9223028379273742, "species": "virginica", "cluster": 2, "cluster2": 1}, {"sepal_length": 2.4920192021244283, "sepal_width": 1.7095946507475455, "petal_length": 1.501644819057395, "petal_width": 1.053935022217675, "species": "virginica", "cluster": 7, "cluster2": 1}, {"sepal_length": 0.6745011454696588, "sepal_width": -0.5923730118389178, "petal_length": 1.0469454037485695, "petal_width": 1.317199390798277, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 0.5533332750260068, "sepal_width": -0.5923730118389178, "petal_length": 0.7627582691805538, "petal_width": 0.3957741007661709, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.31099753413870407, "sepal_width": -1.0527665443562098, "petal_length": 1.0469454037485695, "petal_width": 0.26414191647586993, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 2.2496834612371255, "sepal_width": -0.13197947932162468, "petal_length": 1.331132538316585, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 2, "cluster2": 1}, {"sepal_length": 0.5533332750260068, "sepal_width": 0.7888075857129604, "petal_length": 1.0469454037485695, "petal_width": 1.5804637593788784, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 0.6745011454696588, "sepal_width": 0.09821728693702184, "petal_length": 0.9901079768349665, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 0.18982966369505322, "sepal_width": -0.13197947932162468, "petal_length": 0.5922459884397444, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 1.2803404976879151, "sepal_width": 0.09821728693702184, "petal_length": 0.9332705499213636, "petal_width": 1.185567206507976, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 1.0380047568006125, "sepal_width": 0.09821728693702184, "petal_length": 1.0469454037485695, "petal_width": 1.5804637593788784, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 1.2803404976879151, "sepal_width": 0.09821728693702184, "petal_length": 0.7627582691805538, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": -0.05250607719224957, "sepal_width": -0.8225697780975633, "petal_length": 0.7627582691805538, "petal_width": 0.9223028379273742, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 1.1591726272442633, "sepal_width": 0.32841405319566835, "petal_length": 1.2174576844893792, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 1.0380047568006125, "sepal_width": 0.5586108194543139, "petal_length": 1.1037828306621729, "petal_width": 1.7120959436691794, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 1.0380047568006125, "sepal_width": -0.13197947932162468, "petal_length": 0.8195956960941572, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 0.5533332750260068, "sepal_width": -1.2829633106148564, "petal_length": 0.7059208422669508, "petal_width": 0.9223028379273742, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.7956690159133096, "sepal_width": -0.13197947932162468, "petal_length": 0.8195956960941572, "petal_width": 1.053935022217675, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 0.432165404582356, "sepal_width": 0.7888075857129604, "petal_length": 0.9332705499213636, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 0.06866179325140237, "sepal_width": -0.13197947932162468, "petal_length": 0.7627582691805538, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 4, "cluster2": 1}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numcols</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;sepal_length&#39;, &#39;sepal_width&#39;, &#39;petal_length&#39;, &#39;petal_width&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chart_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">numcols</span><span class="p">:</span>
+    <span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">c</span><span class="p">,</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;cluster2:N&quot;</span>
+    <span class="p">)</span>
+    <span class="n">chart_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chart</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>An example of list unpacking.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">vconcat</span><span class="p">(</span><span class="o">*</span><span class="n">chart_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-7108d4046eb94dc6b4bfbb92124cae68"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-7108d4046eb94dc6b4bfbb92124cae68") {
+      outputDiv = document.getElementById("altair-viz-7108d4046eb94dc6b4bfbb92124cae68");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "vconcat": [{"mark": "circle", "encoding": {"color": {"field": "cluster2", "type": "nominal"}, "x": {"field": "sepal_length", "type": "quantitative"}, "y": {"field": "sepal_length", "type": "quantitative"}}}, {"mark": "circle", "encoding": {"color": {"field": "cluster2", "type": "nominal"}, "x": {"field": "sepal_length", "type": "quantitative"}, "y": {"field": "sepal_width", "type": "quantitative"}}}, {"mark": "circle", "encoding": {"color": {"field": "cluster2", "type": "nominal"}, "x": {"field": "sepal_length", "type": "quantitative"}, "y": {"field": "petal_length", "type": "quantitative"}}}, {"mark": "circle", "encoding": {"color": {"field": "cluster2", "type": "nominal"}, "x": {"field": "sepal_length", "type": "quantitative"}, "y": {"field": "petal_width", "type": "quantitative"}}}], "data": {"name": "data-5bf27768e972874cbff18615ed60a212"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-5bf27768e972874cbff18615ed60a212": [{"sepal_length": -0.9006811702978088, "sepal_width": 1.019004351971607, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.1430169111851105, "sepal_width": -0.13197947932162468, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -1.3853526520724133, "sepal_width": 0.32841405319566835, "petal_length": -1.3970639535363654, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -1.5065205225160652, "sepal_width": 0.09821728693702184, "petal_length": -1.2833890997091593, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -1.0218490407414595, "sepal_width": 1.2492011182302534, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -0.537177558966854, "sepal_width": 1.939791417006192, "petal_length": -1.1697142458819532, "petal_width": -1.0521799264271385, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -1.5065205225160652, "sepal_width": 0.7888075857129604, "petal_length": -1.3402265266227624, "petal_width": -1.1838121107174393, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.0218490407414595, "sepal_width": 0.7888075857129604, "petal_length": -1.2833890997091593, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.7488562634033669, "sepal_width": -0.3621762455802712, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -1.1430169111851105, "sepal_width": 0.09821728693702184, "petal_length": -1.2833890997091593, "petal_width": -1.4470764792980408, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -0.537177558966854, "sepal_width": 1.4793978844889, "petal_length": -1.2833890997091593, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -1.2641847816287624, "sepal_width": 0.7888075857129604, "petal_length": -1.226551672795556, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.2641847816287624, "sepal_width": -0.13197947932162468, "petal_length": -1.3402265266227624, "petal_width": -1.4470764792980408, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -1.870024133847019, "sepal_width": -0.13197947932162468, "petal_length": -1.5107388073635717, "petal_width": -1.4470764792980408, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -0.05250607719224957, "sepal_width": 2.1699881832648384, "petal_length": -1.4539013804499687, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -0.1736739476359004, "sepal_width": 3.090775248299425, "petal_length": -1.2833890997091593, "petal_width": -1.0521799264271385, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -0.537177558966854, "sepal_width": 1.939791417006192, "petal_length": -1.3970639535363654, "petal_width": -1.0521799264271385, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -0.9006811702978088, "sepal_width": 1.019004351971607, "petal_length": -1.3402265266227624, "petal_width": -1.1838121107174393, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -0.1736739476359004, "sepal_width": 1.7095946507475455, "petal_length": -1.1697142458819532, "petal_width": -1.1838121107174393, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -0.9006811702978088, "sepal_width": 1.7095946507475455, "petal_length": -1.2833890997091593, "petal_width": -1.1838121107174393, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -0.537177558966854, "sepal_width": 0.7888075857129604, "petal_length": -1.1697142458819532, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -0.9006811702978088, "sepal_width": 1.4793978844889, "petal_length": -1.2833890997091593, "petal_width": -1.0521799264271385, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.5065205225160652, "sepal_width": 1.2492011182302534, "petal_length": -1.567576234277175, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -0.9006811702978088, "sepal_width": 0.5586108194543139, "petal_length": -1.1697142458819532, "petal_width": -0.9205477421368377, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.2641847816287624, "sepal_width": 0.7888075857129604, "petal_length": -1.0560393920547466, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.0218490407414595, "sepal_width": -0.13197947932162468, "petal_length": -1.226551672795556, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -1.0218490407414595, "sepal_width": 0.7888075857129604, "petal_length": -1.226551672795556, "petal_width": -1.0521799264271385, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -0.7795132998541568, "sepal_width": 1.019004351971607, "petal_length": -1.2833890997091593, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -0.7795132998541568, "sepal_width": 0.7888075857129604, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.3853526520724133, "sepal_width": 0.32841405319566835, "petal_length": -1.226551672795556, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -1.2641847816287624, "sepal_width": 0.09821728693702184, "petal_length": -1.226551672795556, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -0.537177558966854, "sepal_width": 0.7888075857129604, "petal_length": -1.2833890997091593, "petal_width": -1.0521799264271385, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -0.7795132998541568, "sepal_width": 2.400184949523484, "petal_length": -1.2833890997091593, "petal_width": -1.4470764792980408, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -0.4160096885232032, "sepal_width": 2.6303817157821316, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -1.1430169111851105, "sepal_width": 0.09821728693702184, "petal_length": -1.2833890997091593, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -1.0218490407414595, "sepal_width": 0.32841405319566835, "petal_length": -1.4539013804499687, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -0.4160096885232032, "sepal_width": 1.019004351971607, "petal_length": -1.3970639535363654, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.1430169111851105, "sepal_width": 1.2492011182302534, "petal_length": -1.3402265266227624, "petal_width": -1.4470764792980408, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.7488562634033669, "sepal_width": -0.13197947932162468, "petal_length": -1.3970639535363654, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -0.9006811702978088, "sepal_width": 0.7888075857129604, "petal_length": -1.2833890997091593, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.0218490407414595, "sepal_width": 1.019004351971607, "petal_length": -1.3970639535363654, "petal_width": -1.1838121107174393, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -1.6276883929597161, "sepal_width": -1.7433568431321493, "petal_length": -1.3970639535363654, "petal_width": -1.1838121107174393, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -1.7488562634033669, "sepal_width": 0.32841405319566835, "petal_length": -1.3970639535363654, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -1.0218490407414595, "sepal_width": 1.019004351971607, "petal_length": -1.226551672795556, "petal_width": -0.7889155578465368, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": -0.9006811702978088, "sepal_width": 1.7095946507475455, "petal_length": -1.0560393920547466, "petal_width": -1.0521799264271385, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -1.2641847816287624, "sepal_width": -0.13197947932162468, "petal_length": -1.3402265266227624, "petal_width": -1.1838121107174393, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -0.9006811702978088, "sepal_width": 1.7095946507475455, "petal_length": -1.226551672795556, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -1.5065205225160652, "sepal_width": 0.32841405319566835, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 5, "cluster2": 0}, {"sepal_length": -0.658345429410506, "sepal_width": 1.4793978844889, "petal_length": -1.2833890997091593, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 6, "cluster2": 0}, {"sepal_length": -1.0218490407414595, "sepal_width": 0.5586108194543139, "petal_length": -1.3402265266227624, "petal_width": -1.3154442950077403, "species": "setosa", "cluster": 1, "cluster2": 0}, {"sepal_length": 1.401508368131566, "sepal_width": 0.32841405319566835, "petal_length": 0.5354085615261415, "petal_width": 0.26414191647586993, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.6745011454696588, "sepal_width": 0.32841405319566835, "petal_length": 0.4217337076989351, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 1.2803404976879151, "sepal_width": 0.09821728693702184, "petal_length": 0.6490834153533479, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.4160096885232032, "sepal_width": -1.7433568431321493, "petal_length": 0.13754657313091936, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": 0.7956690159133096, "sepal_width": -0.5923730118389178, "petal_length": 0.47857113461253803, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.1736739476359004, "sepal_width": -0.5923730118389178, "petal_length": 0.4217337076989351, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.5533332750260068, "sepal_width": 0.5586108194543139, "petal_length": 0.5354085615261415, "petal_width": 0.5274062850564719, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -1.1430169111851105, "sepal_width": -1.513160076873503, "petal_length": -0.26031541526430274, "petal_width": -0.26238682068533337, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": 0.9168368863569605, "sepal_width": -0.3621762455802712, "petal_length": 0.47857113461253803, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.7795132998541568, "sepal_width": -0.8225697780975633, "petal_length": 0.08070914621731616, "petal_width": 0.26414191647586993, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -1.0218490407414595, "sepal_width": -2.433947141908088, "petal_length": -0.14664056143709636, "petal_width": -0.26238682068533337, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": 0.06866179325140237, "sepal_width": -0.13197947932162468, "petal_length": 0.2512214269581257, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.18982966369505322, "sepal_width": -1.9735536093907948, "petal_length": 0.13754657313091936, "petal_width": -0.26238682068533337, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": 0.31099753413870407, "sepal_width": -0.3621762455802712, "petal_length": 0.5354085615261415, "petal_width": 0.26414191647586993, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.29484181807955234, "sepal_width": -0.3621762455802712, "petal_length": -0.08980313452349317, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": 1.0380047568006125, "sepal_width": 0.09821728693702184, "petal_length": 0.36489628078533215, "petal_width": 0.26414191647586993, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.29484181807955234, "sepal_width": -0.13197947932162468, "petal_length": 0.4217337076989351, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.05250607719224957, "sepal_width": -0.8225697780975633, "petal_length": 0.1943840000445223, "petal_width": -0.26238682068533337, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": 0.432165404582356, "sepal_width": -1.9735536093907948, "petal_length": 0.4217337076989351, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -0.29484181807955234, "sepal_width": -1.2829633106148564, "petal_length": 0.08070914621731616, "petal_width": -0.1307546363950324, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": 0.06866179325140237, "sepal_width": 0.32841405319566835, "petal_length": 0.5922459884397444, "petal_width": 0.7906706536370736, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.31099753413870407, "sepal_width": -0.5923730118389178, "petal_length": 0.13754657313091936, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.5533332750260068, "sepal_width": -1.2829633106148564, "petal_length": 0.6490834153533479, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.31099753413870407, "sepal_width": -0.5923730118389178, "petal_length": 0.5354085615261415, "petal_width": 0.0008775478952682834, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.6745011454696588, "sepal_width": -0.3621762455802712, "petal_length": 0.30805885387172866, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.9168368863569605, "sepal_width": -0.13197947932162468, "petal_length": 0.36489628078533215, "petal_width": 0.26414191647586993, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 1.1591726272442633, "sepal_width": -0.5923730118389178, "petal_length": 0.5922459884397444, "petal_width": 0.26414191647586993, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 1.0380047568006125, "sepal_width": -0.13197947932162468, "petal_length": 0.7059208422669508, "petal_width": 0.6590384693467726, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.18982966369505322, "sepal_width": -0.3621762455802712, "petal_length": 0.4217337076989351, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.1736739476359004, "sepal_width": -1.0527665443562098, "petal_length": -0.14664056143709636, "petal_width": -0.26238682068533337, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -0.4160096885232032, "sepal_width": -1.513160076873503, "petal_length": 0.023871719303712964, "petal_width": -0.1307546363950324, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -0.4160096885232032, "sepal_width": -1.513160076873503, "petal_length": -0.032965707609889976, "petal_width": -0.26238682068533337, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -0.05250607719224957, "sepal_width": -0.8225697780975633, "petal_length": 0.08070914621731616, "petal_width": 0.0008775478952682834, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": 0.18982966369505322, "sepal_width": -0.8225697780975633, "petal_length": 0.7627582691805538, "petal_width": 0.5274062850564719, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.537177558966854, "sepal_width": -0.13197947932162468, "petal_length": 0.4217337076989351, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.18982966369505322, "sepal_width": 0.7888075857129604, "petal_length": 0.4217337076989351, "petal_width": 0.5274062850564719, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 1.0380047568006125, "sepal_width": 0.09821728693702184, "petal_length": 0.5354085615261415, "petal_width": 0.3957741007661709, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.5533332750260068, "sepal_width": -1.7433568431321493, "petal_length": 0.36489628078533215, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -0.29484181807955234, "sepal_width": -0.13197947932162468, "petal_length": 0.1943840000445223, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.4160096885232032, "sepal_width": -1.2829633106148564, "petal_length": 0.13754657313091936, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -0.4160096885232032, "sepal_width": -1.0527665443562098, "petal_length": 0.36489628078533215, "petal_width": 0.0008775478952682834, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": 0.31099753413870407, "sepal_width": -0.13197947932162468, "petal_length": 0.47857113461253803, "petal_width": 0.26414191647586993, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.05250607719224957, "sepal_width": -1.0527665443562098, "petal_length": 0.13754657313091936, "petal_width": 0.0008775478952682834, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -1.0218490407414595, "sepal_width": -1.7433568431321493, "petal_length": -0.26031541526430274, "petal_width": -0.26238682068533337, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -0.29484181807955234, "sepal_width": -0.8225697780975633, "petal_length": 0.2512214269581257, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -0.1736739476359004, "sepal_width": -0.13197947932162468, "petal_length": 0.2512214269581257, "petal_width": 0.0008775478952682834, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.1736739476359004, "sepal_width": -0.3621762455802712, "petal_length": 0.2512214269581257, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.432165404582356, "sepal_width": -0.3621762455802712, "petal_length": 0.30805885387172866, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 4, "cluster2": 1}, {"sepal_length": -0.9006811702978088, "sepal_width": -1.2829633106148564, "petal_length": -0.4308276960051121, "petal_width": -0.1307546363950324, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": -0.1736739476359004, "sepal_width": -0.5923730118389178, "petal_length": 0.1943840000445223, "petal_width": 0.13250973218556925, "species": "versicolor", "cluster": 0, "cluster2": 1}, {"sepal_length": 0.5533332750260068, "sepal_width": 0.5586108194543139, "petal_length": 1.2742951114029821, "petal_width": 1.7120959436691794, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": -0.05250607719224957, "sepal_width": -0.8225697780975633, "petal_length": 0.7627582691805538, "petal_width": 0.9223028379273742, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 1.522676238575217, "sepal_width": -0.13197947932162468, "petal_length": 1.2174576844893792, "petal_width": 1.185567206507976, "species": "virginica", "cluster": 2, "cluster2": 1}, {"sepal_length": 0.5533332750260068, "sepal_width": -0.3621762455802712, "petal_length": 1.0469454037485695, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.7956690159133096, "sepal_width": -0.13197947932162468, "petal_length": 1.1606202575757758, "petal_width": 1.317199390798277, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 2.1285155907934734, "sepal_width": -0.13197947932162468, "petal_length": 1.6153196728846009, "petal_width": 1.185567206507976, "species": "virginica", "cluster": 2, "cluster2": 1}, {"sepal_length": -1.1430169111851105, "sepal_width": -1.2829633106148564, "petal_length": 0.4217337076989351, "petal_width": 0.6590384693467726, "species": "virginica", "cluster": 0, "cluster2": 1}, {"sepal_length": 1.7650119794625196, "sepal_width": -0.3621762455802712, "petal_length": 1.4448073921437916, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 2, "cluster2": 1}, {"sepal_length": 1.0380047568006125, "sepal_width": -1.2829633106148564, "petal_length": 1.1606202575757758, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 1.643844109018869, "sepal_width": 1.2492011182302534, "petal_length": 1.331132538316585, "petal_width": 1.7120959436691794, "species": "virginica", "cluster": 7, "cluster2": 1}, {"sepal_length": 0.7956690159133096, "sepal_width": 0.32841405319566835, "petal_length": 0.7627582691805538, "petal_width": 1.053935022217675, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 0.6745011454696588, "sepal_width": -0.8225697780975633, "petal_length": 0.8764331230077601, "petal_width": 0.9223028379273742, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 1.1591726272442633, "sepal_width": -0.13197947932162468, "petal_length": 0.9901079768349665, "petal_width": 1.185567206507976, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": -0.1736739476359004, "sepal_width": -1.2829633106148564, "petal_length": 0.7059208422669508, "petal_width": 1.053935022217675, "species": "virginica", "cluster": 0, "cluster2": 1}, {"sepal_length": -0.05250607719224957, "sepal_width": -0.5923730118389178, "petal_length": 0.7627582691805538, "petal_width": 1.5804637593788784, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.6745011454696588, "sepal_width": 0.32841405319566835, "petal_length": 0.8764331230077601, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 0.7956690159133096, "sepal_width": -0.13197947932162468, "petal_length": 0.9901079768349665, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 2.2496834612371255, "sepal_width": 1.7095946507475455, "petal_length": 1.6721570997982043, "petal_width": 1.317199390798277, "species": "virginica", "cluster": 7, "cluster2": 1}, {"sepal_length": 2.2496834612371255, "sepal_width": -1.0527665443562098, "petal_length": 1.7858319536254108, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 2, "cluster2": 1}, {"sepal_length": 0.18982966369505322, "sepal_width": -1.9735536093907948, "petal_length": 0.7059208422669508, "petal_width": 0.3957741007661709, "species": "virginica", "cluster": 0, "cluster2": 1}, {"sepal_length": 1.2803404976879151, "sepal_width": 0.32841405319566835, "petal_length": 1.1037828306621729, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": -0.29484181807955234, "sepal_width": -0.5923730118389178, "petal_length": 0.6490834153533479, "petal_width": 1.053935022217675, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 2.2496834612371255, "sepal_width": -0.5923730118389178, "petal_length": 1.6721570997982043, "petal_width": 1.053935022217675, "species": "virginica", "cluster": 2, "cluster2": 1}, {"sepal_length": 0.5533332750260068, "sepal_width": -0.8225697780975633, "petal_length": 0.6490834153533479, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 1.0380047568006125, "sepal_width": 0.5586108194543139, "petal_length": 1.1037828306621729, "petal_width": 1.185567206507976, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 1.643844109018869, "sepal_width": 0.32841405319566835, "petal_length": 1.2742951114029821, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 2, "cluster2": 1}, {"sepal_length": 0.432165404582356, "sepal_width": -0.5923730118389178, "petal_length": 0.5922459884397444, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.31099753413870407, "sepal_width": -0.13197947932162468, "petal_length": 0.6490834153533479, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.6745011454696588, "sepal_width": -0.5923730118389178, "petal_length": 1.0469454037485695, "petal_width": 1.185567206507976, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 1.643844109018869, "sepal_width": -0.13197947932162468, "petal_length": 1.1606202575757758, "petal_width": 0.5274062850564719, "species": "virginica", "cluster": 2, "cluster2": 1}, {"sepal_length": 1.8861798499061717, "sepal_width": -0.5923730118389178, "petal_length": 1.331132538316585, "petal_width": 0.9223028379273742, "species": "virginica", "cluster": 2, "cluster2": 1}, {"sepal_length": 2.4920192021244283, "sepal_width": 1.7095946507475455, "petal_length": 1.501644819057395, "petal_width": 1.053935022217675, "species": "virginica", "cluster": 7, "cluster2": 1}, {"sepal_length": 0.6745011454696588, "sepal_width": -0.5923730118389178, "petal_length": 1.0469454037485695, "petal_width": 1.317199390798277, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 0.5533332750260068, "sepal_width": -0.5923730118389178, "petal_length": 0.7627582691805538, "petal_width": 0.3957741007661709, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.31099753413870407, "sepal_width": -1.0527665443562098, "petal_length": 1.0469454037485695, "petal_width": 0.26414191647586993, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 2.2496834612371255, "sepal_width": -0.13197947932162468, "petal_length": 1.331132538316585, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 2, "cluster2": 1}, {"sepal_length": 0.5533332750260068, "sepal_width": 0.7888075857129604, "petal_length": 1.0469454037485695, "petal_width": 1.5804637593788784, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 0.6745011454696588, "sepal_width": 0.09821728693702184, "petal_length": 0.9901079768349665, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 0.18982966369505322, "sepal_width": -0.13197947932162468, "petal_length": 0.5922459884397444, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 1.2803404976879151, "sepal_width": 0.09821728693702184, "petal_length": 0.9332705499213636, "petal_width": 1.185567206507976, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 1.0380047568006125, "sepal_width": 0.09821728693702184, "petal_length": 1.0469454037485695, "petal_width": 1.5804637593788784, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 1.2803404976879151, "sepal_width": 0.09821728693702184, "petal_length": 0.7627582691805538, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": -0.05250607719224957, "sepal_width": -0.8225697780975633, "petal_length": 0.7627582691805538, "petal_width": 0.9223028379273742, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 1.1591726272442633, "sepal_width": 0.32841405319566835, "petal_length": 1.2174576844893792, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 1.0380047568006125, "sepal_width": 0.5586108194543139, "petal_length": 1.1037828306621729, "petal_width": 1.7120959436691794, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 1.0380047568006125, "sepal_width": -0.13197947932162468, "petal_length": 0.8195956960941572, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 0.5533332750260068, "sepal_width": -1.2829633106148564, "petal_length": 0.7059208422669508, "petal_width": 0.9223028379273742, "species": "virginica", "cluster": 4, "cluster2": 1}, {"sepal_length": 0.7956690159133096, "sepal_width": -0.13197947932162468, "petal_length": 0.8195956960941572, "petal_width": 1.053935022217675, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 0.432165404582356, "sepal_width": 0.7888075857129604, "petal_length": 0.9332705499213636, "petal_width": 1.4488315750885774, "species": "virginica", "cluster": 3, "cluster2": 1}, {"sepal_length": 0.06866179325140237, "sepal_width": -0.13197947932162468, "petal_length": 0.7627582691805538, "petal_width": 0.7906706536370736, "species": "virginica", "cluster": 4, "cluster2": 1}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Week5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Week5-Intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 5</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Week5-Videos.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 5 Videos</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Christopher Davis<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

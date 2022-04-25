@@ -53,15 +53,15 @@ Midterm 1 during discussion section.
 
 Different ways to rescale data: using a for loop, using `apply`, and using `StandardScaler` from scikit-learn.  This is our first time using anything from scikit-learn, and the approach can feel unusual at first (scikit-learn is very "object oriented").  This `StandardScaler` preprocessing tool will have many similarities to scikit-learn Machine Learning tools we will cover later.
 
+## Class 13
+
+K-Means clustering
+
 ## Leftovers
 
 Dictionary comprehension.  Feature engineering. Introduction to NumPy.  How the choice of data type influences the speed of various operations.
-More practice with NumPy and pandas.    NumPy `where`, and pandas DataFrame styling.  More advanced/leftover topics from NumPy, pandas, and Altair.  pandas DataFrame methods `apply` and `applymap`.  Using an Altair `selection` object in a `condition`.  Introduction to Machine Learning and scikit-learn.  K-Nearest Neighbors classification and K-Nearest Neighbors regression.  Loss functions (also called cost functions).
+More practice with NumPy and pandas.    NumPy `where`, and pandas DataFrame styling.  More advanced/leftover topics from NumPy, pandas, and Altair.  pandas DataFrame method `applymap`.  Using an Altair `selection` object in a `condition`.  Introduction to Machine Learning and scikit-learn.  K-Nearest Neighbors classification and K-Nearest Neighbors regression.  Loss functions (also called cost functions).  More on K-Nearest Neighbors and implementing it using scikit-learn.
 
-
-## Class 13
-
-More on K-Nearest Neighbors and implementing it using scikit-learn.  Importance of scaling the data.
 
 ## Class 14
 
