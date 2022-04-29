@@ -1,0 +1,627 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 5, Thursday Discussion &#8212; UC Irvine Math 10 S22</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="K-Means clustering 3" href="Week5-Friday.html" />
+    <link rel="prev" title="Homework 4" href="Homework4.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/digitsyellow.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">UC Irvine Math 10 S22</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   UC Irvine, Math 10, Spring 2022
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week1/Week1-Intro.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Monday.html">
+     Introduction to pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Tuesday.html">
+     Week 1 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Wednesday.html">
+     for loops and ways to avoid for loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Thursday.html">
+     Week 1 Thursday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Friday.html">
+     Exploratory Data Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Videos.html">
+     Week 1 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Homework1.html">
+     Homework 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week2/Week2-Intro.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Monday.html">
+     Working with missing data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Tuesday.html">
+     Week 2 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Wednesday.html">
+     Visualization in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Videos.html">
+     Week 2 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Friday.html">
+     Plots from the Spotify dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Homework2.html">
+     Homework 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week3/Week3-Intro.html">
+   Week 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Week3-Monday.html">
+     Functions in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Week3-Tuesday.html">
+     Week 3 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Week3-Wednesday.html">
+     Working with dates in pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Week3-Videos.html">
+     Week 3 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Homework3.html">
+     Homework 3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week4/Week4-Intro.html">
+   Week 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/Week4-Monday.html">
+     Week 4 Monday
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/Week4-Videos.html">
+     Week 4 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/Week4-Tuesday.html">
+     Week 4, Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/Week4-Wednesday.html">
+     Practice with Altair
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/Week4-Friday.html">
+     Rescaling data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="Week5-Intro.html">
+   Week 5
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Week5-Monday.html">
+     K-Means clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Week5-Wednesday.html">
+     K-Means clustering 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Week5-Videos.html">
+     Week 5 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Homework4.html">
+     Homework 4
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Week 5, Thursday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Week5-Friday.html">
+     K-Means clustering 3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sched.html">
+   Tentative schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasources.html">
+   Data Sources
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Week5/Week5-Thursday.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ChristopherDavisUCI/UCI-Math-10-S22"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ChristopherDavisUCI/UCI-Math-10-S22/main?urlpath=tree/Week5/Week5-Thursday.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-cleaning">
+   Data cleaning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clustering">
+   Clustering
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-the-results">
+   Plotting the results
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Week 5, Thursday Discussion</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-cleaning">
+   Data cleaning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clustering">
+   Clustering
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-the-results">
+   Plotting the results
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="week-5-thursday-discussion">
+<h1>Week 5, Thursday Discussion<a class="headerlink" href="#week-5-thursday-discussion" title="Permalink to this headline">¶</a></h1>
+<p><strong>Reminders</strong>:</p>
+<ul class="simple">
+<li><p>Homework #4 due Tuesday 11:59pm</p></li>
+<li><p>Quiz #4 Tuesday during last 20 minutes of discussion</p></li>
+</ul>
+<p><strong>Today</strong>:</p>
+<ul class="simple">
+<li><p>Work on Homework #4</p></li>
+<li><p>Try this worksheet, if done with homework already</p></li>
+</ul>
+<div class="section" id="data-cleaning">
+<h2>Data cleaning<a class="headerlink" href="#data-cleaning" title="Permalink to this headline">¶</a></h2>
+<p>We already know a good way to import the Spotify dataset, by using <code class="docutils literal notranslate"><span class="pre">na_values</span></code>.  In this portion of the worksheet, let’s see another way.  This will give practice with slicing, with <code class="docutils literal notranslate"><span class="pre">pd.to_numeric</span></code>, with <code class="docutils literal notranslate"><span class="pre">apply</span></code>, and with lambda functions.</p>
+<ul class="simple">
+<li><p>Import the Spotify dataset as <code class="docutils literal notranslate"><span class="pre">df</span></code> but <strong>do not</strong> provide the <code class="docutils literal notranslate"><span class="pre">na_values</span></code> keyword argument.</p></li>
+<li><p>Define <code class="docutils literal notranslate"><span class="pre">first_col</span> <span class="pre">=</span> <span class="pre">&quot;Danceability&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">last_col</span> <span class="pre">=</span> <span class="pre">&quot;Liveness&quot;</span></code>.</p></li>
+<li><p>Get the sub-DataFrame of <code class="docutils literal notranslate"><span class="pre">df</span></code> consisting of the columns from <code class="docutils literal notranslate"><span class="pre">first_col</span></code> to <code class="docutils literal notranslate"><span class="pre">last_col</span></code> (including <code class="docutils literal notranslate"><span class="pre">last_col</span></code>).  Get this sub-DataFrame using <code class="docutils literal notranslate"><span class="pre">loc</span></code> and a slice from <code class="docutils literal notranslate"><span class="pre">first_col</span></code> to <code class="docutils literal notranslate"><span class="pre">last_col</span></code>.  (Hint 1.  Make sure you’re slicing the columns axis, not the rows axis.  Hint 2.  Unlike most slicing in Python, if you slice using <code class="docutils literal notranslate"><span class="pre">loc</span></code>, the right endpoint <em>is</em> included.) Name the resulting DataFrame <code class="docutils literal notranslate"><span class="pre">df_sub</span></code>.  Apply <code class="docutils literal notranslate"><span class="pre">.copy()</span></code> so that <code class="docutils literal notranslate"><span class="pre">df_sub</span></code> is a brand new DataFrame.</p></li>
+<li><p>Check your answer.  The <code class="docutils literal notranslate"><span class="pre">shape</span></code> of <code class="docutils literal notranslate"><span class="pre">df_sub</span></code> should be <code class="docutils literal notranslate"><span class="pre">(1556,</span> <span class="pre">6)</span></code> and all the <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> in <code class="docutils literal notranslate"><span class="pre">df_sub</span></code> should be “object”.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Get the third column (in the Python numbering) of <code class="docutils literal notranslate"><span class="pre">df_sub</span></code> using <code class="docutils literal notranslate"><span class="pre">iloc</span></code> and name the result <code class="docutils literal notranslate"><span class="pre">s</span></code> (for Series).</p></li>
+<li><p>Check the <code class="docutils literal notranslate"><span class="pre">type</span></code> of <code class="docutils literal notranslate"><span class="pre">s</span></code>.  Make sure it’s really a Series.</p></li>
+<li><p>Try applying the pandas <code class="docutils literal notranslate"><span class="pre">to_numeric</span></code> function to <code class="docutils literal notranslate"><span class="pre">s</span></code>.  What happens?</p></li>
+<li><p>Try again, using the <code class="docutils literal notranslate"><span class="pre">errors</span></code> keyword argument (<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.to_numeric.html">documentation</a>) so that the non-numeric strings get converted to not-a-number.</p></li>
+<li><p>Name the result <code class="docutils literal notranslate"><span class="pre">s2</span></code>.</p></li>
+<li><p>Check your answer: the <code class="docutils literal notranslate"><span class="pre">type</span></code> of <code class="docutils literal notranslate"><span class="pre">s2</span></code> should be a Series and the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> of <code class="docutils literal notranslate"><span class="pre">s2</span></code> should be “float64”.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Try evaluating <code class="docutils literal notranslate"><span class="pre">df_sub.apply(pd.to_numeric,</span> <span class="pre">axis=0)</span></code>.  What goes wrong?</p></li>
+<li><p>Using the same approach and a lambda function, try the same thing where you also coerce non-numeric strings into not-a-number.  (In other words, use a mix of this <code class="docutils literal notranslate"><span class="pre">apply</span></code> strategy with the above <code class="docutils literal notranslate"><span class="pre">errors=</span></code> strategy.)</p></li>
+<li><p>Call the result <code class="docutils literal notranslate"><span class="pre">df_sub2</span></code>.</p></li>
+<li><p>Check your answer.  All the <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> in <code class="docutils literal notranslate"><span class="pre">df_sub2</span></code> should be “float64”.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Once <code class="docutils literal notranslate"><span class="pre">df_sub2</span></code> is correct, put the values from <code class="docutils literal notranslate"><span class="pre">df_sub2</span></code> back into the original DataFrame <code class="docutils literal notranslate"><span class="pre">df</span></code>.  (This should be relatively short.  You shouldn’t have to use a for loop or anything.)</p></li>
+<li><p>Check your answer.  Try evaluating <code class="docutils literal notranslate"><span class="pre">df.dtypes[&quot;Liveness&quot;]</span></code>.  You should see that this column is “float64”.  (Side question.  What type of Python object is <code class="docutils literal notranslate"><span class="pre">df.dtypes</span></code>?)</p></li>
+</ul>
+<ul class="simple">
+<li><p>Drop the rows that contain missing values from <code class="docutils literal notranslate"><span class="pre">df</span></code>.</p></li>
+<li><p>Check your answer: the resulting <code class="docutils literal notranslate"><span class="pre">df</span></code> should be 1545 rows by 23 columns.</p></li>
+</ul>
+</div>
+<div class="section" id="clustering">
+<h2>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Divide the songs in the Spotify dataset into 5 distinct clusters by using a <code class="docutils literal notranslate"><span class="pre">KMeans</span></code> object from scikit-learn.  Fit the <code class="docutils literal notranslate"><span class="pre">KMeans</span></code> object using the data from columns <code class="docutils literal notranslate"><span class="pre">first_col:last_col</span></code>.</p></li>
+<li><p>Add a “cluster” column to “df” containing the results of this clustering operation.</p></li>
+</ul>
+</div>
+<div class="section" id="plotting-the-results">
+<h2>Plotting the results<a class="headerlink" href="#plotting-the-results" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Evaluate the following code.  How much of the code can you understand?  (Some of it is new, like the <code class="docutils literal notranslate"><span class="pre">bind=&quot;legend&quot;</span></code> and the <code class="docutils literal notranslate"><span class="pre">alt.condition</span></code>.)</p></li>
+<li><p>Try clicking on the legend.  (For some reason, clicking on clusters 1-4 works fine for me, but clicking on cluster 0 only works for me if I click between the color and the number 0.)</p></li>
+<li><p>Notice that the tooltip does not seem to work on the bar chart.  That is a bug in Altair related to interactivity.  One workaround for the bug is to add a meaningless <code class="docutils literal notranslate"><span class="pre">selection</span></code> object to the second chart.  Get the tooltip to work by adding the code <code class="docutils literal notranslate"><span class="pre">.add_selection(alt.selection_single())</span></code> right after the <code class="docutils literal notranslate"><span class="pre">transform_filter(sel)</span></code> part of the code (i.e., add this <code class="docutils literal notranslate"><span class="pre">selection</span></code> to the definition of the <code class="docutils literal notranslate"><span class="pre">c2</span></code> chart).</p></li>
+<li><p>Which cluster contains the most songs?  Which cluster contains the fewest songs?  (Warning: If you repeat this experiment, it will probably be a different cluster number which is the smallest.)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sel</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_single</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;cluster&quot;</span><span class="p">],</span> <span class="n">bind</span><span class="o">=</span><span class="s2">&quot;legend&quot;</span><span class="p">)</span>
+
+<span class="n">c1</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Energy&quot;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Liveness&quot;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;cluster:N&quot;</span><span class="p">,</span>
+    <span class="n">opacity</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">sel</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)),</span>
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Song Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Artist&quot;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span><span class="n">sel</span><span class="p">)</span>
+
+<span class="n">c2</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;count()&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1600</span><span class="p">))),</span>
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="s2">&quot;count()&quot;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">sel</span><span class="p">)</span>
+
+<span class="n">c1</span><span class="o">|</span><span class="n">c2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Week5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Homework4.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Homework 4</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Week5-Friday.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">K-Means clustering 3</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Christopher Davis<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
