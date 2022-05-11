@@ -1,0 +1,2431 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overfitting &#8212; UC Irvine Math 10 S22</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Week 7 Videos" href="Week7-Videos.html" />
+    <link rel="prev" title="Week 7, Tuesday Discussion" href="Week7-Tuesday.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/digitsyellow.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">UC Irvine Math 10 S22</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   UC Irvine, Math 10, Spring 2022
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week1/Week1-Intro.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Monday.html">
+     Introduction to pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Tuesday.html">
+     Week 1 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Wednesday.html">
+     for loops and ways to avoid for loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Thursday.html">
+     Week 1 Thursday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Friday.html">
+     Exploratory Data Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Week1-Videos.html">
+     Week 1 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week1/Homework1.html">
+     Homework 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week2/Week2-Intro.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Monday.html">
+     Working with missing data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Tuesday.html">
+     Week 2 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Wednesday.html">
+     Visualization in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Videos.html">
+     Week 2 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Week2-Friday.html">
+     Plots from the Spotify dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week2/Homework2.html">
+     Homework 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week3/Week3-Intro.html">
+   Week 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Week3-Monday.html">
+     Functions in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Week3-Tuesday.html">
+     Week 3 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Week3-Wednesday.html">
+     Working with dates in pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Week3-Videos.html">
+     Week 3 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week3/Homework3.html">
+     Homework 3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week4/Week4-Intro.html">
+   Week 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/Week4-Monday.html">
+     Week 4 Monday
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/Week4-Videos.html">
+     Week 4 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/Week4-Tuesday.html">
+     Week 4, Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/Week4-Wednesday.html">
+     Practice with Altair
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week4/Week4-Friday.html">
+     Rescaling data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week5/Week5-Intro.html">
+   Week 5
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week5/Week5-Monday.html">
+     K-Means clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week5/Week5-Wednesday.html">
+     K-Means clustering 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week5/Week5-Videos.html">
+     Week 5 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week5/Homework4.html">
+     Homework 4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week5/Week5-Thursday.html">
+     Week 5, Thursday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week5/Week5-Friday.html">
+     K-Means clustering 3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Week6/Week6-Intro.html">
+   Week 6
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week6/Week6-Monday.html">
+     Polynomial Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week6/Week6-Tuesday.html">
+     Week 6, Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week6/Week6-Wednesday.html">
+     Polynomial Regression 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week6/Week6-Friday.html">
+     Linear and Polynomial Regression with the taxis dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week6/Homework5.html">
+     Homework 5
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Week6/Week6-Videos.html">
+     Week 6 Videos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="Week7-Intro.html">
+   Week 7
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Week7-Monday.html">
+     Performance measures for machine learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Week7-Tuesday.html">
+     Week 7, Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Overfitting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Week7-Videos.html">
+     Week 7 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Homework6.html">
+     Homework 6
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sched.html">
+   Tentative schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasources.html">
+   Data Sources
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Week7/Week7-Wednesday.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ChristopherDavisUCI/UCI-Math-10-S22"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ChristopherDavisUCI/UCI-Math-10-S22/main?urlpath=tree/Week7/Week7-Wednesday.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#announcements">
+   Announcements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulated-data">
+   Simulated data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dividing-into-a-training-set-and-a-test-set">
+   Dividing into a training set and a test set
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#performing-polynomial-regression-for-each-degree">
+   Performing polynomial regression for each degree
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluating-the-performance-part-1">
+   Evaluating the performance, Part 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluating-the-performance-part-2">
+   Evaluating the performance, Part 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-the-polynomial-fits">
+   Plotting the polynomial fits
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Overfitting</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#announcements">
+   Announcements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulated-data">
+   Simulated data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dividing-into-a-training-set-and-a-test-set">
+   Dividing into a training set and a test set
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#performing-polynomial-regression-for-each-degree">
+   Performing polynomial regression for each degree
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluating-the-performance-part-1">
+   Evaluating the performance, Part 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluating-the-performance-part-2">
+   Evaluating the performance, Part 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-the-polynomial-fits">
+   Plotting the polynomial fits
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="overfitting">
+<h1>Overfitting<a class="headerlink" href="#overfitting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="announcements">
+<h2>Announcements<a class="headerlink" href="#announcements" title="Permalink to this headline">¶</a></h2>
+<p>I’ll post a sample midterm soon (Saturday at the latest).  The midterm is Thursday Week 8 (May 19).</p>
+<p>Be sure to attend tomorrow’s Discussion Section:</p>
+<ul class="simple">
+<li><p>Yasmeen will introduce the dataset for the homework and help with the first few homework questions.</p></li>
+<li><p>Note cards for the midterm will be handed out.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="simulated-data">
+<h2>Simulated data<a class="headerlink" href="#simulated-data" title="Permalink to this headline">¶</a></h2>
+<p>We will work with the same simulated dataset as on Monday.  The true underlying function is of the form <span class="math notranslate nohighlight">\(f(x) = c_2 x^2 + c_1 x + c_0\)</span>.  The true outputs are stored in the “y_true” column.  We’ve hidden this true data by adding some random noise to each output and put the result in the “y” column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/sim_data.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x</th>
+      <th>y_true</th>
+      <th>y</th>
+      <th>x1</th>
+      <th>x2</th>
+      <th>x3</th>
+      <th>x4</th>
+      <th>x5</th>
+      <th>x6</th>
+      <th>x7</th>
+      <th>x8</th>
+      <th>x9</th>
+      <th>x10</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-3.329208</td>
+      <td>-18.207589</td>
+      <td>-117.484900</td>
+      <td>-3.329208</td>
+      <td>11.083626</td>
+      <td>-36.899694</td>
+      <td>122.846756</td>
+      <td>-408.982395</td>
+      <td>1361.587441</td>
+      <td>-4533.007730</td>
+      <td>1.509133e+04</td>
+      <td>-5.024216e+04</td>
+      <td>1.672666e+05</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6.465018</td>
+      <td>74.160562</td>
+      <td>73.954907</td>
+      <td>6.465018</td>
+      <td>41.796463</td>
+      <td>270.214901</td>
+      <td>1746.944309</td>
+      <td>11294.027098</td>
+      <td>73016.092970</td>
+      <td>472050.384357</td>
+      <td>3.051814e+06</td>
+      <td>1.973004e+07</td>
+      <td>1.275550e+08</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-4.478046</td>
+      <td>-7.670062</td>
+      <td>-13.810089</td>
+      <td>-4.478046</td>
+      <td>20.052899</td>
+      <td>-89.797810</td>
+      <td>402.118751</td>
+      <td>-1800.706392</td>
+      <td>8063.646628</td>
+      <td>-36109.383086</td>
+      <td>1.616995e+05</td>
+      <td>-7.240978e+05</td>
+      <td>3.242544e+06</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.043272</td>
+      <td>-7.925152</td>
+      <td>19.461182</td>
+      <td>2.043272</td>
+      <td>4.174960</td>
+      <td>8.530580</td>
+      <td>17.430295</td>
+      <td>35.614834</td>
+      <td>72.770792</td>
+      <td>148.690523</td>
+      <td>3.038152e+02</td>
+      <td>6.207771e+02</td>
+      <td>1.268416e+03</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4.850593</td>
+      <td>36.485466</td>
+      <td>22.375230</td>
+      <td>4.850593</td>
+      <td>23.528255</td>
+      <td>114.125996</td>
+      <td>553.578791</td>
+      <td>2685.185564</td>
+      <td>13024.743051</td>
+      <td>63177.731115</td>
+      <td>3.064495e+05</td>
+      <td>1.486462e+06</td>
+      <td>7.210222e+06</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_deg</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;x</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_deg</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c_true</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y_true&quot;</span><span class="p">,</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y_true&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y_true&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c_true</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-cd54c41fe62e487cabf691884f8f6783"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-cd54c41fe62e487cabf691884f8f6783") {
+      outputDiv = document.getElementById("altair-viz-cd54c41fe62e487cabf691884f8f6783");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-e408b203f30a36c887299a985aa11d81"}, "mark": {"type": "circle", "color": "black"}, "encoding": {"tooltip": [{"field": "x", "type": "quantitative"}, {"field": "y_true", "type": "quantitative"}, {"field": "y", "type": "quantitative"}], "x": {"field": "x", "type": "quantitative"}, "y": {"field": "y_true", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-e408b203f30a36c887299a985aa11d81": [{"x": -3.329207948258288, "y_true": -18.207589131190502, "y": -117.48489981507691, "x1": -3.329207948258288, "x2": 11.08362556274616, "x3": -36.89969431901326, "x4": 122.84675561516016, "x5": -408.9823952117346, "x6": 1361.5874408366194, "x7": -4533.007730281935, "x8": 15091.32536517088, "x9": -50242.16035547881, "x10": 167266.5995931275}, {"x": 6.465018397406531, "y_true": 74.16056232333514, "y": 73.95490734658352, "x1": 6.465018397406531, "x2": 41.79646287880492, "x3": 270.21490145799294, "x4": 1746.944309179317, "x5": 11294.027098088927, "x6": 73016.09296995284, "x7": 472050.3843574908, "x8": 3051814.419374002, "x9": 19730036.36672345, "x10": 127555048.09236704}, {"x": -4.478046317204917, "y_true": -7.670061908184866, "y": -13.810088667204978, "x1": -4.478046317204917, "x2": 20.052898819032524, "x3": -89.79780970585144, "x4": 402.118751046356, "x5": -1800.7063922021755, "x6": 8063.646627968305, "x7": -36109.38308561532, "x8": 161699.48994308122, "x9": -724097.8054335285, "x10": 3242543.510917775}, {"x": 2.043272001247484, "y_true": -7.9251519940460895, "y": 19.46118237861152, "x1": 2.043272001247484, "x2": 4.1749604710818975, "x3": 8.530579836876647, "x4": 17.43029493509638, "x5": 35.614833614368266, "x6": 72.7707923533264, "x7": 148.69052252414633, "x8": 303.8151815244466, "x9": 620.7770539628235, "x10": 1268.4163733791356}, {"x": 4.850593279708996, "y_true": 36.48546622757559, "y": 22.37523008579901, "x1": 4.850593279708996, "x2": 23.52825516515807, "x3": 114.1259963873942, "x4": 553.5787911167873, "x5": 2685.1855639805185, "x6": 13024.743051415511, "x7": 63177.73111513252, "x8": 306449.4779743237, "x9": 1486461.7784325844, "x10": 7210221.513009375}, {"x": -0.5785060804889142, "y_true": -25.20293714522805, "y": -25.44530061571687, "x1": -0.5785060804889142, "x2": 0.334669285162646, "x3": -0.193608216419469, "x4": 0.1120035304312764, "x5": -0.0647947233907185, "x6": 0.0374841414651279, "x7": -0.0216848037594831, "x8": 0.0125447908290698, "x9": -0.0072572377730784, "x10": 0.0041983561792797}, {"x": -6.557408679959602, "y_true": 22.813959025381838, "y": 76.67574767286865, "x1": -6.557408679959602, "x2": 42.99960859600953, "x3": -281.9660066423384, "x4": 1848.9663394100169, "x5": -12124.427923000376, "x6": 79504.82890182723, "x7": -521345.6551395449, "x8": 3418676.524271277, "x9": -22417659.1142306, "x10": 147001752.4600312}, {"x": -5.656363051930528, "y_true": 7.799464545001062, "y": 59.65376106978435, "x1": -5.656363051930528, "x2": 31.99444297524484, "x3": -180.97218511227317, "x4": 1023.6443812961938, "x5": -5790.104256680076, "x6": 32750.93178431085, "x7": -185251.1604610731, "x8": 1047847.8193592674, "x9": -5927007.689469734, "x10": 33525307.30322473}, {"x": 0.1085383400545652, "y_true": -22.93496583463122, "y": -66.10368783700659, "x1": 0.1085383400545652, "x2": 0.0117805712618004, "x3": 0.0012786436496503, "x4": 0.0001387818592543, "x5": 1.5063152633154338e-05, "x6": 1.6349295827911247e-06, "x7": 1.774525430222515e-07, "x8": 1.9260404458096493e-08, "x9": 2.0904923286613407e-09, "x10": 2.2689856724970447e-10}, {"x": 4.556122347821622, "y_true": 30.569128068211988, "y": 1.089803157452213, "x1": 4.556122347821622, "x2": 20.75825084831961, "x3": 94.57713059171614, "x4": 430.90497828176194, "x5": 1963.2558013371265, "x6": 8944.833630962528, "x7": 40753.75640357481, "x8": 185679.10030800573, "x9": 845976.6984367175, "x10": 3854373.341483882}, {"x": -6.299257105127305, "y_true": 18.23013399902268, "y": -7.25110091586216, "x1": -6.299257105127305, "x2": 39.68064007649684, "x3": -249.958553937872, "x4": 1574.553196880487, "x5": -9918.515412850318, "x6": 62479.27868671205, "x7": -393573.0401904999, "x8": 2479217.7698065606, "x9": -15617230.15161185, "x10": 98376947.99494933}, {"x": 6.449735233464434, "y_true": 73.76235824625147, "y": 130.94052037260485, "x1": 6.449735233464434, "x2": 41.59908458179252, "x3": 268.3030815070543, "x4": 1730.483838043128, "x5": 11161.162581167524, "x6": 71986.54354618103, "x7": 464294.1462451255, "x8": 2994574.3137284745, "x9": 19314211.46048212, "x10": 124571550.1632541}, {"x": 3.6601115365364834, "y_true": 14.380365281608256, "y": 8.061647596412477, "x1": 3.6601115365364834, "x2": 13.396416459887456, "x3": 49.03237843308132, "x4": 179.4639739667436, "x5": 656.8581615083614, "x6": 2404.174134804898, "x7": 8799.545486642026, "x8": 32207.31795193602, "x9": 117882.3759967796, "x10": 431462.64434014447}, {"x": -8.982275379207888, "y_true": 76.93083162471879, "y": 2.57497436581059, "x1": -8.982275379207888, "x2": 80.68127098792421, "x3": -724.7013939580312, "x4": 6509.46748822686, "x5": -58469.82955125433, "x6": 525192.1104047135, "x7": -4717420.162642489, "x8": 42373166.9802825, "x9": -380607454.5060562, "x10": 3418720967.7527347}, {"x": -9.026659050812274, "y_true": 78.10767304500862, "y": 15.781692216581398, "x1": -9.026659050812274, "x2": 81.48057361961114, "x3": -735.4973573288387, "x4": 6639.083877380871, "x5": -59928.74657086189, "x6": 540956.3626377055, "x7": -4883028.646898131, "x8": 44077434.73089863, "x9": -397871975.1502533, "x10": 3591454665.55459}, {"x": 5.481667038018758, "y_true": 50.15757983256919, "y": 24.44182752029455, "x1": 5.481667038018758, "x2": 30.048673515701346, "x3": 164.71682314720726, "x4": 902.9227800532112, "x5": 4949.522041293949, "x6": 27131.63182770836, "x7": 148726.5718776095, "x8": 815269.5467390196, "x9": 4469036.201459777, "x10": 24497768.43725461}, {"x": -3.942981654772611, "y_true": -13.136147423782996, "y": -35.90188825321785, "x1": -3.942981654772611, "x2": 15.547104329873356, "x3": -61.30194715752647, "x4": 241.7124530439669, "x5": -953.0677680824476, "x6": 3757.928725304168, "x7": -14817.444023817356, "x8": 58424.90995653189, "x9": -230368.3481403469, "x10": 908338.170557658}, {"x": 7.135268762431544, "y_true": 92.40510445659264, "y": 27.822957658181807, "x1": 7.135268762431544, "x2": 50.91206031213137, "x3": 363.2712335761817, "x4": 2592.0378852261024, "x5": 18494.886953492925, "x6": 131965.9891439608, "x7": 941612.8000422836, "x8": 6718660.398447406, "x9": 47939447.66642764, "x10": 342060843.4224829}, {"x": 4.196026495565919, "y_true": 23.73499382935532, "y": 19.89278808558322, "x1": 4.196026495565919, "x2": 17.606638351491206, "x3": 73.87792102070415, "x4": 309.9937140402009, "x5": 1300.741837571568, "x6": 5457.9472143414, "x7": 22901.691122776712, "x8": 96096.10274443789, "x9": 403221.79323628615, "x10": 1691929.3280090592}, {"x": -9.924587728801344, "y_true": 103.35484100926068, "y": 90.76217468813144, "x1": -9.924587728801344, "x2": 98.4974415866742, "x3": -977.546500089434, "x4": 9701.745999120298, "x5": -96285.82929081684, "x6": 955597.1598371018, "x7": -9483907.846196717, "x8": 94123875.43144672, "x9": -934140659.0941623, "x10": 9270960922.220322}, {"x": -0.6900414588494286, "y_true": -25.419702715899877, "y": 61.59169896339826, "x1": -0.6900414588494286, "x2": 0.4761572149310476, "x3": -0.328568219232701, "x4": 0.2267256933308919, "x5": -0.1564501281846968, "x6": 0.1079570746897482, "x7": -0.0744948573120306, "x8": 0.0514045400163736, "x9": -0.0354712637843822, "x10": 0.024476642609008}, {"x": 4.510287644012569, "y_true": 29.674760214396706, "y": 67.75450975334007, "x1": 4.510287644012569, "x2": 20.342694631732453, "x3": 91.75140424342372, "x4": 413.8252248799164, "x5": 1866.47079855661, "x6": 8418.320180640152, "x7": 37969.04549408294, "x8": 171251.3167469134, "x9": 772392.6979444863, "x10": 3483713.241864549}, {"x": -9.336060459657736, "y_true": 86.49759445625713, "y": 101.99230853473858, "x1": -9.336060459657736, "x2": 87.16202490638462, "x3": -813.7499343122001, "x4": 7597.218585781211, "x5": -70928.09204208883, "x6": 662188.95559311, "x7": -6182236.125134886, "x8": 57717730.24013947, "x9": -538856219.1161577, "x10": 5030794240.731025}, {"x": 4.441058173200844, "y_true": 28.337434596305293, "y": 75.652070315597, "x1": 4.441058173200844, "x2": 19.722997697754018, "x3": 87.5909801256319, "x4": 388.9966381856102, "x5": 1727.556699361856, "x6": 7672.179799368842, "x7": 34072.59680425341, "x8": 151318.38451970654, "x9": 672013.7483267909, "x10": 2984452.149510029}, {"x": -6.563453985661962, "y_true": 22.92401663601917, "y": 3.705401701436681, "x1": -6.563453985661962, "x2": 43.07892822190189, "x3": -282.7465631360876, "x4": 1855.7940567477756, "x5": -12180.418898328966, "x6": 79945.61896526953, "x7": -524719.3914338109, "x8": 3443971.581060365, "x9": -22604349.00021718, "x10": 148362604.53876945}, {"x": 0.3715928458725752, "y_true": -21.641731218646186, "y": 1.1348634243102325, "x1": 0.3715928458725752, "x2": 0.1380812431036794, "x3": 0.0513100020865191, "x4": 0.0190664296970574, "x5": 0.0070849488717589, "x6": 0.0026327163141186, "x7": 0.0009782985475384, "x8": 0.0003635287413928, "x9": 0.0001350846795706, "x10": 5.019650051543844e-05}, {"x": 6.520774235091615, "y_true": 75.6200186264345, "y": 106.2787015891801, "x1": 6.520774235091615, "x2": 42.52049662503464, "x3": 277.2665588558258, "x4": 1807.992633239582, "x5": 11789.51178006411, "x6": 76876.74465975113, "x7": 501295.895855022, "x8": 3268837.361848597, "x9": 21315350.447847176, "x10": 138992588.0122704}, {"x": -2.9659640277290773, "y_true": -20.6056500702583, "y": 42.19409663367121, "x1": -2.9659640277290773, "x2": 8.79694261378289, "x3": -26.09141534647706, "x4": 77.38619935018936, "x5": -229.52468351533287, "x6": 680.7619547823787, "x7": -2019.115469331064, "x8": 5988.623849867248, "x9": -17762.042914306676, "x10": 52681.580342813744}, {"x": 3.165616256477076, "y_true": 6.614941333118303, "y": -125.40319890292574, "x1": 3.165616256477076, "x2": 10.021126283271936, "x3": 31.723040270535343, "x4": 100.42297198528362, "x5": 317.9005926403558, "x6": 1006.3512840060072, "x7": 3185.721984375995, "x8": 10084.773302357058, "x9": 31924.522308827512, "x10": 101060.78680108945}, {"x": 5.222245052890752, "y_true": 44.373338484003376, "y": -1.9846500432445997, "x1": 5.222245052890752, "x2": 27.271843392441937, "x3": 142.42024923939124, "x4": 743.7534420218789, "x5": 3884.062733169226, "x6": 20283.527393410324, "x7": 105925.55058541113, "x8": 553169.1825193923, "x9": 2888785.0268235183, "x10": 15085943.315193998}, {"x": -6.47093182334422, "y_true": 21.253209250315912, "y": -11.812893751238208, "x1": -6.47093182334422, "x2": 41.872958662368944, "x3": -270.9570607459002, "x4": 1753.3446671404586, "x5": -11345.773803890072, "x6": 73417.72876805747, "x7": -475081.1174828775, "x8": 3074217.521789886, "x9": -19893051.993632574, "x10": 128726583.2090382}, {"x": 6.893150314043133, "y_true": 85.63830241596483, "y": 64.8076871161785, "x1": 6.893150314043133, "x2": 47.51552125199294, "x3": 327.5316302400984, "x4": 2257.7247598485933, "x5": 15562.836137373288, "x6": 107276.9688077365, "x7": 739476.2712266443, "x8": 5097321.091233388, "x9": 35136600.480814114, "x10": 242201868.63873196}, {"x": -3.493022680238049, "y_true": -16.979340333058417, "y": -54.08639152234581, "x1": -3.493022680238049, "x2": 12.201207444657404, "x3": -42.61909433047764, "x4": 148.86946310756323, "x5": -520.0044110295798, "x6": 1816.3872015501508, "x7": -6344.681691108797, "x8": 22162.117045934127, "x9": -77412.77748353817, "x10": 270404.5874902202}, {"x": -8.747074910351651, "y_true": 70.80623599597394, "y": 183.70684761381912, "x1": -8.747074910351651, "x2": 76.51131948730335, "x3": -669.2502430452905, "x4": 5853.982009688206, "x5": -51205.21916259364, "x6": 447895.8878161804, "x7": -3917778.8827665895, "x8": 34269105.36975316, "x9": -299754431.7799649, "x10": 2621974469.489247}, {"x": -1.384337371858507, "y_true": -25.81792029410888, "y": -33.87053208902993, "x1": -1.384337371858507, "x2": 1.9163899591241185, "x3": -2.6529302394699137, "x4": 3.67255047543174, "x5": -5.084048873176886, "x6": 7.038038855493894, "x7": -9.743020212252471, "x8": 13.4876269945939, "x9": -18.67142610630397, "x10": 25.84755294485116}, {"x": 4.852229846751024, "y_true": 36.519170997371695, "y": -13.988942624499913, "x1": 4.852229846751024, "x2": 23.54413448570147, "x3": 114.24155206744076, "x4": 554.3262686807972, "x5": 2689.718465731092, "x6": 13051.132218777777, "x7": 63327.09328584744, "x8": 307277.6121495753, "x9": 1490981.6009105546, "x10": 7234585.424894817}, {"x": 3.727976805823406, "y_true": 15.510983713963348, "y": 161.0233188781908, "x1": 3.727976805823406, "x2": 13.897811064757288, "x3": 51.810717301131056, "x4": 193.14915239169005, "x5": 720.055560180671, "x6": 2684.350427257721, "x7": 10007.196131518936, "x8": 37306.59506962831, "x9": 139078.12112382016, "x10": 518480.0097471}, {"x": -2.7383989368584727, "y_true": -21.879426787560792, "y": -35.23602701511189, "x1": -2.7383989368584727, "x2": 7.498828737387614, "x3": -20.534784642146004, "x4": 56.23243243267031, "x5": -153.98683319059026, "x6": 421.67738029931536, "x7": -1154.7208899089112, "x8": 3162.086457294832, "x9": -8659.054192910742, "x10": 23711.944796066677}, {"x": -1.6026752477703532, "y_true": -25.604403001171647, "y": -41.0626241665516, "x1": -1.6026752477703532, "x2": 2.568567949815763, "x3": -4.116580275385966, "x4": 6.597541312820752, "x5": -10.57371615820014, "x6": 16.946233163696796, "x7": -27.15930843440194, "x8": 43.52755137437657, "x9": -69.76052918376575, "x10": 111.80347339418272}, {"x": -8.223553165877851, "y_true": 57.849037362334165, "y": 14.428412230630222, "x1": -8.223553165877851, "x2": 67.62682667201962, "x3": -556.1328045769596, "x4": 4573.387685727384, "x5": -37609.49678175021, "x6": 309283.6963266348, "x7": -2543410.9200813016, "x8": 20915874.923962884, "x9": -172002809.44806013, "x10": 1414474248.1764796}, {"x": -0.3640013134943825, "y_true": -24.667160559743387, "y": 21.818198775552545, "x1": -0.3640013134943825, "x2": 0.1324969562256357, "x3": -0.048229066100139, "x4": 0.017555443409058, "x5": -0.0063902044598734, "x6": 0.0023260428168915, "x7": -0.0008466826405927, "x8": 0.0003081935932886, "x9": -0.0001121828727676, "x10": 4.083471303898616e-05}, {"x": 6.656568171049994, "y_true": 79.21875918822593, "y": 23.279299839342315, "x1": 6.656568171049994, "x2": 44.30989981583586, "x3": 294.95186877650696, "x4": 1963.3672216894104, "x5": 13069.287755980587, "x6": 86996.60489475378, "x7": 579098.8311318301, "x8": 3854810.847204396, "x9": 25659811.19091904, "x10": 170806282.4486241}, {"x": -9.804879808964852, "y_true": 99.83062849926336, "y": 131.47624036529035, "x1": -9.804879808964852, "x2": 96.13566806824664, "x3": -942.5986707636984, "x4": 9242.066674928095, "x5": -90617.3529341094, "x6": 888492.2541254913, "x7": -8711559.762896698, "x8": 85415796.42381647, "x9": -837491617.7225302, "x10": 8211504652.784947}, {"x": 1.2361742342612168, "y_true": -15.733870185861791, "y": 3.383360389096301, "x1": 1.2361742342612168, "x2": 1.5281267374513057, "x3": 1.8890308995229592, "x4": 2.335171325713572, "x5": 2.886678625432725, "x6": 3.56843773935252, "x7": 4.4112107899529285, "x8": 5.453025120434879, "x9": 6.740889152660766, "x10": 8.332913486530165}, {"x": -2.76625939296056, "y_true": -21.732938761596003, "y": 129.3356782636361, "x1": -2.76625939296056, "x2": 7.652191029142525, "x3": -21.167945311094044, "x4": 58.55602754648934, "x5": -161.98116121493342, "x6": 448.08190869346834, "x7": -1239.5107887390027, "x8": 3428.8083620252187, "x9": -9484.973338113972, "x10": 26237.896588538253}, {"x": -4.457650184804254, "y_true": -7.89626896855226, "y": -26.760376539006497, "x1": -4.457650184804254, "x2": 19.8706451700854, "x3": -88.57638511461093, "x4": 394.8425394754382, "x5": -1760.0699190612677, "x6": 7845.775999971868, "x7": -34973.72483620738, "x8": 155900.63097941293, "x9": -694950.4764964798, "x10": 3097846.1199843376}, {"x": 4.825670488119888, "y_true": 35.97331162314065, "y": 49.77584336934803, "x1": 4.825670488119888, "x2": 23.28709565991124, "x3": 112.3758502800584, "x4": 542.2888242738569, "x5": 2616.907175335584, "x6": 12628.331726166103, "x7": 60940.16772514785, "x8": 294077.16893232206, "x9": 1419119.5153465534, "x10": 6848203.1643228615}, {"x": -3.012486777485868, "y_true": -20.32356559399584, "y": -12.16411918567957, "x1": -3.012486777485868, "x2": 9.075076584527189, "x3": -27.33854821555976, "x4": 82.35701501503365, "x5": -248.09941876599396, "x6": 747.3962185344858, "x7": -2251.5212258780766, "x8": 6782.677922186477, "x9": -20432.72755653208, "x10": 61553.32159202402}, {"x": 3.7783291669200896, "y_true": 16.35996078349077, "y": -23.18155368558764, "x1": 3.7783291669200896, "x2": 14.27577129359906, "x3": 53.93856305888586, "x4": 203.79764602714693, "x5": 770.0145901340253, "x6": 2909.3685848574064, "x7": 10992.552181487765, "x8": 41533.48052620627, "x9": 156927.1608758727, "x10": 592922.4690192711}, {"x": 6.068926586911488, "y_true": 64.096777865783, "y": 182.7524628775764, "x1": 6.068926586911488, "x2": 36.83186991732112, "x3": 223.5299145868956, "x4": 1356.5866416064644, "x5": 8233.024736694437, "x6": 49965.622715224825, "x7": 303237.69612801645, "x8": 1840327.3161851056, "x9": 11168811.377815252, "x10": 67782696.31502251}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p>The black points represent the true underlying model, while the blue points represent the randomized version.  Real-world data is almost always closer to the randomized version.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">+</span><span class="n">c_true</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-a8f3b63e440946319dc20fc38fcf691d"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-a8f3b63e440946319dc20fc38fcf691d") {
+      outputDiv = document.getElementById("altair-viz-a8f3b63e440946319dc20fc38fcf691d");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "circle", "encoding": {"tooltip": [{"field": "x", "type": "quantitative"}, {"field": "y_true", "type": "quantitative"}, {"field": "y", "type": "quantitative"}], "x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}}, {"mark": {"type": "circle", "color": "black"}, "encoding": {"tooltip": [{"field": "x", "type": "quantitative"}, {"field": "y_true", "type": "quantitative"}, {"field": "y", "type": "quantitative"}], "x": {"field": "x", "type": "quantitative"}, "y": {"field": "y_true", "type": "quantitative"}}}], "data": {"name": "data-e408b203f30a36c887299a985aa11d81"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-e408b203f30a36c887299a985aa11d81": [{"x": -3.329207948258288, "y_true": -18.207589131190502, "y": -117.48489981507691, "x1": -3.329207948258288, "x2": 11.08362556274616, "x3": -36.89969431901326, "x4": 122.84675561516016, "x5": -408.9823952117346, "x6": 1361.5874408366194, "x7": -4533.007730281935, "x8": 15091.32536517088, "x9": -50242.16035547881, "x10": 167266.5995931275}, {"x": 6.465018397406531, "y_true": 74.16056232333514, "y": 73.95490734658352, "x1": 6.465018397406531, "x2": 41.79646287880492, "x3": 270.21490145799294, "x4": 1746.944309179317, "x5": 11294.027098088927, "x6": 73016.09296995284, "x7": 472050.3843574908, "x8": 3051814.419374002, "x9": 19730036.36672345, "x10": 127555048.09236704}, {"x": -4.478046317204917, "y_true": -7.670061908184866, "y": -13.810088667204978, "x1": -4.478046317204917, "x2": 20.052898819032524, "x3": -89.79780970585144, "x4": 402.118751046356, "x5": -1800.7063922021755, "x6": 8063.646627968305, "x7": -36109.38308561532, "x8": 161699.48994308122, "x9": -724097.8054335285, "x10": 3242543.510917775}, {"x": 2.043272001247484, "y_true": -7.9251519940460895, "y": 19.46118237861152, "x1": 2.043272001247484, "x2": 4.1749604710818975, "x3": 8.530579836876647, "x4": 17.43029493509638, "x5": 35.614833614368266, "x6": 72.7707923533264, "x7": 148.69052252414633, "x8": 303.8151815244466, "x9": 620.7770539628235, "x10": 1268.4163733791356}, {"x": 4.850593279708996, "y_true": 36.48546622757559, "y": 22.37523008579901, "x1": 4.850593279708996, "x2": 23.52825516515807, "x3": 114.1259963873942, "x4": 553.5787911167873, "x5": 2685.1855639805185, "x6": 13024.743051415511, "x7": 63177.73111513252, "x8": 306449.4779743237, "x9": 1486461.7784325844, "x10": 7210221.513009375}, {"x": -0.5785060804889142, "y_true": -25.20293714522805, "y": -25.44530061571687, "x1": -0.5785060804889142, "x2": 0.334669285162646, "x3": -0.193608216419469, "x4": 0.1120035304312764, "x5": -0.0647947233907185, "x6": 0.0374841414651279, "x7": -0.0216848037594831, "x8": 0.0125447908290698, "x9": -0.0072572377730784, "x10": 0.0041983561792797}, {"x": -6.557408679959602, "y_true": 22.813959025381838, "y": 76.67574767286865, "x1": -6.557408679959602, "x2": 42.99960859600953, "x3": -281.9660066423384, "x4": 1848.9663394100169, "x5": -12124.427923000376, "x6": 79504.82890182723, "x7": -521345.6551395449, "x8": 3418676.524271277, "x9": -22417659.1142306, "x10": 147001752.4600312}, {"x": -5.656363051930528, "y_true": 7.799464545001062, "y": 59.65376106978435, "x1": -5.656363051930528, "x2": 31.99444297524484, "x3": -180.97218511227317, "x4": 1023.6443812961938, "x5": -5790.104256680076, "x6": 32750.93178431085, "x7": -185251.1604610731, "x8": 1047847.8193592674, "x9": -5927007.689469734, "x10": 33525307.30322473}, {"x": 0.1085383400545652, "y_true": -22.93496583463122, "y": -66.10368783700659, "x1": 0.1085383400545652, "x2": 0.0117805712618004, "x3": 0.0012786436496503, "x4": 0.0001387818592543, "x5": 1.5063152633154338e-05, "x6": 1.6349295827911247e-06, "x7": 1.774525430222515e-07, "x8": 1.9260404458096493e-08, "x9": 2.0904923286613407e-09, "x10": 2.2689856724970447e-10}, {"x": 4.556122347821622, "y_true": 30.569128068211988, "y": 1.089803157452213, "x1": 4.556122347821622, "x2": 20.75825084831961, "x3": 94.57713059171614, "x4": 430.90497828176194, "x5": 1963.2558013371265, "x6": 8944.833630962528, "x7": 40753.75640357481, "x8": 185679.10030800573, "x9": 845976.6984367175, "x10": 3854373.341483882}, {"x": -6.299257105127305, "y_true": 18.23013399902268, "y": -7.25110091586216, "x1": -6.299257105127305, "x2": 39.68064007649684, "x3": -249.958553937872, "x4": 1574.553196880487, "x5": -9918.515412850318, "x6": 62479.27868671205, "x7": -393573.0401904999, "x8": 2479217.7698065606, "x9": -15617230.15161185, "x10": 98376947.99494933}, {"x": 6.449735233464434, "y_true": 73.76235824625147, "y": 130.94052037260485, "x1": 6.449735233464434, "x2": 41.59908458179252, "x3": 268.3030815070543, "x4": 1730.483838043128, "x5": 11161.162581167524, "x6": 71986.54354618103, "x7": 464294.1462451255, "x8": 2994574.3137284745, "x9": 19314211.46048212, "x10": 124571550.1632541}, {"x": 3.6601115365364834, "y_true": 14.380365281608256, "y": 8.061647596412477, "x1": 3.6601115365364834, "x2": 13.396416459887456, "x3": 49.03237843308132, "x4": 179.4639739667436, "x5": 656.8581615083614, "x6": 2404.174134804898, "x7": 8799.545486642026, "x8": 32207.31795193602, "x9": 117882.3759967796, "x10": 431462.64434014447}, {"x": -8.982275379207888, "y_true": 76.93083162471879, "y": 2.57497436581059, "x1": -8.982275379207888, "x2": 80.68127098792421, "x3": -724.7013939580312, "x4": 6509.46748822686, "x5": -58469.82955125433, "x6": 525192.1104047135, "x7": -4717420.162642489, "x8": 42373166.9802825, "x9": -380607454.5060562, "x10": 3418720967.7527347}, {"x": -9.026659050812274, "y_true": 78.10767304500862, "y": 15.781692216581398, "x1": -9.026659050812274, "x2": 81.48057361961114, "x3": -735.4973573288387, "x4": 6639.083877380871, "x5": -59928.74657086189, "x6": 540956.3626377055, "x7": -4883028.646898131, "x8": 44077434.73089863, "x9": -397871975.1502533, "x10": 3591454665.55459}, {"x": 5.481667038018758, "y_true": 50.15757983256919, "y": 24.44182752029455, "x1": 5.481667038018758, "x2": 30.048673515701346, "x3": 164.71682314720726, "x4": 902.9227800532112, "x5": 4949.522041293949, "x6": 27131.63182770836, "x7": 148726.5718776095, "x8": 815269.5467390196, "x9": 4469036.201459777, "x10": 24497768.43725461}, {"x": -3.942981654772611, "y_true": -13.136147423782996, "y": -35.90188825321785, "x1": -3.942981654772611, "x2": 15.547104329873356, "x3": -61.30194715752647, "x4": 241.7124530439669, "x5": -953.0677680824476, "x6": 3757.928725304168, "x7": -14817.444023817356, "x8": 58424.90995653189, "x9": -230368.3481403469, "x10": 908338.170557658}, {"x": 7.135268762431544, "y_true": 92.40510445659264, "y": 27.822957658181807, "x1": 7.135268762431544, "x2": 50.91206031213137, "x3": 363.2712335761817, "x4": 2592.0378852261024, "x5": 18494.886953492925, "x6": 131965.9891439608, "x7": 941612.8000422836, "x8": 6718660.398447406, "x9": 47939447.66642764, "x10": 342060843.4224829}, {"x": 4.196026495565919, "y_true": 23.73499382935532, "y": 19.89278808558322, "x1": 4.196026495565919, "x2": 17.606638351491206, "x3": 73.87792102070415, "x4": 309.9937140402009, "x5": 1300.741837571568, "x6": 5457.9472143414, "x7": 22901.691122776712, "x8": 96096.10274443789, "x9": 403221.79323628615, "x10": 1691929.3280090592}, {"x": -9.924587728801344, "y_true": 103.35484100926068, "y": 90.76217468813144, "x1": -9.924587728801344, "x2": 98.4974415866742, "x3": -977.546500089434, "x4": 9701.745999120298, "x5": -96285.82929081684, "x6": 955597.1598371018, "x7": -9483907.846196717, "x8": 94123875.43144672, "x9": -934140659.0941623, "x10": 9270960922.220322}, {"x": -0.6900414588494286, "y_true": -25.419702715899877, "y": 61.59169896339826, "x1": -0.6900414588494286, "x2": 0.4761572149310476, "x3": -0.328568219232701, "x4": 0.2267256933308919, "x5": -0.1564501281846968, "x6": 0.1079570746897482, "x7": -0.0744948573120306, "x8": 0.0514045400163736, "x9": -0.0354712637843822, "x10": 0.024476642609008}, {"x": 4.510287644012569, "y_true": 29.674760214396706, "y": 67.75450975334007, "x1": 4.510287644012569, "x2": 20.342694631732453, "x3": 91.75140424342372, "x4": 413.8252248799164, "x5": 1866.47079855661, "x6": 8418.320180640152, "x7": 37969.04549408294, "x8": 171251.3167469134, "x9": 772392.6979444863, "x10": 3483713.241864549}, {"x": -9.336060459657736, "y_true": 86.49759445625713, "y": 101.99230853473858, "x1": -9.336060459657736, "x2": 87.16202490638462, "x3": -813.7499343122001, "x4": 7597.218585781211, "x5": -70928.09204208883, "x6": 662188.95559311, "x7": -6182236.125134886, "x8": 57717730.24013947, "x9": -538856219.1161577, "x10": 5030794240.731025}, {"x": 4.441058173200844, "y_true": 28.337434596305293, "y": 75.652070315597, "x1": 4.441058173200844, "x2": 19.722997697754018, "x3": 87.5909801256319, "x4": 388.9966381856102, "x5": 1727.556699361856, "x6": 7672.179799368842, "x7": 34072.59680425341, "x8": 151318.38451970654, "x9": 672013.7483267909, "x10": 2984452.149510029}, {"x": -6.563453985661962, "y_true": 22.92401663601917, "y": 3.705401701436681, "x1": -6.563453985661962, "x2": 43.07892822190189, "x3": -282.7465631360876, "x4": 1855.7940567477756, "x5": -12180.418898328966, "x6": 79945.61896526953, "x7": -524719.3914338109, "x8": 3443971.581060365, "x9": -22604349.00021718, "x10": 148362604.53876945}, {"x": 0.3715928458725752, "y_true": -21.641731218646186, "y": 1.1348634243102325, "x1": 0.3715928458725752, "x2": 0.1380812431036794, "x3": 0.0513100020865191, "x4": 0.0190664296970574, "x5": 0.0070849488717589, "x6": 0.0026327163141186, "x7": 0.0009782985475384, "x8": 0.0003635287413928, "x9": 0.0001350846795706, "x10": 5.019650051543844e-05}, {"x": 6.520774235091615, "y_true": 75.6200186264345, "y": 106.2787015891801, "x1": 6.520774235091615, "x2": 42.52049662503464, "x3": 277.2665588558258, "x4": 1807.992633239582, "x5": 11789.51178006411, "x6": 76876.74465975113, "x7": 501295.895855022, "x8": 3268837.361848597, "x9": 21315350.447847176, "x10": 138992588.0122704}, {"x": -2.9659640277290773, "y_true": -20.6056500702583, "y": 42.19409663367121, "x1": -2.9659640277290773, "x2": 8.79694261378289, "x3": -26.09141534647706, "x4": 77.38619935018936, "x5": -229.52468351533287, "x6": 680.7619547823787, "x7": -2019.115469331064, "x8": 5988.623849867248, "x9": -17762.042914306676, "x10": 52681.580342813744}, {"x": 3.165616256477076, "y_true": 6.614941333118303, "y": -125.40319890292574, "x1": 3.165616256477076, "x2": 10.021126283271936, "x3": 31.723040270535343, "x4": 100.42297198528362, "x5": 317.9005926403558, "x6": 1006.3512840060072, "x7": 3185.721984375995, "x8": 10084.773302357058, "x9": 31924.522308827512, "x10": 101060.78680108945}, {"x": 5.222245052890752, "y_true": 44.373338484003376, "y": -1.9846500432445997, "x1": 5.222245052890752, "x2": 27.271843392441937, "x3": 142.42024923939124, "x4": 743.7534420218789, "x5": 3884.062733169226, "x6": 20283.527393410324, "x7": 105925.55058541113, "x8": 553169.1825193923, "x9": 2888785.0268235183, "x10": 15085943.315193998}, {"x": -6.47093182334422, "y_true": 21.253209250315912, "y": -11.812893751238208, "x1": -6.47093182334422, "x2": 41.872958662368944, "x3": -270.9570607459002, "x4": 1753.3446671404586, "x5": -11345.773803890072, "x6": 73417.72876805747, "x7": -475081.1174828775, "x8": 3074217.521789886, "x9": -19893051.993632574, "x10": 128726583.2090382}, {"x": 6.893150314043133, "y_true": 85.63830241596483, "y": 64.8076871161785, "x1": 6.893150314043133, "x2": 47.51552125199294, "x3": 327.5316302400984, "x4": 2257.7247598485933, "x5": 15562.836137373288, "x6": 107276.9688077365, "x7": 739476.2712266443, "x8": 5097321.091233388, "x9": 35136600.480814114, "x10": 242201868.63873196}, {"x": -3.493022680238049, "y_true": -16.979340333058417, "y": -54.08639152234581, "x1": -3.493022680238049, "x2": 12.201207444657404, "x3": -42.61909433047764, "x4": 148.86946310756323, "x5": -520.0044110295798, "x6": 1816.3872015501508, "x7": -6344.681691108797, "x8": 22162.117045934127, "x9": -77412.77748353817, "x10": 270404.5874902202}, {"x": -8.747074910351651, "y_true": 70.80623599597394, "y": 183.70684761381912, "x1": -8.747074910351651, "x2": 76.51131948730335, "x3": -669.2502430452905, "x4": 5853.982009688206, "x5": -51205.21916259364, "x6": 447895.8878161804, "x7": -3917778.8827665895, "x8": 34269105.36975316, "x9": -299754431.7799649, "x10": 2621974469.489247}, {"x": -1.384337371858507, "y_true": -25.81792029410888, "y": -33.87053208902993, "x1": -1.384337371858507, "x2": 1.9163899591241185, "x3": -2.6529302394699137, "x4": 3.67255047543174, "x5": -5.084048873176886, "x6": 7.038038855493894, "x7": -9.743020212252471, "x8": 13.4876269945939, "x9": -18.67142610630397, "x10": 25.84755294485116}, {"x": 4.852229846751024, "y_true": 36.519170997371695, "y": -13.988942624499913, "x1": 4.852229846751024, "x2": 23.54413448570147, "x3": 114.24155206744076, "x4": 554.3262686807972, "x5": 2689.718465731092, "x6": 13051.132218777777, "x7": 63327.09328584744, "x8": 307277.6121495753, "x9": 1490981.6009105546, "x10": 7234585.424894817}, {"x": 3.727976805823406, "y_true": 15.510983713963348, "y": 161.0233188781908, "x1": 3.727976805823406, "x2": 13.897811064757288, "x3": 51.810717301131056, "x4": 193.14915239169005, "x5": 720.055560180671, "x6": 2684.350427257721, "x7": 10007.196131518936, "x8": 37306.59506962831, "x9": 139078.12112382016, "x10": 518480.0097471}, {"x": -2.7383989368584727, "y_true": -21.879426787560792, "y": -35.23602701511189, "x1": -2.7383989368584727, "x2": 7.498828737387614, "x3": -20.534784642146004, "x4": 56.23243243267031, "x5": -153.98683319059026, "x6": 421.67738029931536, "x7": -1154.7208899089112, "x8": 3162.086457294832, "x9": -8659.054192910742, "x10": 23711.944796066677}, {"x": -1.6026752477703532, "y_true": -25.604403001171647, "y": -41.0626241665516, "x1": -1.6026752477703532, "x2": 2.568567949815763, "x3": -4.116580275385966, "x4": 6.597541312820752, "x5": -10.57371615820014, "x6": 16.946233163696796, "x7": -27.15930843440194, "x8": 43.52755137437657, "x9": -69.76052918376575, "x10": 111.80347339418272}, {"x": -8.223553165877851, "y_true": 57.849037362334165, "y": 14.428412230630222, "x1": -8.223553165877851, "x2": 67.62682667201962, "x3": -556.1328045769596, "x4": 4573.387685727384, "x5": -37609.49678175021, "x6": 309283.6963266348, "x7": -2543410.9200813016, "x8": 20915874.923962884, "x9": -172002809.44806013, "x10": 1414474248.1764796}, {"x": -0.3640013134943825, "y_true": -24.667160559743387, "y": 21.818198775552545, "x1": -0.3640013134943825, "x2": 0.1324969562256357, "x3": -0.048229066100139, "x4": 0.017555443409058, "x5": -0.0063902044598734, "x6": 0.0023260428168915, "x7": -0.0008466826405927, "x8": 0.0003081935932886, "x9": -0.0001121828727676, "x10": 4.083471303898616e-05}, {"x": 6.656568171049994, "y_true": 79.21875918822593, "y": 23.279299839342315, "x1": 6.656568171049994, "x2": 44.30989981583586, "x3": 294.95186877650696, "x4": 1963.3672216894104, "x5": 13069.287755980587, "x6": 86996.60489475378, "x7": 579098.8311318301, "x8": 3854810.847204396, "x9": 25659811.19091904, "x10": 170806282.4486241}, {"x": -9.804879808964852, "y_true": 99.83062849926336, "y": 131.47624036529035, "x1": -9.804879808964852, "x2": 96.13566806824664, "x3": -942.5986707636984, "x4": 9242.066674928095, "x5": -90617.3529341094, "x6": 888492.2541254913, "x7": -8711559.762896698, "x8": 85415796.42381647, "x9": -837491617.7225302, "x10": 8211504652.784947}, {"x": 1.2361742342612168, "y_true": -15.733870185861791, "y": 3.383360389096301, "x1": 1.2361742342612168, "x2": 1.5281267374513057, "x3": 1.8890308995229592, "x4": 2.335171325713572, "x5": 2.886678625432725, "x6": 3.56843773935252, "x7": 4.4112107899529285, "x8": 5.453025120434879, "x9": 6.740889152660766, "x10": 8.332913486530165}, {"x": -2.76625939296056, "y_true": -21.732938761596003, "y": 129.3356782636361, "x1": -2.76625939296056, "x2": 7.652191029142525, "x3": -21.167945311094044, "x4": 58.55602754648934, "x5": -161.98116121493342, "x6": 448.08190869346834, "x7": -1239.5107887390027, "x8": 3428.8083620252187, "x9": -9484.973338113972, "x10": 26237.896588538253}, {"x": -4.457650184804254, "y_true": -7.89626896855226, "y": -26.760376539006497, "x1": -4.457650184804254, "x2": 19.8706451700854, "x3": -88.57638511461093, "x4": 394.8425394754382, "x5": -1760.0699190612677, "x6": 7845.775999971868, "x7": -34973.72483620738, "x8": 155900.63097941293, "x9": -694950.4764964798, "x10": 3097846.1199843376}, {"x": 4.825670488119888, "y_true": 35.97331162314065, "y": 49.77584336934803, "x1": 4.825670488119888, "x2": 23.28709565991124, "x3": 112.3758502800584, "x4": 542.2888242738569, "x5": 2616.907175335584, "x6": 12628.331726166103, "x7": 60940.16772514785, "x8": 294077.16893232206, "x9": 1419119.5153465534, "x10": 6848203.1643228615}, {"x": -3.012486777485868, "y_true": -20.32356559399584, "y": -12.16411918567957, "x1": -3.012486777485868, "x2": 9.075076584527189, "x3": -27.33854821555976, "x4": 82.35701501503365, "x5": -248.09941876599396, "x6": 747.3962185344858, "x7": -2251.5212258780766, "x8": 6782.677922186477, "x9": -20432.72755653208, "x10": 61553.32159202402}, {"x": 3.7783291669200896, "y_true": 16.35996078349077, "y": -23.18155368558764, "x1": 3.7783291669200896, "x2": 14.27577129359906, "x3": 53.93856305888586, "x4": 203.79764602714693, "x5": 770.0145901340253, "x6": 2909.3685848574064, "x7": 10992.552181487765, "x8": 41533.48052620627, "x9": 156927.1608758727, "x10": 592922.4690192711}, {"x": 6.068926586911488, "y_true": 64.096777865783, "y": 182.7524628775764, "x1": 6.068926586911488, "x2": 36.83186991732112, "x3": 223.5299145868956, "x4": 1356.5866416064644, "x5": 8233.024736694437, "x6": 49965.622715224825, "x7": 303237.69612801645, "x8": 1840327.3161851056, "x9": 11168811.377815252, "x10": 67782696.31502251}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+</div>
+<div class="section" id="dividing-into-a-training-set-and-a-test-set">
+<h2>Dividing into a training set and a test set<a class="headerlink" href="#dividing-into-a-training-set-and-a-test-set" title="Permalink to this headline">¶</a></h2>
+<p>The motto is to fit on a training set, and predict or evaluate on a test set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;x1&#39;, &#39;x2&#39;, &#39;x3&#39;, &#39;x4&#39;, &#39;x5&#39;, &#39;x6&#39;, &#39;x7&#39;, &#39;x8&#39;, &#39;x9&#39;, &#39;x10&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We use <code class="docutils literal notranslate"><span class="pre">random_state</span></code> to guarantee we all get the same results.  This guarantees that the data does exhibit the aspects that I want.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">cols</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.24</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(50, 10)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">X_train</span></code> variable will hold 24% of the rows from <code class="docutils literal notranslate"><span class="pre">df[cols]</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(12, 10)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">0.24</span><span class="o">*</span><span class="mi">50</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x1</th>
+      <th>x2</th>
+      <th>x3</th>
+      <th>x4</th>
+      <th>x5</th>
+      <th>x6</th>
+      <th>x7</th>
+      <th>x8</th>
+      <th>x9</th>
+      <th>x10</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>13</th>
+      <td>-8.982275</td>
+      <td>80.681271</td>
+      <td>-724.701394</td>
+      <td>6509.467488</td>
+      <td>-58469.829551</td>
+      <td>525192.110405</td>
+      <td>-4.717420e+06</td>
+      <td>4.237317e+07</td>
+      <td>-3.806075e+08</td>
+      <td>3.418721e+09</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>6.449735</td>
+      <td>41.599085</td>
+      <td>268.303082</td>
+      <td>1730.483838</td>
+      <td>11161.162581</td>
+      <td>71986.543546</td>
+      <td>4.642941e+05</td>
+      <td>2.994574e+06</td>
+      <td>1.931421e+07</td>
+      <td>1.245716e+08</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6.465018</td>
+      <td>41.796463</td>
+      <td>270.214901</td>
+      <td>1746.944309</td>
+      <td>11294.027098</td>
+      <td>73016.092970</td>
+      <td>4.720504e+05</td>
+      <td>3.051814e+06</td>
+      <td>1.973004e+07</td>
+      <td>1.275550e+08</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>0.371593</td>
+      <td>0.138081</td>
+      <td>0.051310</td>
+      <td>0.019066</td>
+      <td>0.007085</td>
+      <td>0.002633</td>
+      <td>9.782985e-04</td>
+      <td>3.635287e-04</td>
+      <td>1.350847e-04</td>
+      <td>5.019650e-05</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>-3.942982</td>
+      <td>15.547104</td>
+      <td>-61.301947</td>
+      <td>241.712453</td>
+      <td>-953.067768</td>
+      <td>3757.928725</td>
+      <td>-1.481744e+04</td>
+      <td>5.842491e+04</td>
+      <td>-2.303683e+05</td>
+      <td>9.083382e+05</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>-4.457650</td>
+      <td>19.870645</td>
+      <td>-88.576385</td>
+      <td>394.842539</td>
+      <td>-1760.069919</td>
+      <td>7845.776000</td>
+      <td>-3.497372e+04</td>
+      <td>1.559006e+05</td>
+      <td>-6.949505e+05</td>
+      <td>3.097846e+06</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>5.481667</td>
+      <td>30.048674</td>
+      <td>164.716823</td>
+      <td>902.922780</td>
+      <td>4949.522041</td>
+      <td>27131.631828</td>
+      <td>1.487266e+05</td>
+      <td>8.152695e+05</td>
+      <td>4.469036e+06</td>
+      <td>2.449777e+07</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>-9.804880</td>
+      <td>96.135668</td>
+      <td>-942.598671</td>
+      <td>9242.066675</td>
+      <td>-90617.352934</td>
+      <td>888492.254125</td>
+      <td>-8.711560e+06</td>
+      <td>8.541580e+07</td>
+      <td>-8.374916e+08</td>
+      <td>8.211505e+09</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>-0.690041</td>
+      <td>0.476157</td>
+      <td>-0.328568</td>
+      <td>0.226726</td>
+      <td>-0.156450</td>
+      <td>0.107957</td>
+      <td>-7.449486e-02</td>
+      <td>5.140454e-02</td>
+      <td>-3.547126e-02</td>
+      <td>2.447664e-02</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>4.852230</td>
+      <td>23.544134</td>
+      <td>114.241552</td>
+      <td>554.326269</td>
+      <td>2689.718466</td>
+      <td>13051.132219</td>
+      <td>6.332709e+04</td>
+      <td>3.072776e+05</td>
+      <td>1.490982e+06</td>
+      <td>7.234585e+06</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>4.556122</td>
+      <td>20.758251</td>
+      <td>94.577131</td>
+      <td>430.904978</td>
+      <td>1963.255801</td>
+      <td>8944.833631</td>
+      <td>4.075376e+04</td>
+      <td>1.856791e+05</td>
+      <td>8.459767e+05</td>
+      <td>3.854373e+06</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>-6.299257</td>
+      <td>39.680640</td>
+      <td>-249.958554</td>
+      <td>1574.553197</td>
+      <td>-9918.515413</td>
+      <td>62479.278687</td>
+      <td>-3.935730e+05</td>
+      <td>2.479218e+06</td>
+      <td>-1.561723e+07</td>
+      <td>9.837695e+07</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">X_test</span></code> variable will hold the remaining rows.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_test</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x1</th>
+      <th>x2</th>
+      <th>x3</th>
+      <th>x4</th>
+      <th>x5</th>
+      <th>x6</th>
+      <th>x7</th>
+      <th>x8</th>
+      <th>x9</th>
+      <th>x10</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>49</th>
+      <td>6.068927</td>
+      <td>36.831870</td>
+      <td>223.529915</td>
+      <td>1356.586642</td>
+      <td>8233.024737</td>
+      <td>49965.622715</td>
+      <td>3.032377e+05</td>
+      <td>1.840327e+06</td>
+      <td>1.116881e+07</td>
+      <td>6.778270e+07</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>-0.364001</td>
+      <td>0.132497</td>
+      <td>-0.048229</td>
+      <td>0.017555</td>
+      <td>-0.006390</td>
+      <td>0.002326</td>
+      <td>-8.466826e-04</td>
+      <td>3.081936e-04</td>
+      <td>-1.121829e-04</td>
+      <td>4.083471e-05</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>-1.602675</td>
+      <td>2.568568</td>
+      <td>-4.116580</td>
+      <td>6.597541</td>
+      <td>-10.573716</td>
+      <td>16.946233</td>
+      <td>-2.715931e+01</td>
+      <td>4.352755e+01</td>
+      <td>-6.976053e+01</td>
+      <td>1.118035e+02</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>4.441058</td>
+      <td>19.722998</td>
+      <td>87.590980</td>
+      <td>388.996638</td>
+      <td>1727.556699</td>
+      <td>7672.179799</td>
+      <td>3.407260e+04</td>
+      <td>1.513184e+05</td>
+      <td>6.720137e+05</td>
+      <td>2.984452e+06</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>-5.656363</td>
+      <td>31.994443</td>
+      <td>-180.972185</td>
+      <td>1023.644381</td>
+      <td>-5790.104257</td>
+      <td>32750.931784</td>
+      <td>-1.852512e+05</td>
+      <td>1.047848e+06</td>
+      <td>-5.927008e+06</td>
+      <td>3.352531e+07</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>-3.329208</td>
+      <td>11.083626</td>
+      <td>-36.899694</td>
+      <td>122.846756</td>
+      <td>-408.982395</td>
+      <td>1361.587441</td>
+      <td>-4.533008e+03</td>
+      <td>1.509133e+04</td>
+      <td>-5.024216e+04</td>
+      <td>1.672666e+05</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>-6.557409</td>
+      <td>42.999609</td>
+      <td>-281.966007</td>
+      <td>1848.966339</td>
+      <td>-12124.427923</td>
+      <td>79504.828902</td>
+      <td>-5.213457e+05</td>
+      <td>3.418677e+06</td>
+      <td>-2.241766e+07</td>
+      <td>1.470018e+08</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>-1.384337</td>
+      <td>1.916390</td>
+      <td>-2.652930</td>
+      <td>3.672550</td>
+      <td>-5.084049</td>
+      <td>7.038039</td>
+      <td>-9.743020e+00</td>
+      <td>1.348763e+01</td>
+      <td>-1.867143e+01</td>
+      <td>2.584755e+01</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>-9.026659</td>
+      <td>81.480574</td>
+      <td>-735.497357</td>
+      <td>6639.083877</td>
+      <td>-59928.746571</td>
+      <td>540956.362638</td>
+      <td>-4.883029e+06</td>
+      <td>4.407743e+07</td>
+      <td>-3.978720e+08</td>
+      <td>3.591455e+09</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>6.893150</td>
+      <td>47.515521</td>
+      <td>327.531630</td>
+      <td>2257.724760</td>
+      <td>15562.836137</td>
+      <td>107276.968808</td>
+      <td>7.394763e+05</td>
+      <td>5.097321e+06</td>
+      <td>3.513660e+07</td>
+      <td>2.422019e+08</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>3.778329</td>
+      <td>14.275771</td>
+      <td>53.938563</td>
+      <td>203.797646</td>
+      <td>770.014590</td>
+      <td>2909.368585</td>
+      <td>1.099255e+04</td>
+      <td>4.153348e+04</td>
+      <td>1.569272e+05</td>
+      <td>5.929225e+05</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>-6.563454</td>
+      <td>43.078928</td>
+      <td>-282.746563</td>
+      <td>1855.794057</td>
+      <td>-12180.418898</td>
+      <td>79945.618965</td>
+      <td>-5.247194e+05</td>
+      <td>3.443972e+06</td>
+      <td>-2.260435e+07</td>
+      <td>1.483626e+08</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>-9.924588</td>
+      <td>98.497442</td>
+      <td>-977.546500</td>
+      <td>9701.745999</td>
+      <td>-96285.829291</td>
+      <td>955597.159837</td>
+      <td>-9.483908e+06</td>
+      <td>9.412388e+07</td>
+      <td>-9.341407e+08</td>
+      <td>9.270961e+09</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.043272</td>
+      <td>4.174960</td>
+      <td>8.530580</td>
+      <td>17.430295</td>
+      <td>35.614834</td>
+      <td>72.770792</td>
+      <td>1.486905e+02</td>
+      <td>3.038152e+02</td>
+      <td>6.207771e+02</td>
+      <td>1.268416e+03</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>6.656568</td>
+      <td>44.309900</td>
+      <td>294.951869</td>
+      <td>1963.367222</td>
+      <td>13069.287756</td>
+      <td>86996.604895</td>
+      <td>5.790988e+05</td>
+      <td>3.854811e+06</td>
+      <td>2.565981e+07</td>
+      <td>1.708063e+08</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>3.165616</td>
+      <td>10.021126</td>
+      <td>31.723040</td>
+      <td>100.422972</td>
+      <td>317.900593</td>
+      <td>1006.351284</td>
+      <td>3.185722e+03</td>
+      <td>1.008477e+04</td>
+      <td>3.192452e+04</td>
+      <td>1.010608e+05</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>1.236174</td>
+      <td>1.528127</td>
+      <td>1.889031</td>
+      <td>2.335171</td>
+      <td>2.886679</td>
+      <td>3.568438</td>
+      <td>4.411211e+00</td>
+      <td>5.453025e+00</td>
+      <td>6.740889e+00</td>
+      <td>8.332913e+00</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>-6.470932</td>
+      <td>41.872959</td>
+      <td>-270.957061</td>
+      <td>1753.344667</td>
+      <td>-11345.773804</td>
+      <td>73417.728768</td>
+      <td>-4.750811e+05</td>
+      <td>3.074218e+06</td>
+      <td>-1.989305e+07</td>
+      <td>1.287266e+08</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>-3.012487</td>
+      <td>9.075077</td>
+      <td>-27.338548</td>
+      <td>82.357015</td>
+      <td>-248.099419</td>
+      <td>747.396219</td>
+      <td>-2.251521e+03</td>
+      <td>6.782678e+03</td>
+      <td>-2.043273e+04</td>
+      <td>6.155332e+04</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>7.135269</td>
+      <td>50.912060</td>
+      <td>363.271234</td>
+      <td>2592.037885</td>
+      <td>18494.886953</td>
+      <td>131965.989144</td>
+      <td>9.416128e+05</td>
+      <td>6.718660e+06</td>
+      <td>4.793945e+07</td>
+      <td>3.420608e+08</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>4.510288</td>
+      <td>20.342695</td>
+      <td>91.751404</td>
+      <td>413.825225</td>
+      <td>1866.470799</td>
+      <td>8418.320181</td>
+      <td>3.796905e+04</td>
+      <td>1.712513e+05</td>
+      <td>7.723927e+05</td>
+      <td>3.483713e+06</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>5.222245</td>
+      <td>27.271843</td>
+      <td>142.420249</td>
+      <td>743.753442</td>
+      <td>3884.062733</td>
+      <td>20283.527393</td>
+      <td>1.059256e+05</td>
+      <td>5.531692e+05</td>
+      <td>2.888785e+06</td>
+      <td>1.508594e+07</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>-8.223553</td>
+      <td>67.626827</td>
+      <td>-556.132805</td>
+      <td>4573.387686</td>
+      <td>-37609.496782</td>
+      <td>309283.696327</td>
+      <td>-2.543411e+06</td>
+      <td>2.091587e+07</td>
+      <td>-1.720028e+08</td>
+      <td>1.414474e+09</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>4.196026</td>
+      <td>17.606638</td>
+      <td>73.877921</td>
+      <td>309.993714</td>
+      <td>1300.741838</td>
+      <td>5457.947214</td>
+      <td>2.290169e+04</td>
+      <td>9.609610e+04</td>
+      <td>4.032218e+05</td>
+      <td>1.691929e+06</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>-9.336060</td>
+      <td>87.162025</td>
+      <td>-813.749934</td>
+      <td>7597.218586</td>
+      <td>-70928.092042</td>
+      <td>662188.955593</td>
+      <td>-6.182236e+06</td>
+      <td>5.771773e+07</td>
+      <td>-5.388562e+08</td>
+      <td>5.030794e+09</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>-2.766259</td>
+      <td>7.652191</td>
+      <td>-21.167945</td>
+      <td>58.556028</td>
+      <td>-161.981161</td>
+      <td>448.081909</td>
+      <td>-1.239511e+03</td>
+      <td>3.428808e+03</td>
+      <td>-9.484973e+03</td>
+      <td>2.623790e+04</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>-2.738399</td>
+      <td>7.498829</td>
+      <td>-20.534785</td>
+      <td>56.232432</td>
+      <td>-153.986833</td>
+      <td>421.677380</td>
+      <td>-1.154721e+03</td>
+      <td>3.162086e+03</td>
+      <td>-8.659054e+03</td>
+      <td>2.371194e+04</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-0.578506</td>
+      <td>0.334669</td>
+      <td>-0.193608</td>
+      <td>0.112004</td>
+      <td>-0.064795</td>
+      <td>0.037484</td>
+      <td>-2.168480e-02</td>
+      <td>1.254479e-02</td>
+      <td>-7.257238e-03</td>
+      <td>4.198356e-03</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>-3.493023</td>
+      <td>12.201207</td>
+      <td>-42.619094</td>
+      <td>148.869463</td>
+      <td>-520.004411</td>
+      <td>1816.387202</td>
+      <td>-6.344682e+03</td>
+      <td>2.216212e+04</td>
+      <td>-7.741278e+04</td>
+      <td>2.704046e+05</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>-2.965964</td>
+      <td>8.796943</td>
+      <td>-26.091415</td>
+      <td>77.386199</td>
+      <td>-229.524684</td>
+      <td>680.761955</td>
+      <td>-2.019115e+03</td>
+      <td>5.988624e+03</td>
+      <td>-1.776204e+04</td>
+      <td>5.268158e+04</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>4.825670</td>
+      <td>23.287096</td>
+      <td>112.375850</td>
+      <td>542.288824</td>
+      <td>2616.907175</td>
+      <td>12628.331726</td>
+      <td>6.094017e+04</td>
+      <td>2.940772e+05</td>
+      <td>1.419120e+06</td>
+      <td>6.848203e+06</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>3.660112</td>
+      <td>13.396416</td>
+      <td>49.032378</td>
+      <td>179.463974</td>
+      <td>656.858162</td>
+      <td>2404.174135</td>
+      <td>8.799545e+03</td>
+      <td>3.220732e+04</td>
+      <td>1.178824e+05</td>
+      <td>4.314626e+05</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-4.478046</td>
+      <td>20.052899</td>
+      <td>-89.797810</td>
+      <td>402.118751</td>
+      <td>-1800.706392</td>
+      <td>8063.646628</td>
+      <td>-3.610938e+04</td>
+      <td>1.616995e+05</td>
+      <td>-7.240978e+05</td>
+      <td>3.242544e+06</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.108538</td>
+      <td>0.011781</td>
+      <td>0.001279</td>
+      <td>0.000139</td>
+      <td>0.000015</td>
+      <td>0.000002</td>
+      <td>1.774525e-07</td>
+      <td>1.926040e-08</td>
+      <td>2.090492e-09</td>
+      <td>2.268986e-10</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>3.727977</td>
+      <td>13.897811</td>
+      <td>51.810717</td>
+      <td>193.149152</td>
+      <td>720.055560</td>
+      <td>2684.350427</td>
+      <td>1.000720e+04</td>
+      <td>3.730660e+04</td>
+      <td>1.390781e+05</td>
+      <td>5.184800e+05</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4.850593</td>
+      <td>23.528255</td>
+      <td>114.125996</td>
+      <td>553.578791</td>
+      <td>2685.185564</td>
+      <td>13024.743051</td>
+      <td>6.317773e+04</td>
+      <td>3.064495e+05</td>
+      <td>1.486462e+06</td>
+      <td>7.210222e+06</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>-8.747075</td>
+      <td>76.511319</td>
+      <td>-669.250243</td>
+      <td>5853.982010</td>
+      <td>-51205.219163</td>
+      <td>447895.887816</td>
+      <td>-3.917779e+06</td>
+      <td>3.426911e+07</td>
+      <td>-2.997544e+08</td>
+      <td>2.621974e+09</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>6.520774</td>
+      <td>42.520497</td>
+      <td>277.266559</td>
+      <td>1807.992633</td>
+      <td>11789.511780</td>
+      <td>76876.744660</td>
+      <td>5.012959e+05</td>
+      <td>3.268837e+06</td>
+      <td>2.131535e+07</td>
+      <td>1.389926e+08</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="performing-polynomial-regression-for-each-degree">
+<h2>Performing polynomial regression for each degree<a class="headerlink" href="#performing-polynomial-regression-for-each-degree" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The next cell isn’t doing anything; it’s just showing how <code class="docutils literal notranslate"><span class="pre">sub_cols</span></code> is changing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">max_deg</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">sub_cols</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sub_cols</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;x1&#39;]
+[&#39;x1&#39;, &#39;x2&#39;]
+[&#39;x1&#39;, &#39;x2&#39;, &#39;x3&#39;]
+[&#39;x1&#39;, &#39;x2&#39;, &#39;x3&#39;, &#39;x4&#39;]
+[&#39;x1&#39;, &#39;x2&#39;, &#39;x3&#39;, &#39;x4&#39;, &#39;x5&#39;]
+[&#39;x1&#39;, &#39;x2&#39;, &#39;x3&#39;, &#39;x4&#39;, &#39;x5&#39;, &#39;x6&#39;]
+[&#39;x1&#39;, &#39;x2&#39;, &#39;x3&#39;, &#39;x4&#39;, &#39;x5&#39;, &#39;x6&#39;, &#39;x7&#39;]
+[&#39;x1&#39;, &#39;x2&#39;, &#39;x3&#39;, &#39;x4&#39;, &#39;x5&#39;, &#39;x6&#39;, &#39;x7&#39;, &#39;x8&#39;]
+[&#39;x1&#39;, &#39;x2&#39;, &#39;x3&#39;, &#39;x4&#39;, &#39;x5&#39;, &#39;x6&#39;, &#39;x7&#39;, &#39;x8&#39;, &#39;x9&#39;]
+[&#39;x1&#39;, &#39;x2&#39;, &#39;x3&#39;, &#39;x4&#39;, &#39;x5&#39;, &#39;x6&#39;, &#39;x7&#39;, &#39;x8&#39;, &#39;x9&#39;, &#39;x10&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x1</th>
+      <th>x2</th>
+      <th>x3</th>
+      <th>x4</th>
+      <th>x5</th>
+      <th>x6</th>
+      <th>x7</th>
+      <th>x8</th>
+      <th>x9</th>
+      <th>x10</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>13</th>
+      <td>-8.982275</td>
+      <td>80.681271</td>
+      <td>-724.701394</td>
+      <td>6509.467488</td>
+      <td>-58469.829551</td>
+      <td>525192.110405</td>
+      <td>-4.717420e+06</td>
+      <td>4.237317e+07</td>
+      <td>-3.806075e+08</td>
+      <td>3.418721e+09</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>6.449735</td>
+      <td>41.599085</td>
+      <td>268.303082</td>
+      <td>1730.483838</td>
+      <td>11161.162581</td>
+      <td>71986.543546</td>
+      <td>4.642941e+05</td>
+      <td>2.994574e+06</td>
+      <td>1.931421e+07</td>
+      <td>1.245716e+08</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6.465018</td>
+      <td>41.796463</td>
+      <td>270.214901</td>
+      <td>1746.944309</td>
+      <td>11294.027098</td>
+      <td>73016.092970</td>
+      <td>4.720504e+05</td>
+      <td>3.051814e+06</td>
+      <td>1.973004e+07</td>
+      <td>1.275550e+08</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>0.371593</td>
+      <td>0.138081</td>
+      <td>0.051310</td>
+      <td>0.019066</td>
+      <td>0.007085</td>
+      <td>0.002633</td>
+      <td>9.782985e-04</td>
+      <td>3.635287e-04</td>
+      <td>1.350847e-04</td>
+      <td>5.019650e-05</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>-3.942982</td>
+      <td>15.547104</td>
+      <td>-61.301947</td>
+      <td>241.712453</td>
+      <td>-953.067768</td>
+      <td>3757.928725</td>
+      <td>-1.481744e+04</td>
+      <td>5.842491e+04</td>
+      <td>-2.303683e+05</td>
+      <td>9.083382e+05</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>-4.457650</td>
+      <td>19.870645</td>
+      <td>-88.576385</td>
+      <td>394.842539</td>
+      <td>-1760.069919</td>
+      <td>7845.776000</td>
+      <td>-3.497372e+04</td>
+      <td>1.559006e+05</td>
+      <td>-6.949505e+05</td>
+      <td>3.097846e+06</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>5.481667</td>
+      <td>30.048674</td>
+      <td>164.716823</td>
+      <td>902.922780</td>
+      <td>4949.522041</td>
+      <td>27131.631828</td>
+      <td>1.487266e+05</td>
+      <td>8.152695e+05</td>
+      <td>4.469036e+06</td>
+      <td>2.449777e+07</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>-9.804880</td>
+      <td>96.135668</td>
+      <td>-942.598671</td>
+      <td>9242.066675</td>
+      <td>-90617.352934</td>
+      <td>888492.254125</td>
+      <td>-8.711560e+06</td>
+      <td>8.541580e+07</td>
+      <td>-8.374916e+08</td>
+      <td>8.211505e+09</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>-0.690041</td>
+      <td>0.476157</td>
+      <td>-0.328568</td>
+      <td>0.226726</td>
+      <td>-0.156450</td>
+      <td>0.107957</td>
+      <td>-7.449486e-02</td>
+      <td>5.140454e-02</td>
+      <td>-3.547126e-02</td>
+      <td>2.447664e-02</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>4.852230</td>
+      <td>23.544134</td>
+      <td>114.241552</td>
+      <td>554.326269</td>
+      <td>2689.718466</td>
+      <td>13051.132219</td>
+      <td>6.332709e+04</td>
+      <td>3.072776e+05</td>
+      <td>1.490982e+06</td>
+      <td>7.234585e+06</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>4.556122</td>
+      <td>20.758251</td>
+      <td>94.577131</td>
+      <td>430.904978</td>
+      <td>1963.255801</td>
+      <td>8944.833631</td>
+      <td>4.075376e+04</td>
+      <td>1.856791e+05</td>
+      <td>8.459767e+05</td>
+      <td>3.854373e+06</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>-6.299257</td>
+      <td>39.680640</td>
+      <td>-249.958554</td>
+      <td>1574.553197</td>
+      <td>-9918.515413</td>
+      <td>62479.278687</td>
+      <td>-3.935730e+05</td>
+      <td>2.479218e+06</td>
+      <td>-1.561723e+07</td>
+      <td>9.837695e+07</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Notice how <code class="docutils literal notranslate"><span class="pre">y_train</span></code> holds the exact same rows (look at the index for both <code class="docutils literal notranslate"><span class="pre">X_train</span></code> and <code class="docutils literal notranslate"><span class="pre">y_train</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_train</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13      2.574974
+11    130.940520
+1      73.954907
+25      1.134863
+16    -35.901888
+45    -26.760377
+15     24.441828
+42    131.476240
+20     61.591699
+35    -13.988943
+9       1.089803
+10     -7.251101
+Name: y, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="evaluating-the-performance-part-1">
+<h2>Evaluating the performance, Part 1<a class="headerlink" href="#evaluating-the-performance-part-1" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mse_train_dict</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">max_deg</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">sub_cols</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+    <span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="n">sub_cols</span><span class="p">],</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="c1"># what if we predict also on the training set?</span>
+    <span class="n">mse_train_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="n">sub_cols</span><span class="p">]),</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What you should think when you look at the following dictionary is that, because mean squared error is decreasing, it looks like the model is improving.</p>
+<p>But there is a major problem: we both fit and predict on the training set.  Especially for higher degree polynomials, there is a big risk taht we are over-fitting the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mse_train_dict</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1: 3006.2441403930584,
+ 2: 1845.1659476797647,
+ 3: 1820.054196587029,
+ 4: 590.3862081005426,
+ 5: 589.0984843939519,
+ 6: 523.8762601493494,
+ 7: 373.279496780059,
+ 8: 206.85098887525842,
+ 9: 204.99331332780278,
+ 10: 101.47175254241118}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="evaluating-the-performance-part-2">
+<h2>Evaluating the performance, Part 2<a class="headerlink" href="#evaluating-the-performance-part-2" title="Permalink to this headline">¶</a></h2>
+<p>To get meaningful values of MSE (Mean Squared Error), we should always evaluate on a test set, that was not used during training (fitting).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mse_test_dict</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">max_deg</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">sub_cols</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+    <span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="n">sub_cols</span><span class="p">],</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Pred</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">sub_cols</span><span class="p">])</span>
+    <span class="n">mse_test_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">sub_cols</span><span class="p">]),</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice how degree 2 is where we find the best MSE (unlike in the previous dictionary, where degree 10 looked best).  This reflects the fact that the true underlying function has degree 2.  (There is some randomness in this procedure.  When I tried other values like <code class="docutils literal notranslate"><span class="pre">random_state=4</span></code>, I did not always find that degree 2 was the best.  Sometimes degree 3 or degree 4 appeared the best.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mse_test_dict</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1: 4960.848889431734,
+ 2: 3724.5263419375206,
+ 3: 3742.5488620098768,
+ 4: 6252.874102524025,
+ 5: 6253.412384993094,
+ 6: 7016.575636378879,
+ 7: 5609.641936177731,
+ 8: 9481.527365671222,
+ 9: 12142.080457403497,
+ 10: 103395.24260458215}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plotting-the-polynomial-fits">
+<h2>Plotting the polynomial fits<a class="headerlink" href="#plotting-the-polynomial-fits" title="Permalink to this headline">¶</a></h2>
+<p>This code is similar to what we did Friday of last week, but first we’re going to add a column called “In_train” recording whether the point is in the training set or the test set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;In_train&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;test&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([13, 11, 1, 25, 16, 45, 15, 42, 20, 35, 9, 10], dtype=&#39;int64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">X_train</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="s2">&quot;In_train&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;train&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x</th>
+      <th>y_true</th>
+      <th>y</th>
+      <th>x1</th>
+      <th>x2</th>
+      <th>x3</th>
+      <th>x4</th>
+      <th>x5</th>
+      <th>x6</th>
+      <th>x7</th>
+      <th>...</th>
+      <th>Pred2</th>
+      <th>Pred3</th>
+      <th>Pred4</th>
+      <th>Pred5</th>
+      <th>Pred6</th>
+      <th>Pred7</th>
+      <th>Pred8</th>
+      <th>Pred9</th>
+      <th>Pred10</th>
+      <th>In_train</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-3.329208</td>
+      <td>-18.207589</td>
+      <td>-117.484900</td>
+      <td>-3.329208</td>
+      <td>11.083626</td>
+      <td>-36.899694</td>
+      <td>122.846756</td>
+      <td>-408.982395</td>
+      <td>1361.587441</td>
+      <td>-4533.007730</td>
+      <td>...</td>
+      <td>-16.647390</td>
+      <td>-19.954037</td>
+      <td>6.715567</td>
+      <td>5.215954</td>
+      <td>-7.995404</td>
+      <td>-18.576185</td>
+      <td>3.146424</td>
+      <td>-5.566199</td>
+      <td>-15.676053</td>
+      <td>test</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6.465018</td>
+      <td>74.160562</td>
+      <td>73.954907</td>
+      <td>6.465018</td>
+      <td>41.796463</td>
+      <td>270.214901</td>
+      <td>1746.944309</td>
+      <td>11294.027098</td>
+      <td>73016.092970</td>
+      <td>472050.384357</td>
+      <td>...</td>
+      <td>70.916916</td>
+      <td>65.455116</td>
+      <td>101.808679</td>
+      <td>102.350612</td>
+      <td>105.135066</td>
+      <td>100.392589</td>
+      <td>103.474571</td>
+      <td>103.854390</td>
+      <td>97.078223</td>
+      <td>train</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-4.478046</td>
+      <td>-7.670062</td>
+      <td>-13.810089</td>
+      <td>-4.478046</td>
+      <td>20.052899</td>
+      <td>-89.797810</td>
+      <td>402.118751</td>
+      <td>-1800.706392</td>
+      <td>8063.646628</td>
+      <td>-36109.383086</td>
+      <td>...</td>
+      <td>-9.287827</td>
+      <td>-14.954228</td>
+      <td>-16.790957</td>
+      <td>-18.030386</td>
+      <td>-17.560873</td>
+      <td>-25.152785</td>
+      <td>-38.972803</td>
+      <td>-35.768769</td>
+      <td>-25.492479</td>
+      <td>test</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.043272</td>
+      <td>-7.925152</td>
+      <td>19.461182</td>
+      <td>2.043272</td>
+      <td>4.174960</td>
+      <td>8.530580</td>
+      <td>17.430295</td>
+      <td>35.614834</td>
+      <td>72.770792</td>
+      <td>148.690523</td>
+      <td>...</td>
+      <td>-1.930187</td>
+      <td>6.789503</td>
+      <td>-5.399120</td>
+      <td>-3.567399</td>
+      <td>30.239546</td>
+      <td>-11.206589</td>
+      <td>-73.991439</td>
+      <td>-94.222921</td>
+      <td>94.585113</td>
+      <td>test</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4.850593</td>
+      <td>36.485466</td>
+      <td>22.375230</td>
+      <td>4.850593</td>
+      <td>23.528255</td>
+      <td>114.125996</td>
+      <td>553.578791</td>
+      <td>2685.185564</td>
+      <td>13024.743051</td>
+      <td>63177.731115</td>
+      <td>...</td>
+      <td>37.963743</td>
+      <td>42.179199</td>
+      <td>-1.465158</td>
+      <td>-2.100513</td>
+      <td>-2.486611</td>
+      <td>-5.545758</td>
+      <td>0.475225</td>
+      <td>2.001401</td>
+      <td>-21.612846</td>
+      <td>test</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 24 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> 
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;In_train&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c_true</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y_true&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chart_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">max_deg</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">c_temp</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">clip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pred</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">300</span><span class="p">))),</span>
+    <span class="p">)</span>
+    <span class="n">chart_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c_temp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_charts</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">+</span><span class="n">c_true</span><span class="o">+</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">chart_list</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Both the training error and the test error are high when degree is 1.  That corresponds to underfitting, and in the picture, it corresponds to the straight line not being able to fit the data well.</p>
+<p>The training error is low but the test error is high for large degrees (like degree 8).  This corresponds to overfitting.  Look at the 8th plot below, and notice how the red degree 8 polynomial is very closely following the training data (the orange points).</p>
+<p>Notice how the polynomial fits the true secret polynomial (the black quadratic curve) closely when we are using degree 2 or degree 3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">vconcat</span><span class="p">(</span><span class="o">*</span><span class="n">all_charts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-b495920e2461489296fde56988c13678"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-b495920e2461489296fde56988c13678") {
+      outputDiv = document.getElementById("altair-viz-b495920e2461489296fde56988c13678");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "vconcat": [{"layer": [{"mark": "circle", "encoding": {"color": {"field": "In_train", "type": "nominal"}, "x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "black"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y_true", "type": "quantitative"}}}, {"mark": {"type": "line", "clip": true, "color": "red"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "Pred1", "scale": {"domain": [-100, 300]}, "type": "quantitative"}}}]}, {"layer": [{"mark": "circle", "encoding": {"color": {"field": "In_train", "type": "nominal"}, "x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "black"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y_true", "type": "quantitative"}}}, {"mark": {"type": "line", "clip": true, "color": "red"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "Pred2", "scale": {"domain": [-100, 300]}, "type": "quantitative"}}}]}, {"layer": [{"mark": "circle", "encoding": {"color": {"field": "In_train", "type": "nominal"}, "x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "black"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y_true", "type": "quantitative"}}}, {"mark": {"type": "line", "clip": true, "color": "red"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "Pred3", "scale": {"domain": [-100, 300]}, "type": "quantitative"}}}]}, {"layer": [{"mark": "circle", "encoding": {"color": {"field": "In_train", "type": "nominal"}, "x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "black"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y_true", "type": "quantitative"}}}, {"mark": {"type": "line", "clip": true, "color": "red"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "Pred4", "scale": {"domain": [-100, 300]}, "type": "quantitative"}}}]}, {"layer": [{"mark": "circle", "encoding": {"color": {"field": "In_train", "type": "nominal"}, "x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "black"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y_true", "type": "quantitative"}}}, {"mark": {"type": "line", "clip": true, "color": "red"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "Pred5", "scale": {"domain": [-100, 300]}, "type": "quantitative"}}}]}, {"layer": [{"mark": "circle", "encoding": {"color": {"field": "In_train", "type": "nominal"}, "x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "black"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y_true", "type": "quantitative"}}}, {"mark": {"type": "line", "clip": true, "color": "red"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "Pred6", "scale": {"domain": [-100, 300]}, "type": "quantitative"}}}]}, {"layer": [{"mark": "circle", "encoding": {"color": {"field": "In_train", "type": "nominal"}, "x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "black"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y_true", "type": "quantitative"}}}, {"mark": {"type": "line", "clip": true, "color": "red"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "Pred7", "scale": {"domain": [-100, 300]}, "type": "quantitative"}}}]}, {"layer": [{"mark": "circle", "encoding": {"color": {"field": "In_train", "type": "nominal"}, "x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "black"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y_true", "type": "quantitative"}}}, {"mark": {"type": "line", "clip": true, "color": "red"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "Pred8", "scale": {"domain": [-100, 300]}, "type": "quantitative"}}}]}, {"layer": [{"mark": "circle", "encoding": {"color": {"field": "In_train", "type": "nominal"}, "x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "black"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y_true", "type": "quantitative"}}}, {"mark": {"type": "line", "clip": true, "color": "red"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "Pred9", "scale": {"domain": [-100, 300]}, "type": "quantitative"}}}]}, {"layer": [{"mark": "circle", "encoding": {"color": {"field": "In_train", "type": "nominal"}, "x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "black"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y_true", "type": "quantitative"}}}, {"mark": {"type": "line", "clip": true, "color": "red"}, "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "Pred10", "scale": {"domain": [-100, 300]}, "type": "quantitative"}}}]}], "data": {"name": "data-4dd9801d096b6cb95897a81341c17cd0"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-4dd9801d096b6cb95897a81341c17cd0": [{"x": -3.329207948258288, "y_true": -18.207589131190502, "y": -117.48489981507691, "x1": -3.329207948258288, "x2": 11.08362556274616, "x3": -36.89969431901326, "x4": 122.84675561516016, "x5": -408.9823952117346, "x6": 1361.5874408366194, "x7": -4533.007730281935, "x8": 15091.32536517088, "x9": -50242.16035547881, "x10": 167266.5995931275, "Pred1": 25.013013608891583, "Pred2": -16.647390185071416, "Pred3": -19.954037061658347, "Pred4": 6.71556679660987, "Pred5": 5.215953724499197, "Pred6": -7.995403749073141, "Pred7": -18.57618468056235, "Pred8": 3.1464244066685367, "Pred9": -5.5661987536160495, "Pred10": -15.676052782062413, "In_train": "test"}, {"x": 6.465018397406531, "y_true": 74.16056232333514, "y": 73.95490734658352, "x1": 6.465018397406531, "x2": 41.79646287880492, "x3": 270.21490145799294, "x4": 1746.944309179317, "x5": 11294.027098088927, "x6": 73016.09296995284, "x7": 472050.3843574908, "x8": 3051814.419374002, "x9": 19730036.36672345, "x10": 127555048.09236704, "Pred1": 37.460378801024675, "Pred2": 70.91691572638608, "Pred3": 65.45511622713668, "Pred4": 101.8086788887566, "Pred5": 102.35061177183977, "Pred6": 105.1350660728978, "Pred7": 100.39258947359882, "Pred8": 103.47457084205497, "Pred9": 103.85439042445763, "Pred10": 97.07822261726268, "In_train": "train"}, {"x": -4.478046317204917, "y_true": -7.670061908184866, "y": -13.810088667204978, "x1": -4.478046317204917, "x2": 20.052898819032524, "x3": -89.79780970585144, "x4": 402.118751046356, "x5": -1800.7063922021755, "x6": 8063.646627968305, "x7": -36109.38308561532, "x8": 161699.48994308122, "x9": -724097.8054335285, "x10": 3242543.510917775, "Pred1": 23.552968657884016, "Pred2": -9.287827270461996, "Pred3": -14.954227616478402, "Pred4": -16.790956763155954, "Pred5": -18.030385622681113, "Pred6": -17.56087298297868, "Pred7": -25.15278527483639, "Pred8": -38.97280266434167, "Pred9": -35.76876888825633, "Pred10": -25.4924787635277, "In_train": "test"}, {"x": 2.043272001247484, "y_true": -7.9251519940460895, "y": 19.46118237861152, "x1": 2.043272001247484, "x2": 4.1749604710818975, "x3": 8.530579836876647, "x4": 17.43029493509638, "x5": 35.614833614368266, "x6": 72.7707923533264, "x7": 148.69052252414633, "x8": 303.8151815244466, "x9": 620.7770539628235, "x10": 1268.4163733791356, "Pred1": 31.840834159364253, "Pred2": -1.93018700827621, "Pred3": 6.78950304566597, "Pred4": -5.399120115774231, "Pred5": -3.5673985031809927, "Pred6": 30.23954617505573, "Pred7": -11.206588983402355, "Pred8": -73.99143933141839, "Pred9": -94.22292112306094, "Pred10": 94.58511331228303, "In_train": "test"}, {"x": 4.850593279708996, "y_true": 36.48546622757559, "y": 22.37523008579901, "x1": 4.850593279708996, "x2": 23.52825516515807, "x3": 114.1259963873942, "x4": 553.5787911167873, "x5": 2685.1855639805185, "x6": 13024.743051415511, "x7": 63177.73111513252, "x8": 306449.4779743237, "x9": 1486461.7784325844, "x10": 7210221.513009375, "Pred1": 35.40862521619677, "Pred2": 37.96374344991133, "Pred3": 42.17919935702655, "Pred4": -1.465157567724738, "Pred5": -2.100512713473254, "Pred6": -2.4866111191665468, "Pred7": -5.545758030645999, "Pred8": 0.4752249200091825, "Pred9": 2.0014014072442947, "Pred10": -21.61284632697773, "In_train": "test"}, {"x": -0.5785060804889142, "y_true": -25.20293714522805, "y": -25.44530061571687, "x1": -0.5785060804889142, "x2": 0.334669285162646, "x3": -0.193608216419469, "x4": 0.1120035304312764, "x5": -0.0647947233907185, "x6": 0.0374841414651279, "x7": -0.0216848037594831, "x8": 0.0125447908290698, "x9": -0.0072572377730784, "x10": 0.0041983561792797, "Pred1": 28.50884773344835, "Pred2": -19.225892371437034, "Pred3": -15.077488077597136, "Pred4": 27.427483218510602, "Pred5": 28.13106169410859, "Pred6": 21.0127654363973, "Pred7": 30.849277902451057, "Pred8": 52.45224653666979, "Pred9": 53.72637622964339, "Pred10": 55.03118799741104, "In_train": "test"}, {"x": -6.557408679959602, "y_true": 22.813959025381838, "y": 76.67574767286865, "x1": -6.557408679959602, "x2": 42.99960859600953, "x3": -281.9660066423384, "x4": 1848.9663394100169, "x5": -12124.427923000376, "x6": 79504.82890182723, "x7": -521345.6551395449, "x8": 3418676.524271277, "x9": -22417659.1142306, "x10": 147001752.4600312, "Pred1": 20.91033188571665, "Pred2": 13.446467384077327, "Pred3": 6.7814991523483705, "Pred4": -48.19501672273891, "Pred5": -46.81410639650227, "Pred6": -35.679544781133515, "Pred7": -14.962538721817893, "Pred8": 5.088488844970485, "Pred9": -0.47166663232489725, "Pred10": -45.92938120336167, "In_train": "test"}, {"x": -5.656363051930528, "y_true": 7.799464545001062, "y": 59.65376106978435, "x1": -5.656363051930528, "x2": 31.99444297524484, "x3": -180.97218511227317, "x4": 1023.6443812961938, "x5": -5790.104256680076, "x6": 32750.93178431085, "x7": -185251.1604610731, "x8": 1047847.8193592674, "x9": -5927007.689469734, "x10": 33525307.30322473, "Pred1": 22.055460004163404, "Pred2": 2.106118254495648, "Pred3": -4.775675549486076, "Pred4": -39.5264380192999, "Pred5": -39.51584944731202, "Pred6": -28.105798989021203, "Pred7": -18.877712408187065, "Pred8": -29.95017567917897, "Pred9": -22.46138066016266, "Pred10": 28.396951920909387, "In_train": "test"}, {"x": 0.1085383400545652, "y_true": -22.93496583463122, "y": -66.10368783700659, "x1": 0.1085383400545652, "x2": 0.0117805712618004, "x3": 0.0012786436496503, "x4": 0.0001387818592543, "x5": 1.5063152633154338e-05, "x6": 1.6349295827911247e-06, "x7": 1.774525430222515e-07, "x8": 1.9260404458096493e-08, "x9": 2.0904923286613407e-09, "x10": 2.2689856724970447e-10, "Pred1": 29.382004275262133, "Pred2": -16.55763321076579, "Pred3": -10.728149810404274, "Pred4": 22.204741622478426, "Pred5": 23.5313556354209, "Pred6": 27.90952024715832, "Pred7": 32.003744981028895, "Pred8": 20.575397413426003, "Pred9": 21.617692716631808, "Pred10": 11.862562894933813, "In_train": "test"}, {"x": 4.556122347821622, "y_true": 30.569128068211988, "y": 1.089803157452213, "x1": 4.556122347821622, "x2": 20.75825084831961, "x3": 94.57713059171614, "x4": 430.90497828176194, "x5": 1963.2558013371265, "x6": 8944.833630962528, "x7": 40753.75640357481, "x8": 185679.10030800573, "x9": 845976.6984367175, "x10": 3854373.341483882, "Pred1": 35.03438562867771, "Pred2": 32.74139511802628, "Pred3": 38.08850970279611, "Pred4": -9.376876527599372, "Pred5": -9.781822562424939, "Pred6": -3.2642689737208492, "Pred7": -21.065226135757186, "Pred8": -11.073081925083088, "Pred9": -11.993277623514928, "Pred10": 5.927632211415286, "In_train": "train"}, {"x": -6.299257105127305, "y_true": 18.23013399902268, "y": -7.25110091586216, "x1": -6.299257105127305, "x2": 39.68064007649684, "x3": -249.958553937872, "x4": 1574.553196880487, "x5": -9918.515412850318, "x6": 62479.27868671205, "x7": -393573.0401904999, "x8": 2479217.7698065606, "x9": -15617230.15161185, "x10": 98376947.99494933, "Pred1": 21.238413636480374, "Pred2": 9.964685036076979, "Pred3": 3.1199241323090465, "Pred4": -46.95250898119336, "Pred5": -45.975237130580496, "Pred6": -33.79461809232551, "Pred7": -15.455145656615159, "Pred8": -5.525480705506354, "Pred9": -6.030240368218685, "Pred10": -7.2991051515569865, "In_train": "train"}, {"x": 6.449735233464434, "y_true": 73.76235824625147, "y": 130.94052037260485, "x1": 6.449735233464434, "x2": 41.59908458179252, "x3": 268.3030815070543, "x4": 1730.483838043128, "x5": 11161.162581167524, "x6": 71986.54354618103, "x7": 464294.1462451255, "x8": 2994574.3137284745, "x9": 19314211.46048212, "x10": 124571550.1632541, "Pred1": 37.440955610650605, "Pred2": 70.57068581983775, "Pred3": 65.23051085700905, "Pred4": 100.24042326137156, "Pred5": 100.73960194228367, "Pred6": 102.78367158197267, "Pred7": 99.94950804288275, "Pred8": 100.77027829251814, "Pred9": 100.47335263880201, "Pred10": 106.78019169746894, "In_train": "train"}, {"x": 3.6601115365364834, "y_true": 14.380365281608256, "y": 8.061647596412477, "x1": 3.6601115365364834, "x2": 13.396416459887456, "x3": 49.03237843308132, "x4": 179.4639739667436, "x5": 656.8581615083614, "x6": 2404.174134804898, "x7": 8799.545486642026, "x8": 32207.31795193602, "x9": 117882.3759967796, "x10": 431462.64434014447, "Pred1": 33.89565619864956, "Pred2": 18.346840573220668, "Pred3": 26.095006133691264, "Pred4": -19.444430742257154, "Pred5": -18.907574851080742, "Pred6": 6.96676248835071, "Pred7": -43.07331105927652, "Pred8": -50.79009792546739, "Pred9": -65.64183322258084, "Pred10": 139.87315766890669, "In_train": "test"}, {"x": -8.982275379207888, "y_true": 76.93083162471879, "y": 2.57497436581059, "x1": -8.982275379207888, "x2": 80.68127098792421, "x3": -724.7013939580312, "x4": 6509.46748822686, "x5": -58469.82955125433, "x6": 525192.1104047135, "x7": -4717420.162642489, "x8": 42373166.9802825, "x9": -380607454.5060562, "x10": 3418720967.7527347, "Pred1": 17.828597782119417, "Pred2": 55.27543265942492, "Pred3": 56.06750719768276, "Pred4": 31.061793543133874, "Pred5": 33.049600349329936, "Pred6": 19.315367592967775, "Pred7": 6.73610191857496, "Pred8": 2.255546711174148, "Pred9": 2.3653981799156014, "Pred10": 2.5817173369226936, "In_train": "train"}, {"x": -9.026659050812274, "y_true": 78.10767304500862, "y": 15.781692216581398, "x1": -9.026659050812274, "x2": 81.48057361961114, "x3": -735.4973573288387, "x4": 6639.083877380871, "x5": -59928.74657086189, "x6": 540956.3626377055, "x7": -4883028.646898131, "x8": 44077434.73089863, "x9": -397871975.1502533, "x10": 3591454665.55459, "Pred1": 17.77219110439627, "Pred2": 56.19474581942586, "Pred3": 57.236437717497324, "Pred4": 34.71820015014559, "Pred5": 36.59188401198148, "Pred6": 23.093851200988567, "Pred7": 10.043561053973818, "Pred8": 3.2047953657855857, "Pred9": 4.9510840553233635, "Pred10": 28.897070992921172, "In_train": "test"}, {"x": 5.481667038018758, "y_true": 50.15757983256919, "y": 24.44182752029455, "x1": 5.481667038018758, "x2": 30.048673515701346, "x3": 164.71682314720726, "x4": 902.9227800532112, "x5": 4949.522041293949, "x6": 27131.63182770836, "x7": 148726.5718776095, "x8": 815269.5467390196, "x9": 4469036.201459777, "x10": 24497768.43725461, "Pred1": 36.2106493123961, "Pred2": 49.974756081147575, "Pred3": 51.137415373432695, "Pred4": 25.458016248184947, "Pred5": 24.652586969364197, "Pred6": 13.14389505063064, "Pred7": 38.28820955435235, "Pred8": 22.057767190014843, "Pred9": 21.387851038820912, "Pred10": 28.427871767480966, "In_train": "train"}, {"x": -3.942981654772611, "y_true": -13.136147423782996, "y": -35.90188825321785, "x1": -3.942981654772611, "x2": 15.547104329873356, "x3": -61.30194715752647, "x4": 241.7124530439669, "x5": -953.0677680824476, "x6": 3757.928725304168, "x7": -14817.444023817356, "x8": 58424.90995653189, "x9": -230368.3481403469, "x10": 908338.170557658, "Pred1": 24.23297594173123, "Pred2": -13.176058455348493, "Pred3": -17.857678091404114, "Pred4": -5.4153540742498265, "Pred5": -6.899087920349704, "Pred6": -13.123718397811352, "Pred7": -24.17492069972407, "Pred8": -23.924044270424687, "Pred9": -26.799030926892556, "Pred10": -36.34589043146242, "In_train": "train"}, {"x": 7.135268762431544, "y_true": 92.40510445659264, "y": 27.822957658181807, "x1": 7.135268762431544, "x2": 50.91206031213137, "x3": 363.2712335761817, "x4": 2592.0378852261024, "x5": 18494.886953492925, "x6": 131965.9891439608, "x7": 941612.8000422836, "x8": 6718660.398447406, "x9": 47939447.66642764, "x10": 342060843.4224829, "Pred1": 38.3121919784197, "Pred2": 86.74536247931758, "Pred3": 75.32934533924603, "Pred4": 184.55233357045017, "Pred5": 187.9092105976142, "Pred6": 248.9049775248086, "Pred7": 78.85937029345634, "Pred8": 332.37064671308497, "Pred9": 432.93092589865125, "Pred10": -1692.5165934591264, "In_train": "test"}, {"x": 4.196026495565919, "y_true": 23.73499382935532, "y": 19.89278808558322, "x1": 4.196026495565919, "x2": 17.606638351491206, "x3": 73.87792102070415, "x4": 309.9937140402009, "x5": 1300.741837571568, "x6": 5457.9472143414, "x7": 22901.691122776712, "x8": 96096.10274443789, "x9": 403221.79323628615, "x10": 1691929.3280090592, "Pred1": 34.576744114278455, "Pred2": 26.685763536901973, "Pred3": 33.1796629161178, "Pred4": -15.698462469141027, "Pred5": -15.748968780428985, "Pred6": -0.7493966371659155, "Pred7": -34.50817857143778, "Pred8": -26.831755832765722, "Pred9": -32.83706499338723, "Pred10": 61.01623362265983, "In_train": "test"}, {"x": -9.924587728801344, "y_true": 103.35484100926068, "y": 90.76217468813144, "x1": -9.924587728801344, "x2": 98.4974415866742, "x3": -977.546500089434, "x4": 9701.745999120298, "x5": -96285.82929081684, "x6": 955597.1598371018, "x7": -9483907.846196717, "x8": 94123875.43144672, "x9": -934140659.0941623, "x10": 9270960922.220322, "Pred1": 16.631024280498394, "Pred2": 75.9800314406093, "Pred3": 83.0972748230977, "Pred4": 133.06801531356956, "Pred5": 130.73098575982155, "Pred6": 145.56194200222404, "Pred7": 162.24850030148025, "Pred8": 182.70438121963332, "Pred9": 170.35122226447254, "Pred10": -33.16976472901898, "In_train": "test"}, {"x": -0.6900414588494286, "y_true": -25.419702715899877, "y": 61.59169896339826, "x1": -0.6900414588494286, "x2": 0.4761572149310476, "x3": -0.328568219232701, "x4": 0.2267256933308919, "x5": -0.1564501281846968, "x6": 0.1079570746897482, "x7": -0.0744948573120306, "x8": 0.0514045400163736, "x9": -0.0354712637843822, "x10": 0.024476642609008, "Pred1": 28.367098754274455, "Pred2": -19.534148726102003, "Pred3": -15.678028504746251, "Pred4": 27.90723488018743, "Pred5": 28.498657544455813, "Pred6": 19.765509219018913, "Pred7": 29.823728231341068, "Pred8": 56.158432728115216, "Pred9": 56.98623663494113, "Pred10": 61.92810577485654, "In_train": "train"}, {"x": 4.510287644012569, "y_true": 29.674760214396706, "y": 67.75450975334007, "x1": 4.510287644012569, "x2": 20.342694631732453, "x3": 91.75140424342372, "x4": 413.8252248799164, "x5": 1866.47079855661, "x6": 8418.320180640152, "x7": 37969.04549408294, "x8": 171251.3167469134, "x9": 772392.6979444863, "x10": 3483713.241864549, "Pred1": 34.976134851469865, "Pred2": 31.95040549857105, "Pred3": 37.457714043002895, "Pred4": -10.37604090127325, "Pred5": -10.73947581137168, "Pred6": -3.1257374208256863, "Pred7": -23.123489033440293, "Pred8": -12.993977569405999, "Pred9": -14.457599771855271, "Pred10": 12.073694612401226, "In_train": "test"}, {"x": -9.336060459657736, "y_true": 86.49759445625713, "y": 101.99230853473858, "x1": -9.336060459657736, "x2": 87.16202490638462, "x3": -813.7499343122001, "x4": 7597.218585781211, "x5": -70928.09204208883, "x6": 662188.95559311, "x7": -6182236.125134886, "x8": 57717730.24013947, "x9": -538856219.1161577, "x10": 5030794240.731025, "Pred1": 17.378976552175452, "Pred2": 62.75684488417541, "Pred3": 65.66786554621183, "Pred4": 63.1786848917515, "Pred5": 64.03667272556012, "Pred6": 54.62297324204819, "Pred7": 41.801543973905964, "Pred8": 23.500636282865244, "Pred9": 34.216090588040416, "Pred10": 196.18881369518328, "In_train": "test"}, {"x": 4.441058173200844, "y_true": 28.337434596305293, "y": 75.652070315597, "x1": 4.441058173200844, "x2": 19.722997697754018, "x3": 87.5909801256319, "x4": 388.9966381856102, "x5": 1727.556699361856, "x6": 7672.179799368842, "x7": 34072.59680425341, "x8": 151318.38451970654, "x9": 672013.7483267909, "x10": 2984452.149510029, "Pred1": 34.888151944516416, "Pred2": 30.766853344367583, "Pred3": 36.508149964950256, "Pred4": -11.773549163264242, "Pred5": -12.071974514487547, "Pred6": -2.804807139320353, "Pred7": -26.042235339923664, "Pred8": -15.950717855039827, "Pred9": -18.302885463475207, "Pred10": 22.00993089275316, "In_train": "test"}, {"x": -6.563453985661962, "y_true": 22.92401663601917, "y": 3.705401701436681, "x1": -6.563453985661962, "x2": 43.07892822190189, "x3": -282.7465631360876, "x4": 1855.7940567477756, "x5": -12180.418898328966, "x6": 79945.61896526953, "x7": -524719.3914338109, "x8": 3443971.581060365, "x9": -22604349.00021718, "x10": 148362604.53876945, "Pred1": 20.902648978959174, "Pred2": 13.53024241316086, "Pred3": 6.870694271035077, "Pred4": -48.209652551020966, "Pred5": -46.819356798268785, "Pred6": -35.71876523383854, "Pred7": -14.958747177139045, "Pred8": 5.329262849297052, "Pred9": -0.3575106968435051, "Pred10": -46.99820309975131, "In_train": "test"}, {"x": 0.3715928458725752, "y_true": -21.641731218646186, "y": 1.1348634243102325, "x1": 0.3715928458725752, "x2": 0.1380812431036794, "x3": 0.0513100020865191, "x4": 0.0190664296970574, "x5": 0.0070849488717589, "x6": 0.0026327163141186, "x7": 0.0009782985475384, "x8": 0.0003635287413928, "x9": 0.0001350846795706, "x10": 5.019650051543844e-05, "Pred1": 29.71631710241077, "Pred2": -15.185516947080622, "Pred3": -8.780921144828605, "Pred4": 19.286904426890544, "Pred5": 20.80697675397897, "Pred6": 29.996818489922934, "Pred7": 29.89016961907629, "Pred8": 5.575225425420783, "Pred9": 5.048496979798244, "Pred10": 0.7935697426778425, "In_train": "train"}, {"x": 6.520774235091615, "y_true": 75.6200186264345, "y": 106.2787015891801, "x1": 6.520774235091615, "x2": 42.52049662503464, "x3": 277.2665588558258, "x4": 1807.992633239582, "x5": 11789.51178006411, "x6": 76876.74465975113, "x7": 501295.895855022, "x8": 3268837.361848597, "x9": 21315350.447847176, "x10": 138992588.0122704, "Pred1": 37.53123822868806, "Pred2": 72.18558177573468, "Pred3": 66.27485590013224, "Pred4": 107.64336591416419, "Pred5": 108.34846792347844, "Pred6": 114.02103243585226, "Pred7": 101.75202558971036, "Pred8": 114.01819350321047, "Pred9": 117.25444698762551, "Pred10": 54.68784526304479, "In_train": "test"}, {"x": -2.9659640277290773, "y_true": -20.6056500702583, "y": 42.19409663367121, "x1": -2.9659640277290773, "x2": 8.79694261378289, "x3": -26.09141534647706, "x4": 77.38619935018936, "x5": -229.52468351533287, "x6": 680.7619547823787, "x7": -2019.115469331064, "x8": 5988.623849867248, "x9": -17762.042914306676, "x10": 52681.580342813744, "Pred1": 25.474655965630724, "Pred2": -18.204092080888906, "Pred3": -20.60217909914489, "Pred4": 12.997096476341618, "Pred5": 11.611708756485713, "Pred6": -4.790076628894365, "Pred7": -13.094938148249625, "Pred8": 20.983390070800542, "Pred9": 10.409753110661537, "Pred10": 9.341289047277053, "In_train": "test"}, {"x": 3.165616256477076, "y_true": 6.614941333118303, "y": -125.40319890292574, "x1": 3.165616256477076, "x2": 10.021126283271936, "x3": 31.723040270535343, "x4": 100.42297198528362, "x5": 317.9005926403558, "x6": 1006.3512840060072, "x7": 3185.721984375995, "x8": 10084.773302357058, "x9": 31924.522308827512, "x10": 101060.78680108945, "Pred1": 33.26720805793348, "Pred2": 11.36698063744489, "Pred3": 19.830207971743256, "Pred4": -18.235165697411347, "Pred5": -17.179881206344884, "Pred6": 15.450555030318188, "Pred7": -40.30934269946346, "Pred8": -68.6878777553989, "Pred9": -89.75901774696095, "Pred10": 172.53798420405735, "In_train": "test"}, {"x": 5.222245052890752, "y_true": 44.373338484003376, "y": -1.9846500432445997, "x1": 5.222245052890752, "x2": 27.271843392441937, "x3": 142.42024923939124, "x4": 743.7534420218789, "x5": 3884.062733169226, "x6": 20283.527393410324, "x7": 105925.55058541113, "x8": 553169.1825193923, "x9": 2888785.0268235183, "x10": 15085943.315193998, "Pred1": 35.88095301237281, "Pred2": 44.90205415592219, "Pred3": 47.42667877328046, "Pred4": 12.597357652114582, "Pred5": 11.794717337425602, "Pred6": 3.8831447288936047, "Pred7": 18.970288500288092, "Pred8": 13.275016351998843, "Pred9": 14.742146011240678, "Pred10": -12.828563979428608, "In_train": "test"}, {"x": -6.47093182334422, "y_true": 21.253209250315912, "y": -11.812893751238208, "x1": -6.47093182334422, "x2": 41.872958662368944, "x3": -270.9570607459002, "x4": 1753.3446671404586, "x5": -11345.773803890072, "x6": 73417.72876805747, "x7": -475081.1174828775, "x8": 3074217.521789886, "x9": -19893051.993632574, "x10": 128726583.2090382, "Pred1": 21.02023428912964, "Pred2": 12.259303389690313, "Pred3": 5.52293562804801, "Pred4": -47.91072514534251, "Pred5": -46.6645904436525, "Pred6": -35.091316781625764, "Pred7": -15.05644761923621, "Pred8": 1.5918811061929006, "Pred9": -2.1924711253014237, "Pred10": -31.437482780107175, "In_train": "test"}, {"x": 6.893150314043133, "y_true": 85.63830241596483, "y": 64.8076871161785, "x1": 6.893150314043133, "x2": 47.51552125199294, "x3": 327.5316302400984, "x4": 2257.7247598485933, "x5": 15562.836137373288, "x6": 107276.9688077365, "x7": 739476.2712266443, "x8": 5097321.091233388, "x9": 35136600.480814114, "x10": 242201868.63873196, "Pred1": 38.004486536409246, "Pred2": 80.88219006758453, "Pred3": 71.75944745556441, "Pred4": 151.37761574907523, "Pred5": 153.48794637555216, "Pred6": 186.96151421919046, "Pred7": 97.8245442434124, "Pred8": 219.13085884049167, "Pred9": 262.9166386266978, "Pred10": -634.9011471694909, "In_train": "test"}, {"x": -3.493022680238049, "y_true": -16.979340333058417, "y": -54.08639152234581, "x1": -3.493022680238049, "x2": 12.201207444657404, "x3": -42.61909433047764, "x4": 148.86946310756323, "x5": -520.0044110295798, "x6": 1816.3872015501508, "x7": -6344.681691108797, "x8": 22162.117045934127, "x9": -77412.77748353817, "x10": 270404.5874902202, "Pred1": 24.80482342409909, "Pred2": -15.824270415946108, "Pred3": -19.519662732022105, "Pred4": 3.6361952968705893, "Pred5": 2.1141339156146195, "Pred6": -9.389115063878329, "Pred7": -20.543084102214117, "Pred8": -4.702820230687664, "Pred9": -12.134389488235968, "Pred10": -24.384670201022082, "In_train": "test"}, {"x": -8.747074910351651, "y_true": 70.80623599597394, "y": 183.70684761381912, "x1": -8.747074910351651, "x2": 76.51131948730335, "x3": -669.2502430452905, "x4": 5853.982009688206, "x5": -51205.21916259364, "x6": 447895.8878161804, "x7": -3917778.8827665895, "x8": 34269105.36975316, "x9": -299754431.7799649, "x10": 2621974469.489247, "Pred1": 18.12751124663317, "Pred2": 50.4959753350293, "Pred3": 50.04082957440063, "Pred4": 13.365206458754685, "Pred5": 15.83982421052438, "Pred6": 2.0098389560944696, "Pred7": -6.680098819798886, "Pred8": 2.4371720641810413, "Pred9": -6.2782438556110804, "Pred10": -128.1259979123339, "In_train": "test"}, {"x": -1.384337371858507, "y_true": -25.81792029410888, "y": -33.87053208902993, "x1": -1.384337371858507, "x2": 1.9163899591241185, "x3": -2.6529302394699137, "x4": 3.67255047543174, "x5": -5.084048873176886, "x6": 7.038038855493894, "x7": -9.743020212252471, "x8": 13.4876269945939, "x9": -18.67142610630397, "x10": 25.84755294485116, "Pred1": 27.484726377363366, "Pred2": -20.668392791978587, "Pred3": -18.708822855027282, "Pred4": 28.35118237169481, "Pred5": 28.223950589796118, "Pred6": 11.742915445475653, "Pred7": 19.379415992798737, "Pred8": 67.31320908729829, "Pred9": 63.43843066533014, "Pred10": 88.22366080124426, "In_train": "test"}, {"x": 4.852229846751024, "y_true": 36.519170997371695, "y": -13.988942624499913, "x1": 4.852229846751024, "x2": 23.54413448570147, "x3": 114.24155206744076, "x4": 554.3262686807972, "x5": 2689.718465731092, "x6": 13051.132218777777, "x7": 63327.09328584744, "x8": 307277.6121495753, "x9": 1490981.6009105546, "x10": 7234585.424894817, "Pred1": 35.410705109688564, "Pred2": 37.993447045901924, "Pred3": 42.202109201760884, "Pred4": -1.4136084593413543, "Pred5": -2.050038123390575, "Pred6": -2.473096449777266, "Pred7": -5.448944377342677, "Pred8": 0.5354451207180233, "Pred9": 2.0694885379672883, "Pred10": -21.693565600678838, "In_train": "train"}, {"x": 3.727976805823406, "y_true": 15.510983713963348, "y": 161.0233188781908, "x1": 3.727976805823406, "x2": 13.897811064757288, "x3": 51.810717301131056, "x4": 193.14915239169005, "x5": 720.055560180671, "x6": 2684.350427257721, "x7": 10007.196131518936, "x8": 37306.59506962831, "x9": 139078.12112382016, "x10": 518480.0097471, "Pred1": 33.98190535819147, "Pred2": 19.358288981378564, "Pred3": 26.97614590957565, "Pred4": -19.29344903186623, "Pred5": -18.831436927615133, "Pred6": 5.8437422201755, "Pred7": -42.70698182339305, "Pred8": -47.89625769307297, "Pred9": -61.6775546500882, "Pred10": 131.78165179680724, "In_train": "test"}, {"x": -2.7383989368584727, "y_true": -21.879426787560792, "y": -35.23602701511189, "x1": -2.7383989368584727, "x2": 7.498828737387614, "x3": -20.534784642146004, "x4": 56.23243243267031, "x5": -153.98683319059026, "x6": 421.67738029931536, "x7": -1154.7208899089112, "x8": 3162.086457294832, "x9": -8659.054192910742, "x10": 23711.944796066677, "Pred1": 25.763865719528347, "Pred2": -18.990786441053892, "Pred3": -20.79240391332757, "Pred4": 16.485901653540562, "Pred5": 15.213796969879064, "Pred6": -2.6795875899795547, "Pred7": -8.98091633587483, "Pred8": 31.80127321091294, "Pred9": 20.815464645371858, "Pred10": 27.10753165465476, "In_train": "test"}, {"x": -1.6026752477703532, "y_true": -25.604403001171647, "y": -41.0626241665516, "x1": -1.6026752477703532, "x2": 2.568567949815763, "x3": -4.116580275385966, "x4": 6.597541312820752, "x5": -10.57371615820014, "x6": 16.946233163696796, "x7": -27.15930843440194, "x8": 43.52755137437657, "x9": -69.76052918376575, "x10": 111.80347339418272, "Pred1": 27.20724338066375, "Pred2": -20.745638215431946, "Pred3": -19.39905096321126, "Pred4": 27.560249551222107, "Pred5": 27.212080092371362, "Pred6": 9.235007880093981, "Pred7": 15.039134215718647, "Pred8": 66.343324550343, "Pred9": 60.6936875278272, "Pred10": 88.14858883345663, "In_train": "test"}, {"x": -8.223553165877851, "y_true": 57.849037362334165, "y": 14.428412230630222, "x1": -8.223553165877851, "x2": 67.62682667201962, "x3": -556.1328045769596, "x4": 4573.387685727384, "x5": -37609.49678175021, "x6": 309283.6963266348, "x7": -2543410.9200813016, "x8": 20915874.923962884, "x9": -172002809.44806013, "x10": 1414474248.1764796, "Pred1": 18.79284877401963, "Pred2": 40.41464601243634, "Pred3": 37.6227889616893, "Pred4": -16.715607111172076, "Pred5": -13.761784430776135, "Pred6": -22.962168375487025, "Pred7": -19.033203828825762, "Pred8": 17.0158522741648, "Pred9": -6.245734171343983, "Pred10": -299.97067404662687, "In_train": "test"}, {"x": -0.3640013134943825, "y_true": -24.667160559743387, "y": 21.818198775552545, "x1": -0.3640013134943825, "x2": 0.1324969562256357, "x3": -0.048229066100139, "x4": 0.017555443409058, "x5": -0.0063902044598734, "x6": 0.0023260428168915, "x7": -0.0008466826405927, "x8": 0.0003081935932886, "x9": -0.0001121828727676, "x10": 4.083471303898616e-05, "Pred1": 28.78145927784217, "Pred2": -18.534974470731694, "Pred3": -13.837899169192996, "Pred4": 26.203664490179044, "Pred5": 27.11614588732542, "Pred6": 23.334767722378434, "Pred7": 32.19949266681642, "Pred8": 44.02745748103786, "Pred9": 45.808958597130584, "Pred10": 40.95868511425178, "In_train": "test"}, {"x": 6.656568171049994, "y_true": 79.21875918822593, "y": 23.279299839342315, "x1": 6.656568171049994, "x2": 44.30989981583586, "x3": 294.95186877650696, "x4": 1963.3672216894104, "x5": 13069.287755980587, "x6": 86996.60489475378, "x7": 579098.8311318301, "x8": 3854810.847204396, "x9": 25659811.19091904, "x10": 170806282.4486241, "Pred1": 37.70381711875009, "Pred2": 75.31190953323366, "Pred3": 68.2732685258268, "Pred4": 122.61375135720932, "Pred5": 123.76543353737945, "Pred6": 137.77314443789447, "Pred7": 103.18178221496278, "Pred8": 144.67698822860336, "Pred9": 157.82661277461017, "Pred10": -103.10520910733213, "In_train": "test"}, {"x": -9.804879808964852, "y_true": 99.83062849926336, "y": 131.47624036529035, "x1": -9.804879808964852, "x2": 96.13566806824664, "x3": -942.5986707636984, "x4": 9242.066674928095, "x5": -90617.3529341094, "x6": 888492.2541254913, "x7": -8711559.762896698, "x8": 85415796.42381647, "x9": -837491617.7225302, "x10": 8211504652.784947, "Pred1": 16.783159644947567, "Pred2": 73.21169787804726, "Pred3": 79.40197247924488, "Pred4": 117.05268415826326, "Pred5": 115.51825979276244, "Pred6": 123.2069749544351, "Pred7": 129.54296526366886, "Pred8": 131.59800365560284, "Pred9": 131.55439106584106, "Pred10": 131.4738594574386, "In_train": "train"}, {"x": 1.2361742342612168, "y_true": -15.733870185861791, "y": 3.383360389096301, "x1": 1.2361742342612168, "x2": 1.5281267374513057, "x3": 1.8890308995229592, "x4": 2.335171325713572, "x5": 2.886678625432725, "x6": 3.56843773935252, "x7": 4.4112107899529285, "x8": 5.453025120434879, "x9": 6.740889152660766, "x10": 8.332913486530165, "Pred1": 30.815103254556245, "Pred2": -9.308541205770943, "Pred3": -1.3755400058942424, "Pred4": 7.18487542774951, "Pred5": 9.085877545322408, "Pred6": 33.38795623722388, "Pred7": 13.307646006829799, "Pred8": -43.796128551333496, "Pred9": -54.02725334471343, "Pred10": 14.604935708521825, "In_train": "test"}, {"x": -2.76625939296056, "y_true": -21.732938761596003, "y": 129.3356782636361, "x1": -2.76625939296056, "x2": 7.652191029142525, "x3": -21.167945311094044, "x4": 58.55602754648934, "x5": -161.98116121493342, "x6": 448.08190869346834, "x7": -1239.5107887390027, "x8": 3428.8083620252187, "x9": -9484.973338113972, "x10": 26237.896588538253, "Pred1": 25.728458198884763, "Pred2": -18.902275347415344, "Pred3": -20.77787917938129, "Pred4": 16.078974930715773, "Pred5": 14.791398521996735, "Pred6": -2.942741180501354, "Pred7": -9.508644366669735, "Pred8": 30.511625040879085, "Pred9": 19.54450097903466, "Pred10": 24.909939023772996, "In_train": "test"}, {"x": -4.457650184804254, "y_true": -7.89626896855226, "y": -26.760376539006497, "x1": -4.457650184804254, "x2": 19.8706451700854, "x3": -88.57638511461093, "x4": 394.8425394754382, "x5": -1760.0699190612677, "x6": 7845.775999971868, "x7": -34973.72483620738, "x8": 155900.63097941293, "x9": -694950.4764964798, "x10": 3097846.1199843376, "Pred1": 23.578889858756668, "Pred2": -9.45076405315966, "Pred3": -15.083910247235018, "Pred4": -16.354860181245684, "Pred5": -17.607582204110773, "Pred6": -17.389073865052623, "Pred7": -25.17650805089508, "Pred8": -38.600135881454136, "Pred9": -35.61452939877101, "Pred10": -26.350082238626456, "In_train": "train"}, {"x": 4.825670488119888, "y_true": 35.97331162314065, "y": 49.77584336934803, "x1": 4.825670488119888, "x2": 23.28709565991124, "x3": 112.3758502800584, "x4": 542.2888242738569, "x5": 2616.907175335584, "x6": 12628.331726166103, "x7": 60940.16772514785, "x8": 294077.16893232206, "x9": 1419119.5153465534, "x10": 6848203.1643228615, "Pred1": 35.37695113826877, "Pred2": 37.51232453337026, "Pred3": 41.83054196627452, "Pred4": -2.239437785084256, "Pred5": -2.858113938421102, "Pred6": -2.6785931369779625, "Pred7": -7.006396003205438, "Pred8": -0.4471560459428332, "Pred9": 0.9507701654632648, "Pred10": -20.269870724213504, "In_train": "test"}, {"x": -3.012486777485868, "y_true": -20.32356559399584, "y": -12.16411918567957, "x1": -3.012486777485868, "x2": 9.075076584527189, "x3": -27.33854821555976, "x4": 82.35701501503365, "x5": -248.09941876599396, "x6": 747.3962185344858, "x7": -2251.5212258780766, "x8": 6782.677922186477, "x9": -20432.72755653208, "x10": 61553.32159202402, "Pred1": 25.415530759052125, "Pred2": -18.025380180433466, "Pred3": -20.543036536871202, "Pred4": 12.23919727486084, "Pred5": 10.834453691016552, "Pred6": -5.211073554385763, "Pred7": -13.876430493142685, "Pred8": 18.711918519385094, "Pred9": 8.295413447764027, "Pred10": 5.826420726290355, "In_train": "test"}, {"x": 3.7783291669200896, "y_true": 16.35996078349077, "y": -23.18155368558764, "x1": 3.7783291669200896, "x2": 14.27577129359906, "x3": 53.93856305888586, "x4": 203.79764602714693, "x5": 770.0145901340253, "x6": 2909.3685848574064, "x7": 10992.552181487765, "x8": 41533.48052620627, "x9": 156927.1608758727, "x10": 592922.4690192711, "Pred1": 34.04589757204652, "Pred2": 20.117076826093864, "Pred3": 27.633039125858403, "Pred4": -19.125490463353046, "Pred5": -18.71921666445491, "Pred6": 5.0283224255223296, "Pred7": -42.306636597704355, "Pred8": -45.705429610185305, "Pred9": -58.67169347892245, "Pred10": 125.30453028985721, "In_train": "test"}, {"x": 6.068926586911488, "y_true": 64.096777865783, "y": 182.7524628775764, "x1": 6.068926586911488, "x2": 36.83186991732112, "x3": 223.5299145868956, "x4": 1356.5866416064644, "x5": 8233.024736694437, "x6": 49965.622715224825, "x7": 303237.69612801645, "x8": 1840327.3161851056, "x9": 11168811.377815252, "x10": 67782696.31502251, "Pred1": 36.956990453559406, "Pred2": 62.155249801965, "Pred3": 59.65053211853193, "Pred4": 65.29316590794114, "Pred5": 64.97752940108626, "Pred6": 54.83783453714291, "Pred7": 81.3028728106653, "Pred8": 53.51438813543531, "Pred9": 46.85961948106119, "Pred10": 167.84473635539678, "In_train": "test"}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p>If we wanted the polynomials to look smoother, we could replace <code class="docutils literal notranslate"><span class="pre">df</span></code> with something like <code class="docutils literal notranslate"><span class="pre">df_plot</span></code> that we used on Friday of last week.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Week7"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Week7-Tuesday.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 7, Tuesday Discussion</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Week7-Videos.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 7 Videos</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Christopher Davis<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
