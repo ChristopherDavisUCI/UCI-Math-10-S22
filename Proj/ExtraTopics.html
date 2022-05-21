@@ -563,6 +563,11 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#k-nearest-neighbors">
+   K-Nearest Neighbors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#neural-networks">
    Neural Networks
   </a>
@@ -583,13 +588,18 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#different-python-libraries">
+   Different Python libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#other-libraries">
    Other libraries
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#different-python-libraries">
-   Different Python libraries
+  <a class="reference internal nav-link" href="#state-of-the-art-machine-learning">
+   State-of-the-art Machine Learning
   </a>
  </li>
 </ul>
@@ -613,6 +623,11 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#k-nearest-neighbors">
+   K-Nearest Neighbors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#neural-networks">
    Neural Networks
   </a>
@@ -633,13 +648,18 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#different-python-libraries">
+   Different Python libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#other-libraries">
    Other libraries
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#different-python-libraries">
-   Different Python libraries
+  <a class="reference internal nav-link" href="#state-of-the-art-machine-learning">
+   State-of-the-art Machine Learning
   </a>
  </li>
 </ul>
@@ -655,6 +675,10 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>Possible extra topics<a class="headerlink" href="#possible-extra-topics" title="Permalink to this headline">¶</a></h1>
 <p>One of the rubric items for the course project is to include something “extra” that wasn’t covered in Math 10.  Here are a few possibilities.  It’s even better if you find your own extra topic; it can be anything in Python that interests you.</p>
 <p>More possibilities will be added as I think of them.</p>
+<div class="section" id="k-nearest-neighbors">
+<h2>K-Nearest Neighbors<a class="headerlink" href="#k-nearest-neighbors" title="Permalink to this headline">¶</a></h2>
+<p>A very nice and understandable Machine Learning model, that we didn’t get to this quarter, is K-Nearest Neighbors.  There is both a classification version and a regression version.  This topic also provides a good example of the potential for overfitting (when a small number of neighbors is used).  There is some information about this topic in the <a class="reference external" href="https://christopherdavisuci.github.io/UCI-Math-10-W22/Week6/Week6-Wednesday.html">course notes from Winter 2022</a>.</p>
+</div>
 <div class="section" id="neural-networks">
 <h2>Neural Networks<a class="headerlink" href="#neural-networks" title="Permalink to this headline">¶</a></h2>
 <p>In both Fall 2021 and Winter 2022, Math 10 included a significant portion on Neural Networks.  These are a fundamental (maybe the most fundamental) area of modern Machine Learning.  If you want to try learning about them, that would be a great extra topic.  In Fall 2021, we used the library TensorFlow (especially using the command <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">tensorflow</span> <span class="pre">import</span> <span class="pre">keras</span></code>).  In Winter 2022, we used the library PyTorch.  Overall I think TensorFlow is easier to use (but PyTorch teaches some fundamentals of Object Oriented Programming).</p>
@@ -672,6 +696,13 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>Big Data(sets)<a class="headerlink" href="#big-data-sets" title="Permalink to this headline">¶</a></h2>
 <p>Deepnote does not allow files bigger than 100mb to be uploaded.  Many real-world datasets are bigger than this.  Deepnote does definitely work with larger datasets.  If you end up using a larger dataset, describe how you made it work in Deepnote.  Some general guidelines are listed in the <a class="reference external" href="https://docs.deepnote.com/importing-and-exporing/importing-data-to-deepnote#uploading-files-to-deepnote">Deepnote documentation</a>.</p>
 </div>
+<div class="section" id="different-python-libraries">
+<h2>Different Python libraries<a class="headerlink" href="#different-python-libraries" title="Permalink to this headline">¶</a></h2>
+<p>If you want to use a Python library that isn’t by default installed in Deepnote, you can install it yourself within Deepnote, using a line of code like the following, which installs the <code class="docutils literal notranslate"><span class="pre">vega_datasets</span></code> library.  Notice the exclamation point at the beginning (which probably won’t appear in the documentation you find for the library).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install vega_datasets
+</pre></div>
+</div>
+</div>
 <div class="section" id="other-libraries">
 <h2>Other libraries<a class="headerlink" href="#other-libraries" title="Permalink to this headline">¶</a></h2>
 <p>Here are a few other libraries that you might find interesting.  (Most of these are already installed in Deepnote.)</p>
@@ -680,14 +711,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference external" href="https://pillow.readthedocs.io/en/stable/index.html">Pillow</a> for image processing.</p></li>
 <li><p><a class="reference external" href="https://docs.python.org/3/library/re.html">re</a> for advanced string methods using regular expressions.</p></li>
 <li><p><a class="reference external" href="https://seaborn.pydata.org/">Seaborn</a> and <a class="reference external" href="https://plotly.com/python/plotly-express/">Plotly</a>.  We introduced these plotting libraries briefly together with Altair early in the quarter, and we have used Seaborn frequently for importing datasets.  Their syntax is similar to Altair.</p></li>
+<li><p><a class="reference external" href="https://ipywidgets.readthedocs.io/en/latest/">ipywidgets</a> provides a way to add interactivity to a Jupyter notebook, but not all of it works in Deepnote.</p></li>
 </ul>
 </div>
-<div class="section" id="different-python-libraries">
-<h2>Different Python libraries<a class="headerlink" href="#different-python-libraries" title="Permalink to this headline">¶</a></h2>
-<p>If you want to use a Python library that isn’t by default installed in Deepnote, you can install it yourself within Deepnote, using a line of code like the following, which installs the <code class="docutils literal notranslate"><span class="pre">vega_datasets</span></code> library.  Notice the exclamation point at the beginning (which probably won’t appear in the documentation you find for the library).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install vega_datasets
-</pre></div>
-</div>
+<div class="section" id="state-of-the-art-machine-learning">
+<h2>State-of-the-art Machine Learning<a class="headerlink" href="#state-of-the-art-machine-learning" title="Permalink to this headline">¶</a></h2>
+<p>I don’t have firsthand experience with these tools, but my understanding is that <a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/index.html">XGBoost</a> and <a class="reference external" href="https://lightgbm.readthedocs.io/en/latest/Python-Intro.html">LightGBM</a> are two of the most successful Machine Learning libraries for modern Machine Learning.  (For example, I think <a class="reference external" href="https://www.youtube.com/channel/UCR1-GEpyOPzT2AO4D_eifdw">Jeff Heaton</a> mentioned in one of his YouTube videos that these are two of his go-to tools in Kaggle competitions.)  Be sure to make sure they work in Deepnote before investigating too much.</p>
 </div>
 </div>
 

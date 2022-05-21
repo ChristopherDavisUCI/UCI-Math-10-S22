@@ -4,6 +4,10 @@ One of the rubric items for the course project is to include something "extra" t
 
 More possibilities will be added as I think of them.
 
+## K-Nearest Neighbors
+
+A very nice and understandable Machine Learning model, that we didn't get to this quarter, is K-Nearest Neighbors.  There is both a classification version and a regression version.  This topic also provides a good example of the potential for overfitting (when a small number of neighbors is used).  There is some information about this topic in the [course notes from Winter 2022](https://christopherdavisuci.github.io/UCI-Math-10-W22/Week6/Week6-Wednesday.html).
+
 ## Neural Networks
 
 In both Fall 2021 and Winter 2022, Math 10 included a significant portion on Neural Networks.  These are a fundamental (maybe the most fundamental) area of modern Machine Learning.  If you want to try learning about them, that would be a great extra topic.  In Fall 2021, we used the library TensorFlow (especially using the command `from tensorflow import keras`).  In Winter 2022, we used the library PyTorch.  Overall I think TensorFlow is easier to use (but PyTorch teaches some fundamentals of Object Oriented Programming).
@@ -22,16 +26,21 @@ A general way to get ideas is to browse [Kaggle](https://www.kaggle.com/).  Go t
 
 Deepnote does not allow files bigger than 100mb to be uploaded.  Many real-world datasets are bigger than this.  Deepnote does definitely work with larger datasets.  If you end up using a larger dataset, describe how you made it work in Deepnote.  Some general guidelines are listed in the [Deepnote documentation](https://docs.deepnote.com/importing-and-exporing/importing-data-to-deepnote#uploading-files-to-deepnote).
 
-## Other libraries
-Here are a few other libraries that you might find interesting.  (Most of these are already installed in Deepnote.)
-* [sympy](https://www.sympy.org/en/index.html) for symbolic computation, like what you did in Math 9 using Mathematica.
-* [Pillow](https://pillow.readthedocs.io/en/stable/index.html) for image processing.
-* [re](https://docs.python.org/3/library/re.html) for advanced string methods using regular expressions.
-* [Seaborn](https://seaborn.pydata.org/) and [Plotly](https://plotly.com/python/plotly-express/).  We introduced these plotting libraries briefly together with Altair early in the quarter, and we have used Seaborn frequently for importing datasets.  Their syntax is similar to Altair.
-
 ## Different Python libraries
 
 If you want to use a Python library that isn't by default installed in Deepnote, you can install it yourself within Deepnote, using a line of code like the following, which installs the `vega_datasets` library.  Notice the exclamation point at the beginning (which probably won't appear in the documentation you find for the library).
 ```
 !pip install vega_datasets
 ```
+
+## Other libraries
+Here are a few other libraries that you might find interesting.  (Most of these are already installed in Deepnote.)
+* [sympy](https://www.sympy.org/en/index.html) for symbolic computation, like what you did in Math 9 using Mathematica.
+* [Pillow](https://pillow.readthedocs.io/en/stable/index.html) for image processing.
+* [re](https://docs.python.org/3/library/re.html) for advanced string methods using regular expressions.
+* [Seaborn](https://seaborn.pydata.org/) and [Plotly](https://plotly.com/python/plotly-express/).  We introduced these plotting libraries briefly together with Altair early in the quarter, and we have used Seaborn frequently for importing datasets.  Their syntax is similar to Altair.
+* [ipywidgets](https://ipywidgets.readthedocs.io/en/latest/) provides a way to add interactivity to a Jupyter notebook, but not all of it works in Deepnote.
+
+## State-of-the-art Machine Learning
+I don't have firsthand experience with these tools, but my understanding is that [XGBoost](https://xgboost.readthedocs.io/en/stable/python/index.html) and [LightGBM](https://lightgbm.readthedocs.io/en/latest/Python-Intro.html) are two of the most successful Machine Learning libraries for modern Machine Learning.  (For example, I think [Jeff Heaton](https://www.youtube.com/channel/UCR1-GEpyOPzT2AO4D_eifdw) mentioned in one of his YouTube videos that these are two of his go-to tools in Kaggle competitions.)  Be sure to make sure they work in Deepnote before investigating too much.
+
