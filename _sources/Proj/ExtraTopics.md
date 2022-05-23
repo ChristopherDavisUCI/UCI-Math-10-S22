@@ -16,7 +16,7 @@ In both Fall 2021 and Winter 2022, Math 10 included a significant portion on Neu
 
 ![faces with pca](../images/pca.png)
 
-[Principal component analysis](https://scikit-learn.org/stable/modules/decomposition.html#pca).  Another type of unsupervised learning (in addition to *clustering*) is *dimensionality reduction*.  Principal Component Analysis (PCA) is a famous example, and it involves advanced linear algebra.  The above image shows a visual example of the result of PCA.
+[Principal component analysis](https://scikit-learn.org/stable/modules/decomposition.html#pca).  Another type of unsupervised learning (along with *clustering*) is *dimensionality reduction*.  Principal Component Analysis (PCA) is a famous example, and it involves advanced linear algebra.  The above image shows a visual example of the result of PCA.
 
 ## Kaggle
 
@@ -42,5 +42,5 @@ Here are a few other libraries that you might find interesting.  (Most of these 
 * [ipywidgets](https://ipywidgets.readthedocs.io/en/latest/) provides a way to add interactivity to a Jupyter notebook, but not all of it works in Deepnote.
 
 ## State-of-the-art Machine Learning
-I don't have firsthand experience with these tools, but my understanding is that [XGBoost](https://xgboost.readthedocs.io/en/stable/python/index.html) and [LightGBM](https://lightgbm.readthedocs.io/en/latest/Python-Intro.html) are two of the most successful Machine Learning libraries for modern Machine Learning.  (For example, I think [Jeff Heaton](https://www.youtube.com/channel/UCR1-GEpyOPzT2AO4D_eifdw) mentioned in one of his YouTube videos that these are two of his go-to tools in Kaggle competitions.)  Be sure to make sure they work in Deepnote before investigating too much.
+I don't have firsthand experience with these tools, but my understanding is that [XGBoost](https://xgboost.readthedocs.io/en/stable/python/index.html) and [LightGBM](https://lightgbm.readthedocs.io/en/latest/Python-Intro.html) are two of the most successful libraries for modern Machine Learning.  (For example, I think [Jeff Heaton](https://www.youtube.com/channel/UCR1-GEpyOPzT2AO4D_eifdw) mentioned in one of his YouTube videos that these are two of his go-to tools in Kaggle competitions.)  Be sure to make sure they work in Deepnote before investigating too much.
 
