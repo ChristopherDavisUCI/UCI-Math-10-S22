@@ -9,3 +9,5 @@ The Spotify dataset was originally taken from (a possibly earlier version of) th
 The datasets indexData.csv and indexInfo.csv were taken directly from this [Kaggle dataset](https://www.kaggle.com/datasets/mattiuzc/stock-exchange-data).
 
 The Seattle Weather dataset was downloaded from [NOAA](https://www.ncdc.noaa.gov/).  The idea for downloading this data came from Jake VanderPlas's [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/).
+
+The [King County dataset](https://www.kaggle.com/datasets/harlfoxem/housesalesprediction) was downloaded from Kaggle.  Here are the [column definitions](https://www.kaggle.com/datasets/harlfoxem/housesalesprediction/discussion/207885).
