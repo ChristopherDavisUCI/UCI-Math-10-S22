@@ -621,6 +621,24 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-a-restricted-decision-tree-regressor">
+   Using a restricted decision tree regressor
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#an-unrestricted-decision-tree">
+   An unrestricted decision tree
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -633,6 +651,24 @@ const thebe_selector_output = ".output, .cell_output"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-a-restricted-decision-tree-regressor">
+   Using a restricted decision tree regressor
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#an-unrestricted-decision-tree">
+   An unrestricted decision tree
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -645,6 +681,8 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="simple">
 <li><p>Can we “learn from data” using decision tree regression on the <a class="reference external" href="https://www.kaggle.com/datasets/harlfoxem/housesalesprediction">King County dataset</a>?  (Here are the <a class="reference external" href="https://www.kaggle.com/datasets/harlfoxem/housesalesprediction/discussion/207885">column definitions</a> for this dataset.)</p></li>
 </ul>
+<div class="section" id="using-a-restricted-decision-tree-regressor">
+<h2>Using a restricted decision tree regressor<a class="headerlink" href="#using-a-restricted-decision-tree-regressor" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -677,6 +715,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<p>We need our features for decision trees to be numerical.  All of the columns in this datasest are already numerical except for the “date” column.  We will just ignore that one (and the “id” column).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
@@ -710,6 +749,7 @@ dtype: object
 </div>
 </div>
 </div>
+<p>Here is an easy way to get all the columns, starting with the column at index 3.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
@@ -717,6 +757,7 @@ dtype: object
 </div>
 </div>
 </div>
+<p>To see if we can “learn from data” in this case, we will measure our performance on a test set.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
@@ -736,6 +777,7 @@ dtype: object
 </div>
 </div>
 </div>
+<p>This is a large dataset; our training set has 17290 instances.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span>
@@ -748,6 +790,7 @@ dtype: object
 </div>
 </div>
 </div>
+<p>We will model the price of a house using a decision tree.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
@@ -755,7 +798,8 @@ dtype: object
 </div>
 </div>
 </div>
-<p>Creating the <code class="docutils literal notranslate"><span class="pre">DecisionTreeRegressor</span></code> object is similar to creating a <code class="docutils literal notranslate"><span class="pre">DecisionTreeClassifier</span></code> object, but here we specify to use Mean Absolute Error as our metric.</p>
+<p>Creating the <code class="docutils literal notranslate"><span class="pre">DecisionTreeRegressor</span></code> object is similar to creating a <code class="docutils literal notranslate"><span class="pre">DecisionTreeClassifier</span></code> object, but here we specify to use Mean Absolute Error as our metric; that is what the <code class="docutils literal notranslate"><span class="pre">criterion=&quot;absolute_error&quot;</span></code> keyword argument is doing.  You can read about the different options, as well as the default being “squared_error”, in the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html">scikit-learn documentation</a>.</p>
+<p>One motivation for using Mean Absolute Error is that if we are off by (for example) 2 million dollars on a house price prediction, we don’t want that error getting squared, which would (in my estimation) over-emphasize these expensive houses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">max_leaf_nodes</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">criterion</span><span class="o">=</span><span class="s2">&quot;absolute_error&quot;</span><span class="p">)</span>
@@ -763,7 +807,7 @@ dtype: object
 </div>
 </div>
 </div>
-<p>Mean absolute error is closely connected to median, so that is what we will use for our baseline prediction.</p>
+<p>Mean absolute error is closely connected to median, so that is what we will use for our baseline prediction.  (Exercise: show that if you have a list of numbers, the estimate which minimizes Mean Absolute Error is the median, and the estimate which minimizes the Mean Squared Error is the mean.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;price&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
@@ -776,13 +820,7 @@ dtype: object
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_error</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>Let’s start out measuring the performance of our baseline model, which always predicts the median value.  There are many ways to make a list (or array, etc) of the same number.  We will use a method that is reminiscent of the <code class="docutils literal notranslate"><span class="pre">ones</span></code> function from Matlab.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
@@ -797,6 +835,14 @@ dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_error</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is the performance of our baseline algorithm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># baseline</span>
 <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">)),</span> <span class="n">y_test</span><span class="p">)</span>
 </pre></div>
@@ -808,6 +854,7 @@ dtype: object
 </div>
 </div>
 </div>
+<p>If we get a smaller (better) mean absolute error when using our decision tree regressor, then we can say that our algorithm “learned from data”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -821,6 +868,7 @@ dtype: object
 </div>
 </div>
 </div>
+<p>Because the following value is lower than the baseline (significantly lower), we have “learned from data” in this case.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># decision tree</span>
@@ -834,6 +882,7 @@ dtype: object
 </div>
 </div>
 </div>
+<p>As with the decision tree classifiers, we can visualize the decision tree.  (I wouldn’t try making these visualizations with a much larger tree.)  One difference is that in this case, the Mean Absolute Error is reported.  (If we had used a different metric, that other metric would be reported.)  Another difference is that the outputs are numbers, not classes (and the shading colors represent the size of those numbers).  The same number is output on each leaf (the median of the prices for the corresponding region).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -854,9 +903,13 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Week10-Wednesday_20_0.png" src="../_images/Week10-Wednesday_20_0.png" />
+<img alt="../_images/Week10-Wednesday_31_0.png" src="../_images/Week10-Wednesday_31_0.png" />
 </div>
 </div>
+</div>
+<div class="section" id="an-unrestricted-decision-tree">
+<h2>An unrestricted decision tree<a class="headerlink" href="#an-unrestricted-decision-tree" title="Permalink to this headline">¶</a></h2>
+<p>Here we briefly try out a decision tree with no restrictions (it can have as large of depth and as many leaf nodes as it wants).  We should expect there will be overfitting in this case, although that’s not our focus here.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg2</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s2">&quot;absolute_error&quot;</span><span class="p">)</span>
@@ -876,6 +929,7 @@ dtype: object
 </div>
 </div>
 </div>
+<p>What depth does this unrestricted tree have, and how many leaves?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg2</span><span class="o">.</span><span class="n">get_depth</span><span class="p">()</span>
@@ -888,6 +942,7 @@ dtype: object
 </div>
 </div>
 </div>
+<p>You should interpret the next result as saying that this decision tree is subdividing the feature space into 16440 regions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg2</span><span class="o">.</span><span class="n">get_n_leaves</span><span class="p">()</span>
@@ -895,11 +950,12 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16443
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16438
 </pre></div>
 </div>
 </div>
 </div>
+<p>If we just evaluate <code class="docutils literal notranslate"><span class="pre">feature_importances_</span></code>, it is difficult to interpret; which numbers belong to which columns?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg2</span><span class="o">.</span><span class="n">feature_importances_</span>
@@ -907,10 +963,10 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.00892534, 0.01528036, 0.17174928, 0.03698242, 0.00433095,
-       0.01319279, 0.01256105, 0.00899031, 0.19546559, 0.04113263,
-       0.01173592, 0.04515614, 0.00390158, 0.02319426, 0.24578824,
-       0.07845882, 0.05079899, 0.03235531])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.00934508, 0.01640741, 0.17232836, 0.03754872, 0.00519084,
+       0.01303593, 0.01244028, 0.00887619, 0.19561318, 0.03874942,
+       0.01306063, 0.04515848, 0.00383778, 0.02297416, 0.24546671,
+       0.07791932, 0.0507127 , 0.0313348 ])
 </pre></div>
 </div>
 </div>
@@ -930,13 +986,7 @@ dtype: object
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_feat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;importance&quot;</span><span class="p">:</span> <span class="n">reg2</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span> <span class="s2">&quot;feature&quot;</span><span class="p">:</span> <span class="n">reg2</span><span class="o">.</span><span class="n">feature_names_in_</span><span class="p">})</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>Alternatively, we could evaluate <code class="docutils literal notranslate"><span class="pre">cols</span></code>, but the <code class="docutils literal notranslate"><span class="pre">feature_names_in_</span></code> procedure is more reliable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span>
@@ -949,6 +999,171 @@ dtype: object
        &#39;sqft_basement&#39;, &#39;yr_built&#39;, &#39;yr_renovated&#39;, &#39;zipcode&#39;, &#39;lat&#39;, &#39;long&#39;,
        &#39;sqft_living15&#39;, &#39;sqft_lot15&#39;],
       dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>If all we care about is the correspondence between numbers and feature names, it would be more natural to put this information into a pandas Series.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">reg2</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">reg2</span><span class="o">.</span><span class="n">feature_names_in_</span><span class="p">)</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bedrooms         0.009345
+bathrooms        0.016407
+sqft_living      0.172328
+sqft_lot         0.037549
+floors           0.005191
+waterfront       0.013036
+view             0.012440
+condition        0.008876
+grade            0.195613
+sqft_above       0.038749
+sqft_basement    0.013061
+yr_built         0.045158
+yr_renovated     0.003838
+zipcode          0.022974
+lat              0.245467
+long             0.077919
+sqft_living15    0.050713
+sqft_lot15       0.031335
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>But eventually we want to plot this information using Altair, so putting this data into two distinct columns in a pandas DataFrame is more useful.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>bedrooms</td>
+      <td>0.009345</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>bathrooms</td>
+      <td>0.016407</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>sqft_living</td>
+      <td>0.172328</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>sqft_lot</td>
+      <td>0.037549</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>floors</td>
+      <td>0.005191</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>waterfront</td>
+      <td>0.013036</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>view</td>
+      <td>0.012440</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>condition</td>
+      <td>0.008876</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>grade</td>
+      <td>0.195613</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>sqft_above</td>
+      <td>0.038749</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>sqft_basement</td>
+      <td>0.013061</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>yr_built</td>
+      <td>0.045158</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>yr_renovated</td>
+      <td>0.003838</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>zipcode</td>
+      <td>0.022974</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>lat</td>
+      <td>0.245467</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>long</td>
+      <td>0.077919</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>sqft_living15</td>
+      <td>0.050713</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>sqft_lot15</td>
+      <td>0.031335</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Another way is to make the DataFrame directly (without first making the pandas Series).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_feat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;importance&quot;</span><span class="p">:</span> <span class="n">reg2</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span> <span class="s2">&quot;feature&quot;</span><span class="p">:</span> <span class="n">reg2</span><span class="o">.</span><span class="n">feature_names_in_</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>
@@ -985,98 +1200,99 @@ dtype: object
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.008925</td>
+      <td>0.009345</td>
       <td>bedrooms</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.015280</td>
+      <td>0.016407</td>
       <td>bathrooms</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.171749</td>
+      <td>0.172328</td>
       <td>sqft_living</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.036982</td>
+      <td>0.037549</td>
       <td>sqft_lot</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.004331</td>
+      <td>0.005191</td>
       <td>floors</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>0.013193</td>
+      <td>0.013036</td>
       <td>waterfront</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>0.012561</td>
+      <td>0.012440</td>
       <td>view</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>0.008990</td>
+      <td>0.008876</td>
       <td>condition</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>0.195466</td>
+      <td>0.195613</td>
       <td>grade</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>0.041133</td>
+      <td>0.038749</td>
       <td>sqft_above</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>0.011736</td>
+      <td>0.013061</td>
       <td>sqft_basement</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>0.045156</td>
+      <td>0.045158</td>
       <td>yr_built</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>0.003902</td>
+      <td>0.003838</td>
       <td>yr_renovated</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>0.023194</td>
+      <td>0.022974</td>
       <td>zipcode</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>0.245788</td>
+      <td>0.245467</td>
       <td>lat</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>0.078459</td>
+      <td>0.077919</td>
       <td>long</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>0.050799</td>
+      <td>0.050713</td>
       <td>sqft_living15</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>0.032355</td>
+      <td>0.031335</td>
       <td>sqft_lot15</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
+<p>Using a bar chart to visualize this information is very natural.  We will use horizontal bars just for something different.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df_feat</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
@@ -1088,13 +1304,13 @@ dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-83d1e41751e54296ac0ebe56f3dadd1d"></div>
+<div id="altair-viz-901bb197931c4571836a52233c5bf6ad"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-83d1e41751e54296ac0ebe56f3dadd1d") {
-      outputDiv = document.getElementById("altair-viz-83d1e41751e54296ac0ebe56f3dadd1d");
+    if (outputDiv.id !== "altair-viz-901bb197931c4571836a52233c5bf6ad") {
+      outputDiv = document.getElementById("altair-viz-901bb197931c4571836a52233c5bf6ad");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -1140,8 +1356,10 @@ dtype: object
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-2c410625da9a668e72682a42cb86f292"}, "mark": "bar", "encoding": {"x": {"field": "importance", "type": "quantitative"}, "y": {"field": "feature", "type": "nominal"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-2c410625da9a668e72682a42cb86f292": [{"importance": 0.00892534453306784, "feature": "bedrooms"}, {"importance": 0.015280361477603484, "feature": "bathrooms"}, {"importance": 0.1717492787025322, "feature": "sqft_living"}, {"importance": 0.0369824246166763, "feature": "sqft_lot"}, {"importance": 0.004330949028665846, "feature": "floors"}, {"importance": 0.013192788145317281, "feature": "waterfront"}, {"importance": 0.01256104899144809, "feature": "view"}, {"importance": 0.00899031337925052, "feature": "condition"}, {"importance": 0.19546559081709236, "feature": "grade"}, {"importance": 0.04113263343970657, "feature": "sqft_above"}, {"importance": 0.011735924444449666, "feature": "sqft_basement"}, {"importance": 0.04515614054661964, "feature": "yr_built"}, {"importance": 0.0039015791512094877, "feature": "yr_renovated"}, {"importance": 0.023194258178586145, "feature": "zipcode"}, {"importance": 0.24578824289313111, "feature": "lat"}, {"importance": 0.07845882236213028, "feature": "long"}, {"importance": 0.050798992355421436, "feature": "sqft_living15"}, {"importance": 0.03235530693709178, "feature": "sqft_lot15"}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-3a15ea9244b3549306fe729f5655abeb"}, "mark": "bar", "encoding": {"x": {"field": "importance", "type": "quantitative"}, "y": {"field": "feature", "type": "nominal"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-3a15ea9244b3549306fe729f5655abeb": [{"importance": 0.009345076156531464, "feature": "bedrooms"}, {"importance": 0.01640741116190978, "feature": "bathrooms"}, {"importance": 0.1723283593429355, "feature": "sqft_living"}, {"importance": 0.037548718900219616, "feature": "sqft_lot"}, {"importance": 0.005190836857099237, "feature": "floors"}, {"importance": 0.013035925061123216, "feature": "waterfront"}, {"importance": 0.012440284708090192, "feature": "view"}, {"importance": 0.008876192635464018, "feature": "condition"}, {"importance": 0.19561318091977933, "feature": "grade"}, {"importance": 0.0387494246763366, "feature": "sqft_above"}, {"importance": 0.01306063489983979, "feature": "sqft_basement"}, {"importance": 0.045158484270077265, "feature": "yr_built"}, {"importance": 0.003837780736863327, "feature": "yr_renovated"}, {"importance": 0.022974158497726667, "feature": "zipcode"}, {"importance": 0.24546670587310007, "feature": "lat"}, {"importance": 0.07791931672071643, "feature": "long"}, {"importance": 0.05071270407513792, "feature": "sqft_living15"}, {"importance": 0.031334804507049625, "feature": "sqft_lot15"}]}}, {"mode": "vega-lite"});
 </script></div></div>
+</div>
+<p>The reason I wanted to make this chart using an unrestricted tree is so that more (in fact all) of the columns would be non-zero.  I didn’t say this during lecture, but because there is overfitting (almost surely), these feature importances might not be as meaningful as if we had a somewhat less flexible decision tree.</p>
 </div>
 </div>
 
