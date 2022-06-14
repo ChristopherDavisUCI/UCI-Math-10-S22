@@ -1,0 +1,1951 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real vs fake faces &#8212; UC Irvine Math 10 S22</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Analysis of GDP Related to Pandemic" href="SonghanHu.html" />
+    <link rel="prev" title="Analysis of the Alcohol Drinking in UCI Student" href="JingxiFeng.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/digitsyellow.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">UC Irvine Math 10 S22</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   UC Irvine, Math 10, Spring 2022
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Week1/Week1-Intro.html">
+   Week 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week1/Week1-Monday.html">
+     Introduction to pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week1/Week1-Tuesday.html">
+     Week 1 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week1/Week1-Wednesday.html">
+     for loops and ways to avoid for loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week1/Week1-Thursday.html">
+     Week 1 Thursday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week1/Week1-Friday.html">
+     Exploratory Data Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week1/Week1-Videos.html">
+     Week 1 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week1/Homework1.html">
+     Homework 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Week2/Week2-Intro.html">
+   Week 2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week2/Week2-Monday.html">
+     Working with missing data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week2/Week2-Tuesday.html">
+     Week 2 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week2/Week2-Wednesday.html">
+     Visualization in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week2/Week2-Videos.html">
+     Week 2 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week2/Week2-Friday.html">
+     Plots from the Spotify dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week2/Homework2.html">
+     Homework 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Week3/Week3-Intro.html">
+   Week 3
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week3/Week3-Monday.html">
+     Functions in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week3/Week3-Tuesday.html">
+     Week 3 Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week3/Week3-Wednesday.html">
+     Working with dates in pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week3/Week3-Videos.html">
+     Week 3 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week3/Homework3.html">
+     Homework 3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Week4/Week4-Intro.html">
+   Week 4
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week4/Week4-Monday.html">
+     Week 4 Monday
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week4/Week4-Videos.html">
+     Week 4 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week4/Week4-Tuesday.html">
+     Week 4, Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week4/Week4-Wednesday.html">
+     Practice with Altair
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week4/Week4-Friday.html">
+     Rescaling data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Week5/Week5-Intro.html">
+   Week 5
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week5/Week5-Monday.html">
+     K-Means clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week5/Week5-Wednesday.html">
+     K-Means clustering 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week5/Week5-Videos.html">
+     Week 5 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week5/Homework4.html">
+     Homework 4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week5/Week5-Thursday.html">
+     Week 5, Thursday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week5/Week5-Friday.html">
+     K-Means clustering 3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Week6/Week6-Intro.html">
+   Week 6
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week6/Week6-Monday.html">
+     Polynomial Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week6/Week6-Tuesday.html">
+     Week 6, Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week6/Week6-Wednesday.html">
+     Polynomial Regression 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week6/Week6-Friday.html">
+     Linear and Polynomial Regression with the taxis dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week6/Homework5.html">
+     Homework 5
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week6/Week6-Videos.html">
+     Week 6 Videos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Week7/Week7-Intro.html">
+   Week 7
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week7/Week7-Monday.html">
+     Performance measures for machine learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week7/Week7-Tuesday.html">
+     Week 7, Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week7/Week7-Wednesday.html">
+     Overfitting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week7/Week7-Thursday.html">
+     Week 7, Thursday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week7/Week7-Friday.html">
+     Logistic Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week7/Week7-Videos.html">
+     Week 7 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week7/Homework6.html">
+     Homework 6
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Week8/Week8-Intro.html">
+   Week 8
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week8/Week8-Monday.html">
+     Decision boundary for logistic regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week8/Week8-Tuesday.html">
+     Week 8, Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week8/Week8-Wednesday.html">
+     Midterm Review
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week8/Week8-Videos.html">
+     Week 8 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week8/Homework7.html">
+     Homework 7
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Week9/Week9-Intro.html">
+   Week 9
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week9/Week9-Monday.html">
+     Week 9 Monday
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week9/Week9-Tuesday.html">
+     Week 9, Tuesday Discussion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week9/Week9-Wednesday.html">
+     Feature Engineering with the Titanic dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week9/Week9-Friday.html">
+     Decision Trees and Random Forests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week9/Week9-Videos.html">
+     Week 9 Videos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week9/Homework8.html">
+     Homework 8
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Week10/Week10-Intro.html">
+   Week 10
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week10/Week10-Wednesday.html">
+     House prices in King County Washington
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Week10/Week10-Videos.html">
+     Week 10 Videos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Proj-Intro.html">
+   Course Project
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../CourseProject.html">
+     Course Project
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ExtraTopics.html">
+     Possible extra topics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../StudentProjects.html">
+   Student Projects
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="DongyuCao.html">
+     Analysis of the factors that influence car’s level
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="AlisaCrowe.html">
+     Zoo Animal Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="TianyiChen.html">
+     League of Legends Winning Factor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="SebastiandeLeon.html">
+     Canadian Immigration Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="YiDing.html">
+     Dota2 match outcome prediction based on mid player performance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="MayaDrusinsky.html">
+     Exoplanet Candidate Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JingxiFeng.html">
+     Analysis of the Alcohol Drinking in UCI Student
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Real vs fake faces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="SonghanHu.html">
+     Analysis of GDP Related to Pandemic
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="MarcusLei.html">
+     Betting odds and outcome of UFC fights from 2010-2020
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="KehanLi.html">
+     Predict The Car Price
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="KexinLi.html">
+     Unemployment Rate Data Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="XuanruLi.html">
+     Project Title :Stock Price of Famous Companies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JieLin.html">
+     Predict the Month through London Weather
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="EvanMcDuffie.html">
+     Categorizing Beans
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="QuanAnhNguyen.html">
+     An Analysis of the Financial Market: Inflation and the Efficient Market Hypothesis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JeffreyPham.html">
+     Predicting an Activity of Mine
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="MitraRezvany.html">
+     Airline Satisfaction Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JiahuiSheng.html">
+     Dance of the COVID-19: The Regression Model of the Vaccine Hesitancy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="TongSu.html">
+     Depression Prediction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="MiaTa.html">
+     Apple Stock
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="LinglinTian.html">
+     Analysis of credit card fraud
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JoshTseng.html">
+     Chess Games Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="HuyTran.html">
+     Predicting COVID-19 Trends
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ZhongWang.html">
+     NBA Salaries from the 2017 Season
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="YadiWu.html">
+     Fraudulent And Non-fraudulent Transactions in Credit Cards
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="NingyueXu.html">
+     Sorting the number of planets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JingqiYao.html">
+     Fashion MNIST
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="WenqiZhao.html">
+     Pokemon
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="LinjunZhou.html">
+     Payment and treatment in U.S. Hospital
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="XiangyiZhu.html">
+     Tesla Stock Price Prediction
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sched.html">
+   Tentative schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../datasources.html">
+   Data Sources
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Proj/StudentProjects/XiangboGao.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ChristopherDavisUCI/UCI-Math-10-S22"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#main-portion-of-the-project">
+   Main portion of the project
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-preprocessing-and-visualization">
+     Data preprocessing and visualization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-loading">
+     Data loading
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logistic-regression-with-different-regularization-strength">
+     Logistic Regression with different regularization strength
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis">
+     Analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#polynomial-regression-with-different-degrees">
+     Polynomial Regression with different degrees
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decision-tree">
+     Decision Tree
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#random-forest">
+     Random Forest
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fully-connected-neural-networks">
+     Fully Connected Neural Networks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convolutional-neural-networks">
+     Convolutional Neural Networks
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Real vs fake faces</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#main-portion-of-the-project">
+   Main portion of the project
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-preprocessing-and-visualization">
+     Data preprocessing and visualization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-loading">
+     Data loading
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logistic-regression-with-different-regularization-strength">
+     Logistic Regression with different regularization strength
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis">
+     Analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#polynomial-regression-with-different-degrees">
+     Polynomial Regression with different degrees
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decision-tree">
+     Decision Tree
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#random-forest">
+     Random Forest
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fully-connected-neural-networks">
+     Fully Connected Neural Networks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convolutional-neural-networks">
+     Convolutional Neural Networks
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="real-vs-fake-faces">
+<h1>Real vs fake faces<a class="headerlink" href="#real-vs-fake-faces" title="Permalink to this headline">¶</a></h1>
+<p>Author: Xiangbo Gao, <a class="reference external" href="mailto:xiangbog&#37;&#52;&#48;uci&#46;edu">xiangbog<span>&#64;</span>uci<span>&#46;</span>edu</a>, <a class="reference external" href="https://github.com/XiangboGaoBarry">https://github.com/XiangboGaoBarry</a></p>
+<p>Course Project, UC Irvine, Math 10, S22</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This project use the dataset from <a class="reference external" href="https://www.kaggle.com/datasets/uditsharma72/real-vs-fake-faces">https://www.kaggle.com/datasets/uditsharma72/real-vs-fake-faces</a>, aiming to train a model to distinguish between fake and real images.</p>
+<p>For adapting the 100MB disk limit of deepnote and for simplicity, I removed all the medium and hard fake images from the dataset. Around 60% of real images are also deleted, which results in 240 fake images and 343 real images.</p>
+<p>By default, each image is reshaped to 32 by 32. I also evaluate the performance of different image size in the last section</p>
+</div>
+<div class="section" id="main-portion-of-the-project">
+<h2>Main portion of the project<a class="headerlink" href="#main-portion-of-the-project" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-preprocessing-and-visualization">
+<h3>Data preprocessing and visualization<a class="headerlink" href="#data-preprocessing-and-visualization" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">import</span> <span class="nn">random</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-loading">
+<h3>Data loading<a class="headerlink" href="#data-loading" title="Permalink to this headline">¶</a></h3>
+<p>Loading all the images to a dataframe or a python list.</p>
+<p>The python list version is used for training neural networks</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dim</span> <span class="o">=</span> <span class="mi">32</span>
+
+<span class="c1">### Loading data ###</span>
+<span class="c1"># return dataframe if to_df is True, </span>
+<span class="c1"># otherwise return a list of unshuffled (image, label) pairs</span>
+<span class="k">def</span> <span class="nf">read_images</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="n">to_df</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">32</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">to_df</span><span class="p">:</span>
+        <span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s2">&quot;pixel</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="o">*</span><span class="n">dim</span><span class="o">*</span><span class="mi">3</span><span class="p">)}</span>
+        <span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data_dict</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">img_list</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">classname</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">&quot;fake&quot;</span><span class="p">,</span> <span class="s1">&#39;real&#39;</span><span class="p">]):</span>
+        <span class="n">class_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">classname</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">class_path</span><span class="p">)):</span>
+            <span class="n">image_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">class_path</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+                <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="mi">32</span><span class="p">,</span><span class="mi">32</span><span class="p">))</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">e</span>
+            <span class="k">if</span> <span class="n">to_df</span><span class="p">:</span>
+                <span class="n">img_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+                <span class="n">img_label</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">img_np</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">label</span><span class="p">])))</span>
+                <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">img_label</span><span class="p">)</span>
+                <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">img_list</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">img</span><span class="p">,</span> <span class="n">label</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">df</span> <span class="k">if</span> <span class="n">to_df</span> <span class="k">else</span> <span class="n">img_list</span>
+
+<span class="k">def</span> <span class="nf">split_set</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">is_df</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">is_df</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">],</span> <span class="n">train_size</span><span class="o">=</span><span class="n">ratio</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">dataset</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="n">ratio</span><span class="o">*</span><span class="n">length</span><span class="p">)],</span> <span class="n">dataset</span><span class="p">[</span><span class="nb">int</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">ratio</span><span class="p">)</span><span class="o">*</span><span class="n">length</span><span class="p">):]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">read_images</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 240/240 [00:06&lt;00:00, 36.58it/s]
+100%|██████████| 343/343 [00:09&lt;00:00, 34.47it/s]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">split_set</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;label&quot;</span><span class="p">]],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;target distribution&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;label:N&quot;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;count()&quot;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;label:N&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-2f0a32a471a04e6d8739a581aef27385"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-2f0a32a471a04e6d8739a581aef27385") {
+      outputDiv = document.getElementById("altair-viz-2f0a32a471a04e6d8739a581aef27385");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-ed9acc4144c6997ed929f51feafd73e5"}, "mark": {"type": "bar", "size": 10}, "encoding": {"color": {"type": "nominal", "field": "label"}, "x": {"type": "nominal", "field": "label"}, "y": {"type": "quantitative", "aggregate": "count"}}, "title": "target distribution", "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-ed9acc4144c6997ed929f51feafd73e5": [{"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 0.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}, {"label": 1.0}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fake_img</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">real_img</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;fake image&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">fake_img</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;real image&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">real_img</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fake image
+</pre></div>
+</div>
+<img alt="../../_images/XiangboGao_11_1.png" src="../../_images/XiangboGao_11_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>real image
+</pre></div>
+</div>
+<img alt="../../_images/XiangboGao_11_3.png" src="../../_images/XiangboGao_11_3.png" />
+</div>
+</div>
+</div>
+<div class="section" id="logistic-regression-with-different-regularization-strength">
+<h3>Logistic Regression with different regularization strength<a class="headerlink" href="#logistic-regression-with-different-regularization-strength" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="n">test_acc</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">weight_decays</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">1e-3</span><span class="p">,</span><span class="mf">1e-4</span><span class="p">,</span><span class="mf">1e-5</span><span class="p">,</span><span class="mf">1e-6</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">wd</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">weight_decays</span><span class="p">):</span>
+    <span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+        <span class="p">(</span><span class="s2">&quot;scaler&quot;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+        <span class="p">(</span><span class="s1">&#39;reg&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="n">wd</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span> <span class="k">if</span> <span class="n">wd</span> 
+        <span class="k">else</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">5000</span><span class="p">))</span>
+    <span class="p">])</span>
+    <span class="n">pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">test_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pipe</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 9/9 [00:07&lt;00:00,  1.13it/s]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">test_acc</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">weight_decays</span><span class="p">,</span> <span class="n">test_acc</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;test accuracy log&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;weight decays&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">weight_decays</span><span class="p">,</span> <span class="n">test_acc</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;test accuracy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;weight decays&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.5641025641025641, 0.5641025641025641, 0.5555555555555556, 0.5555555555555556, 0.5726495726495726, 0.5811965811965812, 0.5811965811965812, 0.5811965811965812, 0.5641025641025641]
+</pre></div>
+</div>
+<img alt="../../_images/XiangboGao_14_1.png" src="../../_images/XiangboGao_14_1.png" />
+<img alt="../../_images/XiangboGao_14_2.png" src="../../_images/XiangboGao_14_2.png" />
+</div>
+</div>
+</div>
+<div class="section" id="analysis">
+<h3>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h3>
+<p>The highest accuracy achieved using logistic regression is <span class="math notranslate nohighlight">\(58.1\%\)</span>, where <code class="docutils literal notranslate"><span class="pre">l2</span> <span class="pre">penalty</span></code> is set to be <span class="math notranslate nohighlight">\(1e-6\)</span></p>
+<p>As the coefficient of l2 penalty increase, the test accuracy tend to decrease. This is beacause the model experiences a very severe underfitting. Therefore, the model complexity needs to be increased.</p>
+<p>Notice that the model with <code class="docutils literal notranslate"><span class="pre">l2</span> <span class="pre">penalty=0</span></code> also has low accuracy.</p>
+</div>
+<div class="section" id="polynomial-regression-with-different-degrees">
+<h3>Polynomial Regression with different degrees<a class="headerlink" href="#polynomial-regression-with-different-degrees" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">polynomial</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="n">dim</span><span class="o">*</span><span class="n">dim</span><span class="o">*</span><span class="mi">3</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">df_sub</span> <span class="o">=</span> <span class="n">df</span><span class="p">[:</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">df_ploy</span> <span class="o">=</span> <span class="n">df_sub</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">ploy_names</span> <span class="o">=</span> <span class="p">{</span><span class="n">oname</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">oname</span><span class="si">}</span><span class="s2">_poly</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">oname</span> <span class="ow">in</span> <span class="n">df_sub</span><span class="o">.</span><span class="n">columns</span><span class="p">}</span>
+        <span class="n">df_ploy</span> <span class="o">=</span> <span class="n">df_ploy</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">ploy_names</span><span class="p">)</span>
+        <span class="n">df</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">ploy_names</span><span class="o">.</span><span class="n">values</span><span class="p">())]</span> <span class="o">=</span> <span class="n">df_ploy</span>
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Because the data has very high dimension, instead of using <code class="docutils literal notranslate"><span class="pre">sklearn.preprocessins.PloynomialFeatures</span></code>
+to calculate all 2nd degree combinations, we define <code class="docutils literal notranslate"><span class="pre">ploy</span></code> which only calculate <code class="docutils literal notranslate"><span class="pre">x^2</span></code> for each dimension.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PolynomialFeatures</span>
+<span class="n">test_acc</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ploy</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">ploy</span><span class="p">):</span>
+    <span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+        <span class="p">(</span><span class="s2">&quot;scaler&quot;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+        <span class="p">(</span><span class="s1">&#39;reg&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">5000</span><span class="p">))</span>
+    <span class="p">])</span>
+    <span class="n">X_train_ploy</span> <span class="o">=</span> <span class="n">polynomial</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+    <span class="n">pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_ploy</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">X_test_ploy</span> <span class="o">=</span> <span class="n">polynomial</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+    <span class="n">test_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pipe</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_ploy</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">test_acc</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ploy</span><span class="p">,</span> <span class="n">test_acc</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;test accuracy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;polynomials&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.5811965811965812, 0.5811965811965812, 0.5811965811965812, 0.5811965811965812, 0.5811965811965812, 0.5811965811965812]
+</pre></div>
+</div>
+<img alt="../../_images/XiangboGao_21_1.png" src="../../_images/XiangboGao_21_1.png" />
+</div>
+</div>
+<p>Unfortunately, simply increase the degree of each dimension does not help.</p>
+</div>
+<div class="section" id="decision-tree">
+<h3>Decision Tree<a class="headerlink" href="#decision-tree" title="Permalink to this headline">¶</a></h3>
+<p>Visualize the feature importance of the decision tree or random forest classifiers.</p>
+<p>The feature importances are reshaped to the same shape of a image. For better visualization, A gaussian filter with <span class="math notranslate nohighlight">\(\sigma = 5\)</span> is applied to the reshaped feature importance.</p>
+<p>The display results will be self-explaintory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_attention</span><span class="p">(</span><span class="n">clf</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">gaussian_filter</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+    <span class="n">importances</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">feature_importances_</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span><span class="n">dim</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">filtered_importance</span> <span class="o">=</span> <span class="n">gaussian_filter</span><span class="p">(</span><span class="n">importances</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">normalized_importance</span> <span class="o">=</span> <span class="n">filtered_importance</span><span class="o">/</span><span class="p">(</span><span class="n">filtered_importance</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">filtered_importance</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">filtered_importance</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;attention map&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">real_img</span><span class="o">/</span><span class="mf">255.</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;face image&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">real_img</span><span class="o">/</span><span class="mf">255.</span> <span class="o">*</span> <span class="mf">0.2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">normalized_importance</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;face image + attention map&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="n">leaf_nodes</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">max_depths</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">test_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">leaf_nodes</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">max_depths</span><span class="p">)))</span>
+<span class="k">for</span> <span class="n">idx_leaf</span><span class="p">,</span> <span class="n">leaf_node</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">leaf_nodes</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">idx_depth</span><span class="p">,</span> <span class="n">max_depth</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">max_depths</span><span class="p">):</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="n">max_depth</span><span class="p">,</span> <span class="n">max_leaf_nodes</span><span class="o">=</span><span class="n">leaf_node</span><span class="p">)</span>
+        <span class="n">tree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+        <span class="n">test_acc</span><span class="p">[</span><span class="n">idx_leaf</span><span class="p">,</span> <span class="n">idx_depth</span><span class="p">]</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10it [02:34, 15.47s/it]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">test_acc</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">max_depths</span><span class="p">)),</span> <span class="n">labels</span><span class="o">=</span><span class="n">max_depths</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">leaf_nodes</span><span class="p">)),</span> <span class="n">labels</span><span class="o">=</span><span class="n">leaf_nodes</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">leaf_nodes</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">max_depths</span><span class="p">)):</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">test_acc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span><span class="mi">3</span><span class="p">),</span>
+                       <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;accuacy (Decision Tree)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;max depth&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;max leaf nodes&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/XiangboGao_27_0.png" src="../../_images/XiangboGao_27_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="n">tree</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">max_leaf_nodes</span><span class="o">=</span><span class="mi">290</span><span class="p">)</span>
+<span class="n">tree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">test_acc</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_acc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7424892703862661
+0.5811965811965812
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">show_attention</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/XiangboGao_29_0.png" src="../../_images/XiangboGao_29_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Analysis<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Decision tree reaches 58.11% accuracy in classification. Although it is not very high, it does tend to pay attention to the facial features of each face image</p>
+</div>
+<div class="section" id="random-forest">
+<h3>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="n">leaf_nodes</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">max_depths</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">test_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">leaf_nodes</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">max_depths</span><span class="p">)))</span>
+<span class="k">for</span> <span class="n">idx_leaf</span><span class="p">,</span> <span class="n">leaf_node</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">leaf_nodes</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">idx_depth</span><span class="p">,</span> <span class="n">max_depth</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">max_depths</span><span class="p">):</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="n">max_depth</span><span class="p">,</span> <span class="n">max_leaf_nodes</span><span class="o">=</span><span class="n">leaf_node</span><span class="p">)</span>
+        <span class="n">tree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+        <span class="n">test_acc</span><span class="p">[</span><span class="n">idx_leaf</span><span class="p">,</span> <span class="n">idx_depth</span><span class="p">]</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10it [03:28, 20.88s/it]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">test_acc</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">max_depths</span><span class="p">)),</span> <span class="n">labels</span><span class="o">=</span><span class="n">max_depths</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">leaf_nodes</span><span class="p">)),</span> <span class="n">labels</span><span class="o">=</span><span class="n">leaf_nodes</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">leaf_nodes</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">max_depths</span><span class="p">)):</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">test_acc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span><span class="mi">3</span><span class="p">),</span>
+                       <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;accuacy (random forest)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;max depth&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;max leaf nodes&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/XiangboGao_33_0.png" src="../../_images/XiangboGao_33_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="n">forest</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">max_leaf_nodes</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">forest</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">test_acc</span> <span class="o">=</span> <span class="n">forest</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">forest</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_acc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8669527896995708
+0.5470085470085471
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">show_attention</span><span class="p">(</span><span class="n">forest</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/XiangboGao_35_0.png" src="../../_images/XiangboGao_35_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Analysis<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Random forest reaches 62.4% accuracy in classification. Similiar to decision tree, it tends to pay attention to the facial features of each face image</p>
+</div>
+<div class="section" id="fully-connected-neural-networks">
+<h3>Fully Connected Neural Networks<a class="headerlink" href="#fully-connected-neural-networks" title="Permalink to this headline">¶</a></h3>
+<p><strong>Data loading and preprocessing</strong></p>
+<p>This block of code basically putting the list of images to a pytorch dataloader module. The data is loading in this way for the ease of changing some hyper-parameters, e.g. batch_size.</p>
+<p>Reference:
+<a class="reference external" href="https://pytorch.org/tutorials/beginner/basics/data_tutorial.html">https://pytorch.org/tutorials/beginner/basics/data_tutorial.html</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torchvision</span>
+<span class="kn">import</span> <span class="nn">torchvision.transforms</span> <span class="k">as</span> <span class="nn">transforms</span>
+<span class="kn">import</span> <span class="nn">torch.optim</span> <span class="k">as</span> <span class="nn">optim</span>
+<span class="n">transform</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
+     <span class="n">transforms</span><span class="o">.</span><span class="n">Normalize</span><span class="p">((</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))])</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">read_images</span><span class="p">(</span><span class="n">to_df</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Dataset</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">transform</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="n">transform</span>
+    
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+        <span class="n">img</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">img</span><span class="p">),</span> <span class="n">label</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">img</span><span class="p">,</span> <span class="n">label</span> 
+
+<span class="n">trainset</span><span class="p">,</span> <span class="n">testset</span> <span class="o">=</span> <span class="n">split_set</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">is_df</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">traindata</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">trainset</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">)</span>
+<span class="n">testdata</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">testset</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">)</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">trainloader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">traindata</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+                                          <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">test_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">testdata</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+                                          <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 240/240 [00:05&lt;00:00, 47.77it/s]
+100%|██████████| 343/343 [00:07&lt;00:00, 48.93it/s]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Model trainning and evaluation</strong></p>
+<p>This block of code includes the full process of training and inference a basic neural networks, including criterion (loss function), model forwarding, backpropagation, accuracy calculating, etc.</p>
+<p>Reference:
+<a class="reference external" href="https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html">https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train_eval</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">conv</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">weight_decay</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+    <span class="n">train_loss</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">test_loss</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">test_acc</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+        <span class="n">running_loss_train</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">running_loss_test</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">succ</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">trainloader</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">inputs</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">data</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">conv</span><span class="p">:</span>
+                <span class="n">inputs</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+            <span class="n">outputs</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+            <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+            <span class="n">running_loss_train</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="n">train_loss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">running_loss_train</span> <span class="o">/</span> <span class="n">i</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">test_loader</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">inputs</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">data</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">conv</span><span class="p">:</span>
+                    <span class="n">inputs</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">outputs</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+                <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+                <span class="n">running_loss_test</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+                <span class="n">succ</span> <span class="o">+=</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">int</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">test_loss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">running_loss_test</span> <span class="o">/</span> <span class="n">i</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;trainloss:</span><span class="si">{</span><span class="n">running_loss_train</span><span class="si">}</span><span class="s2"> | testloss:</span><span class="si">{</span><span class="n">running_loss_test</span><span class="si">}</span><span class="s2"> | accuarcy:</span><span class="si">{</span><span class="n">succ</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">testdata</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">test_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">succ</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">testdata</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">train_loss</span><span class="p">,</span> <span class="n">test_loss</span><span class="p">,</span> <span class="n">test_acc</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Model definition</strong></p>
+<p>Define the architecture of model. A very basic fully connected neural networks including 4 linear layers and 3 activation layers.</p>
+<p>Reference: <a class="reference external" href="https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html">https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+
+
+<span class="k">class</span> <span class="nc">FCNet</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">32</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">dim</span><span class="o">*</span><span class="n">dim</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc4</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc3</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc4</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+
+<span class="n">fcnet</span> <span class="o">=</span> <span class="n">FCNet</span><span class="p">()</span>
+
+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">train_loss</span><span class="p">,</span> <span class="n">test_loss</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">train_eval</span><span class="p">(</span><span class="n">fcnet</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>trainloss:16.56961476802826 | testloss:15.754675149917603 | accuarcy:0.5931477546691895
+trainloss:15.426325619220734 | testloss:14.719747364521027 | accuarcy:0.6531049013137817
+trainloss:14.581692814826965 | testloss:14.169351756572723 | accuarcy:0.6980727910995483
+trainloss:13.379856526851654 | testloss:12.90772658586502 | accuarcy:0.7601712942123413
+trainloss:11.982272148132324 | testloss:12.41127060353756 | accuarcy:0.7880085706710815
+trainloss:10.84951938688755 | testloss:11.971969366073608 | accuarcy:0.7580299973487854
+trainloss:8.479621469974518 | testloss:13.28071266412735 | accuarcy:0.7773019075393677
+trainloss:8.746856726706028 | testloss:15.003946974873543 | accuarcy:0.7880085706710815
+trainloss:7.791025534272194 | testloss:11.875941455364227 | accuarcy:0.8115631937980652
+trainloss:5.54453968256712 | testloss:11.76796056702733 | accuarcy:0.8436830639839172
+trainloss:5.161540012806654 | testloss:14.999820500612259 | accuarcy:0.8137044906616211
+trainloss:5.725048944354057 | testloss:12.930241238325834 | accuarcy:0.7987151741981506
+trainloss:3.747292583808303 | testloss:12.015180356800556 | accuarcy:0.8736616969108582
+trainloss:2.1185702411457896 | testloss:12.951560331508517 | accuarcy:0.8758029937744141
+trainloss:2.431673549115658 | testloss:13.219179203733802 | accuarcy:0.8715203404426575
+trainloss:1.2626928817480803 | testloss:14.874831549823284 | accuarcy:0.8522483706474304
+trainloss:1.7012146145571023 | testloss:14.514655915088952 | accuarcy:0.8800856471061707
+trainloss:3.0909752533771098 | testloss:13.734901558607817 | accuarcy:0.8886509537696838
+trainloss:1.2858465611934662 | testloss:13.45237692585215 | accuarcy:0.8865096569061279
+trainloss:1.6616925185080618 | testloss:16.93788402946666 | accuarcy:0.8650963306427002
+trainloss:2.885765337385237 | testloss:13.180429468862712 | accuarcy:0.8822270035743713
+trainloss:4.004854544997215 | testloss:16.26563262194395 | accuarcy:0.8372591137886047
+trainloss:2.8885456640273333 | testloss:14.048117505386472 | accuarcy:0.8693790435791016
+trainloss:1.4832028076052666 | testloss:13.930955037940294 | accuarcy:0.8650963306427002
+trainloss:0.7459619310684502 | testloss:14.550618639914319 | accuarcy:0.8779443502426147
+trainloss:1.199125180253759 | testloss:16.474907412193716 | accuarcy:0.8586723804473877
+trainloss:2.0266633764840662 | testloss:15.030181603971869 | accuarcy:0.8758029937744141
+trainloss:0.8391441497951746 | testloss:15.58846954535693 | accuarcy:0.8800856471061707
+trainloss:0.2501855493756011 | testloss:16.189931862987578 | accuarcy:0.8886509537696838
+trainloss:0.12236911931540817 | testloss:17.09673395822756 | accuarcy:0.8822270035743713
+trainloss:0.21307024272391573 | testloss:16.995193215785548 | accuarcy:0.8886509537696838
+trainloss:0.08319775595737156 | testloss:16.667086978559382 | accuarcy:0.8865096569061279
+trainloss:0.1053560926229693 | testloss:17.412625364551786 | accuarcy:0.8886509537696838
+trainloss:0.07177511349436827 | testloss:17.16889216992422 | accuarcy:0.8822270035743713
+trainloss:0.2600559491402237 | testloss:17.465176820842316 | accuarcy:0.8907923102378845
+trainloss:0.12636436757748015 | testloss:18.085312008101027 | accuarcy:0.8822270035743713
+trainloss:0.14605894272972364 | testloss:17.11624130717246 | accuarcy:0.8865096569061279
+trainloss:0.0952077861293219 | testloss:18.13019257079577 | accuarcy:0.8886509537696838
+trainloss:0.10391396505292505 | testloss:21.971923857112415 | accuarcy:0.8608136773109436
+trainloss:1.155562664323952 | testloss:20.626633802894503 | accuarcy:0.8501070737838745
+trainloss:5.643173315562308 | testloss:30.893559396266937 | accuarcy:0.7730192542076111
+trainloss:13.735087782144547 | testloss:11.550982251763344 | accuarcy:0.802997887134552
+trainloss:5.677116572856903 | testloss:11.846688069403172 | accuarcy:0.8415417671203613
+trainloss:3.6993395797908306 | testloss:11.380348352715373 | accuarcy:0.8843683004379272
+trainloss:1.7137542960699648 | testloss:14.075968239456415 | accuarcy:0.8865096569061279
+trainloss:2.232042054645717 | testloss:20.070361867547035 | accuarcy:0.8436830639839172
+trainloss:13.380389118567109 | testloss:12.961846962571144 | accuarcy:0.8179871439933777
+trainloss:5.413172818720341 | testloss:13.099523358047009 | accuarcy:0.856531023979187
+trainloss:2.0760835595428944 | testloss:13.619954163208604 | accuarcy:0.8886509537696838
+trainloss:1.2905899286270142 | testloss:17.72766901552677 | accuarcy:0.856531023979187
+trainloss:1.9347536119748838 | testloss:14.906391673721373 | accuarcy:0.8629550337791443
+trainloss:2.1229206454008818 | testloss:14.588731775991619 | accuarcy:0.8800856471061707
+trainloss:1.4905940552707762 | testloss:19.444260380696505 | accuarcy:0.8629550337791443
+trainloss:5.1526844296604395 | testloss:14.73568258434534 | accuarcy:0.8458244204521179
+trainloss:2.6978021254763007 | testloss:14.857497323304415 | accuarcy:0.8458244204521179
+trainloss:1.6467376677319407 | testloss:13.719625500962138 | accuarcy:0.8800856471061707
+trainloss:0.509652393637225 | testloss:14.471574648749083 | accuarcy:0.8843683004379272
+trainloss:0.22443032858427614 | testloss:15.903609075117856 | accuarcy:0.8865096569061279
+trainloss:0.12529150885529816 | testloss:16.17591433483176 | accuarcy:0.8886509537696838
+trainloss:0.08426261390559375 | testloss:17.036522377631627 | accuarcy:0.8843683004379272
+trainloss:0.04986236750846729 | testloss:17.46310092919157 | accuarcy:0.8822270035743713
+trainloss:0.03949086190550588 | testloss:18.32706015583244 | accuarcy:0.8822270035743713
+trainloss:0.027721170423319563 | testloss:18.084734840580495 | accuarcy:0.8843683004379272
+trainloss:0.03193701308919117 | testloss:18.249785173364216 | accuarcy:0.8822270035743713
+trainloss:0.04952997327200137 | testloss:18.86155753087951 | accuarcy:0.8822270035743713
+trainloss:0.19903108023572713 | testloss:17.741519418137614 | accuarcy:0.8779443502426147
+trainloss:0.42163144994992763 | testloss:17.63332318724133 | accuarcy:0.8843683004379272
+trainloss:2.80683073354885 | testloss:14.008181711193174 | accuarcy:0.8758029937744141
+trainloss:5.800614448264241 | testloss:15.929063078016043 | accuarcy:0.7965738773345947
+trainloss:3.3747728914022446 | testloss:14.325642494484782 | accuarcy:0.8286938071250916
+trainloss:1.8059299909509718 | testloss:12.964236591942608 | accuarcy:0.8800856471061707
+trainloss:0.8648910557385534 | testloss:15.525794485583901 | accuarcy:0.8822270035743713
+trainloss:0.2412138245999813 | testloss:16.946154106524773 | accuarcy:0.8822270035743713
+trainloss:0.13833513640565798 | testloss:18.04287917225156 | accuarcy:0.8886509537696838
+trainloss:0.04834642744390294 | testloss:18.93710811290657 | accuarcy:0.8907923102378845
+trainloss:0.028744473704136908 | testloss:18.583747401833534 | accuarcy:0.8907923102378845
+trainloss:0.021294384088832885 | testloss:18.674494261969812 | accuarcy:0.8907923102378845
+trainloss:0.019589923933381215 | testloss:18.590098174929153 | accuarcy:0.8907923102378845
+trainloss:0.025503370648948476 | testloss:18.59209606650984 | accuarcy:0.8907923102378845
+trainloss:0.03232004534220323 | testloss:18.29904008601443 | accuarcy:0.8865096569061279
+trainloss:0.389224894461222 | testloss:17.28253556857817 | accuarcy:0.8865096569061279
+trainloss:0.11994107346981764 | testloss:17.3745361957117 | accuarcy:0.8865096569061279
+trainloss:0.0487527854857035 | testloss:18.29223274992546 | accuarcy:0.8907923102378845
+trainloss:0.024838655081111938 | testloss:18.333647422725335 | accuarcy:0.8907923102378845
+trainloss:0.019830706238280982 | testloss:18.385058143205242 | accuarcy:0.8907923102378845
+trainloss:0.018348308381973766 | testloss:18.346893462439766 | accuarcy:0.8907923102378845
+trainloss:0.018357246764935553 | testloss:18.315342755784513 | accuarcy:0.8907923102378845
+trainloss:0.01788114180089906 | testloss:18.207482840371085 | accuarcy:0.8907923102378845
+trainloss:0.017496301035862416 | testloss:18.152099956176244 | accuarcy:0.8907923102378845
+trainloss:0.01750659689423628 | testloss:18.05285165659734 | accuarcy:0.8907923102378845
+trainloss:0.017999552859691903 | testloss:18.133162957441527 | accuarcy:0.8907923102378845
+trainloss:0.018910076847532764 | testloss:17.932953940849984 | accuarcy:0.8907923102378845
+trainloss:0.019035011500818655 | testloss:17.97708997045993 | accuarcy:0.8907923102378845
+trainloss:0.019489527097903192 | testloss:17.946826530009275 | accuarcy:0.8886509537696838
+trainloss:0.024145076604327187 | testloss:17.60634887748165 | accuarcy:0.8907923102378845
+trainloss:0.020649742160458118 | testloss:17.716980122670066 | accuarcy:0.8907923102378845
+trainloss:0.018973197555169463 | testloss:17.817703817243455 | accuarcy:0.8929336071014404
+trainloss:0.017863024142570794 | testloss:17.71632861532271 | accuarcy:0.8929336071014404
+trainloss:0.0173693163524149 | testloss:17.662800153688295 | accuarcy:0.8907923102378845
+trainloss:0.017283508932450786 | testloss:17.7731698936841 | accuarcy:0.8907923102378845
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_acc</span><span class="p">))),</span> <span class="n">test_acc</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/XiangboGao_45_0.png" src="../../_images/XiangboGao_45_0.png" />
+</div>
+</div>
+<p><strong>Analysis</strong></p>
+<p>We can see that Neural Networks is much powerful for this image recognition task, where a basic neural networks reaches almostly 90% of classification accuracy.</p>
+</div>
+<div class="section" id="convolutional-neural-networks">
+<h3>Convolutional Neural Networks<a class="headerlink" href="#convolutional-neural-networks" title="Permalink to this headline">¶</a></h3>
+<p><strong>Model definition</strong></p>
+<p>Define the architecture of model. A very basic convolutional connected neural networks including 2 convolutional layers, 3 linear layers, 4 activation layers, and 1 pooling layers.</p>
+<p>Reference: <a class="reference external" href="https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html">https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+
+
+<span class="k">class</span> <span class="nc">CNet</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pool</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">16</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv1</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv2</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+
+<span class="n">cnet</span> <span class="o">=</span> <span class="n">CNet</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">train_loss</span><span class="p">,</span> <span class="n">test_loss</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">train_eval</span><span class="p">(</span><span class="n">cnet</span><span class="p">,</span> <span class="n">conv</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>trainloss:16.5655797123909 | testloss:16.32100421190262 | accuarcy:0.5952890515327454
+trainloss:16.322040677070618 | testloss:16.010993480682373 | accuarcy:0.5952890515327454
+trainloss:16.127350330352783 | testloss:15.929425418376923 | accuarcy:0.5952890515327454
+trainloss:16.35239452123642 | testloss:15.827909409999847 | accuarcy:0.5952890515327454
+trainloss:16.37032687664032 | testloss:16.16121196746826 | accuarcy:0.5952890515327454
+trainloss:16.195215940475464 | testloss:15.744493067264557 | accuarcy:0.5952890515327454
+trainloss:15.924577534198761 | testloss:15.57081800699234 | accuarcy:0.599571704864502
+trainloss:15.660198509693146 | testloss:15.555176556110382 | accuarcy:0.6274089813232422
+trainloss:15.40750116109848 | testloss:15.490601539611816 | accuarcy:0.599571704864502
+trainloss:15.296328485012054 | testloss:15.193099200725555 | accuarcy:0.6038544178009033
+trainloss:14.938752591609955 | testloss:14.573900401592255 | accuarcy:0.6638115644454956
+trainloss:15.293941766023636 | testloss:14.694179624319077 | accuarcy:0.6359742879867554
+trainloss:14.27346596121788 | testloss:14.26795881986618 | accuarcy:0.6638115644454956
+trainloss:13.202391564846039 | testloss:14.026364803314209 | accuarcy:0.6959314942359924
+trainloss:13.205775439739227 | testloss:13.359399169683456 | accuarcy:0.7173447608947754
+trainloss:11.806512892246246 | testloss:13.617230713367462 | accuarcy:0.7194860577583313
+trainloss:10.541242063045502 | testloss:12.536467790603638 | accuarcy:0.762312650680542
+trainloss:9.510418385267258 | testloss:12.825072631239891 | accuarcy:0.7858672142028809
+trainloss:8.833022490143776 | testloss:11.446995466947556 | accuarcy:0.8115631937980652
+trainloss:6.752786178141832 | testloss:14.753793179988861 | accuarcy:0.7580299973487854
+trainloss:6.471094459295273 | testloss:12.848074346780777 | accuarcy:0.8137044906616211
+trainloss:4.973730765283108 | testloss:12.952815793454647 | accuarcy:0.8543897271156311
+trainloss:4.132506957277656 | testloss:13.98931735381484 | accuarcy:0.8286938071250916
+trainloss:3.6017012130469084 | testloss:13.47572785243392 | accuarcy:0.8779443502426147
+trainloss:2.186511818319559 | testloss:15.169204328209162 | accuarcy:0.8800856471061707
+trainloss:1.9312479021027684 | testloss:16.052954833954573 | accuarcy:0.8736616969108582
+trainloss:1.2076842077076435 | testloss:19.612629792187363 | accuarcy:0.8693790435791016
+trainloss:1.0278319045901299 | testloss:20.19766210578382 | accuarcy:0.8415417671203613
+trainloss:2.147738553583622 | testloss:17.987094869371504 | accuarcy:0.856531023979187
+trainloss:1.1535658567445353 | testloss:17.071625020354986 | accuarcy:0.8758029937744141
+trainloss:1.218346674926579 | testloss:16.95442943740636 | accuarcy:0.8822270035743713
+trainloss:0.6150879161432385 | testloss:18.999540204298683 | accuarcy:0.8629550337791443
+trainloss:0.2573674552841112 | testloss:20.083426332334056 | accuarcy:0.8758029937744141
+trainloss:0.23396171047352254 | testloss:20.305118089308962 | accuarcy:0.8736616969108582
+trainloss:0.15180639986647293 | testloss:21.821017378999386 | accuarcy:0.8779443502426147
+trainloss:0.15575825492851436 | testloss:20.84359696379397 | accuarcy:0.8779443502426147
+trainloss:0.11729160521645099 | testloss:22.08744731504703 | accuarcy:0.8800856471061707
+trainloss:0.059096458833664656 | testloss:22.078013686579652 | accuarcy:0.8736616969108582
+trainloss:0.04274555156007409 | testloss:22.283621255599428 | accuarcy:0.8693790435791016
+trainloss:0.0389849977218546 | testloss:22.58047357527539 | accuarcy:0.8736616969108582
+trainloss:0.03718858602223918 | testloss:22.647938015550608 | accuarcy:0.8758029937744141
+trainloss:0.03613434545695782 | testloss:22.70252748922212 | accuarcy:0.8715203404426575
+trainloss:0.03291765788162593 | testloss:22.804281021439238 | accuarcy:0.8736616969108582
+trainloss:0.032353346061427146 | testloss:22.851598072244087 | accuarcy:0.8736616969108582
+trainloss:0.030558193364413455 | testloss:23.0214595956204 | accuarcy:0.8715203404426575
+trainloss:0.029981693704030477 | testloss:22.951326013513608 | accuarcy:0.8736616969108582
+trainloss:0.030101442243903875 | testloss:23.02823777726735 | accuarcy:0.8758029937744141
+trainloss:0.02958274004049599 | testloss:22.996343667880865 | accuarcy:0.8693790435791016
+trainloss:0.028188446463900618 | testloss:22.957386825612048 | accuarcy:0.8779443502426147
+trainloss:0.027906965638976544 | testloss:23.027313708211295 | accuarcy:0.8736616969108582
+trainloss:0.02817784098442644 | testloss:23.03236151440069 | accuarcy:0.8715203404426575
+trainloss:0.02849870576756075 | testloss:23.006275582301896 | accuarcy:0.8736616969108582
+trainloss:0.02923350437777117 | testloss:22.920493953686673 | accuarcy:0.8800856471061707
+trainloss:0.02759467376745306 | testloss:22.974577719636727 | accuarcy:0.8779443502426147
+trainloss:0.02842437312938273 | testloss:22.923244327423163 | accuarcy:0.8843683004379272
+trainloss:0.029553605389082804 | testloss:22.931991453340743 | accuarcy:0.8779443502426147
+trainloss:0.027097926737042144 | testloss:22.88842312572524 | accuarcy:0.8822270035743713
+trainloss:0.028542573330923915 | testloss:22.857375835999846 | accuarcy:0.8822270035743713
+trainloss:0.029436731449095532 | testloss:22.851980926294345 | accuarcy:0.8736616969108582
+trainloss:0.026711412705481052 | testloss:22.663545089337276 | accuarcy:0.8779443502426147
+trainloss:0.027037274470785633 | testloss:22.691100066993386 | accuarcy:0.8736616969108582
+trainloss:0.02839284739457071 | testloss:22.840922350878827 | accuarcy:0.8843683004379272
+trainloss:0.027545298915356398 | testloss:22.73120777166332 | accuarcy:0.8800856471061707
+trainloss:0.027723617444280535 | testloss:22.753990128287114 | accuarcy:0.8800856471061707
+trainloss:0.02819548943080008 | testloss:22.579066053935094 | accuarcy:0.8758029937744141
+trainloss:0.02715478913160041 | testloss:22.662728134804638 | accuarcy:0.8779443502426147
+trainloss:0.02691403916105628 | testloss:22.587113305693492 | accuarcy:0.8758029937744141
+trainloss:0.027195764356292784 | testloss:22.559565913048573 | accuarcy:0.8779443502426147
+trainloss:0.027367699396563694 | testloss:22.579832608171273 | accuarcy:0.8736616969108582
+trainloss:0.02926202560774982 | testloss:22.78618152171839 | accuarcy:0.8822270035743713
+trainloss:0.028241796419024467 | testloss:22.43746130593354 | accuarcy:0.8758029937744141
+trainloss:0.02888448699377477 | testloss:22.37507226425805 | accuarcy:0.8758029937744141
+trainloss:0.02760410268092528 | testloss:22.418802702450193 | accuarcy:0.8758029937744141
+trainloss:0.02757967571960762 | testloss:22.47315842178068 | accuarcy:0.8758029937744141
+trainloss:0.02864860204863362 | testloss:22.339538106898544 | accuarcy:0.8779443502426147
+trainloss:0.02849567134398967 | testloss:22.439803835004568 | accuarcy:0.8779443502426147
+trainloss:0.028708744037430733 | testloss:22.457954928686377 | accuarcy:0.8779443502426147
+trainloss:0.027024896116927266 | testloss:22.376477572193835 | accuarcy:0.8779443502426147
+trainloss:0.027881928312126547 | testloss:22.259269447415136 | accuarcy:0.8779443502426147
+trainloss:0.028295307245571166 | testloss:22.356589737319155 | accuarcy:0.8779443502426147
+trainloss:0.03272281639510766 | testloss:22.300489928544266 | accuarcy:0.8779443502426147
+trainloss:0.027653078665025532 | testloss:22.247424395522103 | accuarcy:0.8800856471061707
+trainloss:0.026844981650356203 | testloss:22.20261083636433 | accuarcy:0.8779443502426147
+trainloss:0.027749715896788985 | testloss:22.285310631559696 | accuarcy:0.8779443502426147
+trainloss:0.029963435255922377 | testloss:22.115777821658412 | accuarcy:0.8758029937744141
+trainloss:0.029530778294429183 | testloss:22.251774420175934 | accuarcy:0.8779443502426147
+trainloss:0.029485146573279053 | testloss:22.151881899568252 | accuarcy:0.8779443502426147
+trainloss:0.026972459570970386 | testloss:22.189777322259033 | accuarcy:0.8800856471061707
+trainloss:0.025048267940292135 | testloss:22.25869986671023 | accuarcy:0.8822270035743713
+trainloss:0.02768554142676294 | testloss:22.0718521256058 | accuarcy:0.8800856471061707
+trainloss:0.03074320897576399 | testloss:22.077751694014296 | accuarcy:0.8822270035743713
+trainloss:0.02789019315969199 | testloss:21.90070634218864 | accuarcy:0.8779443502426147
+trainloss:0.026098083042597864 | testloss:22.12703112786403 | accuarcy:0.8822270035743713
+trainloss:0.026250310649629682 | testloss:22.126564018893987 | accuarcy:0.8800856471061707
+trainloss:0.026967570069245994 | testloss:22.07835976712522 | accuarcy:0.8822270035743713
+trainloss:0.027450461057014763 | testloss:21.932137497409713 | accuarcy:0.8779443502426147
+trainloss:0.02593959274236113 | testloss:21.89881380085717 | accuarcy:0.8822270035743713
+trainloss:0.026251178554957733 | testloss:21.879648564674426 | accuarcy:0.8779443502426147
+trainloss:0.030369201907888055 | testloss:22.008912027871702 | accuarcy:0.8800856471061707
+trainloss:0.0401928061619401 | testloss:21.919510115520097 | accuarcy:0.8822270035743713
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_acc</span><span class="p">))),</span> <span class="n">test_acc</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/XiangboGao_51_0.png" src="../../_images/XiangboGao_51_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>Logistic regression, polynonimal regression and decision tree only achieve <span class="math notranslate nohighlight">\(58.1\%\)</span> accuracy.</p>
+<p>Random forest achieve <span class="math notranslate nohighlight">\(65.8\%\)</span> accuracy.</p>
+<p>Fully Connected Neural networks achieves <span class="math notranslate nohighlight">\(89.0\%\)</span> accuracy</p>
+<p>Convolutional Neural nerworks achieves <span class="math notranslate nohighlight">\(87.8\%\)</span> accuracy</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>What is the source of your dataset(s)?</p></li>
+</ul>
+<p><a class="reference external" href="https://www.kaggle.com/datasets/uditsharma72/real-vs-fake-faces">https://www.kaggle.com/datasets/uditsharma72/real-vs-fake-faces</a></p>
+<ul class="simple">
+<li><p>Were any portions of the code or ideas taken from another source?  List those sources here and say how they were used.</p></li>
+</ul>
+<p>The idea of Neural Networks is taken from two Deep learing Courses, CS172B &amp; CS178. The knowledge of Image loading and preprocessing is taken from a computer vision course CS116.</p>
+<ul class="simple">
+<li><p>List other references that you found helpful.</p></li>
+</ul>
+<p><a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html">https://pillow.readthedocs.io/en/stable/reference/Image.html</a>
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.gaussian_filter.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.gaussian_filter.html</a>
+<a class="reference external" href="https://pytorch.org/tutorials/beginner/basics/data_tutorial.html">https://pytorch.org/tutorials/beginner/basics/data_tutorial.html</a>
+<a class="reference external" href="https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html">https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html</a></p>
+<a style='text-decoration:none;line-height:16px;display:flex;color:#5B5B62;padding:10px;justify-content:end;' href='https://deepnote.com?utm_source=created-in-deepnote-cell&projectId=b99b8b54-13fd-4fb0-af5c-b858404318e1' target="_blank">
+<img alt='Created in deepnote.com' style='display:inline;max-height:16px;margin:0px;margin-right:7.5px;' src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iODBweCIgaGVpZ2h0PSI4MHB4IiB2aWV3Qm94PSIwIDAgODAgODAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDU0LjEgKDc2NDkwKSAtIGh0dHBzOi8vc2tldGNoYXBwLmNvbSAtLT4KICAgIDx0aXRsZT5Hcm91cCAzPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9IkxhbmRpbmciIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJBcnRib2FyZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMzUuMDAwMDAwLCAtNzkuMDAwMDAwKSI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cC0zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMjM1LjAwMDAwMCwgNzkuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8cG9seWdvbiBpZD0iUGF0aC0yMCIgZmlsbD0iIzAyNjVCNCIgcG9pbnRzPSIyLjM3NjIzNzYyIDgwIDM4LjA0NzY2NjcgODAgNTcuODIxNzgyMiA3My44MDU3NTkyIDU3LjgyMTc4MjIgMzIuNzU5MjczOSAzOS4xNDAyMjc4IDMxLjY4MzE2ODMiPjwvcG9seWdvbj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zNS4wMDc3MTgsODAgQzQyLjkwNjIwMDcsNzYuNDU0OTM1OCA0Ny41NjQ5MTY3LDcxLjU0MjI2NzEgNDguOTgzODY2LDY1LjI2MTk5MzkgQzUxLjExMjI4OTksNTUuODQxNTg0MiA0MS42NzcxNzk1LDQ5LjIxMjIyODQgMjUuNjIzOTg0Niw0OS4yMTIyMjg0IEMyNS40ODQ5Mjg5LDQ5LjEyNjg0NDggMjkuODI2MTI5Niw0My4yODM4MjQ4IDM4LjY0NzU4NjksMzEuNjgzMTY4MyBMNzIuODcxMjg3MSwzMi41NTQ0MjUgTDY1LjI4MDk3Myw2Ny42NzYzNDIxIEw1MS4xMTIyODk5LDc3LjM3NjE0NCBMMzUuMDA3NzE4LDgwIFoiIGlkPSJQYXRoLTIyIiBmaWxsPSIjMDAyODY4Ij48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMCwzNy43MzA0NDA1IEwyNy4xMTQ1MzcsMC4yNTcxMTE0MzYgQzYyLjM3MTUxMjMsLTEuOTkwNzE3MDEgODAsMTAuNTAwMzkyNyA4MCwzNy43MzA0NDA1IEM4MCw2NC45NjA0ODgyIDY0Ljc3NjUwMzgsNzkuMDUwMzQxNCAzNC4zMjk1MTEzLDgwIEM0Ny4wNTUzNDg5LDc3LjU2NzA4MDggNTMuNDE4MjY3Nyw3MC4zMTM2MTAzIDUzLjQxODI2NzcsNTguMjM5NTg4NSBDNTMuNDE4MjY3Nyw0MC4xMjg1NTU3IDM2LjMwMzk1NDQsMzcuNzMwNDQwNSAyNS4yMjc0MTcsMzcuNzMwNDQwNSBDMTcuODQzMDU4NiwzNy43MzA0NDA1IDkuNDMzOTE5NjYsMzcuNzMwNDQwNSAwLDM3LjczMDQ0MDUgWiIgaWQ9IlBhdGgtMTkiIGZpbGw9IiMzNzkzRUYiPjwvcGF0aD4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+' > </img>
+Created in <span style='font-weight:600;margin-left:4px;'>Deepnote</span></a></div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Proj/StudentProjects"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="JingxiFeng.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Analysis of the Alcohol Drinking in UCI Student</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="SonghanHu.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Analysis of GDP Related to Pandemic</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Christopher Davis<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
